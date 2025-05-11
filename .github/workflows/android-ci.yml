@@ -1,5 +1,9 @@
 name: Android CI
 
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+
 on:
   push:
     branches: [ main ]
@@ -32,8 +36,16 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
 
+    - name: Set up Supabase secrets
+      run: |
+        echo "SUPABASE_URL=$SUPABASE_URL" >> $GITHUB_ENV
+        echo "SUPABASE_KEY=$SUPABASE_KEY" >> $GITHUB_ENV
+
     - name: Build with Gradle
       run: ./gradlew build
+      env:
+        SUPABASE_URL: $SUPABASE_URL
+        SUPABASE_KEY: $SUPABASE_KEY
 
     - name: Run unit tests
       run: ./gradlew test

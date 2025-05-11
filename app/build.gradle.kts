@@ -17,8 +17,10 @@ val properties = Properties().apply {
 }
 
 // Set properties for use in buildConfig
-project.ext.set("SUPABASE_URL", properties["SUPABASE_URL"] ?: "REPLACE_ME_SUPABASE_URL")
-project.ext.set("SUPABASE_KEY", properties["SUPABASE_KEY"] ?: "REPLACE_ME_SUPABASE_KEY")
+val supabaseUrl = properties["SUPABASE_URL"] ?: System.getenv("SUPABASE_URL") ?: "REPLACE_ME_SUPABASE_URL"
+val supabaseKey = properties["SUPABASE_KEY"] ?: System.getenv("SUPABASE_KEY") ?: "REPLACE_ME_SUPABASE_KEY"
+project.ext.set("SUPABASE_URL", supabaseUrl)
+project.ext.set("SUPABASE_KEY", supabaseKey)
 
 android {
     namespace = "com.example.agilelifemanagement"

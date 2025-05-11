@@ -62,6 +62,10 @@ class SupabaseConfig @Inject constructor(
     
     companion object {
         // Default values are now injected from BuildConfig (see build.gradle.kts). Do not commit real secrets!
+        /**
+         * Default Supabase URL and Key are injected at build time via BuildConfig fields (see build.gradle.kts).
+         * These cannot be 'const val' because BuildConfig values are only available at runtime.
+         */
         val DEFAULT_SUPABASE_URL: String = BuildConfig.SUPABASE_URL
         val DEFAULT_SUPABASE_KEY: String = BuildConfig.SUPABASE_KEY
     }
