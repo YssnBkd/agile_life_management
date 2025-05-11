@@ -31,8 +31,9 @@ class SupabaseConfig @Inject constructor(
     // Default values for development only (these should be replaced in production)
     companion object {
         // Default values are now referenced from BuildConfig for security and flexibility
-        const val DEFAULT_SUPABASE_URL = BuildConfig.SUPABASE_URL
-        const val DEFAULT_SUPABASE_KEY = BuildConfig.SUPABASE_KEY
+        // These cannot be 'const val' because BuildConfig values are only available at runtime
+        val DEFAULT_SUPABASE_URL = BuildConfig.SUPABASE_URL
+        val DEFAULT_SUPABASE_KEY = BuildConfig.SUPABASE_KEY
     }
     
     // Get Supabase URL from DataStore or use default for development
