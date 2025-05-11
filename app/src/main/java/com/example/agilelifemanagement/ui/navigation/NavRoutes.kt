@@ -5,6 +5,7 @@ package com.example.agilelifemanagement.ui.navigation
  */
 object NavRoutes {
     // Main screens
+    const val LOGIN = "login"
     const val CALENDAR = "calendar"
     const val SPRINTS = "sprints"
     const val GOALS = "goals"

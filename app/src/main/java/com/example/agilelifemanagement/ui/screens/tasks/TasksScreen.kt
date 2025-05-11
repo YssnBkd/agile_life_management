@@ -291,12 +291,12 @@ fun DropdownMenuBox(priority: Task.Priority, onPriorityChange: (Task.Priority) -
     var expanded by remember { mutableStateOf(false) }
     Box {
         Button(onClick = { expanded = true }) {
-            Text(priority.name.capitalize())
+            Text(priority.name.replaceFirstChar { it.uppercase() })
         }
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             Task.Priority.values().forEach {
                 DropdownMenuItem(
-                    text = { Text(it.name.capitalize()) },
+                    text = { Text(it.name.replaceFirstChar { c -> c.uppercase() }) },
                     onClick = {
                         onPriorityChange(it)
                         expanded = false

@@ -1,6 +1,7 @@
 package com.example.agilelifemanagement.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -19,16 +20,35 @@ import com.example.agilelifemanagement.ui.screens.tasks.TasksScreen
  * Main navigation host for the Agile Life Management app.
  * Defines the navigation graph and routes to all screens.
  */
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.agilelifemanagement.auth.presentation.LoginScreen
+import com.example.agilelifemanagement.auth.presentation.AuthViewModel
+
 @Composable
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+    // TODO: Replace with real auth state from persistent storage or ViewModel
+    val authViewModel: AuthViewModel = hiltViewModel()
+    val uiState = authViewModel.uiState.collectAsState().value
+    val isLoggedIn = uiState is com.example.agilelifemanagement.auth.presentation.AuthUiState.Success
+
     NavHost(
         navController = navController,
-        startDestination = NavRoutes.CALENDAR,
+        startDestination = if (isLoggedIn) NavRoutes.CALENDAR else NavRoutes.LOGIN,
         modifier = modifier
     ) {
+        // Login Screen
+        composable(route = NavRoutes.LOGIN) {
+            LoginScreen(
+                onLoginSuccess = { user ->
+                    navController.navigate(NavRoutes.CALENDAR) {
+                        popUpTo(NavRoutes.LOGIN) { inclusive = true }
+                    }
+                }
+            )
+        }
         // Calendar Screen
         composable(route = NavRoutes.CALENDAR) {
             CalendarScreen()
@@ -112,7 +132,13 @@ fun AppNavHost(
         
         // Settings Screen
         composable(route = NavRoutes.SETTINGS) {
-            SettingsScreen()
+            SettingsScreen(
+                onLogout = {
+                    navController.navigate(NavRoutes.LOGIN) {
+                        popUpTo(NavRoutes.LOGIN) { inclusive = true }
+                    }
+                }
+            )
         }
     }
 }

@@ -97,3 +97,5 @@
 - Test the Task screen for all states (loading, empty, error, success).
 - Optimize authentication feedback and loading timing for improved UX.
 - Continue with planned improvements (sync feedback, advanced UI/UX, etc.).
+- Add an early authentication check and more informative loading/error states?
+- Investigate and optimize the authentication/session initialization timing?

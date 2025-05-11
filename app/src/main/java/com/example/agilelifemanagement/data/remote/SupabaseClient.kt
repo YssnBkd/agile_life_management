@@ -106,10 +106,7 @@ class SupabaseManager @Inject constructor(
                         Log.e(TAG, "Auth refresh failure: ${status.cause}")
                         _authState.value = AuthState.Error("Auth refresh failure: ${status.cause}")
                     }
-                    else -> {
-                        Log.e(TAG, "Unknown auth status: $status")
-                        _authState.value = AuthState.Error("Unknown auth status: $status")
-                    }
+                    // All cases are now handled above
                 }
             }
         }

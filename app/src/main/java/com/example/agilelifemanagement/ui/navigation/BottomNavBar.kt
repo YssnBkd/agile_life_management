@@ -1,15 +1,19 @@
 package com.example.agilelifemanagement.ui.navigation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.DirectionsRun
+import androidx.compose.material.icons.automirrored.outlined.DirectionsRun
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.DirectionsRun
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Task
 import androidx.compose.material.icons.outlined.CalendarMonth
 import androidx.compose.material.icons.outlined.CheckCircle
-import androidx.compose.material.icons.outlined.DirectionsRun
+
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material.icons.outlined.Task
@@ -51,8 +55,8 @@ val bottomNavItems = listOf(
     BottomNavItem(
         route = NavRoutes.SPRINTS,
         title = "Sprints",
-        selectedIcon = Icons.Filled.DirectionsRun,
-        unselectedIcon = Icons.Outlined.DirectionsRun
+        selectedIcon = Icons.AutoMirrored.Filled.DirectionsRun,
+        unselectedIcon = Icons.AutoMirrored.Outlined.DirectionsRun
     ),
     BottomNavItem(
         route = NavRoutes.GOALS,
@@ -115,9 +119,12 @@ fun BottomNavBar(
                         }
                     },
                     icon = {
+                        val layoutDirection = LocalLayoutDirection.current
+                        // No need to check for DirectionsRun icons anymore as we're using AutoMirrored versions
                         Icon(
                             imageVector = if (selected) item.selectedIcon else item.unselectedIcon,
-                            contentDescription = item.title
+                            contentDescription = item.title,
+                            modifier = Modifier
                         )
                     },
                     label = {

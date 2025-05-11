@@ -1,10 +1,24 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.ksp) // KSP plugin for annotation processing
     alias(libs.plugins.hilt.android)
 }
+
+// Load local properties
+val properties = Properties().apply {
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        load(localPropertiesFile.reader())
+    }
+}
+
+// Set properties for use in buildConfig
+project.ext.set("SUPABASE_URL", properties["SUPABASE_URL"] ?: "REPLACE_ME_SUPABASE_URL")
+project.ext.set("SUPABASE_KEY", properties["SUPABASE_KEY"] ?: "REPLACE_ME_SUPABASE_KEY")
 
 android {
     namespace = "com.example.agilelifemanagement"
@@ -18,6 +32,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Inject Supabase credentials from local.properties
+        buildConfigField("String", "SUPABASE_URL", project.properties["SUPABASE_URL"] as String)
+        buildConfigField("String", "SUPABASE_KEY", project.properties["SUPABASE_KEY"] as String)
     }
 
     buildTypes {
@@ -32,6 +50,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -41,7 +60,7 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.kotlin.get()
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
     packaging {
         resources {
@@ -52,6 +71,12 @@ android {
 }
 
 dependencies {
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.logging)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     // AndroidX Core
     implementation(libs.androidx.core.ktx)
@@ -65,7 +90,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material3.window.size)
-    implementation("androidx.compose.material:material-icons-extended:1.6.7")
+    implementation(libs.androidx.material.icons.extended)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     
@@ -75,12 +100,14 @@ dependencies {
     // Room Database
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    // KSP annotation processor for Room
+    ksp(libs.androidx.room.compiler)
     
     // Hilt Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
-    kapt(libs.hilt.compiler)
+    // KSP annotation processor for Hilt
+    ksp(libs.hilt.compiler)
     
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
@@ -105,9 +132,9 @@ dependencies {
     implementation(libs.accompanist.permissions)
     
     // Timber for logging
-    implementation("com.jakewharton.timber:timber:5.0.1")
+    implementation(libs.timber)
     // Gson for JSON serialization
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(libs.gson)
     // DataStore for preferences
     implementation("androidx.datastore:datastore-preferences:1.0.0")
     

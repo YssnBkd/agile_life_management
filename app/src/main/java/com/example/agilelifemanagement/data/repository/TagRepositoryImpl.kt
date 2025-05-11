@@ -23,6 +23,7 @@ private const val TAG = "TagRepositoryImpl"
 /**
  * Implementation of [TagRepository] that follows the offline-first strategy.
  */
+@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class TagRepositoryImpl @Inject constructor(
     private val tagDao: TagDao,
     private val tagApiService: TagApiService,

@@ -35,6 +35,7 @@ private const val TAG = "TaskRepositoryImpl"
 /**
  * Implementation of [TaskRepository] that follows the offline-first strategy.
  */
+@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
 class TaskRepositoryImpl @Inject constructor(
     private val taskDao: TaskDao,
     private val taskApiService: TaskApiService,

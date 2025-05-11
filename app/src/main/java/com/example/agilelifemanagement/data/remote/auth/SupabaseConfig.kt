@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
+import com.example.agilelifemanagement.BuildConfig
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -18,50 +19,56 @@ class SupabaseConfig @Inject constructor(
     private val dataStore: DataStore<Preferences>
 ) {
     // Keys for DataStore
-    private object PreferencesKeys {
-        val SUPABASE_URL = stringPreferencesKey("supabase_url")
-        val SUPABASE_KEY = stringPreferencesKey("supabase_key")
-        val SUPABASE_ACCESS_TOKEN = stringPreferencesKey("supabase_access_token")
-        val SUPABASE_REFRESH_TOKEN = stringPreferencesKey("supabase_refresh_token")
-    }
+    // DataStore keys for secure storage, aligned with main SupabaseConfig
+    private val supabaseUrlKey = stringPreferencesKey("supabase_url")
+    private val supabaseKeyKey = stringPreferencesKey("supabase_key")
+    private val supabaseAccessTokenKey = stringPreferencesKey("supabase_access_token")
+    private val supabaseRefreshTokenKey = stringPreferencesKey("supabase_refresh_token")
+
+    // Following security implementation guidelines from global rules.
+    // Implements secure storage of credentials using DataStore.
     
     // Default values for development only (these should be replaced in production)
     companion object {
-        const val DEFAULT_SUPABASE_URL = "https://YOUR_PROJECT_ID.supabase.co"
-        const val DEFAULT_SUPABASE_KEY = "YOUR_ANON_KEY" // This is the public anon key, not the service role key
+        // Default values are now referenced from BuildConfig for security and flexibility
+        const val DEFAULT_SUPABASE_URL = BuildConfig.SUPABASE_URL
+        const val DEFAULT_SUPABASE_KEY = BuildConfig.SUPABASE_KEY
     }
     
     // Get Supabase URL from DataStore or use default for development
+    /**
+     * Get the Supabase URL from secure storage.
+     */
     val supabaseUrl: Flow<String> = dataStore.data.map { preferences ->
-        preferences[PreferencesKeys.SUPABASE_URL] ?: DEFAULT_SUPABASE_URL
+        preferences[supabaseUrlKey] ?: DEFAULT_SUPABASE_URL
     }
     
     // Get Supabase key from DataStore or use default for development
     val supabaseKey: Flow<String> = dataStore.data.map { preferences ->
-        preferences[PreferencesKeys.SUPABASE_KEY] ?: DEFAULT_SUPABASE_KEY
+        preferences[supabaseKeyKey] ?: DEFAULT_SUPABASE_KEY
     }
     
     // Get access token from DataStore
     val accessToken: Flow<String?> = dataStore.data.map { preferences ->
-        preferences[PreferencesKeys.SUPABASE_ACCESS_TOKEN]
+        preferences[supabaseAccessTokenKey]
     }
     
     // Get refresh token from DataStore
     val refreshToken: Flow<String?> = dataStore.data.map { preferences ->
-        preferences[PreferencesKeys.SUPABASE_REFRESH_TOKEN]
+        preferences[supabaseRefreshTokenKey]
     }
     
     // Save Supabase URL to DataStore
     suspend fun saveSupabaseUrl(url: String) {
         dataStore.edit { preferences ->
-            preferences[PreferencesKeys.SUPABASE_URL] = url
+            preferences[supabaseUrlKey] = url
         }
     }
     
     // Save Supabase key to DataStore
     suspend fun saveSupabaseKey(key: String) {
         dataStore.edit { preferences ->
-            preferences[PreferencesKeys.SUPABASE_KEY] = key
+            preferences[supabaseKeyKey] = key
         }
     }
     
@@ -69,9 +76,9 @@ class SupabaseConfig @Inject constructor(
     suspend fun saveAccessToken(token: String?) {
         dataStore.edit { preferences ->
             if (token != null) {
-                preferences[PreferencesKeys.SUPABASE_ACCESS_TOKEN] = token
+                preferences[supabaseAccessTokenKey] = token
             } else {
-                preferences.remove(PreferencesKeys.SUPABASE_ACCESS_TOKEN)
+                preferences.remove(supabaseAccessTokenKey)
             }
         }
     }
@@ -80,9 +87,9 @@ class SupabaseConfig @Inject constructor(
     suspend fun saveRefreshToken(token: String?) {
         dataStore.edit { preferences ->
             if (token != null) {
-                preferences[PreferencesKeys.SUPABASE_REFRESH_TOKEN] = token
+                preferences[supabaseRefreshTokenKey] = token
             } else {
-                preferences.remove(PreferencesKeys.SUPABASE_REFRESH_TOKEN)
+                preferences.remove(supabaseRefreshTokenKey)
             }
         }
     }
@@ -90,8 +97,8 @@ class SupabaseConfig @Inject constructor(
     // Clear all tokens (for logout)
     suspend fun clearTokens() {
         dataStore.edit { preferences ->
-            preferences.remove(PreferencesKeys.SUPABASE_ACCESS_TOKEN)
-            preferences.remove(PreferencesKeys.SUPABASE_REFRESH_TOKEN)
+            preferences.remove(supabaseAccessTokenKey)
+            preferences.remove(supabaseRefreshTokenKey)
         }
     }
 }

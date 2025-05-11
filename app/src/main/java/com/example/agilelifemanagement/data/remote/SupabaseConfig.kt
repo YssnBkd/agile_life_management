@@ -1,5 +1,7 @@
 package com.example.agilelifemanagement.data.remote
 
+import com.example.agilelifemanagement.BuildConfig
+
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -59,9 +61,8 @@ class SupabaseConfig @Inject constructor(
     }
     
     companion object {
-        // These default values should be replaced with your actual Supabase credentials
-        // In a production app, these should be stored in a secure way (e.g., BuildConfig)
-        const val DEFAULT_SUPABASE_URL = "https://bipbeeqoqmoccbgwlqls.supabase.co"
-        const val DEFAULT_SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJpcGJlZXFvcW1vY2NiZ3dscWxzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0OTIxNjcsImV4cCI6MjA2MjA2ODE2N30.Og10FxndlupYvnjym5_8DK_MI--Qrs5_V0F_HuvFpok"
+        // Default values are now injected from BuildConfig (see build.gradle.kts). Do not commit real secrets!
+        val DEFAULT_SUPABASE_URL: String = BuildConfig.SUPABASE_URL
+        val DEFAULT_SUPABASE_KEY: String = BuildConfig.SUPABASE_KEY
     }
 }

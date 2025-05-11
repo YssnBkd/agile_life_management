@@ -17,13 +17,19 @@ object DatabaseModule {
 
     @Provides
     @Singleton
+    fun provideUserDao(database: AgileLifeDatabase): UserDao {
+        return database.userDao()
+    }
+
+    @Provides
+    @Singleton
     fun provideAgileLifeDatabase(@ApplicationContext context: Context): AgileLifeDatabase {
         return Room.databaseBuilder(
             context,
             AgileLifeDatabase::class.java,
             "agile_life_db"
         )
-            .fallbackToDestructiveMigration() // For development only, remove in production
+            .fallbackToDestructiveMigration(true) // For development only, remove in production
             .build()
     }
 
