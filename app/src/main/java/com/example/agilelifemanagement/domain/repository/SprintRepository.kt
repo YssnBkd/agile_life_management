@@ -11,7 +11,7 @@ interface SprintRepository {
     fun getSprints(): Flow<List<Sprint>>
     fun getSprintById(id: String): Flow<Sprint?>
     fun getActiveSprintByDate(date: LocalDate): Flow<Sprint?>
-    suspend fun insertSprint(sprint: Sprint): String
-    suspend fun updateSprint(sprint: Sprint)
-    suspend fun deleteSprint(id: String)
+    suspend fun insertSprint(sprint: Sprint): com.example.agilelifemanagement.domain.model.Result<String>
+    suspend fun updateSprint(sprint: Sprint): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun deleteSprint(id: String): com.example.agilelifemanagement.domain.model.Result<Unit>
 }

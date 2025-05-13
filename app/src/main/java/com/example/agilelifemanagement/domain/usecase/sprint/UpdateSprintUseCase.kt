@@ -67,11 +67,7 @@ class UpdateSprintUseCase @Inject constructor(
             isCompleted = isCompleted
         )
         
-        return try {
-            sprintRepository.updateSprint(updatedSprint)
-            Result.Success(Unit)
-        } catch (e: Exception) {
-            Result.Error("Failed to update sprint: ${e.message}", e)
-        }
+        // Since updateSprint now returns a Result type directly, we don't need a try-catch block
+        return sprintRepository.updateSprint(updatedSprint)
     }
 }

@@ -8,7 +8,6 @@ import com.example.agilelifemanagement.data.local.entity.GoalSprintCrossRefEntit
 import com.example.agilelifemanagement.data.local.entity.PendingOperation
 import com.example.agilelifemanagement.data.remote.AuthState
 import com.example.agilelifemanagement.data.remote.SupabaseManager
-import com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager
 import com.example.agilelifemanagement.data.remote.SyncManager
 import com.example.agilelifemanagement.data.remote.api.GoalApiService
 import com.example.agilelifemanagement.data.remote.api.GoalSprintCrossRefApiService
@@ -39,8 +38,7 @@ class GoalRepositoryImpl @Inject constructor(
     private val goalSprintCrossRefApiService: GoalSprintCrossRefApiService,
     private val syncManager: SyncManager,
     private val networkMonitor: NetworkMonitor,
-    private val supabaseManager: SupabaseManager,
-    private val realtimeManager: SupabaseRealtimeManager
+    private val supabaseManager: SupabaseManager
 ) : GoalRepository {
 
     override fun getGoals(): Flow<List<Goal>> {
@@ -102,9 +100,12 @@ class GoalRepositoryImpl @Inject constructor(
             // If online, try immediate sync
             if (networkMonitor.isOnline()) {
                 // Immediate sync attempt when online
+            } else {
+                // Will sync later when online
+            }
                 try {
-                    val dto = GoalDto.fromEntity(goalEntity)
-                    val apiResult = goalApiService.upsertGoal(dto)
+                    val goalDto = GoalDto.fromEntity(goalEntity)
+                    val apiResult = goalApiService.upsertGoal(goalDto)
                     
                     when (apiResult) {
                         is Result.Success -> {
@@ -125,7 +126,7 @@ class GoalRepositoryImpl @Inject constructor(
             Result.Success(id)
         } catch (e: Exception) {
             Log.e(TAG, "Error inserting goal: ${e.message}", e)
-            return Result.Error("Failed to create goal: ${e.message}")
+            Result.Error("Failed to create goal: ${e.message}")
         }
     }
 
@@ -137,19 +138,25 @@ class GoalRepositoryImpl @Inject constructor(
                 return Result.Error("User not authenticated")
             }
             
-            // Get entity synchronously from the Flow
             val existingEntity = goalDao.getGoalById(goal.id).first()
                 ?: return Result.Error("Goal not found: ${goal.id}")
             
+            val userId = authState.userId
+            
+            // Check ownership
+            if (existingEntity.userId != userId) {
+                return Result.Error("Not authorized to update this goal")
+            }
+            
             val updatedEntity = GoalEntity(
-                id = existingEntity.id,
+                Result.Success(id) = existingEntity.id,
                 title = goal.title,
                 summary = goal.summary,
                 description = goal.description,
                 category = goal.category.ordinal,
                 deadline = goal.deadline?.let { it.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli() },
                 isCompleted = goal.isCompleted,
-                userId = existingEntity.userId,
+                userId = userId,
                 createdAt = existingEntity.createdAt,
                 updatedAt = System.currentTimeMillis()
             )
@@ -157,7 +164,7 @@ class GoalRepositoryImpl @Inject constructor(
             // Update locally
             goalDao.updateGoal(updatedEntity)
             
-            // Schedule for sync
+            // Schedule for sync with new method
             syncManager.scheduleSyncOperation(
                 entityId = goal.id,
                 entityType = "goal",
@@ -167,9 +174,12 @@ class GoalRepositoryImpl @Inject constructor(
             // If online, try immediate sync
             if (networkMonitor.isOnline()) {
                 // Immediate sync attempt when online
+            } else {
+                // Will sync later when online
+            }
                 try {
-                    val dto = GoalDto.fromEntity(updatedEntity)
-                    val apiResult = goalApiService.upsertGoal(dto)
+                    val goalDto = GoalDto.fromEntity(updatedEntity)
+                    val apiResult = goalApiService.upsertGoal(goalDto)
                     
                     when (apiResult) {
                         is Result.Success -> {
@@ -190,7 +200,7 @@ class GoalRepositoryImpl @Inject constructor(
             Result.Success(Unit)
         } catch (e: Exception) {
             Log.e(TAG, "Error updating goal: ${e.message}", e)
-            return Result.Error("Failed to update goal: ${e.message}")
+            Result.Error("Failed to update goal: ${e.message}")
         }
     }
 
@@ -202,20 +212,18 @@ class GoalRepositoryImpl @Inject constructor(
                 return Result.Error("User not authenticated")
             }
             
-            // Get entity synchronously from the Flow
             val existingEntity = goalDao.getGoalById(id).first()
                 ?: return Result.Error("Goal not found: $id")
+            
+            // Check ownership
+            if (existingEntity.userId != authState.userId) {
+                return Result.Error("Not authorized to delete this goal")
+            }
             
             // Delete locally
             goalDao.deleteById(id)
             
-            // Delete goal-sprint cross references by querying and deleting individually
-            val crossRefs = goalSprintCrossRefDao.getSprintsForGoal(id)
-            for (crossRef in crossRefs) {
-                goalSprintCrossRefDao.delete(crossRef.goalId, crossRef.sprintId)
-            }
-            
-            // Schedule for sync
+            // Schedule for sync with new method
             syncManager.scheduleSyncOperation(
                 entityId = id,
                 entityType = "goal",
@@ -225,6 +233,9 @@ class GoalRepositoryImpl @Inject constructor(
             // If online, try immediate sync
             if (networkMonitor.isOnline()) {
                 // Immediate sync attempt when online
+            } else {
+                // Will sync later when online
+            }
                 try {
                     val apiResult = goalApiService.deleteGoal(id)
                     
@@ -259,24 +270,11 @@ class GoalRepositoryImpl @Inject constructor(
                 return Result.Error("User not authenticated")
             }
             
-            // Check if goal and sprint exist and belong to user
-            val goalExists = goalDao.getGoalById(goalId).first() != null
-            if (!goalExists) {
-                return Result.Error("Goal not found: $goalId")
-            }
-            
-            // Check if relation already exists
-            val existingRelation = goalSprintCrossRefDao.getGoalSprintCrossRef(goalId, sprintId)
-            if (existingRelation != null) {
-                return Result.Success(Unit) // Already exists, consider it a success
-            }
-            
-            // Create a new cross reference
             val crossRefId = UUID.randomUUID().toString()
             val currentTime = OffsetDateTime.now()
             
             val crossRef = GoalSprintCrossRefEntity(
-                id = crossRefId,
+                Result.Success(id) = crossRefId,
                 goalId = goalId,
                 sprintId = sprintId,
                 createdAt = currentTime
@@ -285,7 +283,7 @@ class GoalRepositoryImpl @Inject constructor(
             // Insert locally
             goalSprintCrossRefDao.insert(crossRef)
             
-            // Schedule for sync
+            // Schedule for sync with new method
             syncManager.scheduleSyncOperation(
                 entityId = crossRefId,
                 entityType = "goal_sprint_cross_ref",
@@ -295,6 +293,9 @@ class GoalRepositoryImpl @Inject constructor(
             // If online, try immediate sync
             if (networkMonitor.isOnline()) {
                 // Immediate sync attempt when online
+            } else {
+                // Will sync later when online
+            }
                 try {
                     val dto = GoalSprintCrossRefDto.fromEntity(crossRef)
                     val apiResult = goalSprintCrossRefApiService.createGoalSprintRelation(dto)
@@ -336,7 +337,7 @@ class GoalRepositoryImpl @Inject constructor(
             // Delete locally
             goalSprintCrossRefDao.delete(goalId, sprintId)
             
-            // Schedule for sync
+            // Schedule for sync with new method
             syncManager.scheduleSyncOperation(
                 entityId = crossRef.id,
                 entityType = "goal_sprint_cross_ref",
@@ -347,18 +348,16 @@ class GoalRepositoryImpl @Inject constructor(
             if (networkMonitor.isOnline()) {
                 // Immediate sync attempt when online
                 try {
-                    val apiResult = goalSprintCrossRefApiService.deleteGoalSprintRelation(crossRef.id)
+                    val client = supabaseManager.getClient()
+                    client.postgrest["agile_life.goal_sprint_cross_refs"]
+                        .delete {
+                            filter {
+                                eq("id", crossRef.id)
+                            }
+                        }
                     
-                    when (apiResult) {
-                        is Result.Success -> {
-                            syncManager.markSynced(crossRef.id, "goal_sprint_cross_ref")
-                            Log.d(TAG, "Goal-Sprint relation deleted and synced immediately: ${crossRef.id}")
-                        }
-                        is Result.Error -> {
-                            Log.e(TAG, "Failed immediate sync for deleted goal-sprint relation: ${apiResult.message}")
-                        }
-                        else -> { /* Loading state, not expected here */ }
-                    }
+                    syncManager.markSynced(crossRef.id, "goal_sprint_cross_ref")
+                    Log.d(TAG, "Goal-Sprint relation deleted and synced immediately: ${crossRef.id}")
                 } catch (e: Exception) {
                     Log.e(TAG, "Error in immediate sync for deleted goal-sprint relation: ${e.message}", e)
                     // Error is logged but not propagated to the caller as local operation succeeded

@@ -57,7 +57,7 @@ class NotificationRepositoryImpl @Inject constructor(
             createdAt = System.currentTimeMillis()
         )
         notificationDao.insert(notificationEntity)
-        syncManager.scheduleSync(id, "notification", PendingOperation.CREATE)
+        syncManager.scheduleSyncOperation(id, "notification", PendingOperation.CREATE)
         return id
     }
 
@@ -73,7 +73,7 @@ class NotificationRepositoryImpl @Inject constructor(
                 relatedEntityType = notification.relatedEntityType?.name
             )
             notificationDao.updateNotification(updatedEntity)
-            syncManager.scheduleSync(notification.id, "notification", PendingOperation.UPDATE)
+            syncManager.scheduleSyncOperation(notification.id, "notification", PendingOperation.UPDATE)
         }
     }
 
@@ -91,13 +91,13 @@ class NotificationRepositoryImpl @Inject constructor(
         if (notification != null && !notification.isRead) {
             val updatedNotification = notification.copy(isRead = true)
             notificationDao.updateNotification(updatedNotification)
-            syncManager.scheduleSync(id, "notification", PendingOperation.UPDATE)
+            syncManager.scheduleSyncOperation(id, "notification", PendingOperation.UPDATE)
         }
     }
 
     override suspend fun markAllAsRead() {
         notificationDao.markAllAsRead()
-        syncManager.scheduleSync("bulk_notification", "notification", PendingOperation.UPDATE)
+        syncManager.scheduleSyncOperation("bulk_notification", "notification", PendingOperation.UPDATE)
     }
 
     // Private helper methods

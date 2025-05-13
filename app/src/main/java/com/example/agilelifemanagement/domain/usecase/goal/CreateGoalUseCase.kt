@@ -45,11 +45,7 @@ class CreateGoalUseCase @Inject constructor(
             isCompleted = isCompleted
         )
         
-        return try {
-            val goalId = goalRepository.insertGoal(goal)
-            Result.Success(goalId)
-        } catch (e: Exception) {
-            Result.Error("Failed to create goal: ${e.message}", e)
-        }
+        // GoalRepository.insertGoal already returns a Result<String>, so we don't need to wrap it again
+        return goalRepository.insertGoal(goal)
     }
 }

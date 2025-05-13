@@ -2,6 +2,7 @@ package com.example.agilelifemanagement.di
 
 import com.example.agilelifemanagement.data.remote.auth.SupabaseConfig
 import com.example.agilelifemanagement.data.remote.SupabaseManager
+import com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager
 import com.example.agilelifemanagement.data.remote.api.*
 import com.example.agilelifemanagement.util.NetworkMonitor
 import dagger.Module
@@ -105,5 +106,29 @@ object ApiModule {
     @Singleton
     fun provideSprintTagCrossRefApiService(supabaseManager: SupabaseManager): SprintTagCrossRefApiService {
         return SprintTagCrossRefApiService(supabaseManager)
+    }
+    
+    @Provides
+    @Singleton
+    fun provideSupabaseRealtimeManager(
+        supabaseManager: SupabaseManager,
+        taskDao: com.example.agilelifemanagement.data.local.dao.TaskDao,
+        sprintDao: com.example.agilelifemanagement.data.local.dao.SprintDao,
+        goalDao: com.example.agilelifemanagement.data.local.dao.GoalDao,
+        taskSprintCrossRefDao: com.example.agilelifemanagement.data.local.dao.TaskSprintCrossRefDao,
+        taskGoalCrossRefDao: com.example.agilelifemanagement.data.local.dao.TaskGoalCrossRefDao,
+        goalSprintCrossRefDao: com.example.agilelifemanagement.data.local.dao.GoalSprintCrossRefDao,
+        syncManager: com.example.agilelifemanagement.data.remote.SyncManager
+    ): SupabaseRealtimeManager {
+        return SupabaseRealtimeManager(
+            supabaseManager = supabaseManager,
+            taskDao = taskDao,
+            sprintDao = sprintDao,
+            goalDao = goalDao,
+            taskSprintCrossRefDao = taskSprintCrossRefDao,
+            taskGoalCrossRefDao = taskGoalCrossRefDao,
+            goalSprintCrossRefDao = goalSprintCrossRefDao,
+            syncManager = syncManager
+        )
     }
 }

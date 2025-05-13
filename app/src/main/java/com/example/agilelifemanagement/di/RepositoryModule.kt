@@ -4,9 +4,10 @@ package com.example.agilelifemanagement.di
 import com.example.agilelifemanagement.data.local.dao.*
 import com.example.agilelifemanagement.data.remote.api.*
 import com.example.agilelifemanagement.data.repository.*
+import com.example.agilelifemanagement.data.remote.SupabaseManager
+import com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager
 import com.example.agilelifemanagement.data.remote.SyncManager
 import com.example.agilelifemanagement.util.NetworkMonitor
-import com.example.agilelifemanagement.data.remote.SupabaseManager
 import com.example.agilelifemanagement.domain.repository.*
 import dagger.Module
 import dagger.Provides
@@ -33,6 +34,7 @@ object RepositoryModule {
         taskTagCrossRefApiService: TaskTagCrossRefApiService,
         syncManager: SyncManager,
         supabaseManager: SupabaseManager,
+        realtimeManager: SupabaseRealtimeManager,
         networkMonitor: NetworkMonitor
     ): TaskRepository {
         return TaskRepositoryImpl(
@@ -40,6 +42,7 @@ object RepositoryModule {
             taskApiService = taskApiService,
             syncManager = syncManager,
             supabaseManager = supabaseManager,
+            realtimeManager = realtimeManager,
             taskSprintCrossRefDao = taskSprintCrossRefDao,
             taskGoalCrossRefDao = taskGoalCrossRefDao,
             taskTagCrossRefDao = taskTagCrossRefDao,
@@ -60,7 +63,9 @@ object RepositoryModule {
         goalApiService: GoalApiService,
         goalSprintCrossRefApiService: GoalSprintCrossRefApiService,
         syncManager: SyncManager,
-        networkMonitor: NetworkMonitor
+        networkMonitor: NetworkMonitor,
+        supabaseManager: SupabaseManager,
+        realtimeManager: SupabaseRealtimeManager
     ): GoalRepository {
         return GoalRepositoryImpl(
             goalDao = goalDao,
@@ -68,7 +73,9 @@ object RepositoryModule {
             goalApiService = goalApiService,
             goalSprintCrossRefApiService = goalSprintCrossRefApiService,
             syncManager = syncManager,
-            networkMonitor = networkMonitor
+            networkMonitor = networkMonitor,
+            supabaseManager = supabaseManager,
+            realtimeManager = realtimeManager
         )
     }
 
@@ -81,14 +88,16 @@ object RepositoryModule {
         sprintTagCrossRefApiService: SprintTagCrossRefApiService,
         syncManager: SyncManager,
         networkMonitor: NetworkMonitor,
-        supabaseManager: SupabaseManager
+        supabaseManager: SupabaseManager,
+        realtimeManager: SupabaseRealtimeManager
     ): SprintRepository {
         return SprintRepositoryImpl(
             sprintDao = sprintDao,
             sprintApiService = sprintApiService,
             syncManager = syncManager,
             networkMonitor = networkMonitor,
-            supabaseManager = supabaseManager
+            supabaseManager = supabaseManager,
+            realtimeManager = realtimeManager
         )
     }
 

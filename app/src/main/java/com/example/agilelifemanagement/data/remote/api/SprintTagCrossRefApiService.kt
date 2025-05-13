@@ -4,26 +4,29 @@ import android.util.Log
 import com.example.agilelifemanagement.data.remote.SupabaseManager
 import com.example.agilelifemanagement.data.remote.dto.SprintTagCrossRefDto
 import com.example.agilelifemanagement.domain.model.Result
+import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.query.Columns
+import io.github.jan.supabase.postgrest.query.Order
+import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * API service for SprintTagCrossRef operations with Supabase.
- * Handles the many-to-many relationship between sprints and tags.
+ * API service for Sprint-Tag cross-references operations with Supabase.
  */
 @Singleton
 class SprintTagCrossRefApiService @Inject constructor(
     private val supabaseManager: SupabaseManager
 ) {
-    private val tableName = "agile_life.sprint_tag_cross_refs"
+    private val tableName = "sprint_tag_cross_refs"
     
     /**
-     * Get all sprint-tag relationships for a specific sprint.
+     * Get all sprint-tag cross-references for a sprint.
      */
-    suspend fun getTagsBySprintId(sprintId: String): Result<List<SprintTagCrossRefDto>> = withContext(Dispatchers.IO) {
+    suspend fun getBySprintId(sprintId: String): Result<List<SprintTagCrossRefDto>> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
             val crossRefs = client.postgrest[tableName]
@@ -36,15 +39,15 @@ class SprintTagCrossRefApiService @Inject constructor(
             
             Result.Success(crossRefs)
         } catch (e: Exception) {
-            Log.e(TAG, "Error getting tags for sprint: ${e.message}", e)
-            Result.Error("Failed to get tags for sprint: ${e.message}", e)
+            Log.e(TAG, "Error getting sprint-tag cross-refs by sprint ID: ${e.message}", e)
+            Result.Error("Failed to get sprint-tag cross-refs: ${e.message}", e)
         }
     }
     
     /**
-     * Get all sprint-tag relationships for a specific tag.
+     * Get all sprint-tag cross-references for a tag.
      */
-    suspend fun getSprintsByTagId(tagId: String): Result<List<SprintTagCrossRefDto>> = withContext(Dispatchers.IO) {
+    suspend fun getByTagId(tagId: String): Result<List<SprintTagCrossRefDto>> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
             val crossRefs = client.postgrest[tableName]
@@ -57,52 +60,52 @@ class SprintTagCrossRefApiService @Inject constructor(
             
             Result.Success(crossRefs)
         } catch (e: Exception) {
-            Log.e(TAG, "Error getting sprints for tag: ${e.message}", e)
-            Result.Error("Failed to get sprints for tag: ${e.message}", e)
+            Log.e(TAG, "Error getting sprint-tag cross-refs by tag ID: ${e.message}", e)
+            Result.Error("Failed to get sprint-tag cross-refs: ${e.message}", e)
         }
     }
     
     /**
-     * Create a new sprint-tag relationship.
+     * Create a sprint-tag cross-reference.
      */
-    suspend fun createSprintTagRelation(crossRefDto: SprintTagCrossRefDto): Result<SprintTagCrossRefDto> = withContext(Dispatchers.IO) {
+    suspend fun insert(crossRef: SprintTagCrossRefDto): Result<SprintTagCrossRefDto> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
-            val result = client.postgrest[tableName]
-                .insert(crossRefDto)
-                .decodeSingle<SprintTagCrossRefDto>()
+            client.postgrest[tableName]
+                .insert(crossRef)
             
-            Result.Success(result)
+            Result.Success(crossRef)
         } catch (e: Exception) {
-            Log.e(TAG, "Error creating sprint-tag relation: ${e.message}", e)
-            Result.Error("Failed to create sprint-tag relation: ${e.message}", e)
+            Log.e(TAG, "Error inserting sprint-tag cross-ref: ${e.message}", e)
+            Result.Error("Failed to insert sprint-tag cross-ref: ${e.message}", e)
         }
     }
     
     /**
-     * Delete a sprint-tag relationship by ID.
+     * Delete a sprint-tag cross-reference by sprint ID and tag ID.
      */
-    suspend fun deleteSprintTagRelation(id: String): Result<Unit> = withContext(Dispatchers.IO) {
+    suspend fun delete(sprintId: String, tagId: String): Result<Unit> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
             client.postgrest[tableName]
                 .delete {
                     filter {
-                        eq("id", id)
+                        eq("sprint_id", sprintId)
+                        eq("tag_id", tagId)
                     }
                 }
             
             Result.Success(Unit)
         } catch (e: Exception) {
-            Log.e(TAG, "Error deleting sprint-tag relation: ${e.message}", e)
-            Result.Error("Failed to delete sprint-tag relation: ${e.message}", e)
+            Log.e(TAG, "Error deleting sprint-tag cross-ref: ${e.message}", e)
+            Result.Error("Failed to delete sprint-tag cross-ref: ${e.message}", e)
         }
     }
     
     /**
-     * Delete all relationships for a specific sprint.
+     * Delete all sprint-tag cross-references for a sprint.
      */
-    suspend fun deleteAllRelationsForSprint(sprintId: String): Result<Unit> = withContext(Dispatchers.IO) {
+    suspend fun deleteBySprintId(sprintId: String): Result<Unit> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
             client.postgrest[tableName]
@@ -114,15 +117,15 @@ class SprintTagCrossRefApiService @Inject constructor(
             
             Result.Success(Unit)
         } catch (e: Exception) {
-            Log.e(TAG, "Error deleting relations for sprint: ${e.message}", e)
-            Result.Error("Failed to delete relations for sprint: ${e.message}", e)
+            Log.e(TAG, "Error deleting sprint-tag cross-refs by sprint ID: ${e.message}", e)
+            Result.Error("Failed to delete sprint-tag cross-refs: ${e.message}", e)
         }
     }
     
     /**
-     * Delete all relationships for a specific tag.
+     * Delete all sprint-tag cross-references for a tag.
      */
-    suspend fun deleteAllRelationsForTag(tagId: String): Result<Unit> = withContext(Dispatchers.IO) {
+    suspend fun deleteByTagId(tagId: String): Result<Unit> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
             client.postgrest[tableName]
@@ -134,8 +137,8 @@ class SprintTagCrossRefApiService @Inject constructor(
             
             Result.Success(Unit)
         } catch (e: Exception) {
-            Log.e(TAG, "Error deleting relations for tag: ${e.message}", e)
-            Result.Error("Failed to delete relations for tag: ${e.message}", e)
+            Log.e(TAG, "Error deleting sprint-tag cross-refs by tag ID: ${e.message}", e)
+            Result.Error("Failed to delete sprint-tag cross-refs: ${e.message}", e)
         }
     }
     

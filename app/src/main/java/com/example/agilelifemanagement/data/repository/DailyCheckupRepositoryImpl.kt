@@ -69,7 +69,7 @@ class DailyCheckupRepositoryImpl @Inject constructor(
         )
         
         dailyCheckupDao.insert(dailyCheckupEntity)
-        syncManager.scheduleSync(dailyCheckupEntity.id, "daily_checkup", PendingOperation.CREATE)
+        syncManager.scheduleSyncOperation(dailyCheckupEntity.id, "daily_checkup", PendingOperation.CREATE)
         
         return id
     }
@@ -84,7 +84,7 @@ class DailyCheckupRepositoryImpl @Inject constructor(
                 updatedAt = System.currentTimeMillis() / 1000
             )
             dailyCheckupDao.update(updatedEntity)
-            syncManager.scheduleSync(checkup.id, "daily_checkup", PendingOperation.UPDATE)
+            syncManager.scheduleSyncOperation(checkup.id, "daily_checkup", PendingOperation.UPDATE)
         }
     }
 
@@ -95,7 +95,7 @@ class DailyCheckupRepositoryImpl @Inject constructor(
         } catch (e: Exception) {
             // Log error but don't throw
         }
-        syncManager.scheduleSync(id, "daily_checkup", PendingOperation.DELETE)
+        syncManager.scheduleSyncOperation(id, "daily_checkup", PendingOperation.DELETE)
     }
 
 

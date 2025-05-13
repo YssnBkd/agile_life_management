@@ -6,6 +6,7 @@ import com.example.agilelifemanagement.data.remote.dto.TaskSprintCrossRefDto
 import com.example.agilelifemanagement.domain.model.Result
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
+import io.github.jan.supabase.postgrest.query.Order
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -19,7 +20,7 @@ import javax.inject.Singleton
 class TaskSprintCrossRefApiService @Inject constructor(
     private val supabaseManager: SupabaseManager
 ) {
-    private val tableName = "agile_life.task_sprint_cross_refs"
+    private val tableName = "task_sprint_cross_refs"
     
     /**
      * Get all task-sprint relationships for a specific task.
@@ -100,9 +101,9 @@ class TaskSprintCrossRefApiService @Inject constructor(
     }
     
     /**
-     * Delete all relationships for a specific task.
+     * Delete all task-sprint relationships for a task.
      */
-    suspend fun deleteAllRelationsForTask(taskId: String): Result<Unit> = withContext(Dispatchers.IO) {
+    suspend fun deleteByTaskId(taskId: String): Result<Unit> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
             client.postgrest[tableName]
@@ -114,15 +115,15 @@ class TaskSprintCrossRefApiService @Inject constructor(
             
             Result.Success(Unit)
         } catch (e: Exception) {
-            Log.e(TAG, "Error deleting relations for task: ${e.message}", e)
-            Result.Error("Failed to delete relations for task: ${e.message}", e)
+            Log.e(TAG, "Error deleting task-sprint cross-refs by task ID: ${e.message}", e)
+            Result.Error("Failed to delete task-sprint cross-refs: ${e.message}", e)
         }
     }
     
     /**
-     * Delete all relationships for a specific sprint.
+     * Delete all task-sprint relationships for a sprint.
      */
-    suspend fun deleteAllRelationsForSprint(sprintId: String): Result<Unit> = withContext(Dispatchers.IO) {
+    suspend fun deleteBySprintId(sprintId: String): Result<Unit> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
             client.postgrest[tableName]
@@ -134,8 +135,8 @@ class TaskSprintCrossRefApiService @Inject constructor(
             
             Result.Success(Unit)
         } catch (e: Exception) {
-            Log.e(TAG, "Error deleting relations for sprint: ${e.message}", e)
-            Result.Error("Failed to delete relations for sprint: ${e.message}", e)
+            Log.e(TAG, "Error deleting task-sprint cross-refs by sprint ID: ${e.message}", e)
+            Result.Error("Failed to delete task-sprint cross-refs: ${e.message}", e)
         }
     }
     

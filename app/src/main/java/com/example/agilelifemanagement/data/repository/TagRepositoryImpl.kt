@@ -57,7 +57,7 @@ class TagRepositoryImpl @Inject constructor(
         val createdAt = System.currentTimeMillis()
         val entity = tag.toTagEntity(userId, createdAt).copy(id = id)
         tagDao.insert(entity)
-        syncManager.scheduleSync(id, "tag", PendingOperation.CREATE)
+        syncManager.scheduleSyncOperation(id, "tag", PendingOperation.CREATE)
         return id
     }
 
@@ -67,14 +67,14 @@ class TagRepositoryImpl @Inject constructor(
         val existing = tagDao.getTagById(tag.id ?: "") ?: error("Tag not found")
         val entity = tag.toTagEntity(userId, existing.createdAt)
         tagDao.update(entity)
-        syncManager.scheduleSync(entity.id, "tag", PendingOperation.UPDATE)
+        syncManager.scheduleSyncOperation(entity.id, "tag", PendingOperation.UPDATE)
     }
 
     override suspend fun deleteTag(id: String) {
         val entity = tagDao.getTagById(id)
         if (entity != null) {
             tagDao.delete(entity)
-            syncManager.scheduleSync(id, "tag", PendingOperation.DELETE)
+            syncManager.scheduleSyncOperation(id, "tag", PendingOperation.DELETE)
         }
     }
 }

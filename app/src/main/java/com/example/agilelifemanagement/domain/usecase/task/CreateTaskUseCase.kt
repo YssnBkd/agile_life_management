@@ -81,17 +81,27 @@ class CreateTaskUseCase @Inject constructor(
             tags = tags
         )
         
-        return try {
-            val taskId = taskRepository.insertTask(task)
-            
-            // Add tags if provided
-            tags.forEach { tagId ->
-                taskRepository.addTagToTask(taskId, tagId)
+        // Since taskRepository.insertTask now returns a Result type, we need to handle it properly
+        val insertResult = taskRepository.insertTask(task)
+        
+        return when (insertResult) {
+            is Result.Success -> {
+                val taskId = insertResult.data
+                
+                // Add tags if provided
+                tags.forEach { tagId ->
+                    taskRepository.addTagToTask(taskId, tagId)
+                }
+                
+                Result.Success(taskId)
             }
-            
-            Result.Success(taskId)
-        } catch (e: Exception) {
-            Result.Error("Failed to create task: ${e.message}", e)
+            is Result.Error -> {
+                Result.Error("Failed to create task: ${insertResult.message}")
+            }
+            else -> {
+                // Handle loading state if present
+                Result.Error("Unexpected state while creating task")
+            }
         }
     }
 }

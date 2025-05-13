@@ -23,4 +23,10 @@ interface TaskGoalCrossRefDao {
 
     @Query("DELETE FROM task_goal_cross_refs WHERE goalId = :goalId")
     suspend fun deleteTasksForGoal(goalId: String)
+    
+    @Query("SELECT * FROM task_goal_cross_refs WHERE taskId = :taskId AND goalId = :goalId LIMIT 1")
+    suspend fun getTaskGoalCrossRef(taskId: String, goalId: String): TaskGoalCrossRefEntity?
+    
+    @Query("DELETE FROM task_goal_cross_refs WHERE taskId = :taskId AND goalId = :goalId")
+    suspend fun delete(taskId: String, goalId: String)
 }

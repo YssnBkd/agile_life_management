@@ -4,22 +4,24 @@ import android.util.Log
 import com.example.agilelifemanagement.data.remote.SupabaseManager
 import com.example.agilelifemanagement.data.remote.dto.SprintReviewDto
 import com.example.agilelifemanagement.domain.model.Result
+import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
+import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * API service for SprintReview operations with Supabase.
- * Implements security best practices according to the app's security implementation guidelines.
+ * API service for Sprint Review operations with Supabase.
  */
 @Singleton
 class SprintReviewApiService @Inject constructor(
     private val supabaseManager: SupabaseManager
 ) {
-    private val tableName = "agile_life.sprint_reviews"
+    private val tableName = "sprint_reviews"
     
     /**
      * Get a sprint review by ID from Supabase.
@@ -43,7 +45,7 @@ class SprintReviewApiService @Inject constructor(
     }
     
     /**
-     * Get sprint review for a specific sprint from Supabase.
+     * Get a sprint review by sprint ID from Supabase.
      */
     suspend fun getSprintReviewBySprintId(sprintId: String): Result<SprintReviewDto?> = withContext(Dispatchers.IO) {
         return@withContext try {
@@ -62,8 +64,8 @@ class SprintReviewApiService @Inject constructor(
                 Result.Success(null)
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Error getting sprint review for sprint: ${e.message}", e)
-            Result.Error("Failed to get sprint review for sprint: ${e.message}", e)
+            Log.e(TAG, "Error getting sprint review by sprint ID: ${e.message}", e)
+            Result.Error("Failed to get sprint review: ${e.message}", e)
         }
     }
     
@@ -90,45 +92,41 @@ class SprintReviewApiService @Inject constructor(
     }
     
     /**
-     * Create or update a sprint review in Supabase.
+     * Create a sprint review in Supabase.
      */
-    suspend fun upsertSprintReview(reviewDto: SprintReviewDto): Result<SprintReviewDto> = withContext(Dispatchers.IO) {
+    suspend fun createSprintReview(reviewDto: SprintReviewDto): Result<SprintReviewDto> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
+            client.postgrest[tableName]
+                .insert(reviewDto)
             
-            // Check if review exists
-            val exists = client.postgrest[tableName]
-                .select() {
+            Result.Success(reviewDto)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error creating sprint review: ${e.message}", e)
+            Result.Error("Failed to create sprint review: ${e.message}", e)
+        }
+    }
+    
+    /**
+     * Update a sprint review in Supabase.
+     */
+    suspend fun updateSprintReview(reviewDto: SprintReviewDto): Result<SprintReviewDto> = withContext(Dispatchers.IO) {
+        return@withContext try {
+            val client = supabaseManager.getClient()
+            client.postgrest[tableName]
+                .update({
+                    set("rating", reviewDto.rating)
+                    set("updated_at", System.currentTimeMillis())
+                }) {
                     filter {
                         eq("id", reviewDto.id)
                     }
                 }
-                .decodeList<SprintReviewDto>()
-                .isNotEmpty()
-            
-            if (exists) {
-                // Update existing review
-                client.postgrest[tableName]
-                    .update({
-                        set("sprint_id", reviewDto.sprint_id)
-                        set("date", reviewDto.date)
-                        set("rating", reviewDto.rating)
-                        set("updated_at", System.currentTimeMillis())
-                    }) {
-                        filter {
-                            eq("id", reviewDto.id)
-                        }
-                    }
-            } else {
-                // Insert new review
-                client.postgrest[tableName]
-                    .insert(reviewDto)
-            }
             
             Result.Success(reviewDto)
         } catch (e: Exception) {
-            Log.e(TAG, "Error upserting sprint review: ${e.message}", e)
-            Result.Error("Failed to save sprint review: ${e.message}", e)
+            Log.e(TAG, "Error updating sprint review: ${e.message}", e)
+            Result.Error("Failed to update sprint review: ${e.message}", e)
         }
     }
     
@@ -154,5 +152,34 @@ class SprintReviewApiService @Inject constructor(
     
     companion object {
         private const val TAG = "SprintReviewApiService"
+    }
+    
+    /**
+     * Upsert (insert or update) a sprint review in Supabase.
+     * This method checks if the review exists and either updates it or creates a new one.
+     */
+    suspend fun upsertSprintReview(reviewDto: SprintReviewDto): Result<SprintReviewDto> = withContext(Dispatchers.IO) {
+        return@withContext try {
+            val client = supabaseManager.getClient()
+            
+            // Check if the review exists for this sprint
+            val existingReview = getSprintReviewBySprintId(reviewDto.sprint_id)
+            
+            when {
+                // If we have a successful result with a non-null review, update it
+                existingReview is Result.Success && existingReview.data != null -> {
+                    // Create a copy with the existing ID
+                    val updatedDto = reviewDto.copy(id = existingReview.data.id)
+                    updateSprintReview(updatedDto)
+                }
+                // Otherwise create a new review
+                else -> {
+                    createSprintReview(reviewDto)
+                }
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error upserting sprint review: ${e.message}", e)
+            Result.Error("Failed to upsert sprint review: ${e.message}", e)
+        }
     }
 }

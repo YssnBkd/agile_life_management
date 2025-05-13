@@ -1,5 +1,6 @@
 package com.example.agilelifemanagement.ui.screens.tasks
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -15,6 +16,8 @@ import com.example.agilelifemanagement.domain.repository.TagRepository
 import com.example.agilelifemanagement.domain.model.Tag
 import java.time.LocalDate
 
+private const val TAG = "TasksViewModel"
+
 @HiltViewModel
 class TasksViewModel @Inject constructor(
     private val taskRepository: TaskRepository,
@@ -28,8 +31,19 @@ class TasksViewModel @Inject constructor(
         data class Error(val message: String) : UiState()
     }
 
+    sealed class TaskDetailUiState {
+        object Idle : TaskDetailUiState()
+        object Loading : TaskDetailUiState()
+        data class Success(val task: Task) : TaskDetailUiState()
+        object NotFound : TaskDetailUiState()
+        data class Error(val message: String) : TaskDetailUiState()
+    }
+
     private val _uiState = MutableStateFlow<UiState>(UiState.Loading)
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
+
+    private val _selectedTaskState = MutableStateFlow<TaskDetailUiState>(TaskDetailUiState.Idle)
+    val selectedTaskState: StateFlow<TaskDetailUiState> = _selectedTaskState.asStateFlow()
 
     var showCreateDialog by mutableStateOf(false)
         private set
@@ -47,6 +61,27 @@ class TasksViewModel @Inject constructor(
 
     fun retry() {
         observeTasks()
+    }
+
+    fun selectTask(taskId: String) {
+        Log.d(TAG, "selectTask called with taskId: $taskId")
+        viewModelScope.launch {
+            _selectedTaskState.value = TaskDetailUiState.Loading
+            taskRepository.getTaskById(taskId)
+                .catch { e ->
+                    Log.e(TAG, "Error fetching task $taskId", e)
+                    _selectedTaskState.value = TaskDetailUiState.Error(e.message ?: "Unknown error selecting task")
+                }
+                .collect { task ->
+                    if (task != null) {
+                        Log.d(TAG, "Task $taskId fetched successfully: ${task.title}")
+                        _selectedTaskState.value = TaskDetailUiState.Success(task)
+                    } else {
+                        Log.d(TAG, "Task $taskId not found")
+                        _selectedTaskState.value = TaskDetailUiState.NotFound
+                    }
+                }
+        }
     }
 
     private fun observeTasks() {
@@ -116,8 +151,43 @@ class TasksViewModel @Inject constructor(
         }
     }
 
+    fun updateSelectedTask(task: Task) {
+        viewModelScope.launch {
+            try {
+                taskRepository.updateTask(task)
+                snackbarMessage = "Task updated successfully"
+                // Refresh the selected task state
+                _selectedTaskState.value = TaskDetailUiState.Success(task)
+            } catch (e: Exception) {
+                Log.e(TAG, "Error updating task ${task.id}", e)
+                snackbarMessage = e.message ?: "Failed to update task"
+                _selectedTaskState.value = TaskDetailUiState.Error(snackbarMessage!!)
+            }
+        }
+    }
+
+    fun deleteSelectedTask() {
+        val currentTaskState = _selectedTaskState.value
+        if (currentTaskState is TaskDetailUiState.Success) {
+            viewModelScope.launch {
+                try {
+                    taskRepository.deleteTask(currentTaskState.task.id)
+                    snackbarMessage = "Task deleted successfully"
+                    _selectedTaskState.value = TaskDetailUiState.Idle // Reset state or navigate away
+                } catch (e: Exception) {
+                    Log.e(TAG, "Error deleting task ${currentTaskState.task.id}", e)
+                    snackbarMessage = e.message ?: "Failed to delete task"
+                    // Optionally, keep the error state for the detail screen to show
+                    _selectedTaskState.value = TaskDetailUiState.Error(snackbarMessage!!)
+                }
+            }
+        } else {
+            snackbarMessage = "No task selected or task not loaded for deletion"
+            Log.w(TAG, "deleteSelectedTask called but no task is successfully loaded.")
+        }
+    }
+
     fun clearSnackbar() {
         snackbarMessage = null
     }
 }
-

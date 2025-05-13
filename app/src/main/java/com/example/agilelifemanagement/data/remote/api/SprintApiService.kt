@@ -4,8 +4,11 @@ import android.util.Log
 import com.example.agilelifemanagement.data.remote.SupabaseManager
 import com.example.agilelifemanagement.data.remote.dto.SprintDto
 import com.example.agilelifemanagement.domain.model.Result
+import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
+import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -19,7 +22,7 @@ import javax.inject.Singleton
 class SprintApiService @Inject constructor(
     private val supabaseManager: SupabaseManager
 ) {
-    private val tableName = "agile_life.sprints"
+    private val tableName = "sprints"
     
     /**
      * Get a sprint by ID from Supabase.
@@ -33,13 +36,9 @@ class SprintApiService @Inject constructor(
                         eq("id", sprintId)
                     }
                 }
-                .decodeSingleOrNull<SprintDto>()
+                .decodeSingle<SprintDto>()
             
-            if (sprint != null) {
-                Result.Success(sprint)
-            } else {
-                Result.Error("Sprint not found", null)
-            }
+            Result.Success(sprint)
         } catch (e: Exception) {
             Log.e(TAG, "Error getting sprint by ID: ${e.message}", e)
             Result.Error("Failed to get sprint: ${e.message}", e)
@@ -69,9 +68,9 @@ class SprintApiService @Inject constructor(
     }
     
     /**
-     * Get active sprints for a user from Supabase.
+     * Get active sprint for a user from Supabase.
      */
-    suspend fun getActiveSprintsByUserId(userId: String): Result<List<SprintDto>> = withContext(Dispatchers.IO) {
+    suspend fun getActiveSprintByUserId(userId: String): Result<SprintDto?> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
             val sprints = client.postgrest[tableName]
@@ -80,14 +79,17 @@ class SprintApiService @Inject constructor(
                         eq("user_id", userId)
                         eq("is_active", true)
                     }
-                    order("start_date", Order.ASCENDING)
                 }
                 .decodeList<SprintDto>()
             
-            Result.Success(sprints)
+            if (sprints.isNotEmpty()) {
+                Result.Success(sprints.first())
+            } else {
+                Result.Success(null)
+            }
         } catch (e: Exception) {
-            Log.e(TAG, "Error getting active sprints: ${e.message}", e)
-            Result.Error("Failed to get active sprints: ${e.message}", e)
+            Log.e(TAG, "Error getting active sprint: ${e.message}", e)
+            Result.Error("Failed to get active sprint: ${e.message}", e)
         }
     }
     
@@ -98,7 +100,6 @@ class SprintApiService @Inject constructor(
         return@withContext try {
             val client = supabaseManager.getClient()
             
-            // Check if sprint exists
             val exists = client.postgrest[tableName]
                 .select() {
                     filter {
@@ -109,13 +110,23 @@ class SprintApiService @Inject constructor(
                 .isNotEmpty()
             
             if (exists) {
+                // Update existing sprint
                 client.postgrest[tableName]
-                    .update(sprintDto) {
+                    .update({
+                        set("name", sprintDto.name)
+                        set("summary", sprintDto.summary)
+                        set("start_date", sprintDto.start_date)
+                        set("end_date", sprintDto.end_date)
+                        set("is_active", sprintDto.is_active)
+                        set("is_completed", sprintDto.is_completed)
+                        set("updated_at", System.currentTimeMillis())
+                    }) {
                         filter {
                             eq("id", sprintDto.id)
                         }
                     }
             } else {
+                // Insert new sprint
                 client.postgrest[tableName]
                     .insert(sprintDto)
             }
@@ -124,6 +135,30 @@ class SprintApiService @Inject constructor(
         } catch (e: Exception) {
             Log.e(TAG, "Error upserting sprint: ${e.message}", e)
             Result.Error("Failed to save sprint: ${e.message}", e)
+        }
+    }
+    
+    /**
+     * Mark a sprint as completed in Supabase.
+     */
+    suspend fun markSprintCompleted(sprintId: String): Result<Unit> = withContext(Dispatchers.IO) {
+        return@withContext try {
+            val client = supabaseManager.getClient()
+            client.postgrest[tableName]
+                .update({
+                    set("is_completed", true)
+                    set("is_active", false)
+                    set("updated_at", System.currentTimeMillis())
+                }) {
+                    filter {
+                        eq("id", sprintId)
+                    }
+                }
+            
+            Result.Success(Unit)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error marking sprint as completed: ${e.message}", e)
+            Result.Error("Failed to mark sprint as completed: ${e.message}", e)
         }
     }
     

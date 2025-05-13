@@ -16,15 +16,15 @@ interface TaskRepository {
     fun getTasksBySprintId(sprintId: String): Flow<List<Task>>
     fun getTasksByGoalId(goalId: String): Flow<List<Task>>
     fun getTasksByTag(tagId: String): Flow<List<Task>>
-    suspend fun insertTask(task: Task): String
-    suspend fun updateTask(task: Task)
-    suspend fun deleteTask(id: String)
-    suspend fun addTaskToSprint(taskId: String, sprintId: String)
-    suspend fun removeTaskFromSprint(taskId: String, sprintId: String)
-    suspend fun addTaskToGoal(taskId: String, goalId: String)
-    suspend fun removeTaskFromGoal(taskId: String, goalId: String)
-    suspend fun addTagToTask(taskId: String, tagId: String)
-    suspend fun removeTagFromTask(taskId: String, tagId: String)
-    suspend fun addTaskDependency(taskId: String, dependsOnTaskId: String)
-    suspend fun removeTaskDependency(taskId: String, dependsOnTaskId: String)
+    suspend fun insertTask(task: Task): com.example.agilelifemanagement.domain.model.Result<String>
+    suspend fun updateTask(task: Task): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun deleteTask(id: String): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun addTaskToSprint(taskId: String, sprintId: String): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun removeTaskFromSprint(taskId: String, sprintId: String): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun addTaskToGoal(taskId: String, goalId: String): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun removeTaskFromGoal(taskId: String, goalId: String): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun addTagToTask(taskId: String, tagId: String): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun removeTagFromTask(taskId: String, tagId: String): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun addTaskDependency(taskId: String, dependsOnTaskId: String): com.example.agilelifemanagement.domain.model.Result<Unit>
+    suspend fun removeTaskDependency(taskId: String, dependsOnTaskId: String): com.example.agilelifemanagement.domain.model.Result<Unit>
 }

@@ -5,6 +5,8 @@ import com.example.agilelifemanagement.data.remote.SupabaseManager
 import com.example.agilelifemanagement.data.remote.dto.UserDto
 import com.example.agilelifemanagement.domain.model.Result
 import io.github.jan.supabase.postgrest.postgrest
+import io.github.jan.supabase.postgrest.query.Columns
+import io.github.jan.supabase.postgrest.query.Order
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -18,7 +20,7 @@ import javax.inject.Singleton
 class UserApiService @Inject constructor(
     private val supabaseManager: SupabaseManager
 ) {
-    private val tableName = "agile_life.users"
+    private val tableName = "users"
     
     /**
      * Get a user by ID from Supabase.
@@ -61,12 +63,12 @@ class UserApiService @Inject constructor(
             if (exists) {
                 // Update existing user
                 client.postgrest[tableName]
-                    .update({
-                        set("name", userDto.name)
-                        set("email", userDto.email)
-                        set("profile_image_url", userDto.profile_image_url)
-                        set("updated_at", System.currentTimeMillis())
-                    }) {
+                    .update(mapOf(
+                        "name" to userDto.name,
+                        "email" to userDto.email,
+                        "profile_image_url" to userDto.profile_image_url,
+                        "updated_at" to System.currentTimeMillis()
+                    )) {
                         filter {
                             eq("id", userDto.id)
                         }

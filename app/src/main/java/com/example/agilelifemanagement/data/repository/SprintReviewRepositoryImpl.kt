@@ -59,7 +59,7 @@ class SprintReviewRepositoryImpl @Inject constructor(
             updatedAt = currentTimeMillis
         )
         sprintReviewDao.insert(sprintReviewEntity)
-        syncManager.scheduleSync(id, "sprint_review", com.example.agilelifemanagement.data.local.entity.PendingOperation.CREATE)
+        syncManager.scheduleSyncOperation(id, "sprint_review", com.example.agilelifemanagement.data.local.entity.PendingOperation.CREATE)
         return id
     }
 
@@ -73,7 +73,7 @@ class SprintReviewRepositoryImpl @Inject constructor(
                 updatedAt = System.currentTimeMillis() / 1000
             )
             sprintReviewDao.insert(updatedEntity)
-            syncManager.scheduleSync(review.id, "sprint_review", com.example.agilelifemanagement.data.local.entity.PendingOperation.UPDATE)
+            syncManager.scheduleSyncOperation(review.id, "sprint_review", com.example.agilelifemanagement.data.local.entity.PendingOperation.UPDATE)
         }
     }
 

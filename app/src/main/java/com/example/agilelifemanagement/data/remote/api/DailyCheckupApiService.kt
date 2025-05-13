@@ -4,24 +4,24 @@ import android.util.Log
 import com.example.agilelifemanagement.data.remote.SupabaseManager
 import com.example.agilelifemanagement.data.remote.dto.DailyCheckupDto
 import com.example.agilelifemanagement.domain.model.Result
+import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
-import io.github.jan.supabase.postgrest.query.Count
 import io.github.jan.supabase.postgrest.query.Order
+import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * API service for DailyCheckup operations with Supabase.
- * Implements security best practices according to the app's security implementation guidelines.
+ * API service for Daily Checkup operations with Supabase.
  */
 @Singleton
 class DailyCheckupApiService @Inject constructor(
     private val supabaseManager: SupabaseManager
 ) {
-    private val tableName = "agile_life.daily_checkups"
+    private val tableName = "daily_checkups"
     
     /**
      * Get a daily checkup by ID from Supabase.
@@ -35,13 +35,9 @@ class DailyCheckupApiService @Inject constructor(
                         eq("id", checkupId)
                     }
                 }
-                .decodeSingleOrNull<DailyCheckupDto>()
+                .decodeSingle<DailyCheckupDto>()
             
-            if (checkup != null) {
-                Result.Success(checkup)
-            } else {
-                Result.Error("Daily checkup not found", null)
-            }
+            Result.Success(checkup)
         } catch (e: Exception) {
             Log.e(TAG, "Error getting daily checkup by ID: ${e.message}", e)
             Result.Error("Failed to get daily checkup: ${e.message}", e)
@@ -71,7 +67,7 @@ class DailyCheckupApiService @Inject constructor(
     }
     
     /**
-     * Get daily checkups for a specific sprint from Supabase.
+     * Get all daily checkups for a sprint from Supabase.
      */
     suspend fun getDailyCheckupsBySprintId(sprintId: String): Result<List<DailyCheckupDto>> = withContext(Dispatchers.IO) {
         return@withContext try {
@@ -93,64 +89,41 @@ class DailyCheckupApiService @Inject constructor(
     }
     
     /**
-     * Get daily checkup for a specific date from Supabase.
+     * Create a daily checkup in Supabase.
      */
-    suspend fun getDailyCheckupByDate(userId: String, date: Long): Result<DailyCheckupDto?> = withContext(Dispatchers.IO) {
+    suspend fun createDailyCheckup(checkupDto: DailyCheckupDto): Result<DailyCheckupDto> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
-            val checkups = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("user_id", userId)
-                        eq("date", date)
-                    }
-                }
-                .decodeList<DailyCheckupDto>()
+            client.postgrest[tableName]
+                .insert(checkupDto)
             
-            if (checkups.isNotEmpty()) {
-                Result.Success(checkups.first())
-            } else {
-                Result.Success(null)
-            }
+            Result.Success(checkupDto)
         } catch (e: Exception) {
-            Log.e(TAG, "Error getting daily checkup for date: ${e.message}", e)
-            Result.Error("Failed to get daily checkup for date: ${e.message}", e)
+            Log.e(TAG, "Error creating daily checkup: ${e.message}", e)
+            Result.Error("Failed to create daily checkup: ${e.message}", e)
         }
     }
     
     /**
-     * Create or update a daily checkup in Supabase.
+     * Update a daily checkup in Supabase.
      */
-    suspend fun upsertDailyCheckup(checkupDto: DailyCheckupDto): Result<DailyCheckupDto> = withContext(Dispatchers.IO) {
+    suspend fun updateDailyCheckup(checkupDto: DailyCheckupDto): Result<DailyCheckupDto> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
-            
-            // Check if checkup exists
-            val exists = client.postgrest[tableName]
-                .select() {
+            client.postgrest[tableName]
+                .update({
+                    set("notes", checkupDto.notes)
+                    set("updated_at", System.currentTimeMillis())
+                }) {
                     filter {
                         eq("id", checkupDto.id)
                     }
                 }
-                .decodeList<DailyCheckupDto>()
-                .isNotEmpty()
-            if (exists) {
-                client.postgrest[tableName]
-                    .update(checkupDto) {
-                        filter {
-                            eq("id", checkupDto.id)
-                        }
-                    }
-            } else {
-                // Insert new checkup
-                client.postgrest[tableName]
-                    .insert(checkupDto)
-            }
             
             Result.Success(checkupDto)
         } catch (e: Exception) {
-            Log.e(TAG, "Error upserting daily checkup: ${e.message}", e)
-            Result.Error("Failed to save daily checkup: ${e.message}", e)
+            Log.e(TAG, "Error updating daily checkup: ${e.message}", e)
+            Result.Error("Failed to update daily checkup: ${e.message}", e)
         }
     }
     
@@ -176,5 +149,35 @@ class DailyCheckupApiService @Inject constructor(
     
     companion object {
         private const val TAG = "DailyCheckupApiService"
+    }
+    
+    /**
+     * Upsert (insert or update) a daily checkup in Supabase.
+     */
+    suspend fun upsertDailyCheckup(checkupDto: DailyCheckupDto): Result<DailyCheckupDto> = withContext(Dispatchers.IO) {
+        return@withContext try {
+            val client = supabaseManager.getClient()
+            
+            // Check if the checkup exists
+            val exists = client.postgrest[tableName]
+                .select() {
+                    filter {
+                        eq("id", checkupDto.id)
+                    }
+                }
+                .decodeList<DailyCheckupDto>()
+                .isNotEmpty()
+                
+            if (exists) {
+                // Update existing checkup
+                updateDailyCheckup(checkupDto)
+            } else {
+                // Create new checkup
+                createDailyCheckup(checkupDto)
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error upserting daily checkup: ${e.message}", e)
+            Result.Error("Failed to upsert daily checkup: ${e.message}", e)
+        }
     }
 }

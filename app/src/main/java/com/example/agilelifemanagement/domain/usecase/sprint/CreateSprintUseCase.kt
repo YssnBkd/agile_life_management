@@ -58,11 +58,7 @@ class CreateSprintUseCase @Inject constructor(
             isCompleted = false
         )
         
-        return try {
-            val sprintId = sprintRepository.insertSprint(sprint)
-            Result.Success(sprintId)
-        } catch (e: Exception) {
-            Result.Error("Failed to create sprint: ${e.message}", e)
-        }
+        // Since insertSprint now returns a Result type directly, we don't need a try-catch block
+        return sprintRepository.insertSprint(sprint)
     }
 }

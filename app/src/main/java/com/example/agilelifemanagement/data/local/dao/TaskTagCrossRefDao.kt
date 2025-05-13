@@ -23,4 +23,10 @@ interface TaskTagCrossRefDao {
 
     @Query("DELETE FROM task_tag_cross_refs WHERE tagId = :tagId")
     suspend fun deleteTasksForTag(tagId: String)
+    
+    @Query("SELECT * FROM task_tag_cross_refs WHERE taskId = :taskId AND tagId = :tagId LIMIT 1")
+    suspend fun getTaskTagCrossRef(taskId: String, tagId: String): TaskTagCrossRefEntity?
+    
+    @Query("DELETE FROM task_tag_cross_refs WHERE taskId = :taskId AND tagId = :tagId")
+    suspend fun delete(taskId: String, tagId: String)
 }

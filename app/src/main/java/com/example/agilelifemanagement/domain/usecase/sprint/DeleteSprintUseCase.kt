@@ -18,22 +18,16 @@ class DeleteSprintUseCase @Inject constructor(
      * @return Result indicating success or an error.
      */
     suspend operator fun invoke(id: String): Result<Unit> {
-        return try {
-            // Check if sprint exists
-            val sprint = sprintRepository.getSprintById(id).first()
-                ?: return Result.Error("Sprint not found")
-            
-            // Check if sprint is active
-            if (sprint.isActive) {
-                return Result.Error("Cannot delete an active sprint")
-            }
-            
-            // Delete the sprint (repository will handle associations)
-            sprintRepository.deleteSprint(id)
-            
-            Result.Success(Unit)
-        } catch (e: Exception) {
-            Result.Error("Failed to delete sprint: ${e.message}", e)
+        // Check if sprint exists
+        val sprint = sprintRepository.getSprintById(id).first()
+            ?: return Result.Error("Sprint not found")
+        
+        // Check if sprint is active
+        if (sprint.isActive) {
+            return Result.Error("Cannot delete an active sprint")
         }
+        
+        // Delete the sprint and pass through the Result
+        return sprintRepository.deleteSprint(id)
     }
 }

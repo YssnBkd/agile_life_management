@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.ksp) // KSP plugin for annotation processing
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 // Load local properties
@@ -78,6 +79,7 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.logging)
+    implementation(libs.play.services.drive)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     // AndroidX Core
@@ -98,6 +100,7 @@ dependencies {
     
     // Navigation
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.supabase.functions)
     
     // Room Database
     implementation(libs.androidx.room.runtime)

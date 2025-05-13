@@ -11,10 +11,13 @@ import androidx.navigation.navArgument
 import com.example.agilelifemanagement.ui.screens.calendar.CalendarScreen
 import com.example.agilelifemanagement.ui.screens.dailycheckup.DailyCheckupScreen
 import com.example.agilelifemanagement.ui.screens.goals.GoalsScreen
+import com.example.agilelifemanagement.ui.screens.goals.GoalDetailScreen
 import com.example.agilelifemanagement.ui.screens.settings.SettingsScreen
 import com.example.agilelifemanagement.ui.screens.sprintreview.SprintReviewScreen
 import com.example.agilelifemanagement.ui.screens.sprints.SprintsScreen
+import com.example.agilelifemanagement.ui.screens.sprints.SprintDetailScreen
 import com.example.agilelifemanagement.ui.screens.tasks.TasksScreen
+import com.example.agilelifemanagement.ui.screens.tasks.TaskDetailScreen
 
 /**
  * Main navigation host for the Agile Life Management app.
@@ -72,8 +75,14 @@ fun AppNavHost(
             )
         ) { backStackEntry ->
             val sprintId = backStackEntry.arguments?.getString(NavRoutes.SPRINT_ID_ARG) ?: ""
-            // SprintDetailScreen(sprintId = sprintId, onNavigateUp = { navController.navigateUp() })
-            // Placeholder for Sprint Detail Screen
+            SprintDetailScreen(
+                sprintId = sprintId,
+                onBack = { navController.navigateUp() },
+                onEdit = { sprint ->
+                    // TODO: Implement edit navigation if needed
+                    // navController.navigate("${NavRoutes.SPRINT_EDIT}/${sprint.id}")
+                }
+            )
         }
         
         // Goals Screen and Detail
@@ -94,8 +103,16 @@ fun AppNavHost(
             )
         ) { backStackEntry ->
             val goalId = backStackEntry.arguments?.getString(NavRoutes.GOAL_ID_ARG) ?: ""
-            // GoalDetailScreen(goalId = goalId, onNavigateUp = { navController.navigateUp() })
-            // Placeholder for Goal Detail Screen
+            GoalDetailScreen(
+                goalId = goalId,
+                onBack = { navController.navigateUp() },
+                navigateToTask = { taskId: String ->
+                    navController.navigate(NavRoutes.taskDetail(taskId))
+                },
+                navigateToSprint = { sprintId: String -> 
+                    navController.navigate(NavRoutes.sprintDetail(sprintId))
+                }
+            )
         }
         
         // Tasks Screen and Detail
@@ -116,8 +133,14 @@ fun AppNavHost(
             )
         ) { backStackEntry ->
             val taskId = backStackEntry.arguments?.getString(NavRoutes.TASK_ID_ARG) ?: ""
-            // TaskDetailScreen(taskId = taskId, onNavigateUp = { navController.navigateUp() })
-            // Placeholder for Task Detail Screen
+            TaskDetailScreen(
+                taskId = taskId,
+                onBack = { navController.navigateUp() },
+                onEdit = { task ->
+                    // TODO: Implement edit screen navigation or show an edit dialog
+                    android.util.Log.d("AppNavHost", "Edit clicked for task: ${task.id}")
+                }
+            )
         }
         
         // Daily Check-up Screen

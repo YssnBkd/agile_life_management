@@ -2,6 +2,7 @@ package com.example.agilelifemanagement
 
 import android.app.Application
 import com.example.agilelifemanagement.BuildConfig
+import com.example.agilelifemanagement.util.ApplicationStartup
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,6 +18,10 @@ import javax.inject.Inject
 @HiltAndroidApp
 class AgileLifeApplication : Application() {
 
+    // Inject ApplicationStartup to ensure real-time sync is initialized
+    @Inject
+    lateinit var applicationStartup: ApplicationStartup
+    
     // Application-wide coroutine scope
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 

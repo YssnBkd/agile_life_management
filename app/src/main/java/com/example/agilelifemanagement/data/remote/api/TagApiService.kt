@@ -4,9 +4,11 @@ import android.util.Log
 import com.example.agilelifemanagement.data.remote.SupabaseManager
 import com.example.agilelifemanagement.data.remote.dto.TagDto
 import com.example.agilelifemanagement.domain.model.Result
+import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
+import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -14,13 +16,12 @@ import javax.inject.Singleton
 
 /**
  * API service for Tag operations with Supabase.
- * Implements security best practices according to the app's security implementation guidelines.
  */
 @Singleton
 class TagApiService @Inject constructor(
     private val supabaseManager: SupabaseManager
 ) {
-    private val tableName = "agile_life.tags"
+    private val tableName = "tags"
     
     /**
      * Get a tag by ID from Supabase.
@@ -66,42 +67,41 @@ class TagApiService @Inject constructor(
     }
     
     /**
-     * Create or update a tag in Supabase.
+     * Create a new tag in Supabase.
      */
-    suspend fun upsertTag(tagDto: TagDto): Result<TagDto> = withContext(Dispatchers.IO) {
+    suspend fun createTag(tagDto: TagDto): Result<TagDto> = withContext(Dispatchers.IO) {
         return@withContext try {
             val client = supabaseManager.getClient()
+            client.postgrest[tableName]
+                .insert(tagDto)
             
-            // Check if tag exists
-            val exists = client.postgrest[tableName]
-                .select() {
+            Result.Success(tagDto)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error creating tag: ${e.message}", e)
+            Result.Error("Failed to create tag: ${e.message}", e)
+        }
+    }
+    
+    /**
+     * Update a tag in Supabase.
+     */
+    suspend fun updateTag(tagDto: TagDto): Result<TagDto> = withContext(Dispatchers.IO) {
+        return@withContext try {
+            val client = supabaseManager.getClient()
+            client.postgrest[tableName]
+                .update({
+                    set("name", tagDto.name)
+                    set("color", tagDto.color)
+                }) {
                     filter {
                         eq("id", tagDto.id)
                     }
                 }
-                .decodeList<TagDto>()
-                .isNotEmpty()
-            if (exists) {
-                // Update existing tag
-                client.postgrest[tableName]
-                    .update({
-                        set("name", tagDto.name)
-                        set("color", tagDto.color)
-                    }) {
-                        filter {
-                            eq("id", tagDto.id)
-                        }
-                    }
-            } else {
-                // Insert new tag
-                client.postgrest[tableName]
-                    .insert(tagDto)
-            }
             
             Result.Success(tagDto)
         } catch (e: Exception) {
-            Log.e(TAG, "Error upserting tag: ${e.message}", e)
-            Result.Error("Failed to save tag: ${e.message}", e)
+            Log.e(TAG, "Error updating tag: ${e.message}", e)
+            Result.Error("Failed to update tag: ${e.message}", e)
         }
     }
     
