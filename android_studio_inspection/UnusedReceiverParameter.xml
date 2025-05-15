@@ -1,0 +1,145 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>73</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String sprintDetail(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$sprintDetail, java.lang.String sprintId)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>74</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String sprintEditor(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$sprintEditor, java.lang.String sprintId)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>76</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String sprintReview(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$sprintReview, java.lang.String sprintId)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>78</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String dayTimeline(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$dayTimeline, java.lang.String date)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>80</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String dayMorningCheckin(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$dayMorningCheckin, java.lang.String date)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>82</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String dayJournaling(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$dayJournaling, java.lang.String date)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>84</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String dayEveningCheckin(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$dayEveningCheckin, java.lang.String date)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>86</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String dayWeekView(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$dayWeekView, java.lang.String date)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>88</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String dayTemplate(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$dayTemplate)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>90</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String taskDetail(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$taskDetail, java.lang.String taskId)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavDestinations.kt</file>
+  <line>91</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.navigation.NavDestinationsKt java.lang.String taskEditor(com.example.agilelifemanagement.ui.navigation.NavRoutes $this$taskEditor, java.lang.String taskId)" />
+  <problem_class id="UnusedReceiverParameter" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused receiver parameter</problem_class>
+  <description>Receiver parameter is never used</description>
+  <highlighted_element>NavRoutes</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>9</length>
+</problem>
+</problems>

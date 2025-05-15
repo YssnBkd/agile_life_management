@@ -6,15 +6,18 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
- * Use case for retrieving all sprints with optional filtering.
+ * Use case for retrieving all sprints.
+ * This use case follows the offline-first approach by immediately providing local data
+ * while syncing with remote sources in the background.
  */
 class GetSprintsUseCase @Inject constructor(
     private val sprintRepository: SprintRepository
 ) {
     /**
-     * Get all sprints.
+     * Gets a Flow of all sprints, automatically updated when the repository data changes.
+     * @return A Flow emitting lists of all sprints when changes occur
      */
     operator fun invoke(): Flow<List<Sprint>> {
-        return sprintRepository.getSprints()
+        return sprintRepository.getAllSprints()
     }
 }

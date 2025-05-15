@@ -3,17 +3,13 @@ package com.example.agilelifemanagement.domain.model
 import java.time.LocalDate
 
 /**
- * Domain model for SprintReview.
- * Represents a sprint review for evaluating sprint outcomes and planning improvements.
+ * Domain model representing a sprint review in the AgileLifeManagement app.
+ * Sprint reviews are conducted at the end of a sprint to assess performance and capture learnings.
  */
 data class SprintReview(
-    val id: String = "",
+    val id: String,
     val sprintId: String,
-    val date: LocalDate,
-    val completedGoals: List<String> = emptyList(),
-    val incompleteGoals: List<String> = emptyList(),
-    val whatWentWell: List<String> = emptyList(),
-    val whatCouldImprove: List<String> = emptyList(),
-    val actionItems: List<String> = emptyList(),
-    val rating: Int = 0 // 1-5 rating for the sprint
+    val completionRate: Float, // Percentage from 0.0 to 1.0
+    val lessonsLearned: List<String>,
+    val date: LocalDate
 )

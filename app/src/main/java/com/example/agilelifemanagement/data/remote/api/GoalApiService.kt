@@ -1,153 +1,67 @@
 package com.example.agilelifemanagement.data.remote.api
 
-import android.util.Log
-import com.example.agilelifemanagement.data.remote.SupabaseManager
-import com.example.agilelifemanagement.data.remote.dto.GoalDto
-import com.example.agilelifemanagement.domain.model.Result
-import io.github.jan.supabase.postgrest.postgrest
-import io.github.jan.supabase.postgrest.query.Order
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import javax.inject.Inject
-import javax.inject.Singleton
+import com.example.agilelifemanagement.data.remote.model.GoalDto
+import com.example.agilelifemanagement.domain.model.GoalStatus
+import java.time.LocalDate
 
 /**
- * API service for Goal operations with Supabase.
- * Implements security best practices according to the app's security implementation guidelines.
+ * Service interface for goal-related API operations.
  */
-@Singleton
-class GoalApiService @Inject constructor(
-    private val supabaseManager: SupabaseManager
-) {
-    private val tableName = "agile_life.goals"
+interface GoalApiService {
     
     /**
-     * Get a goal by ID from Supabase.
+     * Get all goals from the API.
+     * @return List of goal DTOs
      */
-    suspend fun getGoalById(goalId: String): Result<GoalDto> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            val goal = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("id", goalId)
-                    }
-                }
-                .decodeSingle<GoalDto>()
-            
-            Result.Success(goal)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error getting goal by ID: ${e.message}", e)
-            Result.Error("Failed to get goal: ${e.message}", e)
-        }
-    }
+    suspend fun getAllGoals(): List<GoalDto>
     
     /**
-     * Get all goals for a user from Supabase.
+     * Get a specific goal by ID from the API.
+     * @param goalId The goal identifier
+     * @return The goal DTO if found, or null
      */
-    suspend fun getGoalsByUserId(userId: String): Result<List<GoalDto>> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            val goals = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("user_id", userId)
-                    }
-                    order("created_at", Order.DESCENDING)
-                }
-                .decodeList<GoalDto>()
-            
-            Result.Success(goals)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error getting goals for user: ${e.message}", e)
-            Result.Error("Failed to get goals: ${e.message}", e)
-        }
-    }
+    suspend fun getGoalById(goalId: String): GoalDto?
     
     /**
-     * Get active goals for a user from Supabase.
+     * Get goals with a specific status from the API.
+     * @param status The status to filter by
+     * @return List of goal DTOs with the specified status
      */
-    suspend fun getActiveGoalsByUserId(userId: String): Result<List<GoalDto>> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            val goals = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("user_id", userId)
-                        eq("is_completed", false)
-                    }
-                    order("deadline", Order.ASCENDING)
-                }
-                .decodeList<GoalDto>()
-            
-            Result.Success(goals)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error getting active goals: ${e.message}", e)
-            Result.Error("Failed to get active goals: ${e.message}", e)
-        }
-    }
+    suspend fun getGoalsByStatus(status: GoalStatus): List<GoalDto>
     
     /**
-     * Create or update a goal in Supabase.
+     * Get upcoming goals with deadlines before or on a specific date from the API.
+     * @param date The date to filter by
+     * @return List of goal DTOs with deadlines before or on the specified date
      */
-    suspend fun upsertGoal(goalDto: GoalDto): Result<GoalDto> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            
-            // Check if goal exists
-            val existingGoal = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("id", goalDto.id)
-                    }
-                }
-                .decodeAsOrNull<GoalDto>()
-            
-            val result = if (existingGoal != null) {
-                // Update existing goal
-                val updatedGoal = goalDto.copy(created_at = existingGoal.created_at)
-                client.postgrest[tableName]
-                    .update(updatedGoal) {
-                        filter {
-                            eq("id", goalDto.id)
-                        }
-                    }
-                    .decodeSingle<GoalDto>()
-            } else {
-                // Insert new goal
-                client.postgrest[tableName]
-                    .insert(goalDto)
-                    .decodeSingle<GoalDto>()
-            }
-            
-            Result.Success(result)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error upserting goal: ${e.message}", e)
-            Result.Error("Failed to upsert goal: ${e.message}", e)
-        }
-    }
+    suspend fun getUpcomingGoals(date: LocalDate): List<GoalDto>
     
     /**
-     * Delete a goal from Supabase.
+     * Create a new goal in the API.
+     * @param goal The goal DTO to create
+     * @return The created goal DTO with its assigned ID
      */
-    suspend fun deleteGoal(goalId: String): Result<Unit> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            client.postgrest[tableName]
-                .delete {
-                    filter {
-                        eq("id", goalId)
-                    }
-                }
-            
-            Result.Success(Unit)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error deleting goal: ${e.message}", e)
-            Result.Error("Failed to delete goal: ${e.message}", e)
-        }
-    }
+    suspend fun createGoal(goal: GoalDto): GoalDto
     
-    companion object {
-        private const val TAG = "GoalApiService"
-    }
+    /**
+     * Update an existing goal in the API.
+     * @param goal The updated goal DTO
+     * @return The updated goal DTO
+     */
+    suspend fun updateGoal(goal: GoalDto): GoalDto
+    
+    /**
+     * Delete a goal from the API.
+     * @param goalId The ID of the goal to delete
+     * @return True if the goal was successfully deleted
+     */
+    suspend fun deleteGoal(goalId: String): Boolean
+    
+    /**
+     * Update the status of a goal in the API.
+     * @param goalId The ID of the goal to update
+     * @param status The new status
+     * @return The updated goal DTO
+     */
+    suspend fun updateGoalStatus(goalId: String, status: GoalStatus): GoalDto
 }

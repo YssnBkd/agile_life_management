@@ -97,7 +97,7 @@ After launching the app:
 - Supabase integration for backend services
 - Material 3 UI with dark/light themes
 
-### Coming Soon
+### Coming Soonn maybe implemented
 - Data synchronization improvements
 - Offline support with automatic sync
 - Advanced analytics and reporting
@@ -106,22 +106,8 @@ After launching the app:
 - Export/import functionality
 - Desktop companion app
 
-## 🔐 Security Implementation
-- Data encryption for sensitive information
-- Secure storage of credentials
-- API security best practices
-- Input validation and sanitization
-
 ## 💻 CI/CD Pipeline
 - GitHub Actions for automated builds
 - Static code analysis integration
 - Automated testing on PR submissions
 - Release automation and versioning strategy
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome. Feel free to check the [issues page](https://github.com/yourusername/AgileLifeManagement/issues) if you want to contribute.
-
-## 📄 License
-
-[MIT License](LICENSE)

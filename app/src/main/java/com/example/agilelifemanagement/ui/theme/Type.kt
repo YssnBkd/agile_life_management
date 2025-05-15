@@ -2,144 +2,110 @@ package com.example.agilelifemanagement.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.example.agilelifemanagement.R
 
-/**
- * Inter font family configuration for the Agile Life Management app.
- */
-val InterFontFamily = FontFamily(
-    Font(R.font.inter_thin, FontWeight.Thin),
-    Font(R.font.inter_extra_light, FontWeight.ExtraLight),
-    Font(R.font.inter_light, FontWeight.Light),
-    Font(R.font.inter_regular, FontWeight.Normal),
-    Font(R.font.inter_medium, FontWeight.Medium),
-    Font(R.font.inter_semi_bold, FontWeight.SemiBold),
-    Font(R.font.inter_bold, FontWeight.Bold),
-    Font(R.font.inter_extra_bold, FontWeight.ExtraBold),
-    Font(R.font.inter_black, FontWeight.Black),
-    Font(R.font.inter_italic, FontWeight.Normal, FontStyle.Italic)
-)
-
-/**
- * Typography for the Agile Life Management app using Inter font family.
- */
+// Material 3 Expressive Typography
+// More expressive with increased contrast between weights and sizes
+// This creates better visual hierarchy and draws attention to important elements
 val Typography = Typography(
-    // Display styles
+    // Display styles - for very large text, now with more contrast
     displayLarge = TextStyle(
-        fontFamily = InterFontFamily,
-        fontWeight = FontWeight.Normal,
-        fontSize = 57.sp,
-        lineHeight = 64.sp,
-        letterSpacing = (-0.25).sp
+        fontWeight = FontWeight.SemiBold, // Increased weight for better visibility
+        fontSize = 60.sp, // Larger for more impact
+        lineHeight = 68.sp,
+        letterSpacing = (-0.5).sp // More negative tracking for display text
     ),
     displayMedium = TextStyle(
-        fontFamily = InterFontFamily,
-        fontWeight = FontWeight.Normal,
-        fontSize = 45.sp,
-        lineHeight = 52.sp,
-        letterSpacing = 0.sp
+        fontWeight = FontWeight.Medium,
+        fontSize = 48.sp, // Increased for better hierarchy
+        lineHeight = 56.sp,
+        letterSpacing = (-0.25).sp
     ),
     displaySmall = TextStyle(
-        fontFamily = InterFontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 36.sp,
-        lineHeight = 44.sp,
+        fontSize = 38.sp, // Increased for better hierarchy
+        lineHeight = 46.sp,
         letterSpacing = 0.sp
     ),
     
-    // Headline styles
+    // Headline styles - more expressive with stronger weights
     headlineLarge = TextStyle(
-        fontFamily = InterFontFamily,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 32.sp,
-        lineHeight = 40.sp,
-        letterSpacing = 0.sp
+        fontWeight = FontWeight.Bold, // Bolder for stronger hierarchy
+        fontSize = 34.sp, // Increased for better distinction
+        lineHeight = 42.sp,
+        letterSpacing = (-0.1).sp // Slightly tighter
     ),
     headlineMedium = TextStyle(
-        fontFamily = InterFontFamily,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 28.sp,
-        lineHeight = 36.sp,
+        fontSize = 30.sp, // Increased for better distinction
+        lineHeight = 38.sp,
         letterSpacing = 0.sp
     ),
     headlineSmall = TextStyle(
-        fontFamily = InterFontFamily,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 24.sp,
-        lineHeight = 32.sp,
+        fontSize = 26.sp, // Increased for better distinction
+        lineHeight = 34.sp,
         letterSpacing = 0.sp
     ),
     
-    // Title styles
+    // Title styles - with more differentiation
     titleLarge = TextStyle(
-        fontFamily = InterFontFamily,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
+        fontWeight = FontWeight.Bold, // Bolder for better prominence
+        fontSize = 24.sp, // Larger for more impact
+        lineHeight = 30.sp,
         letterSpacing = 0.sp
     ),
     titleMedium = TextStyle(
-        fontFamily = InterFontFamily,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
+        fontSize = 18.sp, // Increased from standard M3
+        lineHeight = 26.sp,
         letterSpacing = 0.15.sp
     ),
     titleSmall = TextStyle(
-        fontFamily = InterFontFamily,
-        fontWeight = FontWeight.Medium,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp, // Increased from standard M3
+        lineHeight = 22.sp,
         letterSpacing = 0.1.sp
     ),
     
-    // Body styles
+    // Body styles - slightly larger for better readability
     bodyLarge = TextStyle(
-        fontFamily = InterFontFamily,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
+        fontWeight = FontWeight.Medium, // Slightly heavier for better readability
+        fontSize = 17.sp, // Slightly larger
+        lineHeight = 25.sp,
+        letterSpacing = 0.4.sp // Slightly tighter
     ),
     bodyMedium = TextStyle(
-        fontFamily = InterFontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
+        fontSize = 15.sp, // Slightly larger
+        lineHeight = 21.sp,
         letterSpacing = 0.25.sp
     ),
     bodySmall = TextStyle(
-        fontFamily = InterFontFamily,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp,
-        lineHeight = 16.sp,
+        fontSize = 13.sp, // Slightly larger
+        lineHeight = 17.sp,
         letterSpacing = 0.4.sp
     ),
     
-    // Label styles
+    // Label styles - bolder for better visibility of interactive elements
     labelLarge = TextStyle(
-        fontFamily = InterFontFamily,
-        fontWeight = FontWeight.Medium,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
+        fontWeight = FontWeight.SemiBold, // Bolder for better visibility
+        fontSize = 15.sp, // Slightly larger
+        lineHeight = 21.sp,
         letterSpacing = 0.1.sp
     ),
     labelMedium = TextStyle(
-        fontFamily = InterFontFamily,
         fontWeight = FontWeight.Medium,
-        fontSize = 12.sp,
-        lineHeight = 16.sp,
+        fontSize = 13.sp, // Slightly larger
+        lineHeight = 17.sp,
         letterSpacing = 0.5.sp
     ),
     labelSmall = TextStyle(
-        fontFamily = InterFontFamily,
         fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
+        fontSize = 12.sp, // Slightly larger
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
     )

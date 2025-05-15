@@ -1,0 +1,28 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt</file>
+  <line>63</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.EdgeFunctionsManager java.lang.Object invokeFunction(java.lang.String functionName, java.lang.Object requestBody, kotlinx.serialization.DeserializationStrategy&lt;? extends T&gt; deserializer, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends T&gt;&gt; $completion)" />
+  <problem_class id="RemoveRedundantQualifierName" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant qualifier name</problem_class>
+  <description>Redundant qualifier name</description>
+  <highlighted_element>io.ktor.http.</highlighted_element>
+  <language>kotlin</language>
+  <offset>65</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/ErrorHandler.kt</file>
+  <line>59</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.util</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.util.ErrorHandler com.example.agilelifemanagement.domain.model.Result&lt;T&gt; handleException(java.lang.Exception e, java.lang.String operation)" />
+  <problem_class id="RemoveRedundantQualifierName" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant qualifier name</problem_class>
+  <description>Redundant qualifier name</description>
+  <highlighted_element>kotlinx.coroutines.</highlighted_element>
+  <language>kotlin</language>
+  <offset>15</offset>
+  <length>19</length>
+</problem>
+</problems>

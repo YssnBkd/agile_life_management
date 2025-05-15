@@ -1,537 +1,556 @@
-Supabase Database Initial Setup Query :
-
--- Enable Row Level Security and Create Schema
-CREATE SCHEMA IF NOT EXISTS agile_life;
-
--- Enable UUID extension
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
--- Create ENUMs for various types
-CREATE TYPE agile_life.task_priority AS ENUM ('LOW', 'MEDIUM', 'HIGH', 'URGENT');
-CREATE TYPE agile_life.task_status AS ENUM ('BACKLOG', 'TODO', 'IN_PROGRESS', 'BLOCKED', 'REVIEW', 'DONE');
-CREATE TYPE agile_life.goal_category AS ENUM ('PERSONAL', 'PROFESSIONAL', 'HEALTH', 'FINANCIAL', 'LEARNING', 'OTHER');
-
--- Create Tables
-
--- User table (leveraging Supabase Auth)
-CREATE TABLE agile_life.users (
-    id UUID PRIMARY KEY REFERENCES auth.users(id),
-    name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    profile_image_url TEXT,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
--- Sprint table
-CREATE TABLE agile_life.sprints (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name TEXT NOT NULL,
-    summary TEXT,
-    start_date TIMESTAMPTZ NOT NULL,
-    end_date TIMESTAMPTZ NOT NULL,
-    is_active BOOLEAN NOT NULL DEFAULT FALSE,
-    is_completed BOOLEAN NOT NULL DEFAULT FALSE,
-    user_id UUID NOT NULL REFERENCES agile_life.users(id) ON DELETE CASCADE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
--- Goal table
-CREATE TABLE agile_life.goals (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    title TEXT NOT NULL,
-    summary TEXT,
-    category agile_life.goal_category NOT NULL,
-    deadline TIMESTAMPTZ,
-    is_completed BOOLEAN NOT NULL DEFAULT FALSE,
-    user_id UUID NOT NULL REFERENCES agile_life.users(id) ON DELETE CASCADE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
--- Task table
-CREATE TABLE agile_life.tasks (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    title TEXT NOT NULL,
-    summary TEXT,
-    due_date TIMESTAMPTZ,
-    priority agile_life.task_priority NOT NULL DEFAULT 'MEDIUM',
-    status agile_life.task_status NOT NULL DEFAULT 'TODO',
-    estimated_effort INTEGER NOT NULL DEFAULT 0,
-    actual_effort INTEGER,
-    is_recurring BOOLEAN NOT NULL DEFAULT FALSE,
-    recurring_pattern JSONB,
-    user_id UUID NOT NULL REFERENCES agile_life.users(id) ON DELETE CASCADE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
--- Tag table
-CREATE TABLE agile_life.tags (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name TEXT NOT NULL,
-    color TEXT NOT NULL,
-    user_id UUID NOT NULL REFERENCES agile_life.users(id) ON DELETE CASCADE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
--- DailyCheckup table
-CREATE TABLE agile_life.daily_checkups (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    date TIMESTAMPTZ NOT NULL,
-    sprint_id UUID NOT NULL REFERENCES agile_life.sprints(id) ON DELETE CASCADE,
-    user_id UUID NOT NULL REFERENCES agile_life.users(id) ON DELETE CASCADE,
-    notes TEXT,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
--- SprintReview table
-CREATE TABLE agile_life.sprint_reviews (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    sprint_id UUID NOT NULL REFERENCES agile_life.sprints(id) ON DELETE CASCADE,
-    date TIMESTAMPTZ NOT NULL,
-    rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
-    user_id UUID NOT NULL REFERENCES agile_life.users(id) ON DELETE CASCADE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    UNIQUE (sprint_id) -- Ensure one review per sprint
-);
-
--- Notification table
-CREATE TABLE agile_life.notifications (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    title TEXT NOT NULL,
-    message TEXT NOT NULL,
-    scheduled_time TIMESTAMPTZ NOT NULL,
-    is_read BOOLEAN NOT NULL DEFAULT FALSE,
-    related_entity_id UUID,
-    related_entity_type TEXT CHECK (related_entity_type IN ('task', 'sprint', 'goal')),
-    user_id UUID NOT NULL REFERENCES agile_life.users(id) ON DELETE CASCADE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
--- Junction tables
-CREATE TABLE agile_life.task_sprint_cross_refs (
-    task_id UUID NOT NULL REFERENCES agile_life.tasks(id) ON DELETE CASCADE,
-    sprint_id UUID NOT NULL REFERENCES agile_life.sprints(id) ON DELETE CASCADE
-);
-
-CREATE TABLE agile_life.task_goal_cross_refs (
-    task_id UUID NOT NULL REFERENCES agile_life.tasks(id) ON DELETE CASCADE,
-    goal_id UUID NOT NULL REFERENCES agile_life.goals(id) ON DELETE CASCADE
-);
-
-CREATE TABLE agile_life.goal_sprint_cross_refs (
-    goal_id UUID NOT NULL REFERENCES agile_life.goals(id) ON DELETE CASCADE,
-    sprint_id UUID NOT NULL REFERENCES agile_life.sprints(id) ON DELETE CASCADE
-);
-
-CREATE TABLE agile_life.task_dependencies (
-    task_id UUID NOT NULL REFERENCES agile_life.tasks(id) ON DELETE CASCADE,
-    depends_on_task_id UUID NOT NULL REFERENCES agile_life.tasks(id) ON DELETE CASCADE
-    CHECK (task_id <> depends_on_task_id) -- Prevent self-dependency
-);
-
-CREATE TABLE agile_life.task_tag_cross_refs (
-    task_id UUID NOT NULL REFERENCES agile_life.tasks(id) ON DELETE CASCADE,
-    tag_id UUID NOT NULL REFERENCES agile_life.tags(id) ON DELETE CASCADE   
-);
-
-CREATE TABLE agile_life.sprint_tag_cross_refs (
-    sprint_id UUID NOT NULL REFERENCES agile_life.sprints(id) ON DELETE CASCADE,
-    tag_id UUID NOT NULL REFERENCES agile_life.tags(id) ON DELETE CASCADE
-);
-
-CREATE TABLE agile_life.goal_tag_cross_refs (
-    goal_id UUID NOT NULL REFERENCES agile_life.goals(id) ON DELETE CASCADE,
-    tag_id UUID NOT NULL REFERENCES agile_life.tags(id) ON DELETE CASCADE
-);
-
-
--- Create indexes for common queries
-CREATE INDEX idx_sprints_user_id ON agile_life.sprints(user_id);
-CREATE INDEX idx_tasks_user_id ON agile_life.tasks(user_id);
-CREATE INDEX idx_goals_user_id ON agile_life.goals(user_id);
-CREATE INDEX idx_tasks_status ON agile_life.tasks(status);
-CREATE INDEX idx_tasks_due_date ON agile_life.tasks(due_date);
-CREATE INDEX idx_tasks_priority ON agile_life.tasks(priority);
-CREATE INDEX idx_sprints_active ON agile_life.sprints(is_active);
-CREATE INDEX idx_goals_completed ON agile_life.goals(is_completed);
-CREATE INDEX idx_task_sprint_refs_sprint_id ON agile_life.task_sprint_cross_refs(sprint_id);
-CREATE INDEX idx_task_goal_refs_goal_id ON agile_life.task_goal_cross_refs(goal_id);
-CREATE INDEX idx_goal_sprint_refs_sprint_id ON agile_life.goal_sprint_cross_refs(sprint_id);
-
--- Enable Row-Level Security (RLS) on all tables
-ALTER TABLE agile_life.users ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.sprints ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.goals ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.tasks ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.tags ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.daily_checkups ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.sprint_reviews ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.notifications ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.task_sprint_cross_refs ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.task_goal_cross_refs ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.goal_sprint_cross_refs ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.task_dependencies ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.task_tag_cross_refs ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.sprint_tag_cross_refs ENABLE ROW LEVEL SECURITY;
-ALTER TABLE agile_life.goal_tag_cross_refs ENABLE ROW LEVEL SECURITY;
-
--- Create policies for each table
--- USER POLICIES
-CREATE POLICY user_self_select ON agile_life.users
-    FOR SELECT
-    USING (auth.uid() = id);
-
-CREATE POLICY user_self_update ON agile_life.users
-    FOR UPDATE
-    USING (auth.uid() = id);
-
--- SPRINT POLICIES
-CREATE POLICY sprint_select_own ON agile_life.sprints
-    FOR SELECT
-    USING (auth.uid() = user_id);
-
-CREATE POLICY sprint_insert_own ON agile_life.sprints
-    FOR INSERT
-    WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY sprint_update_own ON agile_life.sprints
-    FOR UPDATE
-    USING (auth.uid() = user_id);
-
-CREATE POLICY sprint_delete_own ON agile_life.sprints
-    FOR DELETE
-    USING (auth.uid() = user_id);
-
--- GOAL POLICIES
-CREATE POLICY goal_select_own ON agile_life.goals
-    FOR SELECT
-    USING (auth.uid() = user_id);
-
-CREATE POLICY goal_insert_own ON agile_life.goals
-    FOR INSERT
-    WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY goal_update_own ON agile_life.goals
-    FOR UPDATE
-    USING (auth.uid() = user_id);
-
-CREATE POLICY goal_delete_own ON agile_life.goals
-    FOR DELETE
-    USING (auth.uid() = user_id);
-
--- TASK POLICIES
-CREATE POLICY task_select_own ON agile_life.tasks
-    FOR SELECT
-    USING (auth.uid() = user_id);
-
-CREATE POLICY task_insert_own ON agile_life.tasks
-    FOR INSERT
-    WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY task_update_own ON agile_life.tasks
-    FOR UPDATE
-    USING (auth.uid() = user_id);
-
-CREATE POLICY task_delete_own ON agile_life.tasks
-    FOR DELETE
-    USING (auth.uid() = user_id);
-
--- TAG POLICIES
-CREATE POLICY tag_select_own ON agile_life.tags
-    FOR SELECT
-    USING (auth.uid() = user_id);
-
-CREATE POLICY tag_insert_own ON agile_life.tags
-    FOR INSERT
-    WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY tag_update_own ON agile_life.tags
-    FOR UPDATE
-    USING (auth.uid() = user_id);
-
-CREATE POLICY tag_delete_own ON agile_life.tags
-    FOR DELETE
-    USING (auth.uid() = user_id);
-
--- DAILY CHECKUP POLICIES
-CREATE POLICY daily_checkup_select_own ON agile_life.daily_checkups
-    FOR SELECT
-    USING (auth.uid() = user_id);
-
-CREATE POLICY daily_checkup_insert_own ON agile_life.daily_checkups
-    FOR INSERT
-    WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY daily_checkup_update_own ON agile_life.daily_checkups
-    FOR UPDATE
-    USING (auth.uid() = user_id);
-
-CREATE POLICY daily_checkup_delete_own ON agile_life.daily_checkups
-    FOR DELETE
-    USING (auth.uid() = user_id);
-
--- SPRINT REVIEW POLICIES
-CREATE POLICY sprint_review_select_own ON agile_life.sprint_reviews
-    FOR SELECT
-    USING (auth.uid() = user_id);
-
-CREATE POLICY sprint_review_insert_own ON agile_life.sprint_reviews
-    FOR INSERT
-    WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY sprint_review_update_own ON agile_life.sprint_reviews
-    FOR UPDATE
-    USING (auth.uid() = user_id);
-
-CREATE POLICY sprint_review_delete_own ON agile_life.sprint_reviews
-    FOR DELETE
-    USING (auth.uid() = user_id);
-
--- NOTIFICATION POLICIES
-CREATE POLICY notification_select_own ON agile_life.notifications
-    FOR SELECT
-    USING (auth.uid() = user_id);
-
-CREATE POLICY notification_insert_own ON agile_life.notifications
-    FOR INSERT
-    WITH CHECK (auth.uid() = user_id);
-
-CREATE POLICY notification_update_own ON agile_life.notifications
-    FOR UPDATE
-    USING (auth.uid() = user_id);
-
-CREATE POLICY notification_delete_own ON agile_life.notifications
-    FOR DELETE
-    USING (auth.uid() = user_id);
-
-
--- JUNCTION TABLE POLICIES
--- Task-Sprint Cross Refs
-CREATE POLICY task_sprint_cross_ref_select ON agile_life.task_sprint_cross_refs
-    FOR SELECT
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_sprint_cross_refs.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
-CREATE POLICY task_sprint_cross_ref_insert ON agile_life.task_sprint_cross_refs
-    FOR INSERT
-    WITH CHECK (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_sprint_cross_refs.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
-CREATE POLICY task_sprint_cross_ref_delete ON agile_life.task_sprint_cross_refs
-    FOR DELETE
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_sprint_cross_refs.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
--- Task-Goal Cross Refs
-CREATE POLICY task_goal_cross_ref_select ON agile_life.task_goal_cross_refs
-    FOR SELECT
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_goal_cross_refs.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
-CREATE POLICY task_goal_cross_ref_insert ON agile_life.task_goal_cross_refs
-    FOR INSERT
-    WITH CHECK (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_goal_cross_refs.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
-CREATE POLICY task_goal_cross_ref_delete ON agile_life.task_goal_cross_refs
-    FOR DELETE
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_goal_cross_refs.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
--- Goal-Sprint Cross Refs
-CREATE POLICY goal_sprint_cross_ref_select ON agile_life.goal_sprint_cross_refs
-    FOR SELECT
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.goals
-        WHERE goals.id = goal_sprint_cross_refs.goal_id
-        AND goals.user_id = auth.uid()
-    ));
-
-CREATE POLICY goal_sprint_cross_ref_insert ON agile_life.goal_sprint_cross_refs
-    FOR INSERT
-    WITH CHECK (EXISTS (
-        SELECT 1 FROM agile_life.goals
-        WHERE goals.id = goal_sprint_cross_refs.goal_id
-        AND goals.user_id = auth.uid()
-    ));
-
-CREATE POLICY goal_sprint_cross_ref_delete ON agile_life.goal_sprint_cross_refs
-    FOR DELETE
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.goals
-        WHERE goals.id = goal_sprint_cross_refs.goal_id
-        AND goals.user_id = auth.uid()
-    ));
-
--- Task Dependencies
-CREATE POLICY task_dependency_select ON agile_life.task_dependencies
-    FOR SELECT
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_dependencies.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
-CREATE POLICY task_dependency_insert ON agile_life.task_dependencies
-    FOR INSERT
-    WITH CHECK (EXISTS (
-        SELECT 1 FROM agile_life.tasks t1
-        JOIN agile_life.tasks t2 ON t2.id = task_dependencies.depends_on_task_id
-        WHERE t1.id = task_dependencies.task_id
-        AND t1.user_id = auth.uid()
-        AND t2.user_id = auth.uid()
-    ));
-
-CREATE POLICY task_dependency_delete ON agile_life.task_dependencies
-    FOR DELETE
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_dependencies.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
--- Tag Cross Refs (Task, Sprint, Goal)
-CREATE POLICY task_tag_cross_ref_select ON agile_life.task_tag_cross_refs
-    FOR SELECT
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_tag_cross_refs.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
-CREATE POLICY task_tag_cross_ref_insert ON agile_life.task_tag_cross_refs
-    FOR INSERT
-    WITH CHECK (EXISTS (
-        SELECT 1 FROM agile_life.tasks t
-        JOIN agile_life.tags tg ON tg.id = task_tag_cross_refs.tag_id
-        WHERE t.id = task_tag_cross_refs.task_id
-        AND t.user_id = auth.uid()
-        AND tg.user_id = auth.uid()
-    ));
-
-CREATE POLICY task_tag_cross_ref_delete ON agile_life.task_tag_cross_refs
-    FOR DELETE
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.tasks
-        WHERE tasks.id = task_tag_cross_refs.task_id
-        AND tasks.user_id = auth.uid()
-    ));
-
-CREATE POLICY sprint_tag_cross_ref_select ON agile_life.sprint_tag_cross_refs
-    FOR SELECT
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.sprints
-        WHERE sprints.id = sprint_tag_cross_refs.sprint_id
-        AND sprints.user_id = auth.uid()
-    ));
-
-CREATE POLICY sprint_tag_cross_ref_insert ON agile_life.sprint_tag_cross_refs
-    FOR INSERT
-    WITH CHECK (EXISTS (
-        SELECT 1 FROM agile_life.sprints s
-        JOIN agile_life.tags tg ON tg.id = sprint_tag_cross_refs.tag_id
-        WHERE s.id = sprint_tag_cross_refs.sprint_id
-        AND s.user_id = auth.uid()
-        AND tg.user_id = auth.uid()
-    ));
-
-CREATE POLICY sprint_tag_cross_ref_delete ON agile_life.sprint_tag_cross_refs
-    FOR DELETE
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.sprints
-        WHERE sprints.id = sprint_tag_cross_refs.sprint_id
-        AND sprints.user_id = auth.uid()
-    ));
-
-CREATE POLICY goal_tag_cross_ref_select ON agile_life.goal_tag_cross_refs
-    FOR SELECT
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.goals
-        WHERE goals.id = goal_tag_cross_refs.goal_id
-        AND goals.user_id = auth.uid()
-    ));
-
-CREATE POLICY goal_tag_cross_ref_insert ON agile_life.goal_tag_cross_refs
-    FOR INSERT
-    WITH CHECK (EXISTS (
-        SELECT 1 FROM agile_life.goals g
-        JOIN agile_life.tags tg ON tg.id = goal_tag_cross_refs.tag_id
-        WHERE g.id = goal_tag_cross_refs.goal_id
-        AND g.user_id = auth.uid()
-        AND tg.user_id = auth.uid()
-    ));
-
-CREATE POLICY goal_tag_cross_ref_delete ON agile_life.goal_tag_cross_refs
-    FOR DELETE
-    USING (EXISTS (
-        SELECT 1 FROM agile_life.goals
-        WHERE goals.id = goal_tag_cross_refs.goal_id
-        AND goals.user_id = auth.uid()
-    ));
-
-
--- Adding primary keys to junction tables
--- 1. Add timestamp and UUID to task_sprint_cross_refs
-ALTER TABLE agile_life.task_sprint_cross_refs ADD COLUMN id UUID PRIMARY KEY DEFAULT uuid_generate_v4();
-ALTER TABLE agile_life.task_sprint_cross_refs ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
-ALTER TABLE agile_life.task_sprint_cross_refs DROP CONSTRAINT task_sprint_cross_refs_pkey;
-ALTER TABLE agile_life.task_sprint_cross_refs ADD CONSTRAINT task_sprint_cross_refs_unique UNIQUE (task_id, sprint_id);
-
--- 2. Add timestamp and UUID to task_goal_cross_refs
-ALTER TABLE agile_life.task_goal_cross_refs ADD COLUMN id UUID PRIMARY KEY DEFAULT uuid_generate_v4();
-ALTER TABLE agile_life.task_goal_cross_refs ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
-ALTER TABLE agile_life.task_goal_cross_refs DROP CONSTRAINT task_goal_cross_refs_pkey;
-ALTER TABLE agile_life.task_goal_cross_refs ADD CONSTRAINT task_goal_cross_refs_unique UNIQUE (task_id, goal_id);
-
--- 3. Add timestamp and UUID to goal_sprint_cross_refs
-ALTER TABLE agile_life.goal_sprint_cross_refs ADD COLUMN id UUID PRIMARY KEY DEFAULT uuid_generate_v4();
-ALTER TABLE agile_life.goal_sprint_cross_refs ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
-ALTER TABLE agile_life.goal_sprint_cross_refs DROP CONSTRAINT goal_sprint_cross_refs_pkey;
-ALTER TABLE agile_life.goal_sprint_cross_refs ADD CONSTRAINT goal_sprint_cross_refs_unique UNIQUE (goal_id, sprint_id);
-
--- 4. Add timestamp and UUID to task_dependencies
-ALTER TABLE agile_life.task_dependencies ADD COLUMN id UUID PRIMARY KEY DEFAULT uuid_generate_v4();
-ALTER TABLE agile_life.task_dependencies ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
-ALTER TABLE agile_life.task_dependencies DROP CONSTRAINT task_dependencies_pkey;
-ALTER TABLE agile_life.task_dependencies ADD CONSTRAINT task_dependencies_unique UNIQUE (task_id, depends_on_task_id);
-
--- 5. Add timestamp and UUID to task_tag_cross_refs
-ALTER TABLE agile_life.task_tag_cross_refs ADD COLUMN id UUID PRIMARY KEY DEFAULT uuid_generate_v4();
-ALTER TABLE agile_life.task_tag_cross_refs ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
-ALTER TABLE agile_life.task_tag_cross_refs DROP CONSTRAINT task_tag_cross_refs_pkey;
-ALTER TABLE agile_life.task_tag_cross_refs ADD CONSTRAINT task_tag_cross_refs_unique UNIQUE (task_id, tag_id);
-
--- 6. Add timestamp and UUID to sprint_tag_cross_refs
-ALTER TABLE agile_life.sprint_tag_cross_refs ADD COLUMN id UUID PRIMARY KEY DEFAULT uuid_generate_v4();
-ALTER TABLE agile_life.sprint_tag_cross_refs ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
-ALTER TABLE agile_life.sprint_tag_cross_refs DROP CONSTRAINT sprint_tag_cross_refs_pkey;
-ALTER TABLE agile_life.sprint_tag_cross_refs ADD CONSTRAINT sprint_tag_cross_refs_unique UNIQUE (sprint_id, tag_id);
-
--- 7. Add timestamp and UUID to goal_tag_cross_refs
-ALTER TABLE agile_life.goal_tag_cross_refs ADD COLUMN id UUID PRIMARY KEY DEFAULT uuid_generate_v4();
-ALTER TABLE agile_life.goal_tag_cross_refs ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
-ALTER TABLE agile_life.goal_tag_cross_refs DROP CONSTRAINT goal_tag_cross_refs_pkey;
-ALTER TABLE agile_life.goal_tag_cross_refs ADD CONSTRAINT goal_tag_cross_refs_unique UNIQUE (goal_id, tag_id);
+<Material 3 Expressive UI Guidelines>
+
+## Overview
+
+Material 3 Expressive is an extension of Material 3 that allows for more creative freedom and customization while maintaining the core principles of Material Design. This document provides guidelines and implementation details for incorporating Material 3 Expressive into Android applications using Jetpack Compose.
+
+## Key Concepts
+
+### 1. Dynamic Color and Theming
+
+Material 3 Expressive builds upon Material 3's dynamic color system but allows for more customization:
+
+- **Custom Color Schemes**: Create unique brand expressions while maintaining accessibility and coherence
+- **Extended Color Palettes**: Access to additional tonal ranges beyond the standard Material 3 palette
+- **Color Role Mapping**: Redefine how colors are applied to various UI components
+
+### 2. Typography System
+
+- **Custom Type Scales**: Define unique typography scales that reflect brand identity
+- **Variable Fonts Support**: Utilize variable fonts for more expressive typography
+- **Typography Role Mapping**: Customize how type styles are applied to different UI elements
+
+### 3. Shape System
+
+- **Custom Shape Scales**: Define unique corner styles and dimensions
+- **Component-Specific Shapes**: Apply different shape treatments to specific components
+- **Shape Role Mapping**: Redefine how shapes are applied across the UI
+
+### 4. Animation and Motion
+
+- **Custom Motion Patterns**: Define unique animation patterns for transitions and interactions
+- **Expressive Transitions**: Create more dynamic and engaging transitions between screens and states
+- **Interactive Feedback**: Enhance user feedback through custom motion designs
+
+## Implementation in Jetpack Compose
+
+### Setting Up Material 3 Expressive Theme
+
+```kotlin
+@Composable
+fun AppTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    dynamicColor: Boolean = true,
+    content: @Composable () -> Unit
+) {
+    // Determine the color scheme
+    val colorScheme = when {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+        }
+        darkTheme -> customDarkColorScheme
+        else -> customLightColorScheme
+    }
+
+    // Custom typography
+    val typography = customTypography
+
+    // Custom shapes
+    val shapes = customShapes
+
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = typography,
+        shapes = shapes,
+        content = content
+    )
+}
+```
+
+### Custom Color Schemes
+
+```kotlin
+// Light theme custom colors
+val customLightColorScheme = lightColorScheme(
+    primary = Color(0xFF6750A4),
+    onPrimary = Color(0xFFFFFFFF),
+    primaryContainer = Color(0xFFEADDFF),
+    onPrimaryContainer = Color(0xFF21005E),
+    secondary = Color(0xFF625B71),
+    onSecondary = Color(0xFFFFFFFF),
+    secondaryContainer = Color(0xFFE8DEF8),
+    onSecondaryContainer = Color(0xFF1E192B),
+    tertiary = Color(0xFF7E5260),
+    onTertiary = Color(0xFFFFFFFF),
+    tertiaryContainer = Color(0xFFFFD9E3),
+    onTertiaryContainer = Color(0xFF31101D),
+    // Add other colors as needed
+)
+
+// Dark theme custom colors
+val customDarkColorScheme = darkColorScheme(
+    primary = Color(0xFFD0BCFF),
+    onPrimary = Color(0xFF371E73),
+    primaryContainer = Color(0xFF4F378B),
+    onPrimaryContainer = Color(0xFFEADDFF),
+    secondary = Color(0xFFCCC2DC),
+    onSecondary = Color(0xFF332D41),
+    secondaryContainer = Color(0xFF4A4458),
+    onSecondaryContainer = Color(0xFFE8DEF8),
+    tertiary = Color(0xFFEFB8C8),
+    onTertiary = Color(0xFF492532),
+    tertiaryContainer = Color(0xFF633B48),
+    onTertiaryContainer = Color(0xFFFFD9E3),
+    // Add other colors as needed
+)
+```
+
+### Custom Typography
+
+```kotlin
+val customTypography = Typography(
+    displayLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 57.sp,
+        lineHeight = 64.sp,
+        letterSpacing = (-0.25).sp
+    ),
+    displayMedium = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 45.sp,
+        lineHeight = 52.sp,
+        letterSpacing = 0.sp
+    ),
+    // Define other text styles
+    bodyLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
+    )
+    // Add other typography styles as needed
+)
+```
+
+### Custom Shapes
+
+```kotlin
+val customShapes = Shapes(
+    small = RoundedCornerShape(4.dp),
+    medium = RoundedCornerShape(8.dp),
+    large = RoundedCornerShape(16.dp)
+)
+```
+
+## Component Customization
+
+### Buttons
+
+```kotlin
+@Composable
+fun ExpressiveButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
+    content: @Composable RowScope.() -> Unit
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled,
+        shape = MaterialTheme.shapes.medium,
+        colors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary
+        ),
+        contentPadding = contentPadding,
+        content = content
+    )
+}
+```
+
+### Cards
+
+```kotlin
+@Composable
+fun ExpressiveCard(
+    modifier: Modifier = Modifier,
+    shape: Shape = MaterialTheme.shapes.medium,
+    colors: CardColors = CardDefaults.cardColors(),
+    elevation: CardElevation = CardDefaults.cardElevation(),
+    border: BorderStroke? = null,
+    content: @Composable () -> Unit
+) {
+    Card(
+        modifier = modifier,
+        shape = shape,
+        colors = colors,
+        elevation = elevation,
+        border = border,
+        content = content
+    )
+}
+```
+
+### Text Fields
+
+```kotlin
+@Composable
+fun ExpressiveTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    label: @Composable (() -> Unit)? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+    isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    singleLine: Boolean = false,
+    maxLines: Int = Int.MAX_VALUE
+) {
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        label = label,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+        isError = isError,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        singleLine = singleLine,
+        maxLines = maxLines,
+        shape = MaterialTheme.shapes.small,
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = MaterialTheme.colorScheme.primary,
+            unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+            focusedLabelColor = MaterialTheme.colorScheme.primary,
+            unfocusedLabelColor = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    )
+}
+```
+
+## Animation Guidelines
+
+### Transition Animations
+
+```kotlin
+// Define custom enter/exit transitions
+val customEnterTransition = fadeIn(
+    animationSpec = tween(300, easing = FastOutSlowInEasing)
+) + expandIn(
+    animationSpec = tween(300, easing = FastOutSlowInEasing),
+    expandFrom = Alignment.Center
+)
+
+val customExitTransition = fadeOut(
+    animationSpec = tween(300, easing = FastOutSlowInEasing)
+) + shrinkOut(
+    animationSpec = tween(300, easing = FastOutSlowInEasing),
+    shrinkTowards = Alignment.Center
+)
+
+// Apply to navigation
+NavHost(
+    navController = navController,
+    startDestination = "home",
+    enterTransition = { customEnterTransition },
+    exitTransition = { customExitTransition }
+) {
+    // Navigation graph
+}
+```
+
+### Interactive Animations
+
+```kotlin
+@Composable
+fun AnimatedButton(onClick: () -> Unit) {
+    var isPressed by remember { mutableStateOf(false) }
+    
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.95f else 1f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessMedium
+        )
+    )
+    
+    Button(
+        onClick = {
+            onClick()
+        },
+        modifier = Modifier
+            .scale(scale)
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onPress = {
+                        isPressed = true
+                        tryAwaitRelease()
+                        isPressed = false
+                    }
+                )
+            }
+    ) {
+        Text("Animated Button")
+    }
+}
+```
+
+## Best Practices
+
+1. **Maintain Accessibility**: Ensure all customizations maintain proper contrast ratios and touch target sizes
+2. **Consistent Application**: Apply expressive elements consistently across the application
+3. **Progressive Enhancement**: Start with standard Material 3 components and progressively enhance them
+4. **Performance Considerations**: Be mindful of performance impacts when implementing complex animations or effects
+5. **Responsive Design**: Ensure expressive elements adapt appropriately to different screen sizes and orientations
+6. **Brand Alignment**: Customize elements to align with brand identity while maintaining usability
+
+## Resources
+
+- [Material 3 Documentation](https://m3.material.io/)
+- [Jetpack Compose Documentation](https://developer.android.com/jetpack/compose)
+- [Material Design Guidelines](https://material.io/design)
+- [Compose Animation Documentation](https://developer.android.com/jetpack/compose/animation)
+
+</Material 3 Expressive UI Guidelines> 
+
+<Project old readme file>
+# Agile Life Management
+
+A modern Android application that brings agile project management principles to personal life management. This app helps users organize their tasks, goals, and activities using sprints, daily check-ins, and retrospectives - just like in professional agile environments.
+
+## 🏗️ Architecture
+
+The app follows **Clean Architecture** principles with **MVVM** pattern:
+
+- **Presentation Layer**: Jetpack Compose UI components and ViewModels
+- **Domain Layer**: Business logic with use cases, models, and repository interfaces
+- **Data Layer**: Repository implementations, local and remote data sources
+
+Key architectural components:
+- **Repository Pattern**: Abstracts data sources from the business logic
+- **Use Cases**: Encapsulate business rules and operations
+- **Dependency Injection**: Modular and testable components using Hilt
+- **Reactive Data Flow**: UI updates reactively to data changes
+
+## 🛠️ Technologies & Libraries
+
+- **UI**: Jetpack Compose with Material 3 design
+- **Architecture Components**: ViewModel, LiveData, Room
+- **Dependency Injection**: Hilt
+- **Navigation**: Jetpack Navigation Compose
+- **Networking**: Ktor Client
+- **Local Database**: Room
+- **Backend Services**: Supabase (Auth, PostgreSQL, Storage)
+- **Asynchronous Programming**: Kotlin Coroutines and Flow
+- **Date/Time**: ThreeTenABP
+- **Image Loading**: Coil
+- **Logging**: Timber
+- **JSON Serialization**: Gson
+- **CI/CD**: GitHub Actions
+
+## 📋 Prerequisites
+
+- Android Studio Arctic Fox or later
+- JDK 11
+- Android SDK 35
+- Supabase account and project
+
+## ⚙️ Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/AgileLifeManagement.git
+```
+
+2. Configure Supabase credentials
+   - Create a `local.properties` file in the project root if it doesn't exist
+   - Add your Supabase credentials:
+   ```
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_KEY=your_supabase_key
+   ```
+
+3. Open the project in Android Studio
+
+4. Sync Gradle and build the project
+
+5. Run on an emulator or physical device
+
+## 🔐 Security Implementation
+- Data encryption for sensitive information
+- Secure storage of credentials
+- API security best practices
+- Input validation and sanitization
+
+## 💻 CI/CD Pipeline
+- GitHub Actions for automated builds
+- Static code analysis integration
+- Automated testing on PR submissions
+- Release automation and versioning strategy
+
+</Project old readme file>
+
+<Future Proofness Guidelines>
+
+# Future-Proofness Assessment
+
+## Scalability of Architecture
+- **Feature Modularity:** The codebase is organized by feature and layer (data, domain, ui), which supports scaling as new features are added.
+- **Repository Pattern:** Abstracts data sources, making it easy to swap or extend storage and API layers.
+- **Use Cases:** Encapsulate business logic and are easily testable and extensible.
+
+## Maintainability & Readability
+- **Separation of Concerns:** Each layer has clear responsibilities, aiding maintainability.
+- **DI with Hilt:** Reduces boilerplate and makes dependency management clean and scalable.
+- **Kotlin Idioms:** Use of extension functions, data classes, and coroutines increases readability and reduces boilerplate.
+
+## Dependency Management
+- **Gradle:** Dependencies are managed centrally and grouped by concern. Regularly update libraries to avoid security and compatibility issues.
+- **Version Pinning:** Pin library versions to avoid breakage from upstream changes.
+
+## Compatibility with Latest Android Versions
+- **Jetpack Compose:** Modern UI toolkit, fully compatible with latest Android APIs.
+- **Material 3 Theme:** Supports dynamic color and system UI theming for Android 12+.
+- **Room & DataStore:** Officially supported and regularly updated.
+- **Navigation Component:** Aligns with latest navigation paradigms.
+
+## Alignment with Google Recommendations
+- **Architecture:** Follows Clean Architecture and MVVM, as recommended.
+- **Testing:** Structure supports unit/integration/UI testing best practices.
+- **Security:** Uses DataStore, encrypted storage, and avoids hardcoded secrets.
+
+## Recommendations
+- Continue modularizing by feature as the app grows.
+- Regularly update dependencies and test on new Android versions.
+- Integrate static code analysis (e.g., Detekt, ktlint) into CI.
+- Document architectural decisions and update onboarding docs for new contributors.
+- Monitor for breaking changes in AndroidX, Compose, and other Jetpack libraries.
+
+</Future Proofness Guidelines>
+
+<Old Project Repo Readme file>
+
+# Agile Life Management
+
+A modern Android application that brings agile project management principles to personal life management. This app helps users organize their tasks, goals, and activities using sprints, daily check-ins, and retrospectives - just like in professional agile environments.
+
+## 📱 Screenshots
+
+[Screenshots to be added]
+
+## ✨ Features
+
+- **User Authentication**: Secure login and registration using Supabase
+- **Sprint Management**: Create, track, and complete time-boxed work periods
+- **Task Management**: Organize tasks with priorities, statuses, and dependencies
+- **Goal Tracking**: Set and monitor long-term goals with categories
+- **Daily Check-ups**: Record daily progress and blockers
+- **Sprint Reviews**: Reflect on completed sprints with ratings and insights
+- **Calendar View**: Visualize all tasks and deadlines in a calendar interface
+- **Tagging System**: Categorize tasks, sprints, and goals with customizable tags
+- **Notifications**: Get reminders for upcoming deadlines and tasks
+
+## 🏗️ Architecture
+
+The app follows **Clean Architecture** principles with **MVVM** pattern:
+
+- **Presentation Layer**: Jetpack Compose UI components and ViewModels
+- **Domain Layer**: Business logic with use cases, models, and repository interfaces
+- **Data Layer**: Repository implementations, local and remote data sources
+
+Key architectural components:
+- **Repository Pattern**: Abstracts data sources from the business logic
+- **Use Cases**: Encapsulate business rules and operations
+- **Dependency Injection**: Modular and testable components using Hilt
+- **Reactive Data Flow**: UI updates reactively to data changes
+
+## 🛠️ Technologies & Libraries
+
+- **UI**: Jetpack Compose with Material 3 design
+- **Architecture Components**: ViewModel, LiveData, Room
+- **Dependency Injection**: Hilt
+- **Navigation**: Jetpack Navigation Compose
+- **Networking**: Ktor Client
+- **Local Database**: Room
+- **Backend Services**: Supabase (Auth, PostgreSQL, Storage)
+- **Asynchronous Programming**: Kotlin Coroutines and Flow
+- **Date/Time**: ThreeTenABP
+- **Image Loading**: Coil
+- **Logging**: Timber
+- **JSON Serialization**: Gson
+- **CI/CD**: GitHub Actions
+
+## 📋 Prerequisites
+
+- Android Studio Arctic Fox or later
+- JDK 11
+- Android SDK 35
+- Supabase account and project
+
+## ⚙️ Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/AgileLifeManagement.git
+```
+
+2. Configure Supabase credentials
+   - Create a `local.properties` file in the project root if it doesn't exist
+   - Add your Supabase credentials:
+   ```
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_KEY=your_supabase_key
+   ```
+
+3. Open the project in Android Studio
+
+4. Sync Gradle and build the project
+
+5. Run on an emulator or physical device
+
+## 🚀 Usage
+
+After launching the app:
+
+1. Create an account or log in
+2. Set up your first sprint by specifying a duration and objectives
+3. Add tasks to your sprint
+4. Use the daily check-up feature to track progress
+5. Complete tasks as you work through them
+6. Conduct a sprint review when finished
+7. View your progress in the calendar or dedicated sections
+
+## 🛣️ Roadmap
+
+### Implemented
+- User authentication flows
+- Core sprint, task, and goal management
+- Local database persistence
+- Supabase integration for backend services
+- Material 3 UI with dark/light themes
+
+### Coming Soonn maybe implemented
+- Data synchronization improvements
+- Offline support with automatic sync
+- Advanced analytics and reporting
+- Team collaboration features
+- Custom notification settings
+- Export/import functionality
+- Desktop companion app
+
+## 💻 CI/CD Pipeline
+- GitHub Actions for automated builds
+- Static code analysis integration
+- Automated testing on PR submissions
+- Release automation and versioning strategy
+
+</Old Project Repo Readme file>

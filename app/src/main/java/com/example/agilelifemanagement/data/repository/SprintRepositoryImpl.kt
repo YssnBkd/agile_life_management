@@ -1,237 +1,243 @@
 package com.example.agilelifemanagement.data.repository
 
-import com.example.agilelifemanagement.data.local.dao.SprintDao
-import com.example.agilelifemanagement.data.local.entity.PendingOperation
-import com.example.agilelifemanagement.data.local.entity.SprintEntity
-import com.example.agilelifemanagement.data.remote.SupabaseManager
-import com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager
-import com.example.agilelifemanagement.data.remote.SyncManager
-import com.example.agilelifemanagement.data.remote.api.SprintApiService
-import com.example.agilelifemanagement.data.remote.dto.SprintDto
-import com.example.agilelifemanagement.domain.model.Result
+import com.example.agilelifemanagement.data.local.source.SprintLocalDataSource
+import com.example.agilelifemanagement.data.mapper.SprintMapper
+import com.example.agilelifemanagement.data.remote.source.SprintRemoteDataSource
+import com.example.agilelifemanagement.di.IoDispatcher
 import com.example.agilelifemanagement.domain.model.Sprint
+import com.example.agilelifemanagement.domain.model.SprintReview
 import com.example.agilelifemanagement.domain.repository.SprintRepository
-import com.example.agilelifemanagement.util.NetworkMonitor
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import java.time.Instant
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import timber.log.Timber
 import java.time.LocalDate
-import java.time.ZoneId
-import java.util.UUID
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
- * Implementation of SprintRepository that coordinates between local and remote data sources.
- * Follows the offline-first strategy with automatic synchronization.
+ * Implementation of [SprintRepository] that coordinates between local and remote data sources.
+ * This implementation follows the offline-first approach, providing immediate access to local data
+ * while syncing with remote sources in the background.
  */
+@Singleton
 class SprintRepositoryImpl @Inject constructor(
-    private val sprintDao: SprintDao,
-    private val sprintApiService: SprintApiService,
-    private val syncManager: SyncManager,
-    private val networkMonitor: NetworkMonitor,
-    private val supabaseManager: SupabaseManager,
-    private val realtimeManager: SupabaseRealtimeManager
+    private val sprintLocalDataSource: SprintLocalDataSource,
+    private val sprintRemoteDataSource: SprintRemoteDataSource,
+    private val sprintMapper: SprintMapper,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : SprintRepository {
 
-    override fun getSprints(): Flow<List<Sprint>> {
-        return sprintDao.getAllSprints().map { entities ->
-            entities.map { it.toDomain() }
-        }
-    }
-
-    override fun getSprintById(id: String): Flow<Sprint?> {
-        android.util.Log.d(TAG, "getSprintById called with id: $id")
-        return sprintDao.getSprintById(id).map { entity ->
-            if (entity == null) {
-                android.util.Log.w(TAG, "No sprint found for id: $id")
-            } else {
-                android.util.Log.d(TAG, "Sprint found for id: $id: ${entity.id}")
-            }
-            entity?.toDomain()
-        }
-    }
-
-    override fun getActiveSprintByDate(date: LocalDate): Flow<Sprint?> {
-        val timestamp = date.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
-        return sprintDao.getActiveSprintByDate(timestamp).map { entity ->
-            entity?.toDomain()
-        }
-    }
-
-    override suspend fun insertSprint(sprint: Sprint): Result<String> {
-        android.util.Log.d(TAG, "insertSprint called with sprint: ${sprint.id}")
-        return try {
-            val userId = supabaseManager.getCurrentUserId().first() 
-                ?: return Result.Error("User not authenticated")
-            
-            val id = sprint.id.ifEmpty { UUID.randomUUID().toString() }
-            val entity = SprintEntity(
-                id = id,
-                name = sprint.name,
-                summary = sprint.summary,
-                description = sprint.description,
-                startDate = sprint.startDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                endDate = sprint.endDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                isActive = sprint.isActive,
-                isCompleted = sprint.isCompleted,
-                userId = userId,
-                createdAt = System.currentTimeMillis(),
-                updatedAt = System.currentTimeMillis()
-            )
-            
-            // Save to local database
-            sprintDao.insertSprint(entity)
-            android.util.Log.d(TAG, "Sprint inserted locally: $id")
-            
-            // Schedule for synchronization
-            syncManager.scheduleSyncOperation(id, "sprint", PendingOperation.CREATE)
-            
-            // Try to sync immediately if online
-            if (networkMonitor.isOnlineFlow.first()) {
-                try {
-                    val dto = SprintDto.fromEntity(entity)
-                    val apiResult = sprintApiService.upsertSprint(dto)
-                    when (apiResult) {
-                        is Result.Success -> {
-                            syncManager.markSynced(id, "sprint")
-                            android.util.Log.d(TAG, "Sprint synced to server: $id")
-                        }
-                        is Result.Error -> {
-                            android.util.Log.e(TAG, "Error syncing sprint: ${apiResult.message}")
-                        }
-                        else -> { /* Loading state, not expected here */ }
-                    }
-                } catch (e: Exception) {
-                    android.util.Log.e(TAG, "Error syncing sprint: ${e.message}", e)
-                    // Error is logged but not propagated to the caller as local operation succeeded
-                }
-            }
-            
-            Result.Success(id)
-        } catch (e: Exception) {
-            android.util.Log.e(TAG, "Error inserting sprint: ${e.message}", e)
-            Result.Error("Failed to create sprint: ${e.message}")
-        }
-    }
-
-    override suspend fun updateSprint(sprint: Sprint): Result<Unit> {
-        android.util.Log.d(TAG, "updateSprint called with sprint: ${sprint.id}")
-        return try {
-            val userId = supabaseManager.getCurrentUserId().first() 
-                ?: return Result.Error("User not authenticated")
-                
-            // First, get the existing entity to preserve creation timestamp
-            val existingEntity = sprintDao.getSprintById(sprint.id).first()
-                ?: return Result.Error("Sprint with ID ${sprint.id} not found")
-                
-            val entity = SprintEntity(
-                id = sprint.id,
-                name = sprint.name,
-                summary = sprint.summary.ifEmpty { null },
-                description = if (sprint.description.isEmpty()) null else sprint.description,
-                startDate = sprint.startDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                endDate = sprint.endDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli(),
-                isActive = sprint.isActive,
-                isCompleted = sprint.isCompleted,
-                userId = userId,
-                createdAt = existingEntity.createdAt,
-                updatedAt = System.currentTimeMillis()
-            )
-            
-            // Update local database
-            sprintDao.updateSprint(entity)
-            android.util.Log.d(TAG, "Sprint updated locally: ${sprint.id}")
-            
-            // Schedule for synchronization
-            syncManager.scheduleSyncOperation(sprint.id, "sprint", PendingOperation.UPDATE)
-            
-            // Try to sync immediately if online
-            if (networkMonitor.isOnlineFlow.first()) {
-                try {
-                    val dto = SprintDto.fromEntity(entity)
-                    val apiResult = sprintApiService.upsertSprint(dto)
-                    when (apiResult) {
-                        is Result.Success -> {
-                            syncManager.markSynced(sprint.id, "sprint")
-                            android.util.Log.d(TAG, "Sprint updated and synced to server: ${sprint.id}")
-                        }
-                        is Result.Error -> {
-                            android.util.Log.e(TAG, "Error syncing sprint update: ${apiResult.message}")
-                        }
-                        else -> { /* Loading state, not expected here */ }
-                    }
-                } catch (e: Exception) {
-                    android.util.Log.e(TAG, "Error in immediate sync for updated sprint: ${e.message}", e)
-                    // Error is logged but not propagated to the caller as local operation succeeded
-                }
-            }
-            
-            Result.Success(Unit)
-        } catch (e: Exception) {
-            android.util.Log.e(TAG, "Error updating sprint: ${e.message}", e)
-            Result.Error("Failed to update sprint: ${e.message}")
-        }
-    }
-
-    override suspend fun deleteSprint(id: String): Result<Unit> {
-        android.util.Log.d(TAG, "deleteSprint called with id: $id")
-        return try {
-            // Check if sprint exists
-            val existingEntity = sprintDao.getSprintById(id).first()
-                ?: return Result.Error("Sprint with ID $id not found")
-                
-            // Delete from local database
-            sprintDao.deleteSprintById(id)
-            android.util.Log.d(TAG, "Sprint deleted locally: $id")
-            
-            // Schedule for synchronization
-            syncManager.scheduleSyncOperation(id, "sprint", PendingOperation.DELETE)
-            
-            // Try to sync immediately if online
-            if (networkMonitor.isOnlineFlow.first()) {
-                try {
-                    val apiResult = sprintApiService.deleteSprint(id)
-                    when (apiResult) {
-                        is Result.Success -> {
-                            syncManager.markSynced(id, "sprint")
-                            android.util.Log.d(TAG, "Sprint deleted and synced from server: $id")
-                        }
-                        is Result.Error -> {
-                            android.util.Log.e(TAG, "Error syncing sprint deletion: ${apiResult.message}")
-                        }
-                        else -> { /* Loading state, not expected here */ }
-                    }
-                } catch (e: Exception) {
-                    android.util.Log.e(TAG, "Error in immediate sync for deleted sprint: ${e.message}", e)
-                    // Error is logged but not propagated to the caller as local operation succeeded
-                }
-            }
-            
-            Result.Success(Unit)
-        } catch (e: Exception) {
-            android.util.Log.e(TAG, "Error deleting sprint: ${e.message}", e)
-            Result.Error("Failed to delete sprint: ${e.message}")
-        }
+    override fun getAllSprints(): Flow<List<Sprint>> {
+        // Trigger background sync of all sprints
+        syncSprintsWithRemote()
+        
+        // Return local data immediately for responsive UI
+        return sprintLocalDataSource.observeSprints()
+            .map { sprintEntities -> sprintEntities.map { sprintMapper.mapToDomain(it) } }
+            .flowOn(ioDispatcher)
     }
     
     /**
-     * Extension function to convert SprintEntity to Sprint domain model.
+     * Synchronizes local sprint data with remote data source in the background.
      */
-    private fun SprintEntity.toDomain(): Sprint {
-        return Sprint(
-            id = id,
-            name = name,
-            summary = summary ?: "",
-            description = description ?: emptyList(),
-            startDate = Instant.ofEpochMilli(startDate).atZone(ZoneId.systemDefault()).toLocalDate(),
-            endDate = Instant.ofEpochMilli(endDate).atZone(ZoneId.systemDefault()).toLocalDate(),
-            isActive = isActive,
-            isCompleted = isCompleted
-        )
+    private fun syncSprintsWithRemote() {
+        withContext(ioDispatcher) {
+            launch {
+                try {
+                    val remoteSprints = sprintRemoteDataSource.getAllSprints()
+                    val entitySprints = remoteSprints.map { sprintMapper.mapToEntity(it) }
+                    sprintLocalDataSource.insertSprints(entitySprints)
+                    Timber.d("Successfully synced ${remoteSprints.size} sprints with remote")
+                } catch (e: Exception) {
+                    Timber.e(e, "Error syncing sprints with remote")
+                    // Continue with local data - offline-first approach
+                }
+            }
+        }
+    }
+
+    override fun getActiveSprintAtDate(date: LocalDate): Flow<Sprint?> {
+        // Try to fetch the active sprint for this date from remote
+        syncActiveSprintAtDate(date)
+        
+        // Return local data immediately for responsive UI
+        return sprintLocalDataSource.observeActiveSprintAtDate(date)
+            .map { sprintEntity -> sprintEntity?.let { sprintMapper.mapToDomain(it) } }
+            .flowOn(ioDispatcher)
     }
     
-    companion object {
-        private const val TAG = "SprintRepositoryImpl"
+    private fun syncActiveSprintAtDate(date: LocalDate) {
+        withContext(ioDispatcher) {
+            launch {
+                try {
+                    val remoteSprint = sprintRemoteDataSource.getActiveSprintAtDate(date)
+                    if (remoteSprint != null) {
+                        val entitySprint = sprintMapper.mapToEntity(remoteSprint)
+                        sprintLocalDataSource.insertSprint(entitySprint)
+                        Timber.d("Successfully synced active sprint for date $date from remote")
+                    }
+                } catch (e: Exception) {
+                    Timber.e(e, "Error syncing active sprint for date $date from remote")
+                    // Continue with local data - offline-first approach
+                }
+            }
+        }
+    }
+
+    override fun getSprintsInRange(startDate: LocalDate, endDate: LocalDate): Flow<List<Sprint>> {
+        // Try to sync sprints in this date range from remote
+        syncSprintsInRange(startDate, endDate)
+        
+        // Return local data immediately for responsive UI
+        return sprintLocalDataSource.observeSprintsInRange(startDate, endDate)
+            .map { sprintEntities -> sprintEntities.map { sprintMapper.mapToDomain(it) } }
+            .flowOn(ioDispatcher)
+    }
+    
+    private fun syncSprintsInRange(startDate: LocalDate, endDate: LocalDate) {
+        withContext(ioDispatcher) {
+            launch {
+                try {
+                    val remoteSprints = sprintRemoteDataSource.getSprintsInRange(startDate, endDate)
+                    val entitySprints = remoteSprints.map { sprintMapper.mapToEntity(it) }
+                    sprintLocalDataSource.insertSprints(entitySprints)
+                    Timber.d("Successfully synced ${remoteSprints.size} sprints in range $startDate to $endDate from remote")
+                } catch (e: Exception) {
+                    Timber.e(e, "Error syncing sprints in range $startDate to $endDate from remote")
+                    // Continue with local data - offline-first approach
+                }
+            }
+        }
+    }
+
+    override suspend fun getSprintById(sprintId: String): Result<Sprint> = withContext(ioDispatcher) {
+        try {
+            // First try to get from local database
+            var sprintEntity = sprintLocalDataSource.getSprintById(sprintId)
+            
+            // If not found locally or we need the latest data, try remote
+            if (sprintEntity == null) {
+                try {
+                    val remoteSprint = sprintRemoteDataSource.getSprintById(sprintId)
+                    if (remoteSprint != null) {
+                        // Found on remote, save to local database
+                        val entity = sprintMapper.mapToEntity(remoteSprint)
+                        sprintLocalDataSource.insertSprint(entity)
+                        sprintEntity = entity
+                    }
+                } catch (e: Exception) {
+                    Timber.e(e, "Error fetching sprint from remote: $sprintId")
+                    // Continue with local data (which might be null)
+                }
+            }
+            
+            sprintEntity?.let {
+                Result.success(sprintMapper.mapToDomain(it))
+            } ?: Result.failure(NoSuchElementException("Sprint not found with ID: $sprintId"))
+        } catch (e: Exception) {
+            Timber.e(e, "Error getting sprint: $sprintId")
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun createSprint(sprint: Sprint): Result<Sprint> = withContext(ioDispatcher) {
+        try {
+            // First save to local database for immediate update to UI
+            val sprintEntity = sprintMapper.mapToEntity(sprint)
+            val insertedId = sprintLocalDataSource.insertSprint(sprintEntity)
+            val insertedSprint = sprint.copy(id = insertedId)
+            
+            // Then try to synchronize with remote in the background
+            launch {
+                try {
+                    val remoteSprint = sprintRemoteDataSource.createSprint(insertedSprint)
+                    // Update local cache with remote response (might contain additional server-side data)
+                    val updatedEntity = sprintMapper.mapToEntity(remoteSprint)
+                    sprintLocalDataSource.updateSprint(updatedEntity)
+                    Timber.d("Successfully synchronized sprint creation with remote: $insertedId")
+                } catch (e: Exception) {
+                    Timber.e(e, "Failed to sync sprint creation with remote: $insertedId")
+                    // Continue with local data - offline-first approach
+                    // May need to implement a sync queue for retry logic in a production app
+                }
+            }
+            
+            Result.success(insertedSprint)
+        } catch (e: Exception) {
+            Timber.e(e, "Error creating sprint: ${sprint.name}")
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun updateSprint(sprint: Sprint): Result<Sprint> = withContext(ioDispatcher) {
+        try {
+            // First update local database for immediate update to UI
+            val sprintEntity = sprintMapper.mapToEntity(sprint)
+            sprintLocalDataSource.updateSprint(sprintEntity)
+            
+            // Then try to synchronize with remote in the background
+            launch {
+                try {
+                    val remoteSprint = sprintRemoteDataSource.updateSprint(sprint)
+                    // Update local cache with remote response (might contain additional server-side data)
+                    val updatedEntity = sprintMapper.mapToEntity(remoteSprint)
+                    sprintLocalDataSource.updateSprint(updatedEntity)
+                    Timber.d("Successfully synchronized sprint update with remote: ${sprint.id}")
+                } catch (e: Exception) {
+                    Timber.e(e, "Failed to sync sprint update with remote: ${sprint.id}")
+                    // Continue with local data - offline-first approach
+                    // May need to implement a sync queue for retry logic in a production app
+                }
+            }
+            
+            Result.success(sprint)
+        } catch (e: Exception) {
+            Timber.e(e, "Error updating sprint: ${sprint.id}")
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun deleteSprint(sprintId: String): Result<Boolean> = withContext(ioDispatcher) {
+        try {
+            // First delete from local database for immediate update to UI
+            sprintLocalDataSource.deleteSprint(sprintId)
+            
+            // Then try to synchronize with remote in the background
+            launch {
+                try {
+                    val remoteResult = sprintRemoteDataSource.deleteSprint(sprintId)
+                    if (remoteResult) {
+                        Timber.d("Successfully synchronized sprint deletion with remote: $sprintId")
+                    } else {
+                        Timber.w("Remote deletion returned false for sprint: $sprintId")
+                        // This might indicate that the sprint doesn't exist remotely
+                        // or couldn't be deleted due to constraints
+                    }
+                } catch (e: Exception) {
+                    Timber.e(e, "Failed to sync sprint deletion with remote: $sprintId")
+                    // Continue with local deletion - offline-first approach
+                    // May need to implement a sync queue for retry logic in a production app
+                }
+            }
+            
+            Result.success(true)
+        } catch (e: Exception) {
+            Timber.e(e, "Error deleting sprint: $sprintId")
+            Result.failure(e)
+        }
+    }
+
+    // Note: Sprint review functionality is stubbed for now
+    // We'll implement it properly when we add sprint review features
+    override suspend fun createSprintReview(sprintId: String, review: SprintReview): Result<SprintReview> {
+        return Result.failure(NotImplementedError("Sprint review functionality not yet implemented"))
+    }
+
+    override suspend fun getSprintReview(sprintId: String): Result<SprintReview> {
+        return Result.failure(NotImplementedError("Sprint review functionality not yet implemented"))
     }
 }

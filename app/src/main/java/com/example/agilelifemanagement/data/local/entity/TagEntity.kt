@@ -1,30 +1,16 @@
 package com.example.agilelifemanagement.data.local.entity
 
 import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
- * Tag entity for the Room database.
+ * Room entity representing a tag in the local database.
+ * Tags are used to categorize and filter tasks.
  */
-@Entity(
-    tableName = "tags",
-    foreignKeys = [
-        ForeignKey(
-            entity = UserEntity::class,
-            parentColumns = ["id"],
-            childColumns = ["userId"],
-            onDelete = ForeignKey.CASCADE
-        )
-    ],
-    indices = [Index("userId")]
-)
+@Entity(tableName = "tags")
 data class TagEntity(
     @PrimaryKey
     val id: String,
     val name: String,
-    val color: String,
-    val userId: String,
-    val createdAt: Long
+    val color: String
 )

@@ -1,0 +1,314 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/MainActivity.kt</file>
+  <line>67</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.MainActivityKt void AgileLifeManagementApp()" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>NavDestinations.Day.route</highlighted_element>
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>25</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/MainActivity.kt</file>
+  <line>68</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.MainActivityKt void AgileLifeManagementApp()" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>NavDestinations.Sprints.route</highlighted_element>
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>29</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/MainActivity.kt</file>
+  <line>69</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.MainActivityKt void AgileLifeManagementApp()" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>NavDestinations.Goals.route</highlighted_element>
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>27</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/MainActivity.kt</file>
+  <line>70</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.MainActivityKt void AgileLifeManagementApp()" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>NavDestinations.Tasks.route</highlighted_element>
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>27</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/StorageSyncManager.kt</file>
+  <line>151</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.StorageSyncManager java.lang.Object uploadFile(android.net.Uri uri, java.lang.String bucketName, java.lang.String path, java.lang.String contentType, boolean overwriteExisting, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends java.lang.String&gt;&gt; $completion)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>Condition 'e !is CancellationException' is always true</description>
+  <highlighted_element>e !is CancellationException</highlighted_element>
+  <language>kotlin</language>
+  <offset>20</offset>
+  <length>27</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>120</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager java.lang.Object subscribeToTasks(java.lang.String userId, kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>is String</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>163</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager java.lang.Object subscribeToSprints(java.lang.String userId, kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>is String</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>205</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager java.lang.Object subscribeToGoals(java.lang.String userId, kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>is String</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/repository/CategoryRepositoryImpl.kt</file>
+  <line>67</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.CategoryRepositoryImpl java.lang.Object getCategoryById(java.lang.String categoryId, kotlin.coroutines.Continuation&lt;? super kotlin.Result&lt;? extends com.example.agilelifemanagement.domain.model.ActivityCategory&gt;&gt; $completion)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>Condition 'categoryEntity == null' is always false</description>
+  <highlighted_element>categoryEntity == null</highlighted_element>
+  <language>kotlin</language>
+  <offset>16</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/dashboard/GetDashboardSummaryUseCase.kt</file>
+  <line>73</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dashboard</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.dashboard.GetDashboardSummaryUseCase kotlinx.coroutines.flow.Flow&lt;com.example.agilelifemanagement.domain.usecase.dashboard.GetDashboardSummaryUseCase.DashboardSummary&gt; invoke()" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>Condition 'task.dueDate != null' is always true when reached</description>
+  <highlighted_element>task.dueDate != null</highlighted_element>
+  <language>kotlin</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/DayViewModel.kt</file>
+  <line>100</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.day.viewmodel.DayViewModel void addActivity(com.example.agilelifemanagement.domain.model.DayActivity activity)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>is Result.Success</highlighted_element>
+  <language>kotlin</language>
+  <offset>16</offset>
+  <length>17</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/DayViewModel.kt</file>
+  <line>104</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.day.viewmodel.DayViewModel void addActivity(com.example.agilelifemanagement.domain.model.DayActivity activity)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>is Result.Error</highlighted_element>
+  <language>kotlin</language>
+  <offset>16</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/WeekViewModel.kt</file>
+  <line>164</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.day.viewmodel.WeekViewModel void addActivity(com.example.agilelifemanagement.domain.model.DayActivity activity)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>is Result.Success</highlighted_element>
+  <language>kotlin</language>
+  <offset>16</offset>
+  <length>17</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/WeekViewModel.kt</file>
+  <line>168</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.day.viewmodel.WeekViewModel void addActivity(com.example.agilelifemanagement.domain.model.DayActivity activity)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>is Result.Error</highlighted_element>
+  <language>kotlin</language>
+  <offset>16</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>305</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.task.TaskListScreenWithViewModelKt void TaskItem(com.example.agilelifemanagement.domain.model.Task task, kotlin.jvm.functions.Function0&lt;kotlin.Unit&gt; onClick, kotlin.jvm.functions.Function1&lt;? super com.example.agilelifemanagement.domain.model.TaskStatus,kotlin.Unit&gt; onStatusChange, androidx.compose.ui.Modifier modifier)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>Condition 'task.priority == &quot;HIGH&quot;' is always false</description>
+  <highlighted_element>task.priority == &quot;HIGH&quot;</highlighted_element>
+  <language>kotlin</language>
+  <offset>16</offset>
+  <length>23</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>366</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.task.TaskListScreenWithViewModelKt void TaskItem(com.example.agilelifemanagement.domain.model.Task task, kotlin.jvm.functions.Function0&lt;kotlin.Unit&gt; onClick, kotlin.jvm.functions.Function1&lt;? super com.example.agilelifemanagement.domain.model.TaskStatus,kotlin.Unit&gt; onStatusChange, androidx.compose.ui.Modifier modifier)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>TaskStatus.IN_PROGRESS</highlighted_element>
+  <language>kotlin</language>
+  <offset>36</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>377</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.task.TaskListScreenWithViewModelKt void TaskItem(com.example.agilelifemanagement.domain.model.Task task, kotlin.jvm.functions.Function0&lt;kotlin.Unit&gt; onClick, kotlin.jvm.functions.Function1&lt;? super com.example.agilelifemanagement.domain.model.TaskStatus,kotlin.Unit&gt; onStatusChange, androidx.compose.ui.Modifier modifier)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>TaskStatus.IN_PROGRESS</highlighted_element>
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>419</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.task.TaskListScreenWithViewModelKt void TaskItem(com.example.agilelifemanagement.domain.model.Task task, kotlin.jvm.functions.Function0&lt;kotlin.Unit&gt; onClick, kotlin.jvm.functions.Function1&lt;? super com.example.agilelifemanagement.domain.model.TaskStatus,kotlin.Unit&gt; onStatusChange, androidx.compose.ui.Modifier modifier)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>&quot;HIGH&quot;</highlighted_element>
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>420</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.task.TaskListScreenWithViewModelKt void TaskItem(com.example.agilelifemanagement.domain.model.Task task, kotlin.jvm.functions.Function0&lt;kotlin.Unit&gt; onClick, kotlin.jvm.functions.Function1&lt;? super com.example.agilelifemanagement.domain.model.TaskStatus,kotlin.Unit&gt; onStatusChange, androidx.compose.ui.Modifier modifier)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>&quot;MEDIUM&quot;</highlighted_element>
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/TaskViewModel.kt</file>
+  <line>406</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.TaskViewModel java.util.List&lt;com.example.agilelifemanagement.domain.model.Task&gt; applyFiltersAndSort(java.util.List&lt;com.example.agilelifemanagement.domain.model.Task&gt; tasks)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>Condition 'task.priority == &quot;HIGH&quot;' is always false</description>
+  <highlighted_element>task.priority == &quot;HIGH&quot;</highlighted_element>
+  <language>kotlin</language>
+  <offset>56</offset>
+  <length>23</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/TaskViewModel.kt</file>
+  <line>407</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.TaskViewModel java.util.List&lt;com.example.agilelifemanagement.domain.model.Task&gt; applyFiltersAndSort(java.util.List&lt;com.example.agilelifemanagement.domain.model.Task&gt; tasks)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>Condition 'task.priority == &quot;MEDIUM&quot;' is always false</description>
+  <highlighted_element>task.priority == &quot;MEDIUM&quot;</highlighted_element>
+  <language>kotlin</language>
+  <offset>58</offset>
+  <length>25</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/TaskViewModel.kt</file>
+  <line>408</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.TaskViewModel java.util.List&lt;com.example.agilelifemanagement.domain.model.Task&gt; applyFiltersAndSort(java.util.List&lt;com.example.agilelifemanagement.domain.model.Task&gt; tasks)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>Condition 'task.priority == &quot;LOW&quot;' is always false</description>
+  <highlighted_element>task.priority == &quot;LOW&quot;</highlighted_element>
+  <language>kotlin</language>
+  <offset>55</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/TaskViewModel.kt</file>
+  <line>411</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.TaskViewModel java.util.List&lt;com.example.agilelifemanagement.domain.model.Task&gt; applyFiltersAndSort(java.util.List&lt;com.example.agilelifemanagement.domain.model.Task&gt; tasks)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>Condition 'task.status == TaskStatus.IN_PROGRESS' is always false</description>
+  <highlighted_element>task.status == TaskStatus.IN_PROGRESS</highlighted_element>
+  <language>kotlin</language>
+  <offset>54</offset>
+  <length>37</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/ErrorHandler.kt</file>
+  <line>45</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.util</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.util.ErrorHandler com.example.agilelifemanagement.domain.model.Result&lt;T&gt; handleException(java.lang.Exception e, java.lang.String operation)" />
+  <problem_class id="KotlinConstantConditions" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Constant conditions</problem_class>
+  <description>'when' branch is never reachable</description>
+  <highlighted_element>is BadRequestRestException</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>26</length>
+</problem>
+</problems>

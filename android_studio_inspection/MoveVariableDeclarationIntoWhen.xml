@@ -1,0 +1,119 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/GoalRepositoryImpl.kt</file>
+  <line>107</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.GoalRepositoryImpl java.lang.Object insertGoal(com.example.agilelifemanagement.domain.model.Goal goal, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends java.lang.String&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>apiResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/GoalRepositoryImpl.kt</file>
+  <line>172</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.GoalRepositoryImpl java.lang.Object updateGoal(com.example.agilelifemanagement.domain.model.Goal goal, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>apiResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/GoalRepositoryImpl.kt</file>
+  <line>229</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.GoalRepositoryImpl java.lang.Object deleteGoal(java.lang.String id, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>apiResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintRepositoryImpl.kt</file>
+  <line>94</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.SprintRepositoryImpl java.lang.Object insertSprint(com.example.agilelifemanagement.domain.model.Sprint sprint, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends java.lang.String&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>apiResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintRepositoryImpl.kt</file>
+  <line>153</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.SprintRepositoryImpl java.lang.Object updateSprint(com.example.agilelifemanagement.domain.model.Sprint sprint, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>apiResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintRepositoryImpl.kt</file>
+  <line>194</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.SprintRepositoryImpl java.lang.Object deleteSprint(java.lang.String id, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>apiResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/TaskRepositoryImpl.kt</file>
+  <line>182</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.TaskRepositoryImpl java.lang.Object insertTask(com.example.agilelifemanagement.domain.model.Task task, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends java.lang.String&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>apiResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/TaskRepositoryImpl.kt</file>
+  <line>247</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.TaskRepositoryImpl java.lang.Object deleteTask(java.lang.String id, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>apiResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/CreateTaskUseCase.kt</file>
+  <line>85</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.CreateTaskUseCase java.lang.Object invoke(java.lang.String title, java.util.List&lt;java.lang.String&gt; description, java.time.LocalDate dueDate, com.example.agilelifemanagement.domain.model.Task.Priority priority, com.example.agilelifemanagement.domain.model.Task.Status status, java.lang.String sprintId, java.lang.String goalId, int estimatedEffort, java.util.List&lt;java.lang.String&gt; tags, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends java.lang.String&gt;&gt; $completion)" />
+  <problem_class id="MoveVariableDeclarationIntoWhen" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Variable declaration could be moved inside 'when'</problem_class>
+  <description>Variable declaration could be moved into 'when'</description>
+  <highlighted_element>insertResult</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>12</length>
+</problem>
+</problems>

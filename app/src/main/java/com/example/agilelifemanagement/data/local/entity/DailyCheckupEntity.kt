@@ -1,38 +1,25 @@
 package com.example.agilelifemanagement.data.local.entity
 
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import java.time.LocalDate
 
 /**
- * DailyCheckup entity for the Room database.
+ * Room entity representing a daily wellness checkup in the local database.
+ * Used to track daily wellness metrics and self-assessment.
  */
 @Entity(
     tableName = "daily_checkups",
-    foreignKeys = [
-        ForeignKey(
-            entity = SprintEntity::class,
-            parentColumns = ["id"],
-            childColumns = ["sprintId"],
-            onDelete = ForeignKey.CASCADE
-        ),
-        ForeignKey(
-            entity = UserEntity::class,
-            parentColumns = ["id"],
-            childColumns = ["userId"],
-            onDelete = ForeignKey.CASCADE
-        )
-    ],
-    indices = [Index("sprintId"), Index("userId")]
+    indices = [Index("date", unique = true)]
 )
 data class DailyCheckupEntity(
     @PrimaryKey
     val id: String,
-    val date: Long,
-    val sprintId: String,
-    val userId: String,
-    val notes: String?,
-    val createdAt: Long,
-    val updatedAt: Long
+    val date: LocalDate,
+    val moodRating: Int, // Scale typically 1-5 or 1-10
+    val sleepQuality: Int, // Scale typically 1-5 or 1-10
+    val stressLevel: Int, // Scale typically 1-5 or 1-10
+    val energyLevel: Int, // Scale typically 1-5 or 1-10
+    val notes: String
 )

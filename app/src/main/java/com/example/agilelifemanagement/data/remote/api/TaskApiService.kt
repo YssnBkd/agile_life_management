@@ -1,209 +1,67 @@
 package com.example.agilelifemanagement.data.remote.api
 
-import android.util.Log
-import com.example.agilelifemanagement.data.remote.SupabaseManager
-import com.example.agilelifemanagement.data.remote.dto.TaskDto
-import com.example.agilelifemanagement.domain.model.Result
-import io.github.jan.supabase.postgrest.postgrest
-import io.github.jan.supabase.postgrest.query.Columns
-import io.github.jan.supabase.postgrest.query.Order
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import javax.inject.Inject
-import javax.inject.Singleton
+import com.example.agilelifemanagement.data.remote.model.TaskDto
+import com.example.agilelifemanagement.domain.model.TaskStatus
+import java.time.LocalDate
 
 /**
- * API service for Task operations with Supabase.
- * Implements security best practices according to the app's security implementation guidelines.
+ * Service interface for task-related API operations.
  */
-@Singleton
-class TaskApiService @Inject constructor(
-    private val supabaseManager: SupabaseManager
-) {
-    private val tableName = "tasks"
+interface TaskApiService {
     
     /**
-     * Get a task by ID from Supabase.
+     * Get all tasks from the API.
+     * @return List of task DTOs
      */
-    suspend fun getTaskById(taskId: String): Result<TaskDto> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            val task = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("id", taskId)
-                    }
-                }
-                .decodeSingle<TaskDto>()
-            
-            Result.Success(task)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error getting task by ID: ${e.message}", e)
-            Result.Error("Failed to get task: ${e.message}", e)
-        }
-    }
+    suspend fun getAllTasks(): List<TaskDto>
     
     /**
-     * Get all tasks for a user from Supabase.
+     * Get a specific task by ID from the API.
+     * @param taskId The task identifier
+     * @return The task DTO if found, or null
      */
-    suspend fun getTasksByUserId(userId: String): Result<List<TaskDto>> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            val tasks = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("user_id", userId)
-                    }
-                    order("due_date", Order.ASCENDING)
-                }
-                .decodeList<TaskDto>()
-            
-            Result.Success(tasks)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error getting tasks for user: ${e.message}", e)
-            Result.Error("Failed to get tasks: ${e.message}", e)
-        }
-    }
+    suspend fun getTaskById(taskId: String): TaskDto?
     
     /**
-     * Get tasks by priority for a user from Supabase.
+     * Get tasks for a specific sprint from the API.
+     * @param sprintId The sprint identifier
+     * @return List of task DTOs in the specified sprint
      */
-    suspend fun getTasksByPriority(userId: String, priority: Int): Result<List<TaskDto>> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            val tasks = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("user_id", userId)
-                        eq("priority", priority)
-                    }
-                    order("due_date", Order.ASCENDING)
-                }
-                .decodeList<TaskDto>()
-            
-            Result.Success(tasks)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error getting tasks by priority: ${e.message}", e)
-            Result.Error("Failed to get tasks by priority: ${e.message}", e)
-        }
-    }
+    suspend fun getTasksBySprintId(sprintId: String): List<TaskDto>
     
     /**
-     * Get tasks by status for a user from Supabase.
+     * Get tasks due on a specific date from the API.
+     * @param date The date to filter by
+     * @return List of task DTOs due on the specified date
      */
-    suspend fun getTasksByStatus(userId: String, status: Int): Result<List<TaskDto>> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            val tasks = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("user_id", userId)
-                        eq("status", status)
-                    }
-                    order("due_date", Order.ASCENDING)
-                }
-                .decodeList<TaskDto>()
-            
-            Result.Success(tasks)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error getting tasks by status: ${e.message}", e)
-            Result.Error("Failed to get tasks by status: ${e.message}", e)
-        }
-    }
+    suspend fun getTasksByDate(date: LocalDate): List<TaskDto>
     
     /**
-     * Get tasks due by a specific date for a user from Supabase.
+     * Create a new task in the API.
+     * @param task The task DTO to create
+     * @return The created task DTO with its assigned ID
      */
-    suspend fun getTasksDueByDate(userId: String, dueDate: Long): Result<List<TaskDto>> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            val tasks = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("user_id", userId)
-                        lte("due_date", dueDate)
-                        eq("status", 0) // Not completed
-                    }
-                    order("priority", Order.DESCENDING)
-                }
-                .decodeList<TaskDto>()
-            
-            Result.Success(tasks)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error getting tasks due by date: ${e.message}", e)
-            Result.Error("Failed to get tasks due by date: ${e.message}", e)
-        }
-    }
+    suspend fun createTask(task: TaskDto): TaskDto
     
     /**
-     * Create or update a task in Supabase.
+     * Update an existing task in the API.
+     * @param task The updated task DTO
+     * @return The updated task DTO
      */
-    suspend fun upsertTask(taskDto: TaskDto): Result<TaskDto> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            
-            val exists = client.postgrest[tableName]
-                .select() {
-                    filter {
-                        eq("id", taskDto.id)
-                    }
-                }
-                .decodeList<TaskDto>()
-                .isNotEmpty()
-            
-            if (exists) {
-                // Update existing task
-                client.postgrest[tableName]
-                    .update({
-                        set("title", taskDto.title)
-                        set("summary", taskDto.summary)
-                        set("due_date", taskDto.due_date)
-                        set("priority", taskDto.priority)
-                        set("status", taskDto.status)
-                        set("estimated_effort", taskDto.estimated_effort)
-                        set("actual_effort", taskDto.actual_effort)
-                        set("is_recurring", taskDto.is_recurring)
-                        set("recurring_pattern", taskDto.recurring_pattern)
-                        set("updated_at", System.currentTimeMillis())
-                    }) {
-                        filter {
-                            eq("id", taskDto.id)
-                        }
-                    }
-            } else {
-                // Insert new task
-                client.postgrest[tableName]
-                    .insert(taskDto)
-            }
-            
-            Result.Success(taskDto)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error upserting task: ${e.message}", e)
-            Result.Error("Failed to save task: ${e.message}", e)
-        }
-    }
+    suspend fun updateTask(task: TaskDto): TaskDto
     
     /**
-     * Delete a task from Supabase.
+     * Delete a task from the API.
+     * @param taskId The ID of the task to delete
+     * @return True if the task was successfully deleted
      */
-    suspend fun deleteTask(taskId: String): Result<Unit> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val client = supabaseManager.getClient()
-            client.postgrest[tableName]
-                .delete {
-                    filter {
-                        eq("id", taskId)
-                    }
-                }
-            
-            Result.Success(Unit)
-        } catch (e: Exception) {
-            Log.e(TAG, "Error deleting task: ${e.message}", e)
-            Result.Error("Failed to delete task: ${e.message}", e)
-        }
-    }
+    suspend fun deleteTask(taskId: String): Boolean
     
-    companion object {
-        private const val TAG = "TaskApiService"
-    }
+    /**
+     * Update the status of a task in the API.
+     * @param taskId The ID of the task to update
+     * @param status The new status
+     * @return The updated task DTO
+     */
+    suspend fun updateTaskStatus(taskId: String, status: TaskStatus): TaskDto
 }

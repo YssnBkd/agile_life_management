@@ -20,10 +20,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.agilelifemanagement.ui.navigation.AppNavHost
-import com.example.agilelifemanagement.ui.navigation.BottomNavBar
-import com.example.agilelifemanagement.ui.navigation.NavRoutes
-import com.example.agilelifemanagement.ui.theme.AgileLifeManagementTheme
+import com.example.agilelifemanagement.ui.navigation.AgileLifeNavHost
+import com.example.agilelifemanagement.ui.navigation.AgileLifeBottomNavigation
+import com.example.agilelifemanagement.ui.navigation.NavDestinations
+import com.example.agilelifemanagement.ui.theme.AgileLifeTheme
 
 @dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AgileLifeManagementTheme {
+            AgileLifeTheme {
                 AgileLifeManagementApp()
             }
         }
@@ -48,26 +48,26 @@ fun AgileLifeManagementApp() {
         modifier = Modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         bottomBar = {
-            BottomNavBar(navController = navController)
+            AgileLifeBottomNavigation(navController = navController)
         },
         floatingActionButton = {
             // Show FAB only on main screens
             val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
             if (currentRoute in listOf(
-                    NavRoutes.CALENDAR,
-                    NavRoutes.SPRINTS,
-                    NavRoutes.GOALS,
-                    NavRoutes.TASKS
+                    NavDestinations.Day.route,
+                    NavDestinations.Sprints.route,
+                    NavDestinations.Goals.route,
+                    NavDestinations.Tasks.route
                 )
             ) {
                 FloatingActionButton(
                     onClick = {
                         // Action based on current screen
                         when (currentRoute) {
-                            NavRoutes.CALENDAR -> { /* Add calendar event */ }
-                            NavRoutes.SPRINTS -> { /* Create new sprint */ }
-                            NavRoutes.GOALS -> { /* Create new goal */ }
-                            NavRoutes.TASKS -> { /* Create new task */ }
+                            NavDestinations.Day.route -> { /* Add calendar event */ }
+                            NavDestinations.Sprints.route -> { /* Create new sprint */ }
+                            NavDestinations.Goals.route -> { /* Create new goal */ }
+                            NavDestinations.Tasks.route -> { /* Create new task */ }
                         }
                     }
                 ) {
@@ -84,8 +84,9 @@ fun AgileLifeManagementApp() {
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            AppNavHost(
+            AgileLifeNavHost(
                 navController = navController,
+                paddingValues = innerPadding,
                 modifier = Modifier.fillMaxSize()
             )
         }

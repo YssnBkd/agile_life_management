@@ -1,51 +1,25 @@
 package com.example.agilelifemanagement.domain.usecase.goal
 
 import com.example.agilelifemanagement.domain.model.Goal
-import com.example.agilelifemanagement.domain.model.Result
 import com.example.agilelifemanagement.domain.repository.GoalRepository
-import java.time.LocalDate
 import javax.inject.Inject
 
 /**
- * Use case for creating a new goal with validation.
+ * Use case for creating a new goal.
+ * 
+ * This use case follows the offline-first approach by immediately saving to local storage
+ * and synchronizing with remote sources in the background.
  */
 class CreateGoalUseCase @Inject constructor(
     private val goalRepository: GoalRepository
 ) {
     /**
-     * Create a new goal with validation.
-     *
-     * @param title The title of the goal (required).
-     * @param description The description of the goal (optional).
-     * @param category The category of the goal (default: PERSONAL).
-     * @param deadline The deadline of the goal (optional).
-     * @param isCompleted Whether the goal is completed (default: false).
-     * @return Result containing the ID of the created goal or an error.
+     * Creates a new goal in the system.
+     * 
+     * @param goal The goal to be created
+     * @return Result containing the created goal with its generated ID if successful, or an error
      */
-    suspend operator fun invoke(
-        title: String,
-        description: List<String> = emptyList(),
-        tags: List<String> = emptyList(),
-        category: Goal.Category = Goal.Category.PERSONAL,
-        deadline: LocalDate? = null,
-        isCompleted: Boolean = false
-    ): Result<String> {
-        // Validation
-        if (title.isBlank()) {
-            return Result.Error("Goal title cannot be empty")
-        }
-        
-        // Create goal
-        val goal = Goal(
-            title = title,
-            description = description,
-            category = category,
-            deadline = deadline,
-            progress = if (isCompleted) 1f else 0f,
-            isCompleted = isCompleted
-        )
-        
-        // GoalRepository.insertGoal already returns a Result<String>, so we don't need to wrap it again
-        return goalRepository.insertGoal(goal)
+    suspend operator fun invoke(goal: Goal): Result<Goal> {
+        return goalRepository.createGoal(goal)
     }
 }

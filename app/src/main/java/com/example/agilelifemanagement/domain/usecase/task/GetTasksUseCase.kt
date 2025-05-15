@@ -6,50 +6,18 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
- * Use case for retrieving all tasks with optional filtering.
+ * Use case for retrieving all tasks.
+ * This use case follows the offline-first approach by immediately providing local data
+ * while syncing with remote sources in the background.
  */
 class GetTasksUseCase @Inject constructor(
     private val taskRepository: TaskRepository
 ) {
     /**
-     * Get all tasks.
+     * Gets a Flow of all tasks, automatically updated when the repository data changes.
+     * @return A Flow emitting lists of all tasks when changes occur
      */
     operator fun invoke(): Flow<List<Task>> {
-        return taskRepository.getTasks()
-    }
-    
-    /**
-     * Get tasks filtered by status.
-     */
-    fun byStatus(status: Task.Status): Flow<List<Task>> {
-        return taskRepository.getTasksByStatus(status)
-    }
-    
-    /**
-     * Get tasks filtered by priority.
-     */
-    fun byPriority(priority: Task.Priority): Flow<List<Task>> {
-        return taskRepository.getTasksByPriority(priority)
-    }
-    
-    /**
-     * Get tasks for a specific sprint.
-     */
-    fun bySprintId(sprintId: String): Flow<List<Task>> {
-        return taskRepository.getTasksBySprintId(sprintId)
-    }
-    
-    /**
-     * Get tasks for a specific goal.
-     */
-    fun byGoalId(goalId: String): Flow<List<Task>> {
-        return taskRepository.getTasksByGoalId(goalId)
-    }
-    
-    /**
-     * Get tasks with a specific tag.
-     */
-    fun byTag(tagId: String): Flow<List<Task>> {
-        return taskRepository.getTasksByTag(tagId)
+        return taskRepository.getAllTasks()
     }
 }

@@ -11,13 +11,7 @@ import javax.inject.Inject
 class GetSprintByIdUseCase @Inject constructor(
     private val sprintRepository: SprintRepository
 ) {
-    /**
-     * Get a sprint by its ID.
-     *
-     * @param id The unique identifier of the sprint.
-     * @return Flow emitting the sprint if found, or null if not found.
-     */
-    operator fun invoke(id: String): Flow<Sprint?> {
-        return sprintRepository.getSprintById(id)
+    operator fun invoke(sprintId: String): Flow<Sprint?> {
+        return sprintRepository.getSprintById(sprintId)
     }
 }

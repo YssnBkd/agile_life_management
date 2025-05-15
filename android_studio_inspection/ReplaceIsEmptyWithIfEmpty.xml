@@ -1,0 +1,80 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toGoalDto.kt</file>
+  <line>19</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mappers.ToGoalDtoKt com.example.agilelifemanagement.data.remote.dto.GoalDto toDto(com.example.agilelifemanagement.domain.model.Goal $this$toDto, java.lang.String userId, long currentTimeMillis)" />
+  <problem_class id="ReplaceIsEmptyWithIfEmpty" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">'if' condition can be replaced with lambda call</problem_class>
+  <description>Replace with 'ifEmpty {...}'</description>
+  <highlighted_element>isEmpty</highlighted_element>
+  <language>kotlin</language>
+  <offset>34</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toGoalEntity.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mappers.ToGoalEntityKt com.example.agilelifemanagement.data.local.entity.GoalEntity toEntity(com.example.agilelifemanagement.domain.model.Goal $this$toEntity, java.lang.String userId, long currentTimeMillis)" />
+  <problem_class id="ReplaceIsEmptyWithIfEmpty" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">'if' condition can be replaced with lambda call</problem_class>
+  <description>Replace with 'ifEmpty {...}'</description>
+  <highlighted_element>isEmpty</highlighted_element>
+  <language>kotlin</language>
+  <offset>34</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintEntity.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mappers.ToSprintEntityKt com.example.agilelifemanagement.data.local.entity.SprintEntity toEntity(com.example.agilelifemanagement.domain.model.Sprint $this$toEntity, java.lang.String userId, long currentTimeMillis)" />
+  <problem_class id="ReplaceIsEmptyWithIfEmpty" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">'if' condition can be replaced with lambda call</problem_class>
+  <description>Replace with 'ifEmpty {...}'</description>
+  <highlighted_element>isEmpty</highlighted_element>
+  <language>kotlin</language>
+  <offset>34</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTaskDto.kt</file>
+  <line>26</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mappers.ToTaskDtoKt com.example.agilelifemanagement.data.remote.dto.TaskDto toDto(com.example.agilelifemanagement.domain.model.Task $this$toDto, java.lang.String userId, long currentTimeMillis)" />
+  <problem_class id="ReplaceIsEmptyWithIfEmpty" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">'if' condition can be replaced with lambda call</problem_class>
+  <description>Replace with 'ifEmpty {...}'</description>
+  <highlighted_element>isEmpty</highlighted_element>
+  <language>kotlin</language>
+  <offset>34</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTaskEntity.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mappers.ToTaskEntityKt com.example.agilelifemanagement.data.local.entity.TaskEntity toEntity(com.example.agilelifemanagement.domain.model.Task $this$toEntity, java.lang.String userId, long currentTimeMillis)" />
+  <problem_class id="ReplaceIsEmptyWithIfEmpty" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">'if' condition can be replaced with lambda call</problem_class>
+  <description>Replace with 'ifEmpty {...}'</description>
+  <highlighted_element>isEmpty</highlighted_element>
+  <language>kotlin</language>
+  <offset>34</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintRepositoryImpl.kt</file>
+  <line>132</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.SprintRepositoryImpl java.lang.Object updateSprint(com.example.agilelifemanagement.domain.model.Sprint sprint, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="ReplaceIsEmptyWithIfEmpty" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">'if' condition can be replaced with lambda call</problem_class>
+  <description>Replace with 'ifEmpty {...}'</description>
+  <highlighted_element>isEmpty</highlighted_element>
+  <language>kotlin</language>
+  <offset>53</offset>
+  <length>7</length>
+</problem>
+</problems>

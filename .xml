@@ -1,0 +1,3249 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/androidTest/java/com/example/agilelifemanagement/ExampleInstrumentedTest.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.androidTest</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.ExampleInstrumentedTest" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/androidTest/java/com/example/agilelifemanagement/ExampleInstrumentedTest.kt</file>
+  <line>18</line>
+  <module>AgileLifeManagement.app.androidTest</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ExampleInstrumentedTest void useAppContext()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>5</length>
+  <highlighted_element>@Test</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/AgileLifeApplication.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.AgileLifeApplication" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/AgileLifeApplication.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="field" FQNAME="com.example.agilelifemanagement.AgileLifeApplication applicationStartup" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>68</length>
+  <highlighted_element>// Inject ApplicationStartup to ensure real-time sync is initialized</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Field is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/MainActivity.kt</file>
+  <line>28</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.MainActivity" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>38</length>
+  <highlighted_element>@dagger.hilt.android.AndroidEntryPoint</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/AgileLifeDatabase.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.AgileLifeDatabase" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>10</length>
+  <highlighted_element>@Database(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Abstract&amp;nbsp;class is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.Converters" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>19</length>
+  <highlighted_element>object Converters {</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.Converters java.lang.String fromOffsetDateTime(java.time.OffsetDateTime value)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>14</length>
+  <highlighted_element>@TypeConverter</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt</file>
+  <line>20</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.Converters java.time.OffsetDateTime toOffsetDateTime(java.lang.String value)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>14</length>
+  <highlighted_element>@TypeConverter</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt</file>
+  <line>26</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.Converters java.lang.String fromStringList(java.util.List&lt;java.lang.String&gt; value)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>14</length>
+  <highlighted_element>@TypeConverter</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt</file>
+  <line>32</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.Converters java.util.List&lt;java.lang.String&gt; toStringList(java.lang.String value)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>14</length>
+  <highlighted_element>@TypeConverter</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/GoalTagCrossRefDao.kt</file>
+  <line>6</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.GoalTagCrossRefDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>4</length>
+  <highlighted_element>@Dao</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintTagCrossRefDao.kt</file>
+  <line>6</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.SprintTagCrossRefDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>4</length>
+  <highlighted_element>@Dao</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt</file>
+  <line>24</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.EdgeFunctionsManager EdgeFunctionsManager(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor, kotlinx.serialization.json.Json json)" />
+  <language>kotlin</language>
+  <offset>27</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/StorageSyncManager.kt</file>
+  <line>34</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.StorageSyncManager StorageSyncManager(android.content.Context context, com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor, com.example.agilelifemanagement.data.remote.SyncManager syncManager)" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt</file>
+  <line>44</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseManager SupabaseManager(com.example.agilelifemanagement.data.remote.auth.SupabaseConfig supabaseConfig, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor)" />
+  <language>kotlin</language>
+  <offset>22</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseConfig.kt</file>
+  <line>23</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseConfig SupabaseConfig(android.content.Context context)" />
+  <language>kotlin</language>
+  <offset>21</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>37</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager SupabaseRealtimeManager(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.data.local.dao.TaskDao taskDao, com.example.agilelifemanagement.data.local.dao.SprintDao sprintDao, com.example.agilelifemanagement.data.local.dao.GoalDao goalDao, com.example.agilelifemanagement.data.local.dao.TaskSprintCrossRefDao taskSprintCrossRefDao, com.example.agilelifemanagement.data.local.dao.TaskGoalCrossRefDao taskGoalCrossRefDao, com.example.agilelifemanagement.data.local.dao.GoalSprintCrossRefDao goalSprintCrossRefDao, com.example.agilelifemanagement.data.remote.SyncManager syncManager)" />
+  <language>kotlin</language>
+  <offset>30</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>43</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SyncManager SyncManager(com.example.agilelifemanagement.data.remote.api.UserApiService userApiService, com.example.agilelifemanagement.data.remote.api.SprintApiService sprintApiService, com.example.agilelifemanagement.data.remote.api.GoalApiService goalApiService, com.example.agilelifemanagement.data.remote.api.TaskApiService taskApiService, com.example.agilelifemanagement.data.local.dao.SyncStatusDao syncStatusDao, com.example.agilelifemanagement.data.local.dao.UserDao userDao, com.example.agilelifemanagement.data.local.dao.SprintDao sprintDao, com.example.agilelifemanagement.data.local.dao.GoalDao goalDao, com.example.agilelifemanagement.data.local.dao.TaskDao taskDao, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor, com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, kotlinx.serialization.json.Json json)" />
+  <language>kotlin</language>
+  <offset>18</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.DailyCheckupApiService DailyCheckupApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalApiService.kt</file>
+  <line>19</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.GoalApiService GoalApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>21</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.GoalSprintCrossRefApiService GoalSprintCrossRefApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>35</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.GoalTagCrossRefApiService GoalTagCrossRefApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.NotificationApiService NotificationApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt</file>
+  <line>22</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.SprintApiService SprintApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>23</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.SprintReviewApiService SprintReviewApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.SprintTagCrossRefApiService SprintTagCrossRefApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>34</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.TagApiService TagApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>20</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskApiService.kt</file>
+  <line>20</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.TaskApiService TaskApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>21</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.TaskDependencyApiService TaskDependencyApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>31</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskGoalCrossRefApiService.kt</file>
+  <line>20</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.TaskGoalCrossRefApiService TaskGoalCrossRefApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>33</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskSprintCrossRefApiService.kt</file>
+  <line>20</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.TaskSprintCrossRefApiService TaskSprintCrossRefApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>35</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.TaskTagCrossRefApiService TaskTagCrossRefApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/UserApiService.kt</file>
+  <line>20</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.api.UserApiService UserApiService(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager)" />
+  <language>kotlin</language>
+  <offset>21</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/auth/SupabaseConfig.kt</file>
+  <line>18</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.auth</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.auth.SupabaseConfig SupabaseConfig(androidx.datastore.core.DataStore&lt;androidx.datastore.preferences.core.Preferences&gt; dataStore)" />
+  <language>kotlin</language>
+  <offset>21</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/DailyCheckupRepositoryImpl.kt</file>
+  <line>23</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.DailyCheckupRepositoryImpl DailyCheckupRepositoryImpl(com.example.agilelifemanagement.data.local.dao.DailyCheckupDao dailyCheckupDao, com.example.agilelifemanagement.data.remote.api.DailyCheckupApiService dailyCheckupApiService, com.example.agilelifemanagement.data.remote.SyncManager syncManager, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor)" />
+  <language>kotlin</language>
+  <offset>33</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/GoalRepositoryImpl.kt</file>
+  <line>35</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.GoalRepositoryImpl GoalRepositoryImpl(com.example.agilelifemanagement.data.local.dao.GoalDao goalDao, com.example.agilelifemanagement.data.local.dao.GoalSprintCrossRefDao goalSprintCrossRefDao, com.example.agilelifemanagement.data.remote.api.GoalApiService goalApiService, com.example.agilelifemanagement.data.remote.api.GoalSprintCrossRefApiService goalSprintCrossRefApiService, com.example.agilelifemanagement.data.remote.SyncManager syncManager, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor, com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager realtimeManager)" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/NotificationRepositoryImpl.kt</file>
+  <line>25</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.NotificationRepositoryImpl NotificationRepositoryImpl(com.example.agilelifemanagement.data.local.dao.NotificationDao notificationDao, com.example.agilelifemanagement.data.remote.api.NotificationApiService notificationApiService, com.example.agilelifemanagement.data.remote.SyncManager syncManager, com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor)" />
+  <language>kotlin</language>
+  <offset>33</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintRepositoryImpl.kt</file>
+  <line>28</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.SprintRepositoryImpl SprintRepositoryImpl(com.example.agilelifemanagement.data.local.dao.SprintDao sprintDao, com.example.agilelifemanagement.data.remote.api.SprintApiService sprintApiService, com.example.agilelifemanagement.data.remote.SyncManager syncManager, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor, com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager realtimeManager)" />
+  <language>kotlin</language>
+  <offset>27</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintReviewRepositoryImpl.kt</file>
+  <line>22</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.SprintReviewRepositoryImpl SprintReviewRepositoryImpl(com.example.agilelifemanagement.data.local.dao.SprintReviewDao sprintReviewDao, com.example.agilelifemanagement.data.remote.api.SprintReviewApiService sprintReviewApiService, com.example.agilelifemanagement.data.remote.SyncManager syncManager, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor)" />
+  <language>kotlin</language>
+  <offset>33</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/TagRepositoryImpl.kt</file>
+  <line>27</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.TagRepositoryImpl TagRepositoryImpl(com.example.agilelifemanagement.data.local.dao.TagDao tagDao, com.example.agilelifemanagement.data.remote.api.TagApiService tagApiService, com.example.agilelifemanagement.data.remote.SyncManager syncManager, com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/TaskRepositoryImpl.kt</file>
+  <line>40</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.TaskRepositoryImpl TaskRepositoryImpl(com.example.agilelifemanagement.data.local.dao.TaskDao taskDao, com.example.agilelifemanagement.data.remote.api.TaskApiService taskApiService, com.example.agilelifemanagement.data.remote.SyncManager syncManager, com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager realtimeManager, com.example.agilelifemanagement.data.local.dao.TaskSprintCrossRefDao taskSprintCrossRefDao, com.example.agilelifemanagement.data.local.dao.TaskGoalCrossRefDao taskGoalCrossRefDao, com.example.agilelifemanagement.data.local.dao.TaskTagCrossRefDao taskTagCrossRefDao, com.example.agilelifemanagement.data.local.dao.TaskDependencyDao taskDependencyDao, com.example.agilelifemanagement.data.remote.api.TaskSprintCrossRefApiService taskSprintCrossRefApiService, com.example.agilelifemanagement.data.remote.api.TaskGoalCrossRefApiService taskGoalCrossRefApiService, com.example.agilelifemanagement.data.remote.api.TaskTagCrossRefApiService taskTagCrossRefApiService, com.example.agilelifemanagement.data.remote.api.TaskDependencyApiService taskDependencyApiService, com.example.agilelifemanagement.util.NetworkMonitor networkMonitor)" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/CreateDailyCheckupUseCase.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dailycheckup</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.dailycheckup.CreateDailyCheckupUseCase CreateDailyCheckupUseCase(com.example.agilelifemanagement.domain.repository.DailyCheckupRepository dailyCheckupRepository, com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/GetDailyCheckupUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dailycheckup</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.dailycheckup.GetDailyCheckupUseCase GetDailyCheckupUseCase(com.example.agilelifemanagement.domain.repository.DailyCheckupRepository dailyCheckupRepository)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/UpdateDailyCheckupUseCase.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dailycheckup</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.dailycheckup.UpdateDailyCheckupUseCase UpdateDailyCheckupUseCase(com.example.agilelifemanagement.domain.repository.DailyCheckupRepository dailyCheckupRepository, com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/AssignGoalToSprintUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.goal.AssignGoalToSprintUseCase AssignGoalToSprintUseCase(com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository, com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/CalculateGoalProgressUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.goal.CalculateGoalProgressUseCase CalculateGoalProgressUseCase(com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository, com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>35</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/GetTasksForGoalUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.goal.GetTasksForGoalUseCase GetTasksForGoalUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository, com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/GetActiveSprintUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprint.GetActiveSprintUseCase GetActiveSprintUseCase(com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/CreateSprintReviewUseCase.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprintreview</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprintreview.CreateSprintReviewUseCase CreateSprintReviewUseCase(com.example.agilelifemanagement.domain.repository.SprintReviewRepository sprintReviewRepository, com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/GetSprintReviewUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprintreview</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprintreview.GetSprintReviewUseCase GetSprintReviewUseCase(com.example.agilelifemanagement.domain.repository.SprintReviewRepository sprintReviewRepository)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/UpdateSprintReviewUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprintreview</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprintreview.UpdateSprintReviewUseCase UpdateSprintReviewUseCase(com.example.agilelifemanagement.domain.repository.SprintReviewRepository sprintReviewRepository)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/AssignTaskToGoalUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.AssignTaskToGoalUseCase AssignTaskToGoalUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository, com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository)" />
+  <language>kotlin</language>
+  <offset>30</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/AssignTaskToSprintUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.AssignTaskToSprintUseCase AssignTaskToSprintUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository, com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/ManageTaskDependenciesUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.ManageTaskDependenciesUseCase ManageTaskDependenciesUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>36</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/ManageTaskTagsUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.ManageTaskTagsUseCase ManageTaskTagsUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository, com.example.agilelifemanagement.domain.repository.TagRepository tagRepository)" />
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/AgileLifeDatabase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.AgileLifeDatabase" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Abstract&amp;nbsp;class is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/DailyCheckupDao.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.DailyCheckupDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/GoalDao.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.GoalDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/GoalSprintCrossRefDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.GoalSprintCrossRefDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/NotificationDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.NotificationDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/SprintDao.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.SprintDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/SprintReviewDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.SprintReviewDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/TagDao.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.TagDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/TaskDao.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.TaskDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/TaskDependencyDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.TaskDependencyDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/TaskGoalCrossRefDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.TaskGoalCrossRefDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/TaskSprintCrossRefDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.TaskSprintCrossRefDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/TaskTagCrossRefDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.TaskTagCrossRefDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/UserDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.local.dao.UserDao" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/ActivityCategoryLocalDataSource.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.ActivityCategoryLocalDataSource ActivityCategoryLocalDataSource(com.example.agilelifemanagement.data.local.dao.ActivityCategoryDao categoryDao)" />
+  <language>kotlin</language>
+  <offset>38</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/DailyCheckupLocalDataSource.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.DailyCheckupLocalDataSource DailyCheckupLocalDataSource(com.example.agilelifemanagement.data.local.dao.DailyCheckupDao checkupDao)" />
+  <language>kotlin</language>
+  <offset>34</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/DayActivityLocalDataSource.kt</file>
+  <line>15</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.DayActivityLocalDataSource DayActivityLocalDataSource(com.example.agilelifemanagement.data.local.dao.DayActivityDao dayActivityDao, com.example.agilelifemanagement.data.local.dao.DayActivityTemplateDao templateDao)" />
+  <language>kotlin</language>
+  <offset>33</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/GoalLocalDataSource.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.GoalLocalDataSource GoalLocalDataSource(com.example.agilelifemanagement.data.local.dao.GoalDao goalDao)" />
+  <language>kotlin</language>
+  <offset>26</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/SprintLocalDataSource.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.SprintLocalDataSource SprintLocalDataSource(com.example.agilelifemanagement.data.local.dao.SprintDao sprintDao)" />
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/TagLocalDataSource.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.TagLocalDataSource TagLocalDataSource(com.example.agilelifemanagement.data.local.dao.TagDao tagDao)" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/TaskLocalDataSource.kt</file>
+  <line>15</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.TaskLocalDataSource TaskLocalDataSource(com.example.agilelifemanagement.data.local.dao.TaskDao taskDao, com.example.agilelifemanagement.data.local.dao.TagDao tagDao)" />
+  <language>kotlin</language>
+  <offset>26</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/mapper/CategoryMapper.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mapper</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mapper.CategoryMapper CategoryMapper()" />
+  <language>kotlin</language>
+  <offset>21</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/mapper/DailyCheckupMapper.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mapper</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mapper.DailyCheckupMapper DailyCheckupMapper()" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/mapper/DayActivityMapper.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mapper</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mapper.DayActivityMapper DayActivityMapper()" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/mapper/GoalMapper.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mapper</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mapper.GoalMapper GoalMapper()" />
+  <language>kotlin</language>
+  <offset>17</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/mapper/SprintMapper.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mapper</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mapper.SprintMapper SprintMapper()" />
+  <language>kotlin</language>
+  <offset>19</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/mapper/TaskMapper.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mapper</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.mapper.TaskMapper TaskMapper()" />
+  <language>kotlin</language>
+  <offset>17</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/api/GoalApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.remote.api.GoalApiService" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/api/SprintApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.remote.api.SprintApiService" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/api/TaskApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.data.remote.api.TaskApiService" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/source/CategoryRemoteDataSourceImpl.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.source.CategoryRemoteDataSourceImpl CategoryRemoteDataSourceImpl()" />
+  <language>kotlin</language>
+  <offset>35</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/source/DayActivityRemoteDataSourceImpl.kt</file>
+  <line>15</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.source.DayActivityRemoteDataSourceImpl DayActivityRemoteDataSourceImpl()" />
+  <language>kotlin</language>
+  <offset>38</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/source/GoalRemoteDataSourceImpl.kt</file>
+  <line>16</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.source.GoalRemoteDataSourceImpl GoalRemoteDataSourceImpl()" />
+  <language>kotlin</language>
+  <offset>31</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/source/SprintRemoteDataSourceImpl.kt</file>
+  <line>16</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.source.SprintRemoteDataSourceImpl SprintRemoteDataSourceImpl()" />
+  <language>kotlin</language>
+  <offset>33</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/source/TaskRemoteDataSourceImpl.kt</file>
+  <line>16</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.source.TaskRemoteDataSourceImpl TaskRemoteDataSourceImpl()" />
+  <language>kotlin</language>
+  <offset>31</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/remote/source/WellnessRemoteDataSourceImpl.kt</file>
+  <line>15</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.source.WellnessRemoteDataSourceImpl WellnessRemoteDataSourceImpl()" />
+  <language>kotlin</language>
+  <offset>35</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/repository/DayActivityRepositoryImpl.kt</file>
+  <line>26</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.repository.DayActivityRepositoryImpl DayActivityRepositoryImpl(com.example.agilelifemanagement.data.local.source.DayActivityLocalDataSource dayActivityLocalDataSource, com.example.agilelifemanagement.data.remote.source.DayActivityRemoteDataSource dayActivityRemoteDataSource, com.example.agilelifemanagement.data.mapper.DayActivityMapper dayActivityMapper, kotlinx.coroutines.CoroutineDispatcher ioDispatcher)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/AppModule.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.di.AppModule" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/AppModule.kt</file>
+  <line>20</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.AppModule kotlinx.coroutines.CoroutineDispatcher provideIoDispatcher()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>13</length>
+  <highlighted_element>@IoDispatcher</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/AppModule.kt</file>
+  <line>25</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.AppModule kotlinx.coroutines.CoroutineDispatcher provideMainDispatcher()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>15</length>
+  <highlighted_element>@MainDispatcher</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/AppModule.kt</file>
+  <line>30</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.AppModule kotlinx.coroutines.CoroutineDispatcher provideDefaultDispatcher()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>18</length>
+  <highlighted_element>@DefaultDispatcher</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.di.DatabaseModule" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>22</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.AgileLifeDatabase provideAgileLifeDatabase(android.content.Context context)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>37</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.TaskDao provideTaskDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>46</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.TagDao provideTagDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>55</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.TaskTagCrossRefDao provideTaskTagCrossRefDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>64</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.SprintDao provideSprintDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>73</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.SprintReviewDao provideSprintReviewDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>82</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.GoalDao provideGoalDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>91</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.DayActivityDao provideDayActivityDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>100</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.DayActivityTemplateDao provideDayActivityTemplateDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>109</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.ActivityCategoryDao provideActivityCategoryDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DatabaseModule.kt</file>
+  <line>118</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DatabaseModule com.example.agilelifemanagement.data.local.dao.DailyCheckupDao provideDailyCheckupDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DispatcherModule.kt</file>
+  <line>31</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.di.DispatcherModule" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DispatcherModule.kt</file>
+  <line>38</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DispatcherModule kotlinx.coroutines.CoroutineDispatcher provideDefaultDispatcher()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>18</length>
+  <highlighted_element>@DefaultDispatcher</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DispatcherModule.kt</file>
+  <line>43</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DispatcherModule kotlinx.coroutines.CoroutineDispatcher provideIoDispatcher()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>13</length>
+  <highlighted_element>@IoDispatcher</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DispatcherModule.kt</file>
+  <line>48</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DispatcherModule kotlinx.coroutines.CoroutineDispatcher provideMainDispatcher()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>15</length>
+  <highlighted_element>@MainDispatcher</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/DispatcherModule.kt</file>
+  <line>53</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.DispatcherModule kotlinx.coroutines.CoroutineDispatcher provideMainImmediateDispatcher()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>24</length>
+  <highlighted_element>@MainImmediateDispatcher</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/LocalDataModule.kt</file>
+  <line>60</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.di.LocalDataModule" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/LocalDataModule.kt</file>
+  <line>67</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.LocalDataModule com.example.agilelifemanagement.data.local.AgileLifeDatabase provideDatabase(android.content.Context context)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/LocalDataModule.kt</file>
+  <line>79</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.LocalDataModule com.example.agilelifemanagement.data.local.dao.TaskDao provideTaskDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/LocalDataModule.kt</file>
+  <line>85</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.LocalDataModule com.example.agilelifemanagement.data.local.dao.SprintDao provideSprintDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/LocalDataModule.kt</file>
+  <line>91</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.LocalDataModule com.example.agilelifemanagement.data.local.dao.GoalDao provideGoalDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/LocalDataModule.kt</file>
+  <line>97</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.LocalDataModule com.example.agilelifemanagement.data.local.dao.DayActivityDao provideDayActivityDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/LocalDataModule.kt</file>
+  <line>103</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.LocalDataModule com.example.agilelifemanagement.data.local.dao.ActivityCategoryDao provideActivityCategoryDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/LocalDataModule.kt</file>
+  <line>109</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.LocalDataModule com.example.agilelifemanagement.data.local.dao.DailyCheckupDao provideDailyCheckupDao(com.example.agilelifemanagement.data.local.AgileLifeDatabase database)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/NetworkModule.kt</file>
+  <line>50</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.di.NetworkModule" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/NetworkModule.kt</file>
+  <line>58</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.NetworkModule kotlinx.serialization.json.Json provideJson()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/NetworkModule.kt</file>
+  <line>70</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.NetworkModule com.example.agilelifemanagement.di.NetworkConnectivityChecker provideNetworkConnectivityChecker(android.content.Context context)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/NetworkModule.kt</file>
+  <line>81</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.NetworkModule io.ktor.client.HttpClient provideHttpClient(kotlinx.serialization.json.Json json)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/NetworkModule.kt</file>
+  <line>125</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.NetworkModule io.ktor.client.HttpClient provideAuthenticatedHttpClient(io.ktor.client.HttpClient baseClient, com.example.agilelifemanagement.di.AuthTokenProvider authTokenProvider)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/NetworkModule.kt</file>
+  <line>143</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.NetworkModule com.example.agilelifemanagement.di.AuthTokenProvider provideAuthTokenProvider()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/RemoteDataModule.kt</file>
+  <line>57</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.di.RemoteServiceProviders" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/RemoteDataModule.kt</file>
+  <line>66</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.RemoteServiceProviders com.example.agilelifemanagement.data.remote.api.TaskApiService provideTaskApiService(io.ktor.client.HttpClient httpClient)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/RemoteDataModule.kt</file>
+  <line>72</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.RemoteServiceProviders com.example.agilelifemanagement.data.remote.api.SprintApiService provideSprintApiService(io.ktor.client.HttpClient httpClient)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/RemoteDataModule.kt</file>
+  <line>78</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.RemoteServiceProviders com.example.agilelifemanagement.data.remote.api.GoalApiService provideGoalApiService(io.ktor.client.HttpClient httpClient)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/RemoteDataModule.kt</file>
+  <line>84</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.RemoteServiceProviders com.example.agilelifemanagement.data.remote.api.DayActivityApiService provideDayActivityApiService(io.ktor.client.HttpClient httpClient)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/RemoteDataModule.kt</file>
+  <line>90</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.RemoteServiceProviders com.example.agilelifemanagement.data.remote.api.CategoryApiService provideCategoryApiService(io.ktor.client.HttpClient httpClient)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/di/RemoteDataModule.kt</file>
+  <line>96</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.di</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.di.RemoteServiceProviders com.example.agilelifemanagement.data.remote.api.WellnessApiService provideWellnessApiService(io.ktor.client.HttpClient httpClient)" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>10</length>
+  <highlighted_element>@Singleton</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/repository/DayRepository.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.domain.repository.DayRepository" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/repository/GoalRepository.kt</file>
+  <line>6</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.domain.repository.GoalRepository" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/repository/SprintRepository.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.domain.repository.SprintRepository" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/repository/TagRepository.kt</file>
+  <line>6</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.domain.repository.TagRepository" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/repository/TaskRepository.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.domain.repository.TaskRepository" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Interface is not implemented.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt</file>
+  <line>21</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.analytics</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.analytics.GetProductivityAnalyticsUseCase GetProductivityAnalyticsUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository, com.example.agilelifemanagement.domain.repository.DayRepository dayRepository, com.example.agilelifemanagement.domain.repository.CategoryRepository categoryRepository)" />
+  <language>kotlin</language>
+  <offset>38</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/dashboard/GetDashboardSummaryUseCase.kt</file>
+  <line>16</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dashboard</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.dashboard.GetDashboardSummaryUseCase GetDashboardSummaryUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository, com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository, com.example.agilelifemanagement.domain.repository.DayRepository dayRepository)" />
+  <language>kotlin</language>
+  <offset>33</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/GetDayScheduleUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.GetDayScheduleUseCase GetDayScheduleUseCase(com.example.agilelifemanagement.domain.repository.DayRepository dayRepository)" />
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/GetWeekActivitiesUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.GetWeekActivitiesUseCase GetWeekActivitiesUseCase(com.example.agilelifemanagement.domain.repository.DayRepository dayRepository)" />
+  <language>kotlin</language>
+  <offset>31</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/UpdateDayScheduleUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.UpdateDayScheduleUseCase UpdateDayScheduleUseCase(com.example.agilelifemanagement.domain.repository.DayRepository dayRepository)" />
+  <language>kotlin</language>
+  <offset>31</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/activity/DeleteDayActivityUseCase.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day.activity</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.activity.DeleteDayActivityUseCase DeleteDayActivityUseCase(com.example.agilelifemanagement.domain.repository.DayRepository dayRepository)" />
+  <language>kotlin</language>
+  <offset>31</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/activity/ToggleActivityCompletionUseCase.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day.activity</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.activity.ToggleActivityCompletionUseCase ToggleActivityCompletionUseCase(com.example.agilelifemanagement.domain.repository.DayRepository dayRepository)" />
+  <language>kotlin</language>
+  <offset>38</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/activity/UpdateDayActivityUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day.activity</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.activity.UpdateDayActivityUseCase UpdateDayActivityUseCase(com.example.agilelifemanagement.domain.repository.DayRepository dayRepository)" />
+  <language>kotlin</language>
+  <offset>31</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/category/GetActivityCategoriesUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day.category</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.category.GetActivityCategoriesUseCase GetActivityCategoriesUseCase(com.example.agilelifemanagement.domain.repository.CategoryRepository categoryRepository)" />
+  <language>kotlin</language>
+  <offset>35</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/goal/CreateGoalUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.goal.CreateGoalUseCase CreateGoalUseCase(com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/goal/DeleteGoalUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.goal.DeleteGoalUseCase DeleteGoalUseCase(com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/goal/GetGoalByIdUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.goal.GetGoalByIdUseCase GetGoalByIdUseCase(com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository)" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/goal/GetGoalsUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.goal.GetGoalsUseCase GetGoalsUseCase(com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository)" />
+  <language>kotlin</language>
+  <offset>22</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/goal/UpdateGoalUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.goal.UpdateGoalUseCase UpdateGoalUseCase(com.example.agilelifemanagement.domain.repository.GoalRepository goalRepository)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/notification/GetNotificationsUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.notification</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.notification.GetNotificationsUseCase GetNotificationsUseCase(com.example.agilelifemanagement.domain.repository.NotificationRepository notificationRepository)" />
+  <language>kotlin</language>
+  <offset>30</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/notification/MarkNotificationAsReadUseCase.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.notification</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.notification.MarkNotificationAsReadUseCase MarkNotificationAsReadUseCase(com.example.agilelifemanagement.domain.repository.NotificationRepository notificationRepository)" />
+  <language>kotlin</language>
+  <offset>36</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/sprint/CreateSprintReviewUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprint.CreateSprintReviewUseCase CreateSprintReviewUseCase(com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/sprint/CreateSprintUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprint.CreateSprintUseCase CreateSprintUseCase(com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>26</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/sprint/DeleteSprintUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprint.DeleteSprintUseCase DeleteSprintUseCase(com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>26</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/sprint/GetSprintByIdUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprint.GetSprintByIdUseCase GetSprintByIdUseCase(com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>27</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/sprint/GetSprintReviewUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprint.GetSprintReviewUseCase GetSprintReviewUseCase(com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/sprint/GetSprintsUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprint.GetSprintsUseCase GetSprintsUseCase(com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/sprint/UpdateSprintUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.sprint.UpdateSprintUseCase UpdateSprintUseCase(com.example.agilelifemanagement.domain.repository.SprintRepository sprintRepository)" />
+  <language>kotlin</language>
+  <offset>26</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/tag/CreateTagUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.tag</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.tag.CreateTagUseCase CreateTagUseCase(com.example.agilelifemanagement.domain.repository.TagRepository tagRepository)" />
+  <language>kotlin</language>
+  <offset>23</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/tag/GetAllTagsUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.tag</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.tag.GetAllTagsUseCase GetAllTagsUseCase(com.example.agilelifemanagement.domain.repository.TagRepository tagRepository)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/CreateTaskUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.CreateTaskUseCase CreateTaskUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/DeleteTaskUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.DeleteTaskUseCase DeleteTaskUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/GetFilteredTasksUseCase.kt</file>
+  <line>15</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.GetFilteredTasksUseCase GetFilteredTasksUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>30</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/GetTaskByIdUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.GetTaskByIdUseCase GetTaskByIdUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/GetTasksByDateUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.GetTasksByDateUseCase GetTasksByDateUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>28</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/GetTasksBySprintUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.GetTasksBySprintUseCase GetTasksBySprintUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>30</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/GetTasksUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.GetTasksUseCase GetTasksUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>22</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/UpdateTaskStatusUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.UpdateTaskStatusUseCase UpdateTaskStatusUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>30</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/task/UpdateTaskUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.task.UpdateTaskUseCase UpdateTaskUseCase(com.example.agilelifemanagement.domain.repository.TaskRepository taskRepository)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/wellness/GetDailyCheckupUseCase.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.wellness</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.wellness.GetDailyCheckupUseCase GetDailyCheckupUseCase(com.example.agilelifemanagement.domain.repository.WellnessRepository wellnessRepository)" />
+  <language>kotlin</language>
+  <offset>29</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/wellness/GetWellnessAnalyticsUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.wellness</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.wellness.GetWellnessAnalyticsUseCase GetWellnessAnalyticsUseCase(com.example.agilelifemanagement.domain.repository.WellnessRepository wellnessRepository)" />
+  <language>kotlin</language>
+  <offset>34</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/wellness/SaveDailyCheckupUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.wellness</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.wellness.SaveDailyCheckupUseCase SaveDailyCheckupUseCase(com.example.agilelifemanagement.domain.repository.WellnessRepository wellnessRepository)" />
+  <language>kotlin</language>
+  <offset>30</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/DayViewModel.kt</file>
+  <line>33</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.day.viewmodel.DayViewModel DayViewModel(com.example.agilelifemanagement.domain.usecase.day.GetDayScheduleUseCase getDayScheduleUseCase, com.example.agilelifemanagement.domain.usecase.day.UpdateDayScheduleUseCase updateDayScheduleUseCase, com.example.agilelifemanagement.domain.usecase.day.activity.GetDayActivitiesUseCase getDayActivitiesUseCase, com.example.agilelifemanagement.domain.usecase.day.activity.AddDayActivityUseCase addDayActivityUseCase, com.example.agilelifemanagement.domain.usecase.day.activity.UpdateDayActivityUseCase updateDayActivityUseCase, com.example.agilelifemanagement.domain.usecase.day.activity.DeleteDayActivityUseCase deleteDayActivityUseCase, com.example.agilelifemanagement.domain.usecase.day.activity.ToggleActivityCompletionUseCase toggleActivityCompletionUseCase)" />
+  <language>kotlin</language>
+  <offset>19</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/TemplateViewModel.kt</file>
+  <line>33</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.day.viewmodel.TemplateViewModel TemplateViewModel(com.example.agilelifemanagement.domain.usecase.day.template.GetDayTemplatesUseCase getDayTemplatesUseCase, com.example.agilelifemanagement.domain.usecase.day.template.GetTemplateByIdUseCase getTemplateByIdUseCase, com.example.agilelifemanagement.domain.usecase.day.template.CreateDayTemplateUseCase createDayTemplateUseCase, com.example.agilelifemanagement.domain.usecase.day.template.UpdateDayTemplateUseCase updateDayTemplateUseCase, com.example.agilelifemanagement.domain.usecase.day.template.DeleteDayTemplateUseCase deleteDayTemplateUseCase, com.example.agilelifemanagement.domain.usecase.day.category.GetActivityCategoriesUseCase getActivityCategoriesUseCase)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/WeekViewModel.kt</file>
+  <line>32</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.screens.day.viewmodel.WeekViewModel WeekViewModel(com.example.agilelifemanagement.domain.usecase.day.GetWeekActivitiesUseCase getWeekActivitiesUseCase, com.example.agilelifemanagement.domain.usecase.day.activity.GetDayActivitiesUseCase getDayActivitiesUseCase, com.example.agilelifemanagement.domain.usecase.day.activity.AddDayActivityUseCase addDayActivityUseCase)" />
+  <language>kotlin</language>
+  <offset>20</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/CategoryViewModel.kt</file>
+  <line>33</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.CategoryViewModel CategoryViewModel(com.example.agilelifemanagement.domain.usecase.day.category.GetActivityCategoriesUseCase getActivityCategoriesUseCase)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/DashboardViewModel.kt</file>
+  <line>51</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.DashboardViewModel DashboardViewModel(com.example.agilelifemanagement.domain.usecase.task.GetTasksByDateUseCase getTasksByDateUseCase, com.example.agilelifemanagement.domain.usecase.sprint.GetSprintsUseCase getSprintsUseCase, com.example.agilelifemanagement.domain.usecase.goal.GetGoalsUseCase getGoalsUseCase, com.example.agilelifemanagement.domain.usecase.day.activity.GetDayActivitiesUseCase getDayActivitiesUseCase, com.example.agilelifemanagement.domain.usecase.wellness.GetDailyCheckupUseCase getDailyCheckupUseCase, com.example.agilelifemanagement.domain.usecase.wellness.GetWellnessAnalyticsUseCase getWellnessAnalyticsUseCase)" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/GoalViewModel.kt</file>
+  <line>43</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.GoalViewModel GoalViewModel(com.example.agilelifemanagement.domain.usecase.goal.GetGoalsUseCase getGoalsUseCase, com.example.agilelifemanagement.domain.usecase.goal.GetGoalByIdUseCase getGoalByIdUseCase, com.example.agilelifemanagement.domain.usecase.goal.CreateGoalUseCase createGoalUseCase, com.example.agilelifemanagement.domain.usecase.goal.UpdateGoalUseCase updateGoalUseCase, com.example.agilelifemanagement.domain.usecase.goal.DeleteGoalUseCase deleteGoalUseCase)" />
+  <language>kotlin</language>
+  <offset>20</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/SprintViewModel.kt</file>
+  <line>45</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.SprintViewModel SprintViewModel(com.example.agilelifemanagement.domain.usecase.sprint.GetSprintsUseCase getSprintsUseCase, com.example.agilelifemanagement.domain.usecase.sprint.GetSprintByIdUseCase getSprintByIdUseCase, com.example.agilelifemanagement.domain.usecase.sprint.CreateSprintUseCase createSprintUseCase, com.example.agilelifemanagement.domain.usecase.sprint.UpdateSprintUseCase updateSprintUseCase, com.example.agilelifemanagement.domain.usecase.sprint.DeleteSprintUseCase deleteSprintUseCase, com.example.agilelifemanagement.domain.usecase.task.GetTasksBySprintUseCase getTasksBySprintUseCase)" />
+  <language>kotlin</language>
+  <offset>22</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/TaskViewModel.kt</file>
+  <line>51</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.TaskViewModel TaskViewModel(com.example.agilelifemanagement.domain.usecase.task.GetTasksUseCase getTasksUseCase, com.example.agilelifemanagement.domain.usecase.task.GetTaskByIdUseCase getTaskByIdUseCase, com.example.agilelifemanagement.domain.usecase.task.CreateTaskUseCase createTaskUseCase, com.example.agilelifemanagement.domain.usecase.task.UpdateTaskUseCase updateTaskUseCase, com.example.agilelifemanagement.domain.usecase.task.UpdateTaskStatusUseCase updateTaskStatusUseCase, com.example.agilelifemanagement.domain.usecase.task.DeleteTaskUseCase deleteTaskUseCase)" />
+  <language>kotlin</language>
+  <offset>20</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/viewmodel/WellnessViewModel.kt</file>
+  <line>41</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.viewmodel</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ui.viewmodel.WellnessViewModel WellnessViewModel(com.example.agilelifemanagement.domain.usecase.wellness.GetDailyCheckupUseCase getDailyCheckupUseCase, com.example.agilelifemanagement.domain.usecase.wellness.SaveDailyCheckupUseCase saveDailyCheckupUseCase, com.example.agilelifemanagement.domain.usecase.wellness.GetWellnessAnalyticsUseCase getWellnessAnalyticsUseCase)" />
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/ApplicationStartup.kt</file>
+  <line>19</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.util</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.util.ApplicationStartup ApplicationStartup(com.example.agilelifemanagement.data.remote.SupabaseManager supabaseManager, com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager realtimeManager)" />
+  <language>kotlin</language>
+  <offset>25</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/ErrorHandler.kt</file>
+  <line>27</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.util</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.util.ErrorHandler ErrorHandler()" />
+  <language>kotlin</language>
+  <offset>19</offset>
+  <length>21</length>
+  <highlighted_element>@Inject constructor()</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/NetworkMonitor.kt</file>
+  <line>22</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.util</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.util.NetworkMonitor NetworkMonitor(android.content.Context context)" />
+  <language>kotlin</language>
+  <offset>21</offset>
+  <length>20</length>
+  <highlighted_element>@Inject constructor(</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Constructor is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/test/java/com/example/agilelifemanagement/ExampleUnitTest.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.unitTest</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="class" FQNAME="com.example.agilelifemanagement.ExampleUnitTest" />
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>3</length>
+  <highlighted_element>/**</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/test/java/com/example/agilelifemanagement/ExampleUnitTest.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.unitTest</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.ExampleUnitTest void addition_isCorrect()" />
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>5</length>
+  <highlighted_element>@Test</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+</problems>

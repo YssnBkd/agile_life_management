@@ -11,13 +11,7 @@ import javax.inject.Inject
 class GetTaskByIdUseCase @Inject constructor(
     private val taskRepository: TaskRepository
 ) {
-    /**
-     * Get a task by its ID.
-     *
-     * @param id The unique identifier of the task.
-     * @return Flow emitting the task if found, or null if not found.
-     */
-    operator fun invoke(id: String): Flow<Task?> {
-        return taskRepository.getTaskById(id)
+    operator fun invoke(taskId: String): Flow<Task?> {
+        return taskRepository.getTaskById(taskId)
     }
 }

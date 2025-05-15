@@ -1,0 +1,210 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/AgileLifeApplication.kt</file>
+  <line>42</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.AgileLifeApplication java.lang.Object initializeComponents(kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/StorageSyncManager.kt</file>
+  <line>366</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.StorageSyncManager java.lang.Object processQueuedOperations(kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>82</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager java.lang.Object unsubscribeAll(kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>97</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager java.lang.Object subscribeToTasks(java.lang.String userId, kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>141</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager java.lang.Object subscribeToSprints(java.lang.String userId, kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>183</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SupabaseRealtimeManager java.lang.Object subscribeToGoals(java.lang.String userId, kotlin.coroutines.Continuation&lt;? super kotlin.Unit&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>408</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SyncManager java.lang.Object syncUser(java.lang.String userId, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>417</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SyncManager java.lang.Object syncSprint(java.lang.String sprintId, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>426</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SyncManager java.lang.Object syncGoal(java.lang.String goalId, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>435</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.remote.SyncManager java.lang.Object syncTask(java.lang.String taskId, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>12</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/GoalLocalDataSource.kt</file>
+  <line>37</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.GoalLocalDataSource java.lang.Object getGoalById(java.lang.String goalId, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.data.local.entity.GoalEntity&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/source/SprintLocalDataSource.kt</file>
+  <line>37</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.source</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.data.local.source.SprintLocalDataSource java.lang.Object getSprintById(java.lang.String sprintId, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.data.local.entity.SprintEntity&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/activity/AddDayActivityUseCase.kt</file>
+  <line>20</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day.activity</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.activity.AddDayActivityUseCase java.lang.Object invoke(com.example.agilelifemanagement.domain.model.DayActivity activity, kotlin.coroutines.Continuation&lt;? super kotlin.Result&lt;? extends com.example.agilelifemanagement.domain.model.DayActivity&gt;&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/template/CreateDayTemplateUseCase.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day.template</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.template.CreateDayTemplateUseCase java.lang.Object invoke(com.example.agilelifemanagement.domain.model.DayTemplate template, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/template/DeleteDayTemplateUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day.template</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.template.DeleteDayTemplateUseCase java.lang.Object invoke(java.lang.String templateId, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/day/template/UpdateDayTemplateUseCase.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.day.template</package>
+  <entry_point TYPE="method" FQNAME="com.example.agilelifemanagement.domain.usecase.day.template.UpdateDayTemplateUseCase java.lang.Object invoke(com.example.agilelifemanagement.domain.model.DayTemplate template, kotlin.coroutines.Continuation&lt;? super com.example.agilelifemanagement.domain.model.Result&lt;? extends kotlin.Unit&gt;&gt; $completion)" />
+  <problem_class id="RedundantSuspendModifier" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Redundant 'suspend' modifier</problem_class>
+  <description>Redundant 'suspend' modifier</description>
+  <highlighted_element>suspend</highlighted_element>
+  <language>kotlin</language>
+  <offset>4</offset>
+  <length>7</length>
+</problem>
+</problems>

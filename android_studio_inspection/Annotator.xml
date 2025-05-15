@@ -1,0 +1,100 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt</file>
+  <line>418</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Unexpected tokens (use ';' to separate expressions on the same line) #loc</description>
+  <highlighted_element>,</highlighted_element>
+  <language>kotlin</language>
+  <offset>49</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt</file>
+  <line>420</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expecting an element #loc</description>
+  <highlighted_element>)</highlighted_element>
+  <language>kotlin</language>
+  <offset>20</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt</file>
+  <line>429</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expecting a top level declaration #loc</description>
+  <highlighted_element>}</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>352</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expecting an element #loc</description>
+  <highlighted_element>else</highlighted_element>
+  <language>kotlin</language>
+  <offset>36</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>354</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expecting an element #loc</description>
+  <highlighted_element>)</highlighted_element>
+  <language>kotlin</language>
+  <offset>32</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>355</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expecting an element #loc</description>
+  <highlighted_element>)</highlighted_element>
+  <language>kotlin</language>
+  <offset>24</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>361</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expecting a top level declaration #loc</description>
+  <highlighted_element>}</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>1</length>
+</problem>
+</problems>

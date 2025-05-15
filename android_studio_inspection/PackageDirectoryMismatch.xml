@@ -1,0 +1,1991 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/AgileLifeDatabase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/AgileLifeDatabase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>50</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>50</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/converter/DateConverter.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.converter</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/converter/DateConverter.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.converter</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>60</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/converter/ListConverter.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.converter</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/converter/ListConverter.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.converter</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>60</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/converter/OffsetDateTimeConverter.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.converter</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/converter/OffsetDateTimeConverter.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.converter</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>60</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/converter/deprecated/EnumConverters.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.converter</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/converter/deprecated/EnumConverters.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.converter</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>60</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/DailyCheckupDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/DailyCheckupDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/GoalDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/GoalDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/GoalSprintCrossRefDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/GoalSprintCrossRefDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/GoalTagCrossRefDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/GoalTagCrossRefDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/NotificationDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/NotificationDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintReviewDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintReviewDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintTagCrossRefDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintTagCrossRefDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SyncStatusDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SyncStatusDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TagDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TagDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskDependencyDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskDependencyDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskGoalCrossRefDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskGoalCrossRefDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskSprintCrossRefDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskSprintCrossRefDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskTagCrossRefDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/TaskTagCrossRefDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/UserDao.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/UserDao.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.dao</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/ActivityCategoryEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/ActivityCategoryEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/DailyCheckupEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/DailyCheckupEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/DayActivityEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/DayActivityEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/GoalEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/GoalEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/GoalSprintCrossRefEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/GoalSprintCrossRefEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/GoalTagCrossRefEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/GoalTagCrossRefEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/NotificationEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/NotificationEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/SprintEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/SprintEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/SprintReviewEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/SprintReviewEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/SprintTagCrossRefEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/SprintTagCrossRefEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/SyncStatusEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/SyncStatusEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TagEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TagEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskDependencyEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskDependencyEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskGoalCrossRef.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskGoalCrossRef.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskGoalCrossRefEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskGoalCrossRefEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskSprintCrossRef.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskSprintCrossRef.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskSprintCrossRefEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskSprintCrossRefEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskTagCrossRefEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/TaskTagCrossRefEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/UserEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.entity</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/entity/UserEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.local.entity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/Mapper.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/Mapper.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toDailyCheckup.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toDailyCheckup.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toDailyCheckupEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toDailyCheckupEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toGoal.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toGoal.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toGoalDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toGoalDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toGoalEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toGoalEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toNotification.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toNotification.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toNotificationEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toNotificationEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprint.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprint.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintReview.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintReview.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintReviewEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintReviewEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTag.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTag.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTagEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTagEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTask.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTask.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTaskDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTaskDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTaskEntity.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toTaskEntity.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.mappers</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/StorageSyncManager.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/StorageSyncManager.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseConfig.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseConfig.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskGoalCrossRefApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskGoalCrossRefApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskSprintCrossRefApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskSprintCrossRefApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/UserApiService.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/UserApiService.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/auth/SupabaseConfig.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.auth</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/auth/SupabaseConfig.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.auth</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>56</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/DailyCheckupDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/DailyCheckupDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/GoalDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/GoalDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/GoalSprintCrossRefDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/GoalSprintCrossRefDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/GoalTagCrossRefDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/GoalTagCrossRefDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/NotificationDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/NotificationDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/SprintDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/SprintDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/SprintReviewDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/SprintReviewDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/SprintTagCrossRefDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/SprintTagCrossRefDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TagDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TagDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskDependencyDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskDependencyDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskGoalCrossRefDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskGoalCrossRefDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskSprintCrossRefDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskSprintCrossRefDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskTagCrossRefDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/TaskTagCrossRefDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/UserDto.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.dto</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/dto/UserDto.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.remote.dto</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/DailyCheckupRepositoryImpl.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/DailyCheckupRepositoryImpl.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/GoalRepositoryImpl.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/GoalRepositoryImpl.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/NotificationRepositoryImpl.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/NotificationRepositoryImpl.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintRepositoryImpl.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintRepositoryImpl.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintReviewRepositoryImpl.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintReviewRepositoryImpl.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/TagRepositoryImpl.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/TagRepositoryImpl.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/TaskRepositoryImpl.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/TaskRepositoryImpl.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.data.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/DailyCheckup.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/DailyCheckup.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/DayTemplate.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/DayTemplate.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Goal.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Goal.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/GoalCategory.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/GoalCategory.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Notification.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Notification.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Result.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Result.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Sprint.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Sprint.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/SprintReview.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/SprintReview.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Tag.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Tag.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Task.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/Task.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/TaskPriority.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/TaskPriority.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/TaskStatus.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/TaskStatus.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.model</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/DailyCheckupRepository.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/DailyCheckupRepository.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/DayRepository.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/DayRepository.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/GoalRepository.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/GoalRepository.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/NotificationRepository.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/NotificationRepository.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/SprintRepository.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/SprintRepository.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/SprintReviewRepository.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/SprintReviewRepository.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/TagRepository.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/TagRepository.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/TaskRepository.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_repository/TaskRepository.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.repository</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/CreateDailyCheckupUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dailycheckup</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/CreateDailyCheckupUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.dailycheckup</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/GetDailyCheckupUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dailycheckup</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/GetDailyCheckupUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.dailycheckup</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/UpdateDailyCheckupUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dailycheckup</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/dailycheckup/UpdateDailyCheckupUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.dailycheckup</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/AssignGoalToSprintUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/AssignGoalToSprintUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.goal</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/CalculateGoalProgressUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/CalculateGoalProgressUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.goal</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/CreateGoalUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/CreateGoalUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.goal</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/DeleteGoalUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/DeleteGoalUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.goal</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/GetGoalByIdUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/GetGoalByIdUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.goal</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/GetGoalsUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/GetGoalsUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.goal</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/GetTasksForGoalUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/GetTasksForGoalUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.goal</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/UpdateGoalUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.goal</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/goal/UpdateGoalUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.goal</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/CreateSprintUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/CreateSprintUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprint</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/DeleteSprintUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/DeleteSprintUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprint</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/GetActiveSprintUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/GetActiveSprintUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprint</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/GetSprintByIdUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/GetSprintByIdUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprint</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/GetSprintsUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/GetSprintsUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprint</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/UpdateSprintUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprint/UpdateSprintUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprint</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/CreateSprintReviewUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprintreview</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/CreateSprintReviewUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprintreview</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/GetSprintReviewUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprintreview</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/GetSprintReviewUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprintreview</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/UpdateSprintReviewUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.sprintreview</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/sprintreview/UpdateSprintReviewUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.sprintreview</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/AssignTaskToGoalUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/AssignTaskToGoalUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/AssignTaskToSprintUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/AssignTaskToSprintUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/CreateTaskUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/CreateTaskUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/DeleteTaskUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/DeleteTaskUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/GetTaskByIdUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/GetTaskByIdUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/GetTasksUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/GetTasksUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/ManageTaskDependenciesUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/ManageTaskDependenciesUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/ManageTaskTagsUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/ManageTaskTagsUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/UpdateTaskUseCase.kt</file>
+  <line>1</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_usecase_backup/task/UpdateTaskUseCase.kt" />
+  <problem_class id="PackageDirectoryMismatch" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Package name does not match containing directory</problem_class>
+  <description>Package directive does not match the file location</description>
+  <highlighted_element>package com.example.agilelifemanagement.domain.usecase.task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+</problems>

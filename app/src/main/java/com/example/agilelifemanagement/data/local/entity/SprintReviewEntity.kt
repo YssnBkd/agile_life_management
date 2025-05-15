@@ -4,9 +4,11 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import java.time.LocalDate
 
 /**
- * SprintReview entity for the Room database.
+ * Room entity representing a sprint review in the local database.
+ * Sprint reviews capture the outcomes and learnings from completed sprints.
  */
 @Entity(
     tableName = "sprint_reviews",
@@ -16,23 +18,15 @@ import androidx.room.PrimaryKey
             parentColumns = ["id"],
             childColumns = ["sprintId"],
             onDelete = ForeignKey.CASCADE
-        ),
-        ForeignKey(
-            entity = UserEntity::class,
-            parentColumns = ["id"],
-            childColumns = ["userId"],
-            onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index("sprintId"), Index("userId")]
+    indices = [Index("sprintId", unique = true)]
 )
 data class SprintReviewEntity(
     @PrimaryKey
     val id: String,
     val sprintId: String,
-    val date: Long,
-    val rating: Int,
-    val userId: String,
-    val createdAt: Long,
-    val updatedAt: Long
+    val completionRate: Float,
+    val lessonsLearned: List<String>, // Stored as JSON string via TypeConverter
+    val date: LocalDate
 )

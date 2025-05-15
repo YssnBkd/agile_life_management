@@ -1,0 +1,2602 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/AgileLifeApplication.kt</file>
+  <line>4</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/AgileLifeApplication.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.BuildConfig</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>50</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.serialization.encodeToString</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>43</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/Converters.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.serialization.decodeFromString</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintDao.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintDao.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.room.Transaction</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>32</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintDao.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/local/dao/SprintDao.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.LocalDate</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toDailyCheckup.kt</file>
+  <line>6</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toDailyCheckup.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.LocalDate</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintReview.kt</file>
+  <line>6</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.mappers</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/mappers/toSprintReview.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.LocalDate</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt</file>
+  <line>6</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.functions.Functions</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>49</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.ktor.http.ContentType</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>31</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/EdgeFunctionsManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.serialization.encodeToString</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>43</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.auth.AuthConfig</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.postgrest</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>49</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt</file>
+  <line>19</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseClient.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.storage.storage</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.data.local.entity.GoalEntity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>12</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.data.local.entity.SprintEntity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.data.local.entity.TaskEntity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>17</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.realtime.RealtimeChannel</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt</file>
+  <line>22</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SupabaseRealtimeManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.flow.Flow</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>35</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.data.mappers.toEntity</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>60</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>28</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.flow.firstOrNull</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt</file>
+  <line>31</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/SyncManager.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.serialization.json.decodeFromJsonElement</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/DailyCheckupApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Order</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalSprintCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Order</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/GoalTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/NotificationApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintReviewApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Order</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/SprintTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TagApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskApiService.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Order</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskDependencyApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskGoalCrossRefApiService.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskGoalCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskGoalCrossRefApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskGoalCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Order</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskSprintCrossRefApiService.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskSprintCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskSprintCrossRefApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskSprintCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Order</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.SupabaseClient</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Order</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/TaskTagCrossRefApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.PostgrestRequestBuilder</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>69</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/UserApiService.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/UserApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Columns</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/UserApiService.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.remote.api</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/remote/api/UserApiService.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import io.github.jan.supabase.postgrest.query.Order</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintReviewRepositoryImpl.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.repository</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/data/repository/SprintReviewRepositoryImpl.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.flow.first</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/DayTemplate.kt</file>
+  <line>3</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.model</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/archive/domain_model/DayTemplate.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.graphics.Color</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/converter/Converters.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.converter</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/converter/Converters.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.format.DateTimeFormatter</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/TagDao.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.data.local.dao</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/data/local/dao/TagDao.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.data.local.entity.TaskTagCrossRef</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>72</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt</file>
+  <line>4</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.analytics</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.domain.model.GoalCategory</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>64</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.analytics</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.domain.model.Task</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>56</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.analytics</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.flow.Flow</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>35</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.analytics</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.flow.combine</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>38</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.analytics</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/analytics/GetProductivityAnalyticsUseCase.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.flow.map</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>34</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/dashboard/GetDashboardSummaryUseCase.kt</file>
+  <line>9</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.dashboard</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/dashboard/GetDashboardSummaryUseCase.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.flow.map</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>34</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/wellness/GetWellnessAnalyticsUseCase.kt</file>
+  <line>3</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.domain.usecase.wellness</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/domain/usecase/wellness/GetWellnessAnalyticsUseCase.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.domain.model.DailyCheckup</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>64</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt</file>
+  <line>3</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.Box</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt</file>
+  <line>4</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.fillMaxSize</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.padding</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>49</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt</file>
+  <line>6</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.ExperimentalMaterial3Api</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>58</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt</file>
+  <line>15</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/AgileLifeApp.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.Modifier</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>35</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/actions/ExpressiveFAB.kt</file>
+  <line>16</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.actions</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/actions/ExpressiveFAB.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.fillMaxWidth</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/actions/ExpressiveFAB.kt</file>
+  <line>17</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.actions</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/actions/ExpressiveFAB.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.height</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>48</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/actions/ExpressiveFAB.kt</file>
+  <line>24</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.actions</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/actions/ExpressiveFAB.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.Close</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/ExpressiveCard.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.cards</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/ExpressiveCard.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.Box</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/ExpressiveCard.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.cards</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/ExpressiveCard.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.fillMaxWidth</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/ExpressiveCard.kt</file>
+  <line>24</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.cards</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/ExpressiveCard.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.draw.clip</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/InformationCards.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.cards</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/InformationCards.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.Arrangement</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/InformationCards.kt</file>
+  <line>13</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.cards</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/InformationCards.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.IntrinsicSize</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/InformationCards.kt</file>
+  <line>23</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.cards</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/cards/InformationCards.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.ArrowDownward</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>60</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt</file>
+  <line>25</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.tasks</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.CheckCircle</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>58</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt</file>
+  <line>31</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.tasks</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.DropdownMenu</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt</file>
+  <line>32</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.tasks</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.DropdownMenuItem</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>50</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt</file>
+  <line>44</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.tasks</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.mutableStateOf</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt</file>
+  <line>45</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.tasks</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.remember</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>40</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt</file>
+  <line>46</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.tasks</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/tasks/TaskComponents.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.setValue</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>40</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/timeline/DailyTimelineMiniView.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.timeline</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/timeline/DailyTimelineMiniView.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.shape.RoundedCornerShape</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/timeline/HorizontalTimeline.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.timeline</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/timeline/HorizontalTimeline.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.Row</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/timeline/HorizontalTimeline.kt</file>
+  <line>28</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.components.timeline</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/components/timeline/HorizontalTimeline.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.remember</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>40</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.navigation.NavBackStackEntry</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavGraph.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.navigation</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/navigation/NavGraph.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.LocalDate</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/MainScreen.kt</file>
+  <line>22</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/MainScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Surface</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/MainScreen.kt</file>
+  <line>27</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/MainScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.mutableStateOf</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/MainScreen.kt</file>
+  <line>29</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/MainScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.saveable.rememberSaveable</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/MainScreen.kt</file>
+  <line>32</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/MainScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.unit.dp</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>34</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt</file>
+  <line>4</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.dashboard</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.Box</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt</file>
+  <line>15</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.dashboard</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.shape.CircleShape</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt</file>
+  <line>28</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.dashboard</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Surface</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt</file>
+  <line>36</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.dashboard</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.draw.clip</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt</file>
+  <line>44</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.dashboard</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.ui.components.cards.FeatureCard</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>70</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreenWithViewModel.kt</file>
+  <line>30</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.dashboard</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Divider</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreenWithViewModel.kt</file>
+  <line>37</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.dashboard</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Surface</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayDetailScreen.kt</file>
+  <line>37</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.FloatingActionButton</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayDetailScreen.kt</file>
+  <line>53</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.draw.clip</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>7</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.clickable</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>15</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.height</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>48</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>32</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.EmojiFoodBeverage</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>64</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>34</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.FitnessCenter</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>60</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>35</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.MeetingRoom</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>58</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>37</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.Pets</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>42</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.FilledTonalButton</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>48</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.OutlinedTextFieldDefaults</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>54</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.TimeInput</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>43</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>55</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.TimePickerState</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>49</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>66</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.draw.clip</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>68</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.graphics.vector.ImageVector</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>77</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.ui.theme.AgileLifeTheme</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>62</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt</file>
+  <line>78</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayPlannerScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.LocalDate</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt</file>
+  <line>27</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.Save</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt</file>
+  <line>69</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/DayTemplateScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.ui.theme.AgileLifeTheme</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>62</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.aspectRatio</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>25</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.outlined.InsertInvitation</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>64</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>30</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Card</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>38</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>31</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.CardDefaults</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>33</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Divider</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>49</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.derivedStateOf</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>51</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.mutableStateOf</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>54</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.runtime.setValue</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>40</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>58</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.draw.drawBehind</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>60</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.graphics.toArgb</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>66</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.unit.sp</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>34</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>73</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.DayOfWeek</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>75</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.LocalTime</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>78</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.temporal.ChronoUnit</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>79</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.temporal.TemporalAdjusters</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>43</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt</file>
+  <line>80</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/WeekViewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.temporal.WeekFields</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/WeekViewModel.kt</file>
+  <line>17</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/WeekViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.DayOfWeek</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/WeekViewModel.kt</file>
+  <line>19</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.day.viewmodel</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/day/viewmodel/WeekViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.temporal.TemporalAdjusters</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>43</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt</file>
+  <line>18</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.lazy.rememberLazyListState</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt</file>
+  <line>30</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Card</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>38</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt</file>
+  <line>31</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.CardDefaults</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt</file>
+  <line>33</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Divider</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt</file>
+  <line>34</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.ElevatedCard</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>8</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.clickable</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.layout.Box</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>28</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.DateRange</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>56</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>32</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Checkbox</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>35</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.DatePickerState</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>49</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>57</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.draw.clip</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>58</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.graphics.Color</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>59</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.graphics.toArgb</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>42</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>62</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.res.stringResource</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>66</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.text.input.KeyboardType</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>50</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>70</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.ui.components.cards.FeatureCard</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>70</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>72</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.text.SimpleDateFormat</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>33</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>77</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.util.Calendar</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>25</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>78</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.util.Date</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>21</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt</file>
+  <line>79</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.util.Locale</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>23</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreen.kt</file>
+  <line>28</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.FloatingActionButton</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>54</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt</file>
+  <line>48</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.MoreVert</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt</file>
+  <line>63</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Surface</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt</file>
+  <line>65</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.TopAppBar</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>43</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt</file>
+  <line>76</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.graphics.Color</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt</file>
+  <line>77</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.text.font.FontWeight</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>47</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt</file>
+  <line>84</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.LocalDate</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt</file>
+  <line>85</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.format.DateTimeFormatter</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt</file>
+  <line>86</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.temporal.ChronoUnit</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt</file>
+  <line>3</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.BorderStroke</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>47</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt</file>
+  <line>18</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.shape.RoundedCornerShape</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>59</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt</file>
+  <line>31</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.StarRate</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>55</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt</file>
+  <line>36</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Divider</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt</file>
+  <line>66</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.sprint</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintReviewScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import com.example.agilelifemanagement.ui.components.cards.TaskCard</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>67</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskDetailScreen.kt</file>
+  <line>24</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.Delete</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskDetailScreen.kt</file>
+  <line>54</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskDetailScreen.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import java.time.LocalDateTime</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>30</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>14</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.lazy.LazyListState</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>36</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.foundation.lazy.items</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>45</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>41</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.ArrowDownward</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>60</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>42</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.ArrowUpward</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>58</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>44</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.FilterList</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>57</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>45</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.Search</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>53</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>46</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material.icons.rounded.Sort</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>48</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Button</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>40</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>49</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.ButtonDefaults</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>48</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>52</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.Divider</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>59</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.FilterChip</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>60</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.FilterChipDefaults</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>52</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>67</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.material3.TopAppBar</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>43</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>78</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.graphics.Color</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt</file>
+  <line>79</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.screens.task</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.text.style.TextAlign</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>47</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/theme/Type.kt</file>
+  <line>5</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.ui.theme</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/ui/theme/Type.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import androidx.compose.ui.text.font.FontFamily</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>47</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/ApplicationStartup.kt</file>
+  <line>10</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.util</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/ApplicationStartup.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.flow.first</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/ErrorHandler.kt</file>
+  <line>11</line>
+  <module>AgileLifeManagement.app.main</module>
+  <package>com.example.agilelifemanagement.util</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/example/agilelifemanagement/util/ErrorHandler.kt" />
+  <problem_class id="KotlinUnusedImport" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unused import directive</problem_class>
+  <description>Unused import directive</description>
+  <highlighted_element>import kotlinx.coroutines.CancellationException</highlighted_element>
+  <language>kotlin</language>
+  <offset>0</offset>
+  <length>47</length>
+</problem>
+</problems>

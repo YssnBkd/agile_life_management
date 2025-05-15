@@ -1,116 +1,50 @@
 package com.example.agilelifemanagement.data.local.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Transaction
-import androidx.room.Update
+import androidx.room.*
 import com.example.agilelifemanagement.data.local.entity.SprintEntity
+import com.example.agilelifemanagement.data.local.entity.SprintReviewEntity
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
 
 /**
- * Data Access Object for SprintEntity.
- * Handles database operations for sprints.
+ * Room DAO for accessing and manipulating sprint data in the database.
  */
 @Dao
 interface SprintDao {
-    
-    /**
-     * Get all sprints.
-     */
-    @Query("SELECT * FROM sprints ORDER BY startDate DESC")
-    fun getAllSprints(): Flow<List<SprintEntity>>
-    
-    /**
-     * Get all sprints for a specific user.
-     */
-    @Query("SELECT * FROM sprints WHERE userId = :userId ORDER BY startDate DESC")
-    fun getSprintsByUserId(userId: String): Flow<List<SprintEntity>>
-    
-    /**
-     * Get a sprint by ID.
-     */
-    @Query("SELECT * FROM sprints WHERE id = :id")
-    fun getSprintById(id: String): Flow<SprintEntity?>
-    
-    /**
-     * Get active sprint by date.
-     */
-    @Query("SELECT * FROM sprints WHERE :date BETWEEN startDate AND endDate AND isActive = 1 LIMIT 1")
-    fun getActiveSprintByDate(date: Long): Flow<SprintEntity?>
-    
-    /**
-     * Get active sprints.
-     */
-    @Query("SELECT * FROM sprints WHERE isActive = 1 ORDER BY startDate ASC")
-    fun getActiveSprints(): Flow<List<SprintEntity>>
-    
-    /**
-     * Get completed sprints.
-     */
-    @Query("SELECT * FROM sprints WHERE isCompleted = 1 ORDER BY endDate DESC")
-    fun getCompletedSprints(): Flow<List<SprintEntity>>
-    
-    /**
-     * Get sprints that overlap with a date range.
-     */
-    @Query("SELECT * FROM sprints WHERE NOT (endDate < :startDate OR startDate > :endDate) ORDER BY startDate ASC")
-    fun getSprintsInDateRange(startDate: Long, endDate: Long): Flow<List<SprintEntity>>
-    
-    /**
-     * Insert a new sprint.
-     */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSprint(sprint: SprintEntity)
     
-    /**
-     * Insert multiple sprints.
-     */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSprints(sprints: List<SprintEntity>)
     
-    /**
-     * Update an existing sprint.
-     */
     @Update
-    suspend fun updateSprint(sprint: SprintEntity)
+    suspend fun updateSprint(sprint: SprintEntity): Int
     
-    /**
-     * Delete a sprint.
-     */
-    @Delete
-    suspend fun deleteSprint(sprint: SprintEntity)
+    @Query("DELETE FROM sprints WHERE id = :sprintId")
+    suspend fun deleteSprint(sprintId: String): Int
     
-    /**
-     * Delete a sprint by ID.
-     */
-    @Query("DELETE FROM sprints WHERE id = :id")
-    suspend fun deleteSprintById(id: String)
+    @Query("SELECT * FROM sprints WHERE id = :sprintId")
+    suspend fun getSprintById(sprintId: String): SprintEntity?
     
-    /**
-     * Delete all sprints.
-     */
-    @Query("DELETE FROM sprints")
-    suspend fun deleteAllSprints()
+    @Query("SELECT * FROM sprints")
+    fun getAllSprints(): Flow<List<SprintEntity>>
     
-    /**
-     * Mark a sprint as completed.
-     */
-    @Query("UPDATE sprints SET isCompleted = 1, isActive = 0, updatedAt = :timestamp WHERE id = :id")
-    suspend fun markSprintAsCompleted(id: String, timestamp: Long = System.currentTimeMillis())
+    @Query("SELECT * FROM sprints WHERE startDate <= :date AND endDate >= :date")
+    fun getActiveSprintAtDate(date: LocalDate): Flow<SprintEntity?>
     
-    /**
-     * Mark a sprint as active.
-     */
-    @Query("UPDATE sprints SET isActive = 1, updatedAt = :timestamp WHERE id = :id")
-    suspend fun markSprintAsActive(id: String, timestamp: Long = System.currentTimeMillis())
+    @Query("SELECT * FROM sprints WHERE startDate BETWEEN :startDate AND :endDate OR endDate BETWEEN :startDate AND :endDate")
+    fun getSprintsInRange(startDate: LocalDate, endDate: LocalDate): Flow<List<SprintEntity>>
     
-    /**
-     * Mark a sprint as inactive.
-     */
-    @Query("UPDATE sprints SET isActive = 0, updatedAt = :timestamp WHERE id = :id")
-    suspend fun markSprintAsInactive(id: String, timestamp: Long = System.currentTimeMillis())
+    // Sprint Review operations
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertSprintReview(sprintReview: SprintReviewEntity)
+    
+    @Update
+    suspend fun updateSprintReview(sprintReview: SprintReviewEntity): Int
+    
+    @Query("SELECT * FROM sprint_reviews WHERE sprintId = :sprintId")
+    fun getSprintReviewBySprintId(sprintId: String): Flow<SprintReviewEntity?>
+    
+    @Query("SELECT * FROM sprint_reviews")
+    fun getAllSprintReviews(): Flow<List<SprintReviewEntity>>
 }

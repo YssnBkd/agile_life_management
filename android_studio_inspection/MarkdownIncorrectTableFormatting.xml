@@ -1,0 +1,14 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/plans/task_sync_background_worker_plan.md</file>
+  <line>147</line>
+  <module>AgileLifeManagement</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/plans/task_sync_background_worker_plan.md" />
+  <problem_class id="MarkdownIncorrectTableFormatting" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Incorrect table formatting</problem_class>
+  <description>Table is not correctly formatted</description>
+  <highlighted_element>| Test Case | Success Criteria | |-----------|------------------| | Offline Creation | Persists afte...</highlighted_element>
+  <language>Markdown</language>
+  <offset>0</offset>
+  <length>274</length>
+</problem>
+</problems>
