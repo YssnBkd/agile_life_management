@@ -7,5 +7,7 @@ package com.example.agilelifemanagement.domain.model
 data class ActivityCategory(
     val id: String,
     val name: String,
-    val color: String // Hex color code (e.g., "#FF5733")
+    val color: String, // Hex color code (e.g., "#FF5733")
+    val iconName: String? = null,
+    val isSystemCategory: Boolean = false
 )

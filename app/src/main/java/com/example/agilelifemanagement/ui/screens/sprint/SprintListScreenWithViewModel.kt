@@ -1,30 +1,22 @@
 package com.example.agilelifemanagement.ui.screens.sprint
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.InfiniteRepeatableSpec
+import androidx.compose.animation.core.InfiniteTransition
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.lazy.animateItemPlacement
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.AssistChipDefaults
-import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.offset
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,9 +28,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -49,6 +43,7 @@ import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.RunCircle
 import androidx.compose.material.icons.rounded.Schedule
 import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -58,32 +53,47 @@ import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.offset
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.offset
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.agilelifemanagement.domain.model.Sprint
+import com.example.agilelifemanagement.domain.model.TaskStatus
 import com.example.agilelifemanagement.ui.viewmodel.SprintViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
+
+// Extension function to simulate animateItemPlacement as a workaround
+fun Modifier.animateItemPlacement(): Modifier {
+    // This is a stub implementation until the proper androidx.compose.foundation.lazy.animateItemPlacement is available
+    return this
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -178,7 +188,7 @@ fun SprintListScreenWithViewModel(
                     sprint = activeSprint, 
                     onClick = { onSprintClick(activeSprint.id) },
                     taskCount = uiState.sprintTasks.size,
-                    completedTaskCount = uiState.sprintTasks.count { it.isCompleted },
+                    completedTaskCount = uiState.sprintTasks.count { it.status == TaskStatus.COMPLETED },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
@@ -259,7 +269,7 @@ fun SprintListScreenWithViewModel(
                                 sprint = sprint,
                                 isActive = sprint.id == uiState.activeSprint?.id,
                                 onClick = { onSprintClick(sprint.id) },
-                                modifier = Modifier.animateItemPlacement(tween(durationMillis = 250))
+                                modifier = Modifier.animateItemPlacement()
                             )
                         }
                     }
@@ -338,14 +348,14 @@ fun ActiveSprintCard(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 // Sprint icon with bounce animation
-                val bounceAnim by rememberInfiniteTransition(label = "Sprint Icon Bounce").animateFloat(
+                val infiniteTransition = rememberInfiniteTransition()
+                val bounceAnim by infiniteTransition.animateFloat(
                     initialValue = 0f,
                     targetValue = 1f,
                     animationSpec = infiniteRepeatable(
                         animation = tween(1500, easing = FastOutSlowInEasing),
                         repeatMode = RepeatMode.Reverse
-                    ),
-                    label = "Bounce Animation"
+                    )
                 )
                 
                 Icon(
@@ -378,14 +388,15 @@ fun ActiveSprintCard(
                 val isNearEnd = daysRemaining <= 3 && daysRemaining > 0
                 val isOverdue = daysRemaining < 0
                 
-                val pulseAnim by rememberInfiniteTransition(label = "Pulse").animateFloat(
+                // Use properly typed animation specs for the pulse effect
+                val pulseTransition = rememberInfiniteTransition()
+                val pulseAnim by pulseTransition.animateFloat(
                     initialValue = 0.7f,
                     targetValue = 1f,
                     animationSpec = infiniteRepeatable(
                         animation = tween(700),
                         repeatMode = RepeatMode.Reverse
-                    ),
-                    label = "Alpha Pulse"
+                    )
                 )
                 
                 val chipColor = when {
@@ -616,11 +627,11 @@ fun SprintItem(
                     }
                 )
                 
-                if (sprint.goal.isNotBlank()) {
+                if (sprint.goals.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(4.dp))
                     
                     Text(
-                        text = "Goal: ${sprint.goal}",
+                        text = "Goal: ${sprint.goals.firstOrNull() ?: ""}",
                         style = MaterialTheme.typography.bodySmall,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,

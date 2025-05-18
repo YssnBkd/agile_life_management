@@ -29,6 +29,7 @@ import androidx.compose.material.icons.rounded.CheckCircle
 import androidx.compose.material.icons.rounded.FilterList
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material.icons.rounded.Sort
+import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.TaskAlt
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -186,18 +187,17 @@ fun TaskListScreen(
         },
         floatingActionButton = {
             ExtendedFloatingActionButton(
+                text = { Text("Add Task") },
+                icon = { 
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Add task"
+                    )
+                },
                 onClick = onAddTaskClick,
                 containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary,
-                expanded = true
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = "Add task"
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text("Add Task")
-            }
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
         }
     ) { innerPadding ->
         Column(
@@ -292,7 +292,7 @@ fun TaskListScreen(
                             title = task.title,
                             priority = task.priority,
                             isCompleted = task.isCompleted,
-                            dueTime = task.dueDate,
+                            dueDate = task.dueDate,
                             estimatedMinutes = task.estimatedMinutes,
                             onClick = { onTaskClick(task.id) }
                         )
@@ -322,7 +322,7 @@ private fun TaskFiltersBar(
 ) {
     ExpressiveCard(
         containerColor = MaterialTheme.colorScheme.surface,
-        elevationShadowEnabled = false,
+        elevation = 0.dp,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)

@@ -11,12 +11,8 @@ import javax.inject.Inject
 class CreateTagUseCase @Inject constructor(
     private val tagRepository: TagRepository
 ) {
-    suspend operator fun invoke(tag: Tag): Result<Unit> {
-        return try {
-            tagRepository.insertTag(tag)
-            Result.Success(Unit)
-        } catch (e: Exception) {
-            Result.Error(e.message ?: "Failed to create tag")
-        }
+    suspend operator fun invoke(tag: Tag): kotlin.Result<Unit> {
+        // Use the createTag method which is available in the repository
+        return tagRepository.createTag(tag).map { Unit }
     }
 }

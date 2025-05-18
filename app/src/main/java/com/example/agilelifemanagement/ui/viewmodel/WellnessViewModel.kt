@@ -6,6 +6,7 @@ import com.example.agilelifemanagement.domain.model.DailyCheckup
 import com.example.agilelifemanagement.domain.model.WellnessAnalytics
 import com.example.agilelifemanagement.domain.usecase.wellness.GetDailyCheckupUseCase
 import com.example.agilelifemanagement.domain.usecase.wellness.GetWellnessAnalyticsUseCase
+import com.example.agilelifemanagement.domain.repository.temporary.TempWellnessRepository
 import com.example.agilelifemanagement.domain.usecase.wellness.SaveDailyCheckupUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -154,21 +155,22 @@ class WellnessViewModel @Inject constructor(
     }
     
     /**
-     * Updates the mood level for the current daily checkup
+     * Updates the mood rating for the current daily checkup
      */
     fun updateMoodLevel(moodLevel: Int) {
         val currentCheckup = _uiState.value.dailyCheckup
         if (currentCheckup != null) {
-            val updatedCheckup = currentCheckup.copy(moodLevel = moodLevel)
+            val updatedCheckup = currentCheckup.copy(moodRating = moodLevel)
             saveDailyCheckup(updatedCheckup)
         } else {
             // Create a new checkup if none exists
             val newCheckup = DailyCheckup(
                 id = "",
                 date = _uiState.value.selectedDate,
-                moodLevel = moodLevel,
+                moodRating = moodLevel,
                 stressLevel = 0,
-                sleepHours = 0.0,
+                sleepQuality = 0,
+                energyLevel = 0,
                 notes = ""
             )
             saveDailyCheckup(newCheckup)
@@ -188,9 +190,10 @@ class WellnessViewModel @Inject constructor(
             val newCheckup = DailyCheckup(
                 id = "",
                 date = _uiState.value.selectedDate,
-                moodLevel = 0,
+                moodRating = 0,
                 stressLevel = stressLevel,
-                sleepHours = 0.0,
+                sleepQuality = 0,
+                energyLevel = 0,
                 notes = ""
             )
             saveDailyCheckup(newCheckup)
@@ -198,21 +201,22 @@ class WellnessViewModel @Inject constructor(
     }
     
     /**
-     * Updates the sleep hours for the current daily checkup
+     * Updates the sleep quality for the current daily checkup
      */
-    fun updateSleepHours(sleepHours: Double) {
+    fun updateSleepQuality(sleepQuality: Int) {
         val currentCheckup = _uiState.value.dailyCheckup
         if (currentCheckup != null) {
-            val updatedCheckup = currentCheckup.copy(sleepHours = sleepHours)
+            val updatedCheckup = currentCheckup.copy(sleepQuality = sleepQuality)
             saveDailyCheckup(updatedCheckup)
         } else {
             // Create a new checkup if none exists
             val newCheckup = DailyCheckup(
                 id = "",
                 date = _uiState.value.selectedDate,
-                moodLevel = 0,
+                moodRating = 0,
                 stressLevel = 0,
-                sleepHours = sleepHours,
+                sleepQuality = sleepQuality,
+                energyLevel = 0,
                 notes = ""
             )
             saveDailyCheckup(newCheckup)
@@ -232,9 +236,10 @@ class WellnessViewModel @Inject constructor(
             val newCheckup = DailyCheckup(
                 id = "",
                 date = _uiState.value.selectedDate,
-                moodLevel = 0,
+                moodRating = 0,
                 stressLevel = 0,
-                sleepHours = 0.0,
+                sleepQuality = 0,
+                energyLevel = 0,
                 notes = notes
             )
             saveDailyCheckup(newCheckup)

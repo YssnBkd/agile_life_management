@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.Flow
  * Repository interface for Sprint operations.
  * Defines the contract for accessing and manipulating sprint data.
  */
+
 interface SprintRepository {
     /**
      * Get all sprints as an observable Flow.

@@ -1,8 +1,9 @@
 package com.example.agilelifemanagement.domain.usecase.day.activity
 
 import com.example.agilelifemanagement.domain.model.DayActivity
-import com.example.agilelifemanagement.domain.repository.DayActivityRepository
+import com.example.agilelifemanagement.domain.repository.DayRepository
 import javax.inject.Inject
+import kotlin.Result
 
 /**
  * Use case for adding a new day activity.
@@ -10,7 +11,7 @@ import javax.inject.Inject
  * and syncing with remote sources in the background.
  */
 class AddDayActivityUseCase @Inject constructor(
-    private val dayActivityRepository: DayActivityRepository
+    private val dayRepository: DayRepository
 ) {
     /**
      * Creates a new activity in the system.
@@ -18,6 +19,6 @@ class AddDayActivityUseCase @Inject constructor(
      * @return Result containing the created activity with its generated ID if successful, or an error
      */
     suspend operator fun invoke(activity: DayActivity): Result<DayActivity> {
-        return dayActivityRepository.createActivity(activity)
+        return dayRepository.addActivity(activity)
     }
 }

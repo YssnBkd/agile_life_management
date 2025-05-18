@@ -57,6 +57,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.agilelifemanagement.ui.components.cards.ExpressiveCard
 import com.example.agilelifemanagement.ui.theme.AgileLifeTheme
+// Add proper import for clickable
+import androidx.compose.foundation.clickable as composeClickable
 
 /**
  * DayWellnessScreen allows users to track their mood, energy, focus, and productivity for the day
@@ -262,7 +264,7 @@ private fun MoodOption(
             .padding(horizontal = 4.dp)
             .clip(MaterialTheme.shapes.medium)
             .background(
-                color = if (selected) mood.color.copy(alpha = 0.2f) else Color.Transparent
+                color = if (selected) MaterialTheme.colorScheme.primary.copy(alpha = 0.2f) else Color.Transparent
             )
             .padding(8.dp)
             .clip(CircleShape)
@@ -270,8 +272,8 @@ private fun MoodOption(
     ) {
         // Mood emoji with background
         Surface(
-            color = if (selected) mood.color else MaterialTheme.colorScheme.surfaceContainerLow,
-            contentColor = if (selected) Color.White else mood.color,
+            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceContainerLow,
+            contentColor = if (selected) Color.White else MaterialTheme.colorScheme.primary,
             shape = CircleShape,
             modifier = Modifier.size(56.dp)
         ) {
@@ -290,7 +292,7 @@ private fun MoodOption(
             text = mood.label,
             style = MaterialTheme.typography.labelMedium,
             fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal,
-            color = if (selected) mood.color else MaterialTheme.colorScheme.onSurface
+            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
         )
     }
 }
@@ -425,6 +427,7 @@ private fun WellnessSlider(
             val sliderPosition by remember { mutableFloatStateOf(value.toFloat()) }
             val animatedPosition by animateFloatAsState(targetValue = value.toFloat(), label = "")
             
+            @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
             Slider(
                 value = animatedPosition,
                 onValueChange = { /* Update is handled by buttons */ },
@@ -524,6 +527,7 @@ private fun DailyNoteInput(
 }
 
 // Helper functions
+@Composable
 private fun getColorForValue(value: Int, baseColor: Color): Color {
     return when {
         value >= 8 -> baseColor
@@ -545,21 +549,30 @@ private fun getDescriptionForValue(value: Int): String {
 /**
  * Mood types for tracking daily mood
  */
-enum class MoodType(val label: String, val color: Color, val icon: ImageVector) {
-    ENERGETIC("Energetic", AgileLifeTheme.extendedColors.accentSunflower, Icons.Rounded.WbSunny),
-    PRODUCTIVE("Productive", AgileLifeTheme.extendedColors.accentMint, Icons.Rounded.StarRate),
-    FOCUSED("Focused", AgileLifeTheme.extendedColors.accentLavender, Icons.Rounded.SelfImprovement),
-    STRESSED("Stressed", AgileLifeTheme.extendedColors.accentCoral, Icons.Rounded.FireExtinguisher),
-    CREATIVE("Creative", AgileLifeTheme.extendedColors.accentAqua, Icons.Rounded.Psychology)
+enum class MoodType(val label: String, val colorName: String, val icon: ImageVector) {
+    ENERGETIC("Energetic", "accentSunflower", Icons.Rounded.WbSunny),
+    PRODUCTIVE("Productive", "accentMint", Icons.Rounded.StarRate),
+    FOCUSED("Focused", "accentLavender", Icons.Rounded.SelfImprovement),
+    STRESSED("Stressed", "accentCoral", Icons.Rounded.FireExtinguisher),
+    CREATIVE("Creative", "accentAqua", Icons.Rounded.Psychology);
+    
+    @Composable
+    fun getColor(): Color {
+        return when (colorName) {
+            "accentSunflower" -> AgileLifeTheme.extendedColors.accentSunflower
+            "accentMint" -> AgileLifeTheme.extendedColors.accentMint
+            "accentLavender" -> AgileLifeTheme.extendedColors.accentLavender
+            "accentCoral" -> AgileLifeTheme.extendedColors.accentCoral
+            "accentAqua" -> AgileLifeTheme.extendedColors.accentAqua
+            else -> MaterialTheme.colorScheme.primary
+        }
+    }
 }
-
 // Clickable modifier extension (simplified for this example)
 fun Modifier.clickable(onClick: () -> Unit): Modifier {
-    return this.then(
-        androidx.compose.foundation.clickable(
-            onClick = onClick,
-            indication = null,
-            interactionSource = androidx.compose.foundation.interaction.MutableInteractionSource()
-        )
+    return this.composeClickable(
+        onClick = onClick,
+        indication = null,
+        interactionSource = androidx.compose.foundation.interaction.MutableInteractionSource()
     )
 }

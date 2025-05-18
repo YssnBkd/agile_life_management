@@ -19,6 +19,7 @@ class DeleteTaskUseCase @Inject constructor(
      * @return Result indicating success or error with details
      */
     suspend operator fun invoke(taskId: String): Result<Unit> {
-        return taskRepository.deleteTask(taskId)
+        // Map the Boolean result to Unit for clients that don't need the boolean value
+        return taskRepository.deleteTask(taskId).map { Unit }
     }
 }

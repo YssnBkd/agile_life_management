@@ -211,23 +211,23 @@ class SprintViewModel @Inject constructor(
             try {
                 val result = updateSprintUseCase(sprint)
                 result.fold(
-                    onSuccess = { updatedSprint ->
+                    onSuccess = { result ->
                         _uiState.update { 
                             it.copy(
                                 isLoading = false,
-                                selectedSprint = updatedSprint,
+                                selectedSprint = sprint, // Use the sprint we sent to update
                                 isSprintSaved = true
                             )
                         }
                         // Refresh sprint list
                         loadSprints()
                     },
-                    onFailure = { error ->
-                        Timber.e(error, "Error updating sprint")
+                    onError = { errorMsg, cause ->
+                        Timber.e(cause, "Error updating sprint: $errorMsg")
                         _uiState.update { 
                             it.copy(
                                 isLoading = false,
-                                errorMessage = error.message ?: "Failed to update sprint",
+                                errorMessage = errorMsg,
                                 isSprintSaved = false
                             )
                         }

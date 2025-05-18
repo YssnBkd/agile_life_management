@@ -314,63 +314,83 @@ fun TaskCard(
 /**
  * Sprint status with color coding for Material 3 Expressive
  */
-enum class SprintStatus(
-    val label: String,
-    val color: Color,
-    val containerColor: Color,
+enum class SprintStatus(val label: String) {
+    ACTIVE("Active"),
+    PLANNED("Planned"),
+    COMPLETED("Completed");
+    
+    // These properties need to be accessed within a Composable context
+    @Composable
+    fun getStatusColor(): Color {
+        return when (this) {
+            ACTIVE -> AgileLifeTheme.extendedColors.sprintActive
+            PLANNED -> AgileLifeTheme.extendedColors.sprintPlanned
+            COMPLETED -> AgileLifeTheme.extendedColors.sprintCompleted
+        }
+    }
+    
+    @Composable
+    fun getContainerColor(): Color {
+        return getStatusColor().copy(alpha = 0.15f)
+    }
+    
+    @Composable
+    fun getTextColor(): Color {
+        return getStatusColor()
+    }
+    
+    // Backward compatibility properties
+    val color: Color
+        @Composable get() = getStatusColor()
+        
+    val containerColor: Color
+        @Composable get() = getContainerColor()
+        
     val textColor: Color
-) {
-    ACTIVE(
-        label = "Active",
-        color = AgileLifeTheme.extendedColors.sprintActive,
-        containerColor = AgileLifeTheme.extendedColors.sprintActive.copy(alpha = 0.15f),
-        textColor = AgileLifeTheme.extendedColors.sprintActive
-    ),
-    PLANNED(
-        label = "Planned",
-        color = AgileLifeTheme.extendedColors.sprintPlanned,
-        containerColor = AgileLifeTheme.extendedColors.sprintPlanned.copy(alpha = 0.15f),
-        textColor = AgileLifeTheme.extendedColors.sprintPlanned
-    ),
-    COMPLETED(
-        label = "Completed",
-        color = AgileLifeTheme.extendedColors.sprintCompleted,
-        containerColor = AgileLifeTheme.extendedColors.sprintCompleted.copy(alpha = 0.15f),
-        textColor = AgileLifeTheme.extendedColors.sprintCompleted
-    )
+        @Composable get() = getTextColor()
 }
 
 /**
  * Task priority with color coding for Material 3 Expressive
  */
-enum class TaskPriority(
-    val label: String,
-    val color: Color,
-    val containerColor: Color,
+enum class TaskPriority(val label: String) {
+    LOW("Low"),
+    MEDIUM("Medium"),
+    HIGH("High"),
+    CRITICAL("Critical");
+    
+    // These properties need to be accessed within a Composable context
+    @Composable
+    fun getPriorityColor(): Color {
+        return when (this) {
+            LOW -> AgileLifeTheme.extendedColors.priorityLow
+            MEDIUM -> AgileLifeTheme.extendedColors.priorityMedium
+            HIGH -> AgileLifeTheme.extendedColors.priorityHigh
+            CRITICAL -> AgileLifeTheme.extendedColors.priorityCritical
+        }
+    }
+    
+    @Composable
+    fun getContainerColor(): Color {
+        return getPriorityColor().copy(alpha = 0.15f)
+    }
+    
+    @Composable
+    fun getTextColor(): Color {
+        return if (this == MEDIUM) {
+            getPriorityColor().copy(alpha = 0.8f)
+        } else {
+            getPriorityColor()
+        }
+    }
+    
+    // Backward compatibility properties
+    val color: Color
+        @Composable get() = getPriorityColor()
+        
+    val containerColor: Color
+        @Composable get() = getContainerColor()
+        
     val textColor: Color
-) {
-    LOW(
-        label = "Low",
-        color = AgileLifeTheme.extendedColors.priorityLow,
-        containerColor = AgileLifeTheme.extendedColors.priorityLow.copy(alpha = 0.15f),
-        textColor = AgileLifeTheme.extendedColors.priorityLow
-    ),
-    MEDIUM(
-        label = "Medium",
-        color = AgileLifeTheme.extendedColors.priorityMedium,
-        containerColor = AgileLifeTheme.extendedColors.priorityMedium.copy(alpha = 0.15f),
-        textColor = AgileLifeTheme.extendedColors.priorityMedium.copy(alpha = 0.8f)
-    ),
-    HIGH(
-        label = "High",
-        color = AgileLifeTheme.extendedColors.priorityHigh,
-        containerColor = AgileLifeTheme.extendedColors.priorityHigh.copy(alpha = 0.15f),
-        textColor = AgileLifeTheme.extendedColors.priorityHigh
-    ),
-    CRITICAL(
-        label = "Critical",
-        color = AgileLifeTheme.extendedColors.priorityCritical,
-        containerColor = AgileLifeTheme.extendedColors.priorityCritical.copy(alpha = 0.15f),
-        textColor = AgileLifeTheme.extendedColors.priorityCritical
-    )
+        @Composable get() = getTextColor()
 }

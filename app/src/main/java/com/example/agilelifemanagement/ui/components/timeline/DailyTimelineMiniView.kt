@@ -19,11 +19,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.ui.graphics.Color
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -178,23 +178,3 @@ private fun getCategoryColor(category: TimeBlockCategory): Color {
     }
 }
 
-/**
- * Data class representing a block of time in the schedule
- */
-data class TimeBlock(
-    val id: String,
-    val title: String,
-    val timeRange: String,
-    val category: TimeBlockCategory
-)
-
-/**
- * Categories for time blocks
- */
-enum class TimeBlockCategory {
-    TASK,
-    MEETING,
-    FOCUS,
-    BREAK,
-    PERSONAL
-}

@@ -183,27 +183,28 @@ data class QuickAction(
 /**
  * Predefined quick actions for the dashboard
  */
-object QuickActions {
-    val NewTask = QuickAction(
+@Composable
+fun rememberQuickActions(): List<QuickAction> {
+    val newTask = QuickAction(
         id = "new_task",
         label = "New Task",
         icon = Icons.Rounded.Edit,
         color = AgileLifeTheme.extendedColors.accentCoral
     )
     
-    val CheckIn = QuickAction(
+    val checkIn = QuickAction(
         id = "check_in",
         label = "Check-In",
         icon = Icons.Rounded.Check,
         color = AgileLifeTheme.extendedColors.accentMint
     )
     
-    val QuickNote = QuickAction(
+    val quickNote = QuickAction(
         id = "quick_note",
         label = "Quick Note",
         icon = Icons.Rounded.Edit,
         color = AgileLifeTheme.extendedColors.accentLavender
     )
     
-    val AllActions = listOf(NewTask, CheckIn, QuickNote)
+    return listOf(newTask, checkIn, quickNote)
 }

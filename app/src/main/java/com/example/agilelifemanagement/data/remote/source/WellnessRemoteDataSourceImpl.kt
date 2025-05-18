@@ -19,8 +19,8 @@ class WellnessRemoteDataSourceImpl @Inject constructor() : WellnessRemoteDataSou
         return null // Stub implementation
     }
     
-    override suspend fun getDailyCheckupsInRange(startDate: LocalDate, endDate: LocalDate): List<DailyCheckup> {
-        Timber.d("Remote: getDailyCheckupsInRange called (stub) for range: $startDate to $endDate")
+    override suspend fun getDailyCheckupsForRange(startDate: LocalDate, endDate: LocalDate): List<DailyCheckup> {
+        Timber.d("Remote: getDailyCheckupsForRange called (stub) for range: $startDate to $endDate")
         return emptyList() // Stub implementation
     }
     
@@ -29,8 +29,8 @@ class WellnessRemoteDataSourceImpl @Inject constructor() : WellnessRemoteDataSou
         return dailyCheckup // Stub implementation, just returns the input checkup
     }
     
-    override suspend fun deleteDailyCheckup(date: LocalDate): Boolean {
-        Timber.d("Remote: deleteDailyCheckup called (stub) for date: $date")
+    override suspend fun deleteDailyCheckup(checkupId: String): Boolean {
+        Timber.d("Remote: deleteDailyCheckup called (stub) for checkup ID: $checkupId")
         return true // Stub implementation, pretend it always succeeds
     }
     

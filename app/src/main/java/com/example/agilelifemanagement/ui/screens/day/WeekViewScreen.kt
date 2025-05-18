@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -27,10 +28,15 @@ import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.ChevronLeft
 import androidx.compose.material.icons.rounded.ChevronRight
 import androidx.compose.material.icons.rounded.Today
+import androidx.compose.material.icons.rounded.CheckCircle
+import androidx.compose.material.icons.rounded.Circle
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -58,18 +64,22 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.agilelifemanagement.R
 import com.example.agilelifemanagement.domain.model.DayActivity
 import com.example.agilelifemanagement.ui.components.cards.ExpressiveCard
 import com.example.agilelifemanagement.ui.screens.day.viewmodel.WeekViewModel
 import com.example.agilelifemanagement.ui.theme.AgileLifeTheme
-import kotlinx.coroutines.launch
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
@@ -79,6 +89,7 @@ import java.time.temporal.ChronoUnit
 import java.time.temporal.TemporalAdjusters
 import java.time.temporal.WeekFields
 import java.util.Locale
+import kotlinx.coroutines.launch
 
 /**
  * WeekViewScreen displays a weekly calendar view of activities
@@ -224,7 +235,7 @@ fun WeekViewScreen(
                         .fillMaxSize()
                         .padding(horizontal = 16.dp)
                 ) {
-                    val activitiesForSelectedDay = uiState.dayActivities[uiState.selectedDay] ?: emptyList()
+                    val activitiesForSelectedDay = uiState.weekActivities[uiState.selectedDay] ?: emptyList()
                     
                     if (activitiesForSelectedDay.isEmpty()) {
                         EmptyDayView(
@@ -276,7 +287,7 @@ private fun WeekDaySelector(
             val isToday = date.isEqual(today)
             
             // Check if there are activities on this day
-            val hasActivities = uiState.dayActivities[date]?.isNotEmpty() == true
+            val hasActivities = uiState.weekActivities[date]?.isNotEmpty() == true
             
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -349,16 +360,12 @@ private fun WeekDaySelector(
                     )
                 } else {
                     Spacer(modifier = Modifier.height(4.dp))
-                                    else
-                                        AgileLifeTheme.extendedColors.accentSunflower
-                                )
-                        )
-                    }
+                }
                 }
             }
         }
     }
-}
+
 
 @Composable
 private fun EmptyDayView(
@@ -429,7 +436,7 @@ private fun DayScheduleView(
         )
         
         // Group by time blocks
-        val activityGroups = activities.groupBy { it.startTime }
+        val activityGroups = activities.groupBy { it.scheduledTime }
         
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -461,14 +468,14 @@ private fun DayScheduleView(
 
 @Composable
 private fun TimeBlockHeader(
-    timeBlock: String
+    timeBlock: LocalTime
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.fillMaxWidth()
     ) {
         Text(
-            text = timeBlock,
+            text = timeBlock.format(DateTimeFormatter.ofPattern("HH:mm")),
             style = MaterialTheme.typography.titleSmall,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary
@@ -502,79 +509,73 @@ private fun DayActivityItem(
         else -> MaterialTheme.colorScheme.primary
     }
     
-    Surface(
+    Card(
         onClick = onClick,
-        color = categoryColor.copy(alpha = 0.1f),
-        contentColor = MaterialTheme.colorScheme.onSurface,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = categoryColor.copy(alpha = 0.1f),
+            contentColor = MaterialTheme.colorScheme.onSurface
+        )
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(8.dp)
+        Column(
+            modifier = Modifier.padding(16.dp)
         ) {
-            // Time column
-            Column(
-                horizontalAlignment = Alignment.End,
-                modifier = Modifier.width(50.dp)
+            // Title and time row
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = activity.startTime,
-                    style = MaterialTheme.typography.bodySmall,
-                    fontWeight = FontWeight.Medium
+                    text = activity.title,
+                    style = MaterialTheme.typography.titleMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f)
                 )
                 
                 Text(
-                    text = "${activity.durationMinutes}m",
-                    style = MaterialTheme.typography.bodySmall,
+                    text = activity.scheduledTime.format(DateTimeFormatter.ofPattern("HH:mm")),
+                    style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
             
-            Spacer(modifier = Modifier.width(12.dp))
-            
-            // Colored indicator
-            Box(
-                modifier = Modifier
-                    .size(width = 4.dp, height = 36.dp)
-                    .background(activity.color, RoundedCornerShape(cornerRadius))
-            )
-            
-            Spacer(modifier = Modifier.width(12.dp))
-            
-            // Activity details
-            Column(
-                modifier = Modifier.weight(1f)
-            ) {
+            // Description if available
+            if (activity.description.isNotEmpty()) {
                 Text(
-                    text = activity.title,
+                    text = activity.description,
                     style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Medium
+                    modifier = Modifier
+                        .padding(top = 4.dp)
+                        .fillMaxWidth(),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
                 )
-                
-                if (activity.description.isNotBlank()) {
-                    Text(
-                        text = activity.description,
-                        style = MaterialTheme.typography.bodySmall,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
             }
             
-            // Category chip if available
-            activity.categoryName?.let { categoryName ->
-                Surface(
-                    color = activity.color.copy(alpha = 0.12f),
-                    shape = RoundedCornerShape(4.dp),
-                    modifier = Modifier.padding(start = 8.dp)
-                ) {
-                    Text(
-                        text = categoryName,
-                        style = MaterialTheme.typography.labelSmall,
-                        color = activity.color,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                    )
-                }
+            // Duration and status row
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "${activity.duration} min",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                
+                Icon(
+                    imageVector = if (activity.completed) Icons.Rounded.CheckCircle else Icons.Rounded.Circle,
+                    contentDescription = if (activity.completed) "Completed" else "Not completed",
+                    tint = if (activity.completed) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
+                    modifier = Modifier.size(20.dp)
+                )
             }
         }
     }

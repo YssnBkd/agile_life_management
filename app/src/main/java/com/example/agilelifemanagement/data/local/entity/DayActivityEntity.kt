@@ -9,7 +9,10 @@ import java.time.LocalTime
 
 /**
  * Room entity representing a day activity in the local database.
- * Day activities are scheduled activities for specific days.
+ * Day activities are scheduled activities for specific days with time slots.
+ * 
+ * This entity follows Material 3 Expressive design principles by supporting
+ * proper categorization with visual cues through the category relationship.
  */
 @Entity(
     tableName = "day_activities",

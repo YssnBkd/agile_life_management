@@ -152,9 +152,9 @@ class DashboardViewModel @Inject constructor(
                 }
                 .collectLatest { goals ->
                     val today = LocalDate.now()
-                    val activeGoals = goals.filter { goal ->
-                        !goal.isCompleted && (goal.dueDate == null || goal.dueDate.isAfter(today))
-                    }.take(5) // Limit to 5 active goals for the dashboard
+                    // Simplified goal filtering after May 2025 architecture change
+                    // We'll temporarily show all goals for dashboard since we're rebuilding
+                    val activeGoals = goals.take(5) // Limit to 5 goals for the dashboard
                     
                     _uiState.update { 
                         it.copy(

@@ -8,6 +8,12 @@ import java.time.LocalDate
 /**
  * Repository interface for Task operations.
  * Defines the contract for accessing and manipulating task data.
+ * 
+ * This repository follows Material 3 Expressive design principles by providing:
+ * - Reactive data streams for responsive UI updates
+ * - Status and priority-based filtering for visual state representation
+ * - Deadline management for timeline visualization
+ * - Tag-based organization for visual categorization
  */
 interface TaskRepository {
     /**
@@ -72,4 +78,45 @@ interface TaskRepository {
      * @return A Flow emitting lists of tasks with the specified tags
      */
     fun getTasksByTags(tags: List<String>): Flow<List<Task>>
+    
+    // Material 3 Dashboard and Analytics Support
+    
+    /**
+     * Get tasks approaching their deadlines within a specified number of days.
+     * Useful for deadline proximity indicators in Material 3 cards.
+     * 
+     * @param days Number of days in the future to look for deadlines
+     * @return A Flow emitting lists of tasks with approaching deadlines
+     */
+    fun getTasksApproachingDeadline(days: Int): Flow<List<Task>>
+    
+    /**
+     * Get overdue tasks for visual highlighting with Material 3 error states.
+     * 
+     * @return A Flow emitting lists of overdue tasks
+     */
+    fun getOverdueTasks(): Flow<List<Task>>
+    
+    /**
+     * Get tasks by priority for visual hierarchy in Material 3 lists.
+     * 
+     * @param priority The priority level to filter by
+     * @return A Flow emitting lists of tasks with the specified priority
+     */
+    fun getTasksByPriority(priority: String): Flow<List<Task>>
+    
+    /**
+     * Get task count by status for dashboard visualizations.
+     * 
+     * @return A Flow emitting a map of status to count
+     */
+    fun getTaskCountByStatus(): Flow<Map<TaskStatus, Int>>
+    
+    /**
+     * Get recently completed tasks for achievement displays.
+     * 
+     * @param limit Maximum number of tasks to return
+     * @return A Flow emitting lists of recently completed tasks
+     */
+    fun getRecentlyCompletedTasks(limit: Int = 5): Flow<List<Task>>
 }

@@ -29,6 +29,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
+import com.example.agilelifemanagement.ui.components.fab.QuickAction
+import com.example.agilelifemanagement.ui.components.fab.QuickActionFAB
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -38,8 +40,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.example.agilelifemanagement.ui.components.actions.QuickActionFAB
-import com.example.agilelifemanagement.ui.components.actions.QuickActions
+import com.example.agilelifemanagement.ui.components.actions.QuickActions as ActionEnum
 import com.example.agilelifemanagement.ui.components.cards.ExpressiveCard
 import com.example.agilelifemanagement.ui.components.cards.FeatureCard
 import com.example.agilelifemanagement.ui.components.cards.SprintCard
@@ -130,12 +131,13 @@ fun DashboardScreen(
         },
         floatingActionButton = {
             QuickActionFAB(
-                actions = QuickActions.AllActions,
+                actions = ActionEnum.AllActions.take(4),
                 onActionClick = { action ->
                     when (action.id) {
-                        QuickActions.NewTask.id -> onCreateTask()
-                        QuickActions.CheckIn.id -> onCheckIn()
-                        QuickActions.QuickNote.id -> onCreateNote()
+                        "create_task" -> onCreateTask()
+                        "plan_day" -> onCheckIn()
+                        "create_goal" -> onCreateNote()
+                        else -> {}
                     }
                 }
             )

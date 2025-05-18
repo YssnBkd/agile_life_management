@@ -13,6 +13,7 @@ class GetTasksByDateUseCase @Inject constructor(
     private val taskRepository: TaskRepository
 ) {
     operator fun invoke(date: LocalDate): Flow<List<Task>> {
-        return taskRepository.getTasksByDueDate(date)
+        // Use the getTasksByDate method which is available in the repository
+        return taskRepository.getTasksByDate(date)
     }
 }

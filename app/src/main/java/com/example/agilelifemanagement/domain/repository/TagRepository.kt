@@ -48,4 +48,13 @@ interface TagRepository {
      * @return A Flow emitting lists of tags associated with the specified task
      */
     fun getTagsForTask(taskId: String): Flow<List<Tag>>
+    
+    /**
+     * Gets an existing tag by name or creates a new one if it doesn't exist.
+     * This is used when assigning tags to tasks.
+     * 
+     * @param tagName The name of the tag to find or create
+     * @return The existing or newly created tag
+     */
+    suspend fun getOrCreateTag(tagName: String): Tag
 }

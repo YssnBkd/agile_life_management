@@ -310,7 +310,7 @@ private fun TaskMetadata(task: TaskDetailData) {
         // Created date
         MetadataItem(
             icon = Icons.Rounded.CalendarToday,
-            iconTint = AgileLifeTheme.extendedColors.accentAqua,
+            iconTint = MaterialTheme.colorScheme.tertiary,
             label = "Created",
             value = task.createdDate
         )

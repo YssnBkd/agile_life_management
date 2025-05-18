@@ -2,7 +2,7 @@ package com.example.agilelifemanagement.ui.screens.day.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.agilelifemanagement.domain.model.ActivityCategory
+import com.example.agilelifemanagement.domain.model.GoalCategory
 import com.example.agilelifemanagement.domain.model.DayTemplate
 import com.example.agilelifemanagement.domain.model.Result
 import com.example.agilelifemanagement.domain.model.TemplateActivity
@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import javax.inject.Inject
+import java.util.UUID
 
 /**
  * ViewModel for DayTemplateScreen.
@@ -43,7 +44,7 @@ class TemplateViewModel @Inject constructor(
     data class TemplateUiState(
         val isLoading: Boolean = false,
         val templates: List<DayTemplate> = emptyList(),
-        val categories: List<ActivityCategory> = emptyList(),
+        val categories: List<GoalCategory> = emptyList(),
         val selectedTemplate: DayTemplate? = null,
         val errorMessage: String? = null
     )
@@ -132,6 +133,7 @@ class TemplateViewModel @Inject constructor(
     fun createTemplate(name: String, description: String, activities: List<TemplateActivity>) {
         viewModelScope.launch {
             val newTemplate = DayTemplate(
+                id = UUID.randomUUID().toString(),
                 name = name,
                 description = description,
                 activities = activities,
@@ -139,7 +141,7 @@ class TemplateViewModel @Inject constructor(
             )
             
             when (val result = createDayTemplateUseCase(newTemplate)) {
-                is Result.Success -> {
+                is Result.Success<*> -> {
                     loadTemplates() // Refresh templates list
                 }
                 is Result.Error -> {
@@ -150,12 +152,12 @@ class TemplateViewModel @Inject constructor(
             }
         }
     }
-
+    
     // Update an existing template using UpdateDayTemplateUseCase
     fun updateTemplate(template: DayTemplate) {
         viewModelScope.launch {
             when (val result = updateDayTemplateUseCase(template)) {
-                is Result.Success -> {
+                is Result.Success<*> -> {
                     loadTemplates() // Refresh templates list
                 }
                 is Result.Error -> {
@@ -167,11 +169,13 @@ class TemplateViewModel @Inject constructor(
         }
     }
 
+
+
     // Delete a template using DeleteDayTemplateUseCase
     fun deleteTemplate(templateId: String) {
         viewModelScope.launch {
             when (val result = deleteDayTemplateUseCase(templateId)) {
-                is Result.Success -> {
+                is Result.Success<*> -> {
                     loadTemplates() // Refresh templates list
                     
                     // Clear selection if the deleted template was selected

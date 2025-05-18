@@ -17,37 +17,37 @@ class DailyCheckupLocalDataSource @Inject constructor(
      * Get a checkup for a specific date.
      */
     fun observeCheckupByDate(date: LocalDate): Flow<DailyCheckupEntity?> = 
-        checkupDao.getCheckupByDate(date)
+        checkupDao.getDailyCheckupByDate(date)
     
     /**
      * Get checkups for a date range.
      */
     fun observeCheckupsForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<List<DailyCheckupEntity>> = 
-        checkupDao.getCheckupsForDateRange(startDate, endDate)
+        checkupDao.getDailyCheckupsByDateRange(startDate, endDate)
     
     /**
      * Get average mood rating for a date range.
      */
     fun getAverageMoodForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<Float> = 
-        checkupDao.getAverageMoodForDateRange(startDate, endDate)
+        checkupDao.getAverageMoodForRange(startDate, endDate)
     
     /**
      * Get average sleep quality for a date range.
      */
     fun getAverageSleepQualityForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<Float> = 
-        checkupDao.getAverageSleepQualityForDateRange(startDate, endDate)
+        checkupDao.getAverageSleepQualityForRange(startDate, endDate)
     
     /**
      * Get average stress level for a date range.
      */
     fun getAverageStressLevelForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<Float> = 
-        checkupDao.getAverageStressLevelForDateRange(startDate, endDate)
+        checkupDao.getAverageStressLevelForRange(startDate, endDate)
     
     /**
      * Get average energy level for a date range.
      */
     fun getAverageEnergyLevelForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<Float> = 
-        checkupDao.getAverageEnergyLevelForDateRange(startDate, endDate)
+        checkupDao.getAverageEnergyLevelForRange(startDate, endDate)
     
     /**
      * Get a specific checkup by ID.
@@ -59,7 +59,7 @@ class DailyCheckupLocalDataSource @Inject constructor(
      * Insert a checkup.
      */
     suspend fun insertCheckup(checkup: DailyCheckupEntity) {
-        checkupDao.insertCheckup(checkup)
+        checkupDao.insertDailyCheckup(checkup)
     }
     
     /**
@@ -79,5 +79,5 @@ class DailyCheckupLocalDataSource @Inject constructor(
      * Delete a checkup.
      */
     suspend fun deleteCheckup(checkupId: String): Int =
-        checkupDao.deleteCheckup(checkupId)
+        checkupDao.deleteDailyCheckup(checkupId)
 }

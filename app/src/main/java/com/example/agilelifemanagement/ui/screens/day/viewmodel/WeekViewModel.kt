@@ -161,7 +161,7 @@ class WeekViewModel @Inject constructor(
     fun addActivity(activity: DayActivity) {
         viewModelScope.launch {
             when (val result = addDayActivityUseCase(activity)) {
-                is Result.Success -> {
+                is Result.Success<DayActivity> -> {
                     // Refresh selected day activities
                     selectDay(_uiState.value.selectedDay)
                 }

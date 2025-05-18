@@ -1,5 +1,6 @@
 package com.example.agilelifemanagement.data.remote.model
 
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
 import java.time.LocalTime
@@ -12,12 +13,12 @@ data class DayActivityDto(
     val id: String = "",
     val title: String,
     val description: String = "",
-    val date: LocalDate,
-    val startTime: LocalTime? = null,
-    val endTime: LocalTime? = null,
+    @Contextual val date: LocalDate,
+    @Contextual val startTime: LocalTime? = null,
+    @Contextual val endTime: LocalTime? = null,
     val isCompleted: Boolean = false,
     val categoryId: String? = null,
     val priority: Int = 0,
-    val createdDate: LocalDate,
-    val modifiedDate: LocalDate
+    @Contextual val createdDate: LocalDate,
+    @Contextual val modifiedDate: LocalDate
 )

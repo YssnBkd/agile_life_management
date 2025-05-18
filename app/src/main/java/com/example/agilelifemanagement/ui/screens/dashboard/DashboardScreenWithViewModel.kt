@@ -19,6 +19,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.CheckCircle
+import com.example.agilelifemanagement.domain.model.TaskStatus
 import androidx.compose.material.icons.rounded.Flag
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.RunCircle
@@ -181,7 +182,7 @@ fun DashboardScreenWithViewModel(
                         DashboardSprintItem(
                             sprint = uiState.activeSprint!!,
                             taskCount = uiState.sprintTasks.size,
-                            completedTaskCount = uiState.sprintTasks.count { it.isCompleted },
+                            completedTaskCount = uiState.sprintTasks.count { it.status == TaskStatus.COMPLETED },
                             onClick = { onSprintClick(uiState.activeSprint!!.id) }
                         )
                     }
@@ -334,7 +335,7 @@ fun DashboardTaskItem(
                 .size(24.dp)
                 .clip(CircleShape)
                 .background(
-                    if (task.isCompleted) 
+                    if (task.status == TaskStatus.COMPLETED) 
                         MaterialTheme.colorScheme.primary
                     else 
                         MaterialTheme.colorScheme.surfaceVariant
@@ -342,7 +343,7 @@ fun DashboardTaskItem(
                 .padding(4.dp),
             contentAlignment = Alignment.Center
         ) {
-            if (task.isCompleted) {
+            if (task.status == TaskStatus.COMPLETED) {
                 Icon(
                     imageVector = Icons.Rounded.CheckCircle,
                     contentDescription = "Completed",
@@ -363,10 +364,9 @@ fun DashboardTaskItem(
         )
         
         if (task.dueDate != null) {
-            Spacer(modifier = Modifier.width(8.dp))
-            
+            Spacer(modifier = Modifier.width(4.dp))
             Text(
-                text = task.dueDate.format(DateTimeFormatter.ofPattern("h:mm a")),
+                text = task.dueDate.format(DateTimeFormatter.ofPattern("MMM d")),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -467,9 +467,9 @@ fun DashboardGoalItem(
                 overflow = TextOverflow.Ellipsis
             )
             
-            if (goal.dueDate != null) {
+            if (goal.deadline != null) {
                 Text(
-                    text = "Due: ${goal.dueDate.format(DateTimeFormatter.ofPattern("MMM d"))}",
+                    text = "Due: ${goal.deadline.format(DateTimeFormatter.ofPattern("MMM d"))}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -492,7 +492,8 @@ fun DashboardActivityItem(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = "${activity.startTime.format(DateTimeFormatter.ofPattern("h:mm a"))} - ${activity.endTime.format(DateTimeFormatter.ofPattern("h:mm a"))}",
+            // Calculate end time from scheduledTime and duration
+            text = "${activity.scheduledTime.format(DateTimeFormatter.ofPattern("h:mm a"))} - ${activity.scheduledTime.plusMinutes(activity.duration.toLong()).format(DateTimeFormatter.ofPattern("h:mm a"))}",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.width(100.dp)
@@ -528,13 +529,13 @@ fun DashboardWellnessItem(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "Mood Level",
+                    text = "Mood Rating",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 
                 Text(
-                    text = getMoodText(dailyCheckup.moodLevel),
+                    text = getMoodText(dailyCheckup.moodRating),
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -563,13 +564,13 @@ fun DashboardWellnessItem(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "Sleep Hours",
+                    text = "Sleep Quality",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 
                 Text(
-                    text = "${dailyCheckup.sleepHours} hours",
+                    text = "Quality: ${dailyCheckup.sleepQuality}/10",
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.SemiBold
                 )

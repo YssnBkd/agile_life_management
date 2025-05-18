@@ -13,9 +13,13 @@ import java.time.LocalDate
 data class SprintEntity(
     @PrimaryKey
     val id: String,
+    val userId: String,
     val name: String,
     val startDate: LocalDate,
     val endDate: LocalDate,
     val goals: List<String>, // Stored as JSON string via TypeConverter
-    val status: SprintStatus
+    val status: SprintStatus,
+    val isCompleted: Boolean = false,
+    val updatedAt: LocalDate = LocalDate.now(),
+    val isActive: Boolean = true
 )

@@ -11,12 +11,8 @@ import javax.inject.Inject
 class CreateSprintReviewUseCase @Inject constructor(
     private val sprintRepository: SprintRepository
 ) {
-    suspend operator fun invoke(sprintReview: SprintReview): Result<Unit> {
-        return try {
-            sprintRepository.insertSprintReview(sprintReview)
-            Result.Success(Unit)
-        } catch (e: Exception) {
-            Result.Error(e.message ?: "Failed to create sprint review")
-        }
+    suspend operator fun invoke(sprintReview: SprintReview): kotlin.Result<Unit> {
+        // Use the createSprintReview method which is available in the repository
+        return sprintRepository.createSprintReview(sprintReview).map { Unit }
     }
 }

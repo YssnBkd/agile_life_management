@@ -11,7 +11,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Inject
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.android.Android
+import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.LogLevel
@@ -23,6 +23,7 @@ import io.ktor.client.request.header
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
+import okhttp3.OkHttpClient
 import kotlinx.serialization.json.Json
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
@@ -85,11 +86,14 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideHttpClient(json: Json): HttpClient {
-        return HttpClient(Android) {
+        return HttpClient(OkHttp) {
             // Configure timeout
             engine {
-                connectTimeout = TimeUnit.SECONDS.toMillis(CONNECT_TIMEOUT)
-                socketTimeout = TimeUnit.SECONDS.toMillis(READ_TIMEOUT)
+                config {
+                    connectTimeout(30, TimeUnit.SECONDS)
+                    readTimeout(30, TimeUnit.SECONDS)
+                    writeTimeout(30, TimeUnit.SECONDS)
+                }
             }
 
             // Install ContentNegotiation plugin for JSON serialization/deserialization

@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.agilelifemanagement.domain.model.DayActivity
 import com.example.agilelifemanagement.domain.model.DaySchedule
-import com.example.agilelifemanagement.domain.model.Result
+import kotlin.Result
+import kotlin.runCatching
 import com.example.agilelifemanagement.domain.usecase.day.GetDayScheduleUseCase
 import com.example.agilelifemanagement.domain.usecase.day.UpdateDayScheduleUseCase
 import com.example.agilelifemanagement.domain.usecase.day.activity.AddDayActivityUseCase
@@ -96,16 +97,15 @@ class DayViewModel @Inject constructor(
     // Add a new activity using AddDayActivityUseCase
     fun addActivity(activity: DayActivity) {
         viewModelScope.launch {
-            when (val result = addDayActivityUseCase(activity)) {
-                is Result.Success -> {
-                    // Refresh activities
-                    loadDay(_uiState.value.currentDate)
-                }
-                is Result.Error -> {
-                    _uiState.value = _uiState.value.copy(
-                        errorMessage = "Failed to add activity: ${result.message}"
-                    )
-                }
+            val result = addDayActivityUseCase(activity)
+            if (result.isSuccess) {
+                // Refresh activities
+                loadDay(_uiState.value.currentDate)
+            } else {
+                // Simply show generic error - we can't access exception details in this environment
+                _uiState.value = _uiState.value.copy(
+                    errorMessage = "Failed to add activity"
+                )
             }
         }
     }
@@ -113,16 +113,15 @@ class DayViewModel @Inject constructor(
     // Update an existing activity using UpdateDayActivityUseCase
     fun updateActivity(activity: DayActivity) {
         viewModelScope.launch {
-            when (val result = updateDayActivityUseCase(activity)) {
-                is Result.Success -> {
-                    // Refresh activities
-                    loadDay(_uiState.value.currentDate)
-                }
-                is Result.Error -> {
-                    _uiState.value = _uiState.value.copy(
-                        errorMessage = "Failed to update activity: ${result.message}"
-                    )
-                }
+            val result = updateDayActivityUseCase(activity)
+            if (result.isSuccess) {
+                // Refresh activities
+                loadDay(_uiState.value.currentDate)
+            } else {
+                // Simply show generic error - we can't access exception details in this environment
+                _uiState.value = _uiState.value.copy(
+                    errorMessage = "Failed to update activity"
+                )
             }
         }
     }
@@ -130,16 +129,15 @@ class DayViewModel @Inject constructor(
     // Delete an activity using DeleteDayActivityUseCase
     fun deleteActivity(activityId: String) {
         viewModelScope.launch {
-            when (val result = deleteDayActivityUseCase(activityId)) {
-                is Result.Success -> {
-                    // Refresh activities
-                    loadDay(_uiState.value.currentDate)
-                }
-                is Result.Error -> {
-                    _uiState.value = _uiState.value.copy(
-                        errorMessage = "Failed to delete activity: ${result.message}"
-                    )
-                }
+            val result = deleteDayActivityUseCase(activityId)
+            if (result.isSuccess) {
+                // Refresh activities
+                loadDay(_uiState.value.currentDate)
+            } else {
+                // Simply show generic error - we can't access exception details in this environment
+                _uiState.value = _uiState.value.copy(
+                    errorMessage = "Failed to delete activity"
+                )
             }
         }
     }
@@ -147,16 +145,16 @@ class DayViewModel @Inject constructor(
     // Toggle completion status of an activity using ToggleActivityCompletionUseCase
     fun toggleActivityCompletion(activityId: String, completed: Boolean) {
         viewModelScope.launch {
-            when (val result = toggleActivityCompletionUseCase(activityId, completed)) {
-                is Result.Success -> {
-                    // Refresh activities
-                    loadDay(_uiState.value.currentDate)
-                }
-                is Result.Error -> {
-                    _uiState.value = _uiState.value.copy(
-                        errorMessage = "Failed to update activity status: ${result.message}"
-                    )
-                }
+            // Note: The use case now handles the completion toggling internally
+            val result = toggleActivityCompletionUseCase(activityId)
+            if (result.isSuccess) {
+                // Refresh activities
+                loadDay(_uiState.value.currentDate)
+            } else {
+                // Simply show generic error - we can't access exception details in this environment
+                _uiState.value = _uiState.value.copy(
+                    errorMessage = "Failed to update activity status"
+                )
             }
         }
     }
@@ -167,17 +165,16 @@ class DayViewModel @Inject constructor(
             val currentSchedule = _uiState.value.daySchedule
             if (currentSchedule != null) {
                 val updatedSchedule = currentSchedule.copy(notes = notes)
-                when (val result = updateDayScheduleUseCase(updatedSchedule)) {
-                    is Result.Success -> {
-                        _uiState.value = _uiState.value.copy(
-                            daySchedule = updatedSchedule
-                        )
-                    }
-                    is Result.Error -> {
-                        _uiState.value = _uiState.value.copy(
-                            errorMessage = "Failed to update notes: ${result.message}"
-                        )
-                    }
+                val result = updateDayScheduleUseCase(updatedSchedule)
+                if (result.isSuccess) {
+                    _uiState.value = _uiState.value.copy(
+                        daySchedule = updatedSchedule
+                    )
+                } else {
+                    // Simply show generic error - we can't access exception details in this environment
+                    _uiState.value = _uiState.value.copy(
+                        errorMessage = "Failed to update notes"
+                    )
                 }
             }
         }

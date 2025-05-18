@@ -11,7 +11,7 @@ import java.time.LocalDate
 @Dao
 interface DailyCheckupDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCheckup(checkup: DailyCheckupEntity)
+    suspend fun insertDailyCheckup(checkup: DailyCheckupEntity): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCheckups(checkups: List<DailyCheckupEntity>)
@@ -20,26 +20,32 @@ interface DailyCheckupDao {
     suspend fun updateCheckup(checkup: DailyCheckupEntity): Int
     
     @Query("DELETE FROM daily_checkups WHERE id = :checkupId")
-    suspend fun deleteCheckup(checkupId: String): Int
+    suspend fun deleteDailyCheckup(checkupId: String): Int
     
     @Query("SELECT * FROM daily_checkups WHERE id = :checkupId")
     suspend fun getCheckupById(checkupId: String): DailyCheckupEntity?
     
     @Query("SELECT * FROM daily_checkups WHERE date = :date")
-    fun getCheckupByDate(date: LocalDate): Flow<DailyCheckupEntity?>
+    fun getDailyCheckupByDate(date: LocalDate): Flow<DailyCheckupEntity?>
+    
+    @Query("SELECT * FROM daily_checkups WHERE date = :date")
+    suspend fun getDailyCheckupByDateSync(date: LocalDate): DailyCheckupEntity?
     
     @Query("SELECT * FROM daily_checkups WHERE date BETWEEN :startDate AND :endDate ORDER BY date")
-    fun getCheckupsForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<List<DailyCheckupEntity>>
+    fun getDailyCheckupsByDateRange(startDate: LocalDate, endDate: LocalDate): Flow<List<DailyCheckupEntity>>
+    
+    @Query("SELECT * FROM daily_checkups WHERE date BETWEEN :startDate AND :endDate ORDER BY date")
+    suspend fun getDailyCheckupsByDateRangeSync(startDate: LocalDate, endDate: LocalDate): List<DailyCheckupEntity>
     
     @Query("SELECT AVG(moodRating) FROM daily_checkups WHERE date BETWEEN :startDate AND :endDate")
-    fun getAverageMoodForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<Float>
+    fun getAverageMoodForRange(startDate: LocalDate, endDate: LocalDate): Flow<Float>
     
     @Query("SELECT AVG(sleepQuality) FROM daily_checkups WHERE date BETWEEN :startDate AND :endDate")
-    fun getAverageSleepQualityForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<Float>
+    fun getAverageSleepQualityForRange(startDate: LocalDate, endDate: LocalDate): Flow<Float>
     
     @Query("SELECT AVG(stressLevel) FROM daily_checkups WHERE date BETWEEN :startDate AND :endDate")
-    fun getAverageStressLevelForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<Float>
+    fun getAverageStressLevelForRange(startDate: LocalDate, endDate: LocalDate): Flow<Float>
     
     @Query("SELECT AVG(energyLevel) FROM daily_checkups WHERE date BETWEEN :startDate AND :endDate")
-    fun getAverageEnergyLevelForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<Float>
+    fun getAverageEnergyLevelForRange(startDate: LocalDate, endDate: LocalDate): Flow<Float>
 }

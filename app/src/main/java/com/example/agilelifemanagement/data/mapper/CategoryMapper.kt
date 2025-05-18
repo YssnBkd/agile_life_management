@@ -20,9 +20,7 @@ class CategoryMapper @Inject constructor() {
         return ActivityCategory(
             id = entity.id,
             name = entity.name,
-            color = entity.color,
-            icon = entity.icon,
-            description = entity.description
+            color = entity.colorHex
         )
     }
     
@@ -35,9 +33,9 @@ class CategoryMapper @Inject constructor() {
         return ActivityCategoryEntity(
             id = domainModel.id,
             name = domainModel.name,
-            color = domainModel.color,
-            icon = domainModel.icon,
-            description = domainModel.description
+            colorHex = domainModel.color,
+            iconName = "star",  // Default value
+            isSystemCategory = false  // Default value
         )
     }
 }

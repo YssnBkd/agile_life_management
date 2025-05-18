@@ -2,6 +2,8 @@ package com.example.agilelifemanagement.data.mapper
 
 import com.example.agilelifemanagement.data.local.entity.GoalEntity
 import com.example.agilelifemanagement.domain.model.Goal
+import com.example.agilelifemanagement.domain.model.GoalStatus
+import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,12 +25,9 @@ class GoalMapper @Inject constructor() {
             id = entity.id,
             title = entity.title,
             description = entity.description,
+            deadline = entity.deadline,
             status = entity.status,
-            priority = entity.priority,
-            dueDate = entity.dueDate,
-            createdDate = entity.createdDate,
-            modifiedDate = entity.modifiedDate,
-            completedDate = entity.completedDate
+            priority = entity.priority
         )
     }
     
@@ -43,12 +42,10 @@ class GoalMapper @Inject constructor() {
             id = domainModel.id,
             title = domainModel.title,
             description = domainModel.description,
+            deadline = domainModel.deadline,
             status = domainModel.status,
             priority = domainModel.priority,
-            dueDate = domainModel.dueDate,
-            createdDate = domainModel.createdDate,
-            modifiedDate = domainModel.modifiedDate,
-            completedDate = domainModel.completedDate
+            category = "" // Default empty category as it exists in entity but not in domain model
         )
     }
 }

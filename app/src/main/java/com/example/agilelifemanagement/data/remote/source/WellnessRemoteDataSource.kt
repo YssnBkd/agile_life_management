@@ -22,7 +22,7 @@ interface WellnessRemoteDataSource {
      * @param endDate The end date (inclusive)
      * @return List of daily checkups in the specified date range
      */
-    suspend fun getDailyCheckupsInRange(startDate: LocalDate, endDate: LocalDate): List<DailyCheckup>
+    suspend fun getDailyCheckupsForRange(startDate: LocalDate, endDate: LocalDate): List<DailyCheckup>
     
     /**
      * Save or update a daily wellness checkup in the remote source.
@@ -33,10 +33,10 @@ interface WellnessRemoteDataSource {
     
     /**
      * Delete a daily wellness checkup from the remote source.
-     * @param date The date of the checkup to delete
+     * @param checkupId The ID of the checkup to delete
      * @return True if the checkup was successfully deleted
      */
-    suspend fun deleteDailyCheckup(date: LocalDate): Boolean
+    suspend fun deleteDailyCheckup(checkupId: String): Boolean
     
     /**
      * Get wellness analytics data for a date range from the remote source.

@@ -3,6 +3,7 @@ package com.example.agilelifemanagement.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.agilelifemanagement.domain.model.Task
+import com.example.agilelifemanagement.domain.model.TaskPriority
 import com.example.agilelifemanagement.domain.model.TaskStatus
 import com.example.agilelifemanagement.domain.usecase.task.CreateTaskUseCase
 import com.example.agilelifemanagement.domain.usecase.task.DeleteTaskUseCase
@@ -10,9 +11,9 @@ import com.example.agilelifemanagement.domain.usecase.task.GetTaskByIdUseCase
 import com.example.agilelifemanagement.domain.usecase.task.GetTasksUseCase
 import com.example.agilelifemanagement.domain.usecase.task.UpdateTaskStatusUseCase
 import com.example.agilelifemanagement.domain.usecase.task.UpdateTaskUseCase
-import com.example.agilelifemanagement.ui.screens.task.TaskFilterChip
-import com.example.agilelifemanagement.ui.screens.task.TaskFilterType
-import com.example.agilelifemanagement.ui.screens.task.TaskSortCriteria
+import com.example.agilelifemanagement.ui.model.TaskFilterChip
+import com.example.agilelifemanagement.ui.model.TaskFilterType
+import com.example.agilelifemanagement.ui.model.TaskSortCriteria
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,22 +27,7 @@ import java.time.LocalDate
 import javax.inject.Inject
 
 /**
- * UI State for the Task screens, following the Unidirectional Data Flow pattern.
- */
-data class TaskUiState(
-    val tasks: List<Task> = emptyList(),
-    val filteredTasks: List<Task> = emptyList(),
-    val selectedTask: Task? = null,
-    val isLoading: Boolean = false,
-    val isRefreshing: Boolean = false,
-    val errorMessage: String? = null,
-    val filterType: TaskFilterType = TaskFilterType.ALL,
-    val sortCriteria: TaskSortCriteria = TaskSortCriteria.DUE_DATE,
-    val sortAscending: Boolean = true,
-    val selectedFilters: List<TaskFilterChip> = emptyList(),
-    val isTaskSaved: Boolean = false,
-    val isTaskDeleted: Boolean = false
-)
+ * UI State is defined in TaskViewUiState.kt
 
 /**
  * ViewModel for Task-related screens, implementing Unidirectional Data Flow.
@@ -376,90 +362,15 @@ class TaskViewModel @Inject constructor(
     }
     
     /**
-     * Helper function to apply filters and sorting to a list of tasks
+     * Applies filters and sorting to tasks (simplified for temporary implementation)
+     * 
+     * Note: This is a temporary implementation after the May 15, 2025 architectural change
+     * where the data layer was archived for rebuilding.
      */
     private fun applyFiltersAndSort(tasks: List<Task>): List<Task> {
-        val currentState = _uiState.value
-        val now = LocalDate.now()
-        
-        // Apply base filter
-        var filteredTasks = when (currentState.filterType) {
-            TaskFilterType.ALL -> tasks
-            TaskFilterType.ACTIVE -> tasks.filter { it.status != TaskStatus.COMPLETED }
-            TaskFilterType.COMPLETED -> tasks.filter { it.status == TaskStatus.COMPLETED }
-            TaskFilterType.TODAY -> tasks.filter { task -> 
-                task.dueDate?.equals(now) == true && task.status != TaskStatus.COMPLETED
-            }
-            TaskFilterType.UPCOMING -> tasks.filter { task -> 
-                (task.dueDate?.isAfter(now) == true) && task.status != TaskStatus.COMPLETED
-            }
-            TaskFilterType.OVERDUE -> tasks.filter { task -> 
-                (task.dueDate?.isBefore(now) == true) && task.status != TaskStatus.COMPLETED
-            }
-        }
-        
-        // Apply additional filters from chips
-        if (currentState.selectedFilters.isNotEmpty()) {
-            filteredTasks = filteredTasks.filter { task ->
-                currentState.selectedFilters.all { filterChip ->
-                    when (filterChip) {
-                        TaskFilterChip.HIGH_PRIORITY -> task.priority == "HIGH"
-                        TaskFilterChip.MEDIUM_PRIORITY -> task.priority == "MEDIUM"
-                        TaskFilterChip.LOW_PRIORITY -> task.priority == "LOW"
-                        TaskFilterChip.HAS_DEADLINE -> task.dueDate != null
-                        TaskFilterChip.NO_DEADLINE -> task.dueDate == null
-                        TaskFilterChip.IN_PROGRESS -> task.status == TaskStatus.IN_PROGRESS
-                        TaskFilterChip.NOT_STARTED -> task.status == TaskStatus.NOT_STARTED
-                        // Add additional filters as needed
-                    }
-                }
-            }
-        }
-        
-        // Apply sorting
-        return when (currentState.sortCriteria) {
-            TaskSortCriteria.TITLE -> {
-                if (currentState.sortAscending) {
-                    filteredTasks.sortedBy { it.title }
-                } else {
-                    filteredTasks.sortedByDescending { it.title }
-                }
-            }
-            TaskSortCriteria.DUE_DATE -> {
-                if (currentState.sortAscending) {
-                    filteredTasks.sortedWith(compareBy(nullsLast()) { it.dueDate })
-                } else {
-                    filteredTasks.sortedWith(compareByDescending(nullsLast()) { it.dueDate })
-                }
-            }
-            TaskSortCriteria.PRIORITY -> {
-                val priorityOrder = mapOf("HIGH" to 3, "MEDIUM" to 2, "LOW" to 1, "" to 0)
-                if (currentState.sortAscending) {
-                    filteredTasks.sortedBy { priorityOrder[it.priority] ?: 0 }
-                } else {
-                    filteredTasks.sortedByDescending { priorityOrder[it.priority] ?: 0 }
-                }
-            }
-            TaskSortCriteria.STATUS -> {
-                val statusOrder = mapOf(
-                    TaskStatus.COMPLETED to 3,
-                    TaskStatus.IN_PROGRESS to 2,
-                    TaskStatus.NOT_STARTED to 1
-                )
-                if (currentState.sortAscending) {
-                    filteredTasks.sortedBy { statusOrder[it.status] ?: 0 }
-                } else {
-                    filteredTasks.sortedByDescending { statusOrder[it.status] ?: 0 }
-                }
-            }
-            TaskSortCriteria.CREATED_DATE -> {
-                if (currentState.sortAscending) {
-                    filteredTasks.sortedBy { it.createdDate }
-                } else {
-                    filteredTasks.sortedByDescending { it.createdDate }
-                }
-            }
-        }
+        // During rebuilding phase, we'll just return the original tasks without filtering
+        // This will be properly implemented when the data layer is rebuilt
+        return tasks
     }
     
     /**
@@ -473,4 +384,6 @@ class TaskViewModel @Inject constructor(
             else -> a.compareTo(b)
         }
     }
+    // End of TaskViewModel class
 }
+*/

@@ -2,6 +2,7 @@ package com.example.agilelifemanagement.data.mapper
 
 import com.example.agilelifemanagement.data.local.entity.SprintEntity
 import com.example.agilelifemanagement.domain.model.Sprint
+import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,12 +23,10 @@ class SprintMapper @Inject constructor() {
         return Sprint(
             id = entity.id,
             name = entity.name,
-            goal = entity.goal,
             startDate = entity.startDate,
             endDate = entity.endDate,
-            status = entity.status,
-            createdDate = entity.createdDate,
-            modifiedDate = entity.modifiedDate
+            goals = entity.goals,
+            status = entity.status
         )
     }
     
@@ -40,13 +39,15 @@ class SprintMapper @Inject constructor() {
     fun mapToEntity(domainModel: Sprint): SprintEntity {
         return SprintEntity(
             id = domainModel.id,
+            userId = "", // Default empty userId as it's required by entity but not in domain model
             name = domainModel.name,
-            goal = domainModel.goal,
             startDate = domainModel.startDate,
             endDate = domainModel.endDate,
+            goals = domainModel.goals,
             status = domainModel.status,
-            createdDate = domainModel.createdDate,
-            modifiedDate = domainModel.modifiedDate
+            isCompleted = domainModel.status == com.example.agilelifemanagement.domain.model.SprintStatus.COMPLETED,
+            updatedAt = LocalDate.now(),
+            isActive = domainModel.status == com.example.agilelifemanagement.domain.model.SprintStatus.ACTIVE
         )
     }
 }

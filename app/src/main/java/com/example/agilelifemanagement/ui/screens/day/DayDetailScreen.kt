@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import com.example.agilelifemanagement.ui.components.timeline.TimeBlockCategory
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -24,6 +25,7 @@ import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.EmojiFoodBeverage
 import androidx.compose.material.icons.rounded.FitnessCenter
 import androidx.compose.material.icons.rounded.MeetingRoom
+import com.example.agilelifemanagement.ui.components.timeline.TimeBlock
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.Pets
 import androidx.compose.material.icons.rounded.SelfImprovement
@@ -146,18 +148,18 @@ fun DayDetailScreen(
         },
         floatingActionButton = {
             ExtendedFloatingActionButton(
+                text = { Text("Add Task") },
+                icon = { 
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Add task"
+                    )
+                },
                 onClick = onAddTaskClick,
+                expanded = true,
                 containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary,
-                expanded = true
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = "Add task"
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text("Add Task")
-            }
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
         }
     ) { innerPadding ->
         Column(
@@ -449,10 +451,10 @@ private fun DayTimeline(
                     }
                 }
             } else {
-                dayData.timeBlocks.forEachIndexed { index, timeBlock ->
+                (dayData.timeBlocks as? List<TimeBlock>)?.forEachIndexed { index, timeBlock ->
                     TimelineItem(
                         timeBlock = timeBlock,
-                        isLastItem = index == dayData.timeBlocks.size - 1
+                        isLastItem = index == (dayData.timeBlocks as? List<TimeBlock>)?.lastIndex
                     )
                 }
             }
@@ -475,18 +477,16 @@ private fun TimelineItem(
             modifier = Modifier.width(50.dp)
         ) {
             Text(
-                text = timeBlock.startTime,
+                text = timeBlock.timeRange.split(" - ")[0],
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold
             )
             
-            if (timeBlock.endTime != null) {
-                Text(
-                    text = timeBlock.endTime,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
+            Text(
+                text = timeBlock.timeRange.split(" - ").getOrNull(1) ?: "",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
         }
         
         // Timeline line and dot
@@ -534,7 +534,7 @@ private fun TimelineItem(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        imageVector = timeBlock.category.icon,
+                        imageVector = timeBlock.icon,
                         contentDescription = null,
                         tint = timeBlock.category.color,
                         modifier = Modifier.size(20.dp)
@@ -549,7 +549,7 @@ private fun TimelineItem(
                     )
                 }
                 
-                if (timeBlock.description != null) {
+                if (timeBlock.description.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(4.dp))
                     
                     Text(
@@ -558,11 +558,11 @@ private fun TimelineItem(
                     )
                 }
                 
-                if (timeBlock.location != null) {
+                if (timeBlock.location.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(4.dp))
                     
                     Text(
-                        text = "📍 ${timeBlock.location}",
+                        text = "Location: ${timeBlock.location}",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -646,7 +646,7 @@ private fun DayTasks(
                         title = task.title,
                         priority = task.priority,
                         isCompleted = task.isCompleted,
-                        dueTime = task.dueDate,
+                        dueDate = task.dueDate,
                         estimatedMinutes = task.estimatedMinutes,
                         onClick = { onTaskClick(task.id) }
                     )
@@ -657,26 +657,27 @@ private fun DayTasks(
 }
 
 /**
- * Data class for a time block in a day
- */
-data class TimeBlock(
-    val id: String,
-    val title: String,
-    val startTime: String,
-    val endTime: String? = null,
-    val description: String? = null,
-    val location: String? = null,
-    val category: ActivityCategory
-)
-
-/**
  * Activity categories for time blocks
  */
-enum class ActivityCategory(val color: Color, val icon: ImageVector) {
-    WORK(AgileLifeTheme.extendedColors.accentCoral, Icons.Rounded.MeetingRoom),
-    PERSONAL(AgileLifeTheme.extendedColors.accentLavender, Icons.Rounded.Pets),
-    FITNESS(AgileLifeTheme.extendedColors.accentMint, Icons.Rounded.FitnessCenter),
-    BREAK(AgileLifeTheme.extendedColors.accentSunflower, Icons.Rounded.EmojiFoodBeverage)
+enum class ActivityCategory(val icon: ImageVector) {
+    WORK(Icons.Rounded.MeetingRoom),
+    PERSONAL(Icons.Rounded.Pets),
+    FITNESS(Icons.Rounded.FitnessCenter),
+    BREAK(Icons.Rounded.EmojiFoodBeverage);
+    
+    @Composable
+    fun getCategoryColor(): Color {
+        return when (this) {
+            WORK -> AgileLifeTheme.extendedColors.accentCoral
+            PERSONAL -> AgileLifeTheme.extendedColors.accentLavender
+            FITNESS -> AgileLifeTheme.extendedColors.accentMint
+            BREAK -> AgileLifeTheme.extendedColors.accentSunflower
+        }
+    }
+    
+    // For backward compatibility
+    val color: Color
+        @Composable get() = getCategoryColor()
 }
 
 /**
@@ -720,41 +721,36 @@ object SampleDayData {
                 TimeBlock(
                     id = "block1",
                     title = "Morning Standup",
-                    startTime = "9:00 AM",
-                    endTime = "9:30 AM",
+                    timeRange = "9:00 AM - 9:30 AM",
                     description = "Daily team sync meeting",
                     location = "Conference Room A",
-                    category = ActivityCategory.WORK
+                    category = TimeBlockCategory.MEETING
                 ),
                 TimeBlock(
                     id = "block2",
                     title = "UI Development",
-                    startTime = "10:00 AM",
-                    endTime = "12:00 PM",
+                    timeRange = "10:00 AM - 12:00 PM",
                     description = "Implement new dashboard components",
-                    category = ActivityCategory.WORK
+                    category = TimeBlockCategory.TASK
                 ),
                 TimeBlock(
                     id = "block3",
                     title = "Lunch Break",
-                    startTime = "12:00 PM",
-                    endTime = "1:00 PM",
-                    category = ActivityCategory.BREAK
+                    timeRange = "12:00 PM - 1:00 PM",
+                    category = TimeBlockCategory.BREAK
                 ),
                 TimeBlock(
                     id = "block4",
                     title = "Code Review",
-                    startTime = "1:30 PM",
-                    endTime = "3:00 PM",
-                    category = ActivityCategory.WORK
+                    timeRange = "1:30 PM - 3:00 PM",
+                    category = TimeBlockCategory.TASK
                 ),
                 TimeBlock(
                     id = "block5",
                     title = "Gym Session",
-                    startTime = "6:00 PM",
-                    endTime = "7:00 PM",
+                    timeRange = "6:00 PM - 7:00 PM",
                     location = "Fitness Center",
-                    category = ActivityCategory.FITNESS
+                    category = TimeBlockCategory.PERSONAL
                 )
             ),
             tasks = listOf(

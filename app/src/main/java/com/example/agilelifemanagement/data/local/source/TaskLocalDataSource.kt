@@ -5,6 +5,7 @@ import com.example.agilelifemanagement.data.local.dao.TagDao
 import com.example.agilelifemanagement.data.local.entity.TaskEntity
 import com.example.agilelifemanagement.domain.model.TaskStatus
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 import javax.inject.Inject
 
@@ -84,4 +85,36 @@ class TaskLocalDataSource @Inject constructor(
      */
     suspend fun deleteTask(taskId: String): Int =
         taskDao.deleteTask(taskId)
+        
+    /**
+     * Get tasks with deadlines between two dates.
+     */
+    fun observeTasksWithDeadlineBetween(startDate: LocalDate, endDate: LocalDate): Flow<List<TaskEntity>> =
+        taskDao.getTasksApproachingDeadline(startDate, endDate)
+    
+    /**
+     * Get overdue tasks (due date before today and not completed).
+     */
+    fun observeOverdueTasks(today: LocalDate): Flow<List<TaskEntity>> =
+        taskDao.getOverdueTasks(today)
+    
+    /**
+     * Get tasks by priority level.
+     */
+    fun observeTasksByPriority(priority: String): Flow<List<TaskEntity>> =
+        taskDao.getTasksByPriority(priority)
+    
+    /**
+     * Get count of tasks grouped by status.
+     */
+    fun observeTaskCountByStatus(): Flow<Map<String, Int>> =
+        taskDao.getTaskCountByStatus().map { statusCounts ->
+            statusCounts.associate { statusCount -> statusCount.status to statusCount.count }
+        }
+    
+    /**
+     * Get recently completed tasks.
+     */
+    fun observeRecentlyCompletedTasks(limit: Int): Flow<List<TaskEntity>> =
+        taskDao.getRecentlyCompletedTasks(limit)
 }

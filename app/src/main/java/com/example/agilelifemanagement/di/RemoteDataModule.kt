@@ -13,6 +13,9 @@ import javax.inject.Singleton
 /**
  * Module that provides remote data sources and API services for the application.
  */
+// TEMPORARILY DISABLED: Implementation classes have been archived (May 15, 2025)
+// Will be re-implemented when the data layer is rebuilt
+/*
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RemoteDataSourceBindings {
@@ -53,12 +56,16 @@ abstract class RemoteDataSourceBindings {
         wellnessRemoteDataSourceImpl: WellnessRemoteDataSourceImpl
     ): WellnessRemoteDataSource
 }
+*/
 
 /**
  * Module that provides API services for the application.
  * These are placeholder implementations that will be expanded when 
  * remote functionality is fully implemented.
  */
+// TEMPORARILY DISABLED: Implementation classes have been archived (May 15, 2025)
+// Will be re-implemented when the data layer is rebuilt
+/*
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteServiceProviders {
@@ -98,4 +105,12 @@ object RemoteServiceProviders {
     fun provideWellnessApiService(httpClient: HttpClient): WellnessApiService {
         return WellnessApiServiceImpl(httpClient)
     }
+}
+*/
+
+// Temporary placeholder for RemoteServiceProviders until the data layer is rebuilt
+@Module
+@InstallIn(SingletonComponent::class)
+object RemoteServiceProvidersPlaceholder {
+    // This will be replaced with proper API service providers when implemented
 }

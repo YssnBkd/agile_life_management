@@ -2,6 +2,8 @@ package com.example.agilelifemanagement.data.mapper
 
 import com.example.agilelifemanagement.data.local.entity.TaskEntity
 import com.example.agilelifemanagement.domain.model.Task
+import com.example.agilelifemanagement.domain.model.TaskStatus
+import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -27,10 +29,8 @@ class TaskMapper @Inject constructor() {
             priority = entity.priority,
             dueDate = entity.dueDate,
             createdDate = entity.createdDate,
-            modifiedDate = entity.modifiedDate,
-            completedDate = entity.completedDate,
             sprintId = entity.sprintId,
-            goalId = entity.goalId
+            tags = emptyList() // Tags handled through join relationships in repository
         )
     }
     
@@ -43,16 +43,15 @@ class TaskMapper @Inject constructor() {
     fun mapToEntity(domainModel: Task): TaskEntity {
         return TaskEntity(
             id = domainModel.id,
+            userId = "", // Default empty userId as it's required by entity but not in domain model
             title = domainModel.title,
             description = domainModel.description,
             status = domainModel.status,
             priority = domainModel.priority,
             dueDate = domainModel.dueDate,
             createdDate = domainModel.createdDate,
-            modifiedDate = domainModel.modifiedDate,
-            completedDate = domainModel.completedDate,
-            sprintId = domainModel.sprintId,
-            goalId = domainModel.goalId
+            sprintId = domainModel.sprintId
+            // Tags handled through join relationships in repository
         )
     }
 }

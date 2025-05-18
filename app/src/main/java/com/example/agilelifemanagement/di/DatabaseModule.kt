@@ -2,7 +2,7 @@ package com.example.agilelifemanagement.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.agilelifemanagement.data.local.AgileLifeDatabase
+import com.example.agilelifemanagement.data.local.db.AppDatabase
 import com.example.agilelifemanagement.data.local.dao.*
 import dagger.Module
 import dagger.Provides
@@ -21,14 +21,17 @@ object DatabaseModule {
 
     /**
      * Provides the Room database instance.
+     * 
+     * This database follows Material 3 Expressive design principles by providing
+     * a central data store for all app components with proper separation of concerns.
      */
     @Provides
     @Singleton
-    fun provideAgileLifeDatabase(@ApplicationContext context: Context): AgileLifeDatabase {
+    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
         return Room.databaseBuilder(
             context,
-            AgileLifeDatabase::class.java,
-            "agile_life_db"
+            AppDatabase::class.java,
+            AppDatabase.DATABASE_NAME
         )
             .fallbackToDestructiveMigration() // For development only, remove in production
             .build()
@@ -36,10 +39,11 @@ object DatabaseModule {
 
     /**
      * Provides the TaskDao for accessing task data.
+     * Supports Material 3 Expressive design with analytics and dashboard visualization queries.
      */
     @Provides
     @Singleton
-    fun provideTaskDao(database: AgileLifeDatabase): TaskDao {
+    fun provideTaskDao(database: AppDatabase): TaskDao {
         return database.taskDao()
     }
 
@@ -48,7 +52,7 @@ object DatabaseModule {
      */
     @Provides
     @Singleton
-    fun provideTagDao(database: AgileLifeDatabase): TagDao {
+    fun provideTagDao(database: AppDatabase): TagDao {
         return database.tagDao()
     }
 
@@ -57,7 +61,7 @@ object DatabaseModule {
      */
     @Provides
     @Singleton
-    fun provideTaskTagCrossRefDao(database: AgileLifeDatabase): TaskTagCrossRefDao {
+    fun provideTaskTagCrossRefDao(database: AppDatabase): TaskTagCrossRefDao {
         return database.taskTagCrossRefDao()
     }
 
@@ -66,7 +70,7 @@ object DatabaseModule {
      */
     @Provides
     @Singleton
-    fun provideSprintDao(database: AgileLifeDatabase): SprintDao {
+    fun provideSprintDao(database: AppDatabase): SprintDao {
         return database.sprintDao()
     }
 
@@ -75,7 +79,7 @@ object DatabaseModule {
      */
     @Provides
     @Singleton
-    fun provideSprintReviewDao(database: AgileLifeDatabase): SprintReviewDao {
+    fun provideSprintReviewDao(database: AppDatabase): SprintReviewDao {
         return database.sprintReviewDao()
     }
 
@@ -84,7 +88,7 @@ object DatabaseModule {
      */
     @Provides
     @Singleton
-    fun provideGoalDao(database: AgileLifeDatabase): GoalDao {
+    fun provideGoalDao(database: AppDatabase): GoalDao {
         return database.goalDao()
     }
 
@@ -93,34 +97,57 @@ object DatabaseModule {
      */
     @Provides
     @Singleton
-    fun provideDayActivityDao(database: AgileLifeDatabase): DayActivityDao {
+    fun provideDayActivityDao(database: AppDatabase): DayActivityDao {
         return database.dayActivityDao()
     }
-
+    
+    /**
+     * Provides the TimeBlockDao for accessing time block data.
+     * This DAO supports Material 3 timeline visualizations and calendar integrations.
+     */
+    @Provides
+    @Singleton
+    fun provideTimeBlockDao(database: AppDatabase): TimeBlockDao {
+        return database.timeBlockDao()
+    }
+    
+    /**
+     * Provides the ActivityCategoryDao for accessing category data.
+     * This DAO supports Material 3 color system and iconography.
+     */
+    @Provides
+    @Singleton
+    fun provideActivityCategoryDao(database: AppDatabase): ActivityCategoryDao {
+        return database.activityCategoryDao()
+    }
+    
     /**
      * Provides the DayActivityTemplateDao for accessing activity template data.
      */
     @Provides
     @Singleton
-    fun provideDayActivityTemplateDao(database: AgileLifeDatabase): DayActivityTemplateDao {
+    fun provideDayActivityTemplateDao(database: AppDatabase): DayActivityTemplateDao {
         return database.dayActivityTemplateDao()
     }
-
+    
     /**
-     * Provides the ActivityCategoryDao for accessing activity category data.
+     * Provides the DayScheduleDao for accessing day schedule data.
      */
     @Provides
     @Singleton
-    fun provideActivityCategoryDao(database: AgileLifeDatabase): ActivityCategoryDao {
-        return database.activityCategoryDao()
+    fun provideDayScheduleDao(database: AppDatabase): DayScheduleDao {
+        return database.dayScheduleDao()
     }
-
+    
     /**
-     * Provides the DailyCheckupDao for accessing daily wellness checkup data.
+     * Provides the DailyCheckupDao for accessing daily checkup data.
      */
     @Provides
     @Singleton
-    fun provideDailyCheckupDao(database: AgileLifeDatabase): DailyCheckupDao {
+    fun provideDailyCheckupDao(database: AppDatabase): DailyCheckupDao {
         return database.dailyCheckupDao()
     }
+
+    // Note: The following providers have already been implemented above
+    // with the correct AppDatabase reference
 }

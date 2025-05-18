@@ -16,8 +16,10 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.agilelifemanagement.ui.screens.dashboard.DashboardScreenWithViewModel
-import com.example.agilelifemanagement.ui.screens.day.DayTimelineScreen
+import com.example.agilelifemanagement.ui.screens.dashboard.DashboardScreen
+import com.example.agilelifemanagement.ui.screens.day.DayDetailScreenSimple
+import com.example.agilelifemanagement.ui.screens.day.DayPlannerScreenSimple
+// Remove incorrect import
 import com.example.agilelifemanagement.ui.screens.sprint.SprintDetailScreen
 import com.example.agilelifemanagement.ui.screens.sprint.SprintEditorScreen
 import com.example.agilelifemanagement.ui.screens.sprint.SprintListScreen
@@ -89,28 +91,44 @@ fun AgileLifeNavHost(
  */
 private fun NavGraphBuilder.addBottomNavigationDestinations(navController: NavController) {
     composable(BottomNavDestination.Dashboard.route) {
-        DashboardScreenWithViewModel(
+        DashboardScreen(
             onTaskClick = { taskId -> navController.navigate("tasks/$taskId") },
             onSprintClick = { sprintId -> navController.navigate("sprints/$sprintId") },
-            onGoalClick = { goalId -> navController.navigate("goals/$goalId") },
-            onDayActivityClick = { activityId -> navController.navigate("day/activities/$activityId") },
-            onWellnessClick = { navController.navigate("wellness") },
-            onAllTasksClick = { navController.navigate(BottomNavDestination.Tasks.route) },
-            onAllSprintsClick = { navController.navigate(BottomNavDestination.Sprints.route) },
-            onAllGoalsClick = { navController.navigate("goals") }
+            onDayClick = { dayId -> navController.navigate("day/timeline?date=$dayId") },
+            onCreateTask = { navController.navigate("tasks/create") },
+            onCheckIn = { navController.navigate("day/timeline") },
+            onCreateNote = { /* Navigate to note creation */ },
+            onSearchClick = { /* Open search */ },
+            onNotificationsClick = { /* Open notifications */ },
+            onProfileClick = { /* Open profile */ }
         )
     }
     
     composable(BottomNavDestination.Tasks.route) {
-        TaskBacklogScreen(navController = navController)
+        TaskBacklogScreen(
+            onBackClick = { navController.navigateUp() },
+            onTaskClick = { taskId -> navController.navigate("tasks/$taskId") },
+            onCreateTaskClick = { navController.navigate("tasks/create") },
+            onSprintClick = { sprintId -> navController.navigate("sprints/$sprintId") },
+            onCreateSprintClick = { navController.navigate("sprints/create") },
+            onSearchClick = { /* TODO: Implement search */ },
+            onProfileClick = { /* TODO: Implement profile */ }
+        )
     }
     
     composable(BottomNavDestination.Sprints.route) {
-        SprintListScreen(navController = navController)
+        // Using a simplified version that takes a NavController directly
+        com.example.agilelifemanagement.ui.screens.sprint.SprintListScreen(
+            navController = navController
+        )
     }
     
     composable(BottomNavDestination.Day.route) {
-        DayTimelineScreen(navController = navController)
+        // Using our simplified DayDetailScreenSimple
+        DayDetailScreenSimple(
+            navController = navController,
+            selectedDate = java.time.LocalDate.now()
+        )
     }
 }
 
@@ -123,16 +141,18 @@ private fun NavGraphBuilder.taskNavigation(navController: NavController) {
         arguments = listOf(navArgument("taskId") { type = NavType.StringType })
     ) { backStackEntry ->
         val taskId = backStackEntry.arguments?.getString("taskId") ?: ""
-        TaskDetailScreen(
-            taskId = taskId,
-            navController = navController
+        // Use our simplified TaskDetailScreen that takes NavController and taskId
+        com.example.agilelifemanagement.ui.screens.task.TaskDetailScreen(
+            navController = navController,
+            taskId = taskId
         )
     }
     
     composable("tasks/create") {
-        TaskEditorScreen(
-            taskId = null,
-            navController = navController
+        // Use our simplified TaskEditorScreen that takes NavController
+        com.example.agilelifemanagement.ui.screens.task.TaskEditorScreen(
+            navController = navController,
+            taskId = null
         )
     }
     
@@ -141,9 +161,10 @@ private fun NavGraphBuilder.taskNavigation(navController: NavController) {
         arguments = listOf(navArgument("taskId") { type = NavType.StringType })
     ) { backStackEntry ->
         val taskId = backStackEntry.arguments?.getString("taskId") ?: ""
-        TaskEditorScreen(
-            taskId = taskId,
-            navController = navController
+        // Use our simplified TaskEditorScreen that takes NavController
+        com.example.agilelifemanagement.ui.screens.task.TaskEditorScreen(
+            navController = navController,
+            taskId = taskId
         )
     }
 }
@@ -159,14 +180,22 @@ private fun NavGraphBuilder.sprintNavigation(navController: NavController) {
         val sprintId = backStackEntry.arguments?.getString("sprintId") ?: ""
         SprintDetailScreen(
             sprintId = sprintId,
-            navController = navController
+            onBackClick = { navController.navigateUp() },
+            onEditSprintClick = { navController.navigate("sprints/edit/$sprintId") },
+            onSprintReviewClick = { navController.navigate("sprints/$sprintId/review") },
+            onTaskClick = { taskId -> navController.navigate("tasks/$taskId") },
+            onDayClick = { date -> navController.navigate("day/timeline?date=$date") },
+            onCreateTaskClick = { navController.navigate("tasks/create") }
         )
     }
     
     composable("sprints/create") {
         SprintEditorScreen(
             sprintId = null,
-            navController = navController
+            onBackClick = { navController.navigateUp() },
+            onSaveClick = { /* Sprint creation handled in ViewModel */ 
+                navController.navigateUp()
+            }
         )
     }
     
@@ -177,7 +206,10 @@ private fun NavGraphBuilder.sprintNavigation(navController: NavController) {
         val sprintId = backStackEntry.arguments?.getString("sprintId") ?: ""
         SprintEditorScreen(
             sprintId = sprintId,
-            navController = navController
+            onBackClick = { navController.navigateUp() },
+            onSaveClick = { /* Sprint update handled in ViewModel */ 
+                navController.navigateUp()
+            }
         )
     }
 }
@@ -186,6 +218,66 @@ private fun NavGraphBuilder.sprintNavigation(navController: NavController) {
  * Day and wellness related navigation destinations
  */
 private fun NavGraphBuilder.dayNavigation(navController: NavController) {
+    // Day timeline screen with optional date parameter
+    composable(
+        route = "day/timeline?date={date}",
+        arguments = listOf(
+            navArgument("date") {
+                type = NavType.StringType
+                nullable = true
+                defaultValue = null
+            }
+        )
+    ) { backStackEntry ->
+        val dateString = backStackEntry.arguments?.getString("date")
+        val selectedDate = dateString?.let {
+            java.time.LocalDate.parse(it)
+        } ?: java.time.LocalDate.now()
+        
+        // Using our simplified implementation
+        DayDetailScreenSimple(
+            navController = navController,
+            selectedDate = selectedDate
+        )
+    }
+    
+    // Day activity detail - to be implemented
+    composable(
+        route = "day/activities/{activityId}",
+        arguments = listOf(
+            navArgument("activityId") {
+                type = NavType.StringType
+            }
+        )
+    ) { backStackEntry ->
+        val activityId = backStackEntry.arguments?.getString("activityId") ?: ""
+        // Placeholder for activity detail screen
+        // Will be implemented in a future update
+    }
+    
+    // Day planner screen
+    composable(
+        route = "day/planner?date={date}",
+        arguments = listOf(
+            navArgument("date") {
+                type = NavType.StringType
+                nullable = true
+                defaultValue = null
+            }
+        )
+    ) { backStackEntry ->
+        val dateString = backStackEntry.arguments?.getString("date")
+        val selectedDate = dateString?.let {
+            java.time.LocalDate.parse(it)
+        } ?: java.time.LocalDate.now()
+        
+        DayPlannerScreenSimple(
+            navController = navController,
+            selectedDate = selectedDate
+        )
+    }
+    
+    // Wellness screen
     composable("wellness") {
         WellnessScreen(navController = navController)
     }

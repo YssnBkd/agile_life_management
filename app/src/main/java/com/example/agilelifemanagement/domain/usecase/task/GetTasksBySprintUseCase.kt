@@ -12,6 +12,6 @@ class GetTasksBySprintUseCase @Inject constructor(
     private val taskRepository: TaskRepository
 ) {
     operator fun invoke(sprintId: String): Flow<List<Task>> {
-        return taskRepository.getTasksBySprint(sprintId)
+        return taskRepository.getTasksBySprintId(sprintId)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.agilelifemanagement.data.remote.model
 
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
@@ -9,7 +10,7 @@ import java.time.LocalDate
 @Serializable
 data class DailyCheckupDto(
     val id: String = "",
-    val date: LocalDate,
+    @Contextual val date: LocalDate,
     val mood: Int,
     val energyLevel: Int,
     val sleepQuality: Int,
@@ -19,6 +20,6 @@ data class DailyCheckupDto(
     val notes: String = "",
     val focusRating: Int,
     val physicalActivityMinutes: Int,
-    val createdDate: LocalDate,
-    val modifiedDate: LocalDate
+    @Contextual val createdDate: LocalDate,
+    @Contextual val modifiedDate: LocalDate
 )

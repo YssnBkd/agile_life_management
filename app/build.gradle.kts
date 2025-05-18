@@ -71,6 +71,11 @@ android {
         }
     }
     buildToolsVersion = "35.0.0"
+    
+    // Room schema export location
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
+    }
 }
 
 dependencies {
@@ -107,6 +112,8 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     // KSP annotation processor for Room
     ksp(libs.androidx.room.compiler)
+    // Apply Room schema location
+
     
     // Hilt Dependency Injection
     implementation(libs.hilt.android)

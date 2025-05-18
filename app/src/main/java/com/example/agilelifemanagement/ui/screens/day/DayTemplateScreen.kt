@@ -1,5 +1,6 @@
 package com.example.agilelifemanagement.ui.screens.day
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +19,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.CalendarMonth
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.ContentCopy
@@ -382,7 +384,7 @@ private fun TemplateCard(
                     Spacer(modifier = Modifier.width(4.dp))
                     
                     Text(
-                        text = "(${activity.durationMinutes} mins)",
+                        text = "(${activity.duration} mins)",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -415,18 +417,11 @@ private fun TemplateCard(
                 Spacer(modifier = Modifier.width(4.dp))
                 
                 Text("Apply")
-                        contentDescription = null,
-                        modifier = Modifier.size(16.dp)
-                    )
-                    
-                    Spacer(modifier = Modifier.width(4.dp))
-                    
-                    Text("Apply")
                 }
             }
         }
     }
-}
+
 
 @Composable
 private fun TemplateCreationDialog(
@@ -595,10 +590,10 @@ private fun TemplateCreationDialog(
                                             val isSelected = selectedCategoryId == category.id
                                             Surface(
                                                 shape = MaterialTheme.shapes.small,
-                                                color = if (isSelected) category.color.copy(alpha = 0.2f) else MaterialTheme.colorScheme.surfaceVariant,
+                                                color = if (isSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.2f) else MaterialTheme.colorScheme.surfaceVariant,
                                                 border = if (isSelected) androidx.compose.foundation.BorderStroke(
                                                     width = 1.dp,
-                                                    color = category.color
+                                                    color = MaterialTheme.colorScheme.primary
                                                 ) else null,
                                                 modifier = Modifier.clip(MaterialTheme.shapes.small)
                                                     .clickable {
@@ -627,14 +622,21 @@ private fun TemplateCreationDialog(
                                             uiState.categories.find { it.id == categoryId }
                                         }
                                         
+                                        // Parse the startTime string into a LocalTime
+                                        val parsedStartTime = try {
+                                            java.time.LocalTime.parse(tempStartTime, java.time.format.DateTimeFormatter.ofPattern("HH:mm"))
+                                        } catch (e: Exception) {
+                                            java.time.LocalTime.of(9, 0) // Default to 9:00 AM if parsing fails
+                                        }
+                                        
                                         activities.add(
-                                            TemplateActivity(
-                                                id = "new_activity_${System.currentTimeMillis()}",
+                                            com.example.agilelifemanagement.domain.model.TemplateActivity(
                                                 title = tempTitle,
-                                                startTime = tempStartTime,
-                                                durationMinutes = durationInt,
+                                                description = "",
                                                 categoryId = selectedCategoryId,
-                                                color = category?.color ?: Color.Unspecified
+                                                duration = durationInt,
+                                                startTime = parsedStartTime,
+                                                priority = 0
                                             )
                                         )
                                         tempTitle = ""
@@ -701,7 +703,7 @@ private fun ActivityItem(
             )
             
             Text(
-                text = "${activity.startTime} (${activity.durationMinutes} mins)",
+                text = "${activity.startTime} (${activity.duration} mins)",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -755,8 +757,8 @@ private fun TemplateApplyDialog(
                         .padding(12.dp)
                 ) {
                     Icon(
-                        imageVector = Icons.Rounded.Today,
-                        contentDescription = null,
+                        imageVector = Icons.Rounded.CalendarMonth,
+                        contentDescription = "Apply to today",
                         tint = MaterialTheme.colorScheme.primary
                     )
                     

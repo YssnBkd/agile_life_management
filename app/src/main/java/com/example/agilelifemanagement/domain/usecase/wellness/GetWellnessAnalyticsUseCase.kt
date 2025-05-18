@@ -1,74 +1,51 @@
 package com.example.agilelifemanagement.domain.usecase.wellness
 
-import com.example.agilelifemanagement.domain.model.DailyCheckup
+import com.example.agilelifemanagement.domain.model.WellnessAnalytics
 import com.example.agilelifemanagement.domain.repository.WellnessRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 import javax.inject.Inject
 
 /**
  * Use case for retrieving wellness analytics over a time period.
+ * 
+ * Note: This is a temporary implementation after the May 15, 2025 architectural change
+ * where the data layer was archived for rebuilding.
  */
 class GetWellnessAnalyticsUseCase @Inject constructor(
     private val wellnessRepository: WellnessRepository
 ) {
-    data class WellnessAnalytics(
-        val averageMoodScore: Float,
-        val averageEnergyLevel: Float,
-        val averageStressLevel: Float,
-        val sleepQualityTrend: List<Pair<LocalDate, Int>>,
-        val moodTrend: List<Pair<LocalDate, Int>>,
-        val completionRate: Float
-    )
-    
-    operator fun invoke(startDate: LocalDate, endDate: LocalDate): Flow<WellnessAnalytics> {
-        return wellnessRepository.getCheckupsBetweenDates(startDate, endDate)
-            .map { checkups ->
-                val validCheckups = checkups.filterNotNull()
-                
-                // Default values if no valid checkups
-                if (validCheckups.isEmpty()) {
-                    return@map WellnessAnalytics(
-                        averageMoodScore = 0f,
-                        averageEnergyLevel = 0f,
-                        averageStressLevel = 0f,
-                        sleepQualityTrend = emptyList(),
-                        moodTrend = emptyList(),
-                        completionRate = 0f
-                    )
-                }
-                
-                // Calculate average metrics
-                val avgMood = validCheckups.map { it.moodRating }.average().toFloat()
-                val avgEnergy = validCheckups.map { it.energyLevel }.average().toFloat()
-                val avgStress = validCheckups.map { it.stressLevel }.average().toFloat()
-                
-                // Create trend data
-                val sleepQualityTrend = validCheckups.map { 
-                    Pair(it.date, it.sleepQuality) 
-                }.sortedBy { it.first }
-                
-                val moodTrend = validCheckups.map { 
-                    Pair(it.date, it.moodRating) 
-                }.sortedBy { it.first }
-                
-                // Calculate completion rate (days with checkups / total days in range)
-                val totalDaysInRange = java.time.temporal.ChronoUnit.DAYS.between(startDate, endDate.plusDays(1))
-                val completionRate = if (totalDaysInRange > 0) {
-                    validCheckups.size.toFloat() / totalDaysInRange.toFloat()
-                } else {
-                    0f
-                }
-                
-                WellnessAnalytics(
-                    averageMoodScore = avgMood,
-                    averageEnergyLevel = avgEnergy,
-                    averageStressLevel = avgStress,
-                    sleepQualityTrend = sleepQualityTrend,
-                    moodTrend = moodTrend,
-                    completionRate = completionRate
+    /**
+     * Gets wellness analytics for a specific time frame (in days).
+     * 
+     * @param timeFrame Number of days to analyze (e.g., 7 for week, 30 for month)
+     * @return Flow emitting wellness analytics or null
+     */
+    operator fun invoke(timeFrame: Int = 30): Flow<WellnessAnalytics?> {
+        // Calculate date range based on timeFrame
+        val endDate = LocalDate.now()
+        val startDate = endDate.minusDays(timeFrame.toLong())
+        
+        // Get average metrics for the date range
+        val moodFlow = wellnessRepository.getAverageMoodForRange(startDate, endDate)
+        val sleepFlow = wellnessRepository.getAverageSleepQualityForRange(startDate, endDate)
+        
+        // Combine flows to create WellnessAnalytics
+        // For the temporary implementation, we create a basic wellness analytics object
+        return moodFlow.map { moodAvg ->
+            WellnessAnalytics(
+                averageMood = moodAvg,
+                averageSleepQuality = sleepFlow.first(), // This would be better with Flow.zip in a real implementation
+                startDate = startDate,
+                endDate = endDate,
+                // Other metrics could be added here in a full implementation
+                metrics = mapOf(
+                    "mood" to moodAvg,
+                    "sleep" to sleepFlow.first()
                 )
-            }
+            )
+        }
     }
 }

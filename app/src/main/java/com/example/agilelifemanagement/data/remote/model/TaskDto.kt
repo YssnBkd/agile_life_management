@@ -1,6 +1,7 @@
 package com.example.agilelifemanagement.data.remote.model
 
 import com.example.agilelifemanagement.domain.model.TaskStatus
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
@@ -13,9 +14,9 @@ data class TaskDto(
     val title: String,
     val description: String = "",
     val status: TaskStatus,
-    val dueDate: LocalDate? = null,
-    val createdDate: LocalDate,
-    val modifiedDate: LocalDate,
+    @Contextual val dueDate: LocalDate? = null,
+    @Contextual val createdDate: LocalDate,
+    @Contextual val modifiedDate: LocalDate,
     val sprintId: String? = null,
     val tags: List<String> = emptyList(),
     val priority: Int = 0,

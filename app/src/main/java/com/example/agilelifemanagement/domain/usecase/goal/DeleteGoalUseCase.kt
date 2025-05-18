@@ -19,6 +19,7 @@ class DeleteGoalUseCase @Inject constructor(
      * @return Result indicating success or error with details
      */
     suspend operator fun invoke(goalId: String): Result<Unit> {
-        return goalRepository.deleteGoal(goalId)
+        // Map the Boolean result to Unit for clients that don't need the boolean value
+        return goalRepository.deleteGoal(goalId).map { Unit }
     }
 }

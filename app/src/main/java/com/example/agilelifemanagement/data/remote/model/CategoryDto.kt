@@ -1,5 +1,6 @@
 package com.example.agilelifemanagement.data.remote.model
 
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
 
@@ -13,6 +14,6 @@ data class CategoryDto(
     val color: String,
     val icon: String? = null,
     val description: String = "",
-    val createdDate: LocalDate,
-    val modifiedDate: LocalDate
+    @Contextual val createdDate: LocalDate,
+    @Contextual val modifiedDate: LocalDate
 )

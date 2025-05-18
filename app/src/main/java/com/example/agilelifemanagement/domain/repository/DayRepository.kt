@@ -2,6 +2,7 @@ package com.example.agilelifemanagement.domain.repository
 
 import com.example.agilelifemanagement.domain.model.DayActivity
 import com.example.agilelifemanagement.domain.model.DayActivityTemplate
+import com.example.agilelifemanagement.domain.model.DaySchedule
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
 
@@ -24,6 +25,20 @@ interface DayRepository {
      * @return A Flow emitting lists of activities within the date range
      */
     fun getActivitiesForDateRange(startDate: LocalDate, endDate: LocalDate): Flow<List<DayActivity>>
+    
+    /**
+     * Get a day schedule by date.
+     * @param date The date to get the schedule for
+     * @return A Flow emitting the day schedule for the specified date, or null if not found
+     */
+    fun getScheduleByDate(date: LocalDate): Flow<DaySchedule?>
+    
+    /**
+     * Update a day schedule.
+     * @param schedule The schedule to update
+     * @return A Result indicating success or failure
+     */
+    suspend fun updateSchedule(schedule: DaySchedule): Result<Unit>
     
     /**
      * Get a specific activity by ID.

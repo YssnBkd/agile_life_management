@@ -115,6 +115,7 @@ private val DarkColorScheme = darkColorScheme(
 data class ExtendedColorPalette(
     val accentMint: Color,
     val accentCoral: Color,
+    val accentAqua: Color,
     val accentSunflower: Color,
     val accentLavender: Color,
     val sprintActive: Color,
@@ -135,6 +136,7 @@ data class ExtendedColorPalette(
 private val LightExtendedColors = ExtendedColorPalette(
     accentMint = AccentMint,
     accentCoral = AccentCoral,
+    accentAqua = Color(0xFF00B4D8), // Light blue/aqua color,
     accentSunflower = AccentSunflower,
     accentLavender = AccentLavender,
     sprintActive = SprintActive,
@@ -155,6 +157,7 @@ private val LightExtendedColors = ExtendedColorPalette(
 private val DarkExtendedColors = ExtendedColorPalette(
     accentMint = AccentMint,
     accentCoral = AccentCoral,
+    accentAqua = Color(0xFF00B4D8), // Same light blue/aqua color for dark theme
     accentSunflower = AccentSunflower,
     accentLavender = AccentLavender,
     sprintActive = SprintActive,

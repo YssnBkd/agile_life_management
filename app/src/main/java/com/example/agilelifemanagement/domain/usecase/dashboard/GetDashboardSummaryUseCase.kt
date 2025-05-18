@@ -31,7 +31,14 @@ class GetDashboardSummaryUseCase @Inject constructor(
     operator fun invoke(): Flow<DashboardSummary> {
         val today = LocalDate.now()
         val tasksFlow = taskRepository.getAllTasks()
-        val sprintsFlow = sprintRepository.getActiveSprint()
+        // Instead of getActiveSprint which doesn't exist, we'll filter all sprints to find active ones
+        val sprintsFlow = sprintRepository.getAllSprints().map { sprints ->
+            // Find sprint that contains today's date (between startDate and endDate)
+            sprints.firstOrNull { sprint ->
+                today.isEqual(sprint.startDate) || today.isEqual(sprint.endDate) ||
+                (today.isAfter(sprint.startDate) && today.isBefore(sprint.endDate))
+            }
+        }
         val activitiesFlow = dayRepository.getActivitiesByDate(today)
 
         return combine(
@@ -61,7 +68,7 @@ class GetDashboardSummaryUseCase @Inject constructor(
             
             // Calculate day activities completion
             val recentDayActivitiesCompletion = if (todayActivities.isNotEmpty()) {
-                todayActivities.count { it.isCompleted }.toFloat() / todayActivities.size
+                todayActivities.count { it.completed }.toFloat() / todayActivities.size
             } else {
                 0f
             }

@@ -21,5 +21,6 @@ data class DailyCheckupEntity(
     val sleepQuality: Int, // Scale typically 1-5 or 1-10
     val stressLevel: Int, // Scale typically 1-5 or 1-10
     val energyLevel: Int, // Scale typically 1-5 or 1-10
-    val notes: String
+    val notes: String,
+    val updatedAt: Long = System.currentTimeMillis() // Timestamp for syncing purposes
 )

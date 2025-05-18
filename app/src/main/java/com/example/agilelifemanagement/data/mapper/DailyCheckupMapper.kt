@@ -20,15 +20,11 @@ class DailyCheckupMapper @Inject constructor() {
         return DailyCheckup(
             id = entity.id,
             date = entity.date,
-            mood = entity.mood,
+            moodRating = entity.moodRating,
             energyLevel = entity.energyLevel,
             sleepQuality = entity.sleepQuality,
-            sleepHours = entity.sleepHours,
             stressLevel = entity.stressLevel,
-            productivityRating = entity.productivityRating,
-            notes = entity.notes,
-            focusRating = entity.focusRating,
-            physicalActivityMinutes = entity.physicalActivityMinutes
+            notes = entity.notes
         )
     }
     
@@ -41,15 +37,11 @@ class DailyCheckupMapper @Inject constructor() {
         return DailyCheckupEntity(
             id = domainModel.id,
             date = domainModel.date,
-            mood = domainModel.mood,
+            moodRating = domainModel.moodRating,
             energyLevel = domainModel.energyLevel,
             sleepQuality = domainModel.sleepQuality,
-            sleepHours = domainModel.sleepHours,
             stressLevel = domainModel.stressLevel,
-            productivityRating = domainModel.productivityRating,
-            notes = domainModel.notes,
-            focusRating = domainModel.focusRating,
-            physicalActivityMinutes = domainModel.physicalActivityMinutes
+            notes = domainModel.notes
         )
     }
 }

@@ -18,5 +18,6 @@ data class GoalEntity(
     val description: String,
     val deadline: LocalDate?,
     val status: GoalStatus,
-    val priority: GoalPriority
+    val priority: GoalPriority,
+    val category: String
 )

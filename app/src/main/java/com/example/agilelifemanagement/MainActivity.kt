@@ -22,7 +22,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.agilelifemanagement.ui.navigation.AgileLifeNavHost
 import com.example.agilelifemanagement.ui.navigation.AgileLifeBottomNavigation
-import com.example.agilelifemanagement.ui.navigation.NavDestinations
+import com.example.agilelifemanagement.ui.navigation.NavDestination
 import com.example.agilelifemanagement.ui.theme.AgileLifeTheme
 
 @dagger.hilt.android.AndroidEntryPoint
@@ -54,20 +54,20 @@ fun AgileLifeManagementApp() {
             // Show FAB only on main screens
             val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
             if (currentRoute in listOf(
-                    NavDestinations.Day.route,
-                    NavDestinations.Sprints.route,
-                    NavDestinations.Goals.route,
-                    NavDestinations.Tasks.route
+                    NavDestination.Day.route,
+                    NavDestination.Sprint.route,
+                    NavDestination.Dashboard.route,
+                    NavDestination.Task.route
                 )
             ) {
                 FloatingActionButton(
                     onClick = {
                         // Action based on current screen
                         when (currentRoute) {
-                            NavDestinations.Day.route -> { /* Add calendar event */ }
-                            NavDestinations.Sprints.route -> { /* Create new sprint */ }
-                            NavDestinations.Goals.route -> { /* Create new goal */ }
-                            NavDestinations.Tasks.route -> { /* Create new task */ }
+                            NavDestination.Day.route -> { /* Add calendar event */ }
+                            NavDestination.Sprint.route -> { /* Create new sprint */ }
+                            NavDestination.Dashboard.route -> { /* Create new goal */ }
+                            NavDestination.Task.route -> { /* Create new task */ }
                         }
                     }
                 ) {

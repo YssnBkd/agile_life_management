@@ -2,6 +2,7 @@ package com.example.agilelifemanagement.data.mapper
 
 import com.example.agilelifemanagement.data.local.entity.DayActivityEntity
 import com.example.agilelifemanagement.domain.model.DayActivity
+import java.time.LocalTime
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,11 +23,10 @@ class DayActivityMapper @Inject constructor() {
             title = entity.title,
             description = entity.description,
             date = entity.date,
-            startTime = entity.startTime,
-            endTime = entity.endTime,
-            isCompleted = entity.isCompleted,
-            categoryId = entity.categoryId,
-            priority = entity.priority
+            scheduledTime = entity.scheduledTime,
+            duration = entity.duration,
+            completed = entity.completed,
+            categoryId = entity.categoryId ?: ""
         )
     }
     
@@ -41,11 +41,10 @@ class DayActivityMapper @Inject constructor() {
             title = domainModel.title,
             description = domainModel.description,
             date = domainModel.date,
-            startTime = domainModel.startTime,
-            endTime = domainModel.endTime,
-            isCompleted = domainModel.isCompleted,
-            categoryId = domainModel.categoryId,
-            priority = domainModel.priority
+            scheduledTime = domainModel.scheduledTime,
+            duration = domainModel.duration,
+            completed = domainModel.completed,
+            categoryId = domainModel.categoryId
         )
     }
 }
