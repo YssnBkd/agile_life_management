@@ -21,6 +21,7 @@ import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.FilterList
 import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FilterChip
@@ -30,11 +31,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -45,9 +50,12 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.agilelifemanagement.domain.model.Sprint
 import com.example.agilelifemanagement.ui.components.cards.SprintCard
-import com.example.agilelifemanagement.ui.components.cards.SprintStatus
-import com.example.agilelifemanagement.ui.screens.dashboard.SprintInfo
+import com.example.agilelifemanagement.ui.components.cards.SprintStatus as UISprintStatus
+import com.example.agilelifemanagement.domain.model.SprintStatus as DomainSprintStatus
+import com.example.agilelifemanagement.ui.viewmodel.SprintViewModel
 
 /**
  * SprintListScreen displays all sprints with filtering options
@@ -56,7 +64,8 @@ import com.example.agilelifemanagement.ui.screens.dashboard.SprintInfo
  * - Vibrant status indication with contrasting colors
  * - Interactive filter chips with tactile feedback
  * - Clear visual hierarchy with categorized sprint groups
- * - Attention-grabbing Create New Sprint FAB 
+ * - Attention-grabbing Create New Sprint FAB
+ * - Integration with SprintViewModel for real data 
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,12 +74,24 @@ fun SprintListScreen(
     onCreateSprintClick: () -> Unit,
     onSearchClick: () -> Unit,
     onProfileClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: SprintViewModel = hiltViewModel()
 ) {
-    // Sample data - would come from ViewModel in real implementation
-    val sprints = remember { SampleSprintData.allSprints }
+    // Get the UI state from the ViewModel
+    val uiState by viewModel.uiState.collectAsState()
     
-    // Filter state
+    // SnackbarHostState to display error messages
+    val snackbarHostState = remember { SnackbarHostState() }
+    
+    // Show error message if it exists
+    LaunchedEffect(uiState.errorMessage) {
+        uiState.errorMessage?.let {
+            snackbarHostState.showSnackbar(message = it)
+            viewModel.clearError()
+        }
+    }
+    
+    // Filter state (convert domain SprintStatus to UI SprintFilterOption)
     var selectedFilters by remember { mutableStateOf(setOf(SprintFilterOption.ACTIVE)) }
     
     // Top app bar scroll behavior
@@ -78,6 +99,7 @@ fun SprintListScreen(
     
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = {
@@ -127,28 +149,46 @@ fun SprintListScreen(
             )
         }
     ) { innerPadding ->
-        SprintListContent(
-            sprints = sprints,
-            selectedFilters = selectedFilters,
-            onFilterChange = { filter, selected ->
-                selectedFilters = if (selected) {
-                    selectedFilters + filter
-                } else {
-                    // Ensure at least one filter is always selected
-                    if (selectedFilters.size > 1) selectedFilters - filter
-                    else selectedFilters
-                }
-            },
-            onSprintClick = onSprintClick,
-            contentPadding = innerPadding
-        )
+        if (uiState.isLoading) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator()
+            }
+        } else {
+            SprintListContent(
+                sprints = uiState.filteredSprints,
+                selectedFilters = selectedFilters,
+                onFilterChange = { filter, selected ->
+                    selectedFilters = if (selected) {
+                        selectedFilters + filter
+                    } else {
+                        // Ensure at least one filter is always selected
+                        if (selectedFilters.size > 1) selectedFilters - filter
+                        else selectedFilters
+                    }
+                    
+                    // Convert UI filter options to domain SprintStatus
+                    val statusFilters = selectedFilters.map { filterOption ->
+                        when (filterOption) {
+                            SprintFilterOption.ACTIVE -> DomainSprintStatus.ACTIVE
+                            SprintFilterOption.PLANNED -> DomainSprintStatus.PLANNED
+                            SprintFilterOption.COMPLETED -> DomainSprintStatus.COMPLETED
+                        }
+                    }.toSet()
+                    
+                    // Apply filter in the ViewModel
+                    viewModel.filterSprints(statusFilters)
+                },
+                onSprintClick = onSprintClick,
+                contentPadding = innerPadding
+            )
+        }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SprintListContent(
-    sprints: List<SprintInfo>,
+    sprints: List<Sprint>,
     selectedFilters: Set<SprintFilterOption>,
     onFilterChange: (SprintFilterOption, Boolean) -> Unit,
     onSprintClick: (String) -> Unit,
@@ -207,30 +247,33 @@ private fun SprintListContent(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(vertical = 16.dp)
         ) {
-            // Filter and group sprints
-            val filteredSprints = sprints.filter { sprint ->
-                when (sprint.status) {
-                    SprintStatus.ACTIVE -> selectedFilters.contains(SprintFilterOption.ACTIVE)
-                    SprintStatus.PLANNED -> selectedFilters.contains(SprintFilterOption.PLANNED)
-                    SprintStatus.COMPLETED -> selectedFilters.contains(SprintFilterOption.COMPLETED)
+            // Map domain status to UI status for grouping
+            val sprintsWithUIStatus = sprints.map { sprint ->
+                sprint to when(sprint.status) {
+                    DomainSprintStatus.ACTIVE -> UISprintStatus.ACTIVE
+                    DomainSprintStatus.PLANNED -> UISprintStatus.PLANNED
+                    DomainSprintStatus.COMPLETED -> UISprintStatus.COMPLETED
                 }
             }
             
+            // Group sprints by their UI status
+            val groupedSprints = sprintsWithUIStatus.groupBy { it.second }
+            
             // Active sprints
             if (selectedFilters.contains(SprintFilterOption.ACTIVE)) {
-                val activeSprints = filteredSprints.filter { it.status == SprintStatus.ACTIVE }
-                if (activeSprints.isNotEmpty()) {
+                val activeSprints = groupedSprints[UISprintStatus.ACTIVE]
+                if (activeSprints != null && activeSprints.isNotEmpty()) {
                     item {
                         SprintGroupHeader("Active Sprints")
                     }
-                    items(activeSprints) { sprint ->
+                    items(activeSprints) { (sprint, uiStatus) ->
                         SprintCard(
                             title = sprint.name,
-                            status = sprint.status,
-                            progressPercent = sprint.progressPercent,
-                            dateRange = sprint.dateRange,
-                            tasksCompleted = sprint.tasksCompleted,
-                            totalTasks = sprint.totalTasks,
+                            status = uiStatus,
+                            progressPercent = sprint.progress.toFloat(),
+                            dateRange = "${sprint.startDate} - ${sprint.endDate}",
+                            tasksCompleted = sprint.completedTaskCount,
+                            totalTasks = sprint.taskCount,
                             onClick = { onSprintClick(sprint.id) }
                         )
                     }
@@ -240,21 +283,21 @@ private fun SprintListContent(
                 }
             }
             
-            // Planned sprints
+            // Upcoming/Planned sprints
             if (selectedFilters.contains(SprintFilterOption.PLANNED)) {
-                val plannedSprints = filteredSprints.filter { it.status == SprintStatus.PLANNED }
-                if (plannedSprints.isNotEmpty()) {
+                val plannedSprints = groupedSprints[UISprintStatus.PLANNED]
+                if (plannedSprints != null && plannedSprints.isNotEmpty()) {
                     item {
                         SprintGroupHeader("Planned Sprints")
                     }
-                    items(plannedSprints) { sprint ->
+                    items(plannedSprints) { (sprint, uiStatus) ->
                         SprintCard(
                             title = sprint.name,
-                            status = sprint.status,
-                            progressPercent = sprint.progressPercent,
-                            dateRange = sprint.dateRange,
-                            tasksCompleted = sprint.tasksCompleted,
-                            totalTasks = sprint.totalTasks,
+                            status = uiStatus,
+                            progressPercent = sprint.progress.toFloat(),
+                            dateRange = "${sprint.startDate} - ${sprint.endDate}",
+                            tasksCompleted = sprint.completedTaskCount,
+                            totalTasks = sprint.taskCount,
                             onClick = { onSprintClick(sprint.id) }
                         )
                     }
@@ -266,27 +309,29 @@ private fun SprintListContent(
             
             // Completed sprints
             if (selectedFilters.contains(SprintFilterOption.COMPLETED)) {
-                val completedSprints = filteredSprints.filter { it.status == SprintStatus.COMPLETED }
-                if (completedSprints.isNotEmpty()) {
+                val completedSprints = groupedSprints[UISprintStatus.COMPLETED]
+                if (completedSprints != null && completedSprints.isNotEmpty()) {
                     item {
                         SprintGroupHeader("Completed Sprints")
                     }
-                    items(completedSprints) { sprint ->
+                    items(completedSprints) { (sprint, uiStatus) ->
                         SprintCard(
                             title = sprint.name,
-                            status = sprint.status,
-                            progressPercent = sprint.progressPercent,
-                            dateRange = sprint.dateRange,
-                            tasksCompleted = sprint.tasksCompleted,
-                            totalTasks = sprint.totalTasks,
+                            status = uiStatus,
+                            progressPercent = sprint.progress.toFloat(),
+                            dateRange = "${sprint.startDate} - ${sprint.endDate}",
+                            tasksCompleted = sprint.completedTaskCount,
+                            totalTasks = sprint.taskCount,
                             onClick = { onSprintClick(sprint.id) }
                         )
                     }
                 }
             }
             
+            // We don't have a CANCELLED status in the current implementation
+            
             // Empty state
-            if (filteredSprints.isEmpty()) {
+            if (sprints.isEmpty()) {
                 item {
                     EmptySprintList(selectedFilters)
                 }
@@ -347,54 +392,48 @@ enum class SprintFilterOption(val label: String) {
 }
 
 /**
- * Sample data for preview and testing
+ * Preview helper for testing the UI without a real ViewModel
  */
-object SampleSprintData {
-    val allSprints = listOf(
-        SprintInfo(
-            id = "sprint-1",
-            name = "Sprint 23: Dashboard Implementation",
-            status = SprintStatus.ACTIVE,
-            dateRange = "May 14 - May 28",
-            progressPercent = 0.35f,
-            tasksCompleted = 7,
-            totalTasks = 20
+object SprintPreviewData {
+    val previewSprints = listOf(
+        Sprint(
+            id = "sprint1",
+            name = "Sprint 1",
+            goal = "Complete authentication features",
+            description = "Implement login, registration and password reset",
+            status = DomainSprintStatus.COMPLETED,
+            startDate = java.time.LocalDate.now().minusDays(28),
+            endDate = java.time.LocalDate.now().minusDays(14),
+            progress = 100,
+            taskCount = 8,
+            completedTaskCount = 8,
+            createdDate = java.time.LocalDate.now().minusDays(35)
         ),
-        SprintInfo(
-            id = "sprint-2",
-            name = "Sprint 24: Sprint Module",
-            status = SprintStatus.PLANNED,
-            dateRange = "May 29 - Jun 12",
-            progressPercent = 0f,
-            tasksCompleted = 0,
-            totalTasks = 18
+        Sprint(
+            id = "sprint2",
+            name = "Sprint 2",
+            goal = "Task management features",
+            description = "Implement task backlog, editing, and filtering",
+            status = DomainSprintStatus.ACTIVE,
+            startDate = java.time.LocalDate.now().minusDays(13),
+            endDate = java.time.LocalDate.now().plusDays(1),
+            progress = 75,
+            taskCount = 12,
+            completedTaskCount = 9,
+            createdDate = java.time.LocalDate.now().minusDays(14)
         ),
-        SprintInfo(
-            id = "sprint-3",
-            name = "Sprint 25: Day Module",
-            status = SprintStatus.PLANNED,
-            dateRange = "Jun 13 - Jun 27",
-            progressPercent = 0f,
-            tasksCompleted = 0,
-            totalTasks = 15
-        ),
-        SprintInfo(
-            id = "sprint-4",
-            name = "Sprint 22: Task Management",
-            status = SprintStatus.COMPLETED,
-            dateRange = "Apr 29 - May 13",
-            progressPercent = 1f,
-            tasksCompleted = 22,
-            totalTasks = 22
-        ),
-        SprintInfo(
-            id = "sprint-5",
-            name = "Sprint 21: Authentication",
-            status = SprintStatus.COMPLETED,
-            dateRange = "Apr 15 - Apr 28",
-            progressPercent = 0.9f,
-            tasksCompleted = 18,
-            totalTasks = 20
+        Sprint(
+            id = "sprint3",
+            name = "Sprint 3",
+            goal = "Sprint management and review features",
+            description = "Implement sprint creation, tracking, and retrospectives",
+            status = DomainSprintStatus.PLANNED,
+            startDate = java.time.LocalDate.now().plusDays(2),
+            endDate = java.time.LocalDate.now().plusDays(16),
+            progress = 0,
+            taskCount = 10,
+            completedTaskCount = 0,
+            createdDate = java.time.LocalDate.now().minusDays(7)
         )
     )
 }

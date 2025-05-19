@@ -33,7 +33,8 @@ object DatabaseModule {
             AppDatabase::class.java,
             AppDatabase.DATABASE_NAME
         )
-            .fallbackToDestructiveMigration() // For development only, remove in production
+            // Since we're starting with no prior data, we can safely recreate the database
+            .fallbackToDestructiveMigration()
             .build()
     }
 

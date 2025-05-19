@@ -1,0 +1,3 @@
+app/src/main/java/com/example/agilelifemanagement/ui/screens/dashboard/DashboardScreenWithViewModel.kt
+app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskListScreenWithViewModel.kt
+app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintListScreenWithViewModel.kt

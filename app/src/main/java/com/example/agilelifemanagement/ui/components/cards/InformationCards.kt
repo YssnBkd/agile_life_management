@@ -351,46 +351,34 @@ enum class SprintStatus(val label: String) {
 }
 
 /**
- * Task priority with color coding for Material 3 Expressive
+ * Extension functions for TaskPriority to provide Material 3 Expressive colors
  */
-enum class TaskPriority(val label: String) {
-    LOW("Low"),
-    MEDIUM("Medium"),
-    HIGH("High"),
-    CRITICAL("Critical");
-    
-    // These properties need to be accessed within a Composable context
-    @Composable
-    fun getPriorityColor(): Color {
-        return when (this) {
-            LOW -> AgileLifeTheme.extendedColors.priorityLow
-            MEDIUM -> AgileLifeTheme.extendedColors.priorityMedium
-            HIGH -> AgileLifeTheme.extendedColors.priorityHigh
-            CRITICAL -> AgileLifeTheme.extendedColors.priorityCritical
-        }
+
+// Direct property accessors for TaskPriority colors using Material 3 Expressive design
+val TaskPriority.color: Color
+    @Composable get() = when(this) {
+        TaskPriority.LOW -> MaterialTheme.colorScheme.tertiary
+        TaskPriority.MEDIUM -> MaterialTheme.colorScheme.secondary
+        TaskPriority.HIGH -> MaterialTheme.colorScheme.primary
+        TaskPriority.CRITICAL -> MaterialTheme.colorScheme.error
     }
     
-    @Composable
-    fun getContainerColor(): Color {
-        return getPriorityColor().copy(alpha = 0.15f)
+val TaskPriority.containerColor: Color
+    @Composable get() = color.copy(alpha = 0.12f)
+    
+val TaskPriority.textColor: Color
+    @Composable get() = when(this) {
+        TaskPriority.LOW -> MaterialTheme.colorScheme.onTertiary
+        TaskPriority.MEDIUM -> MaterialTheme.colorScheme.onSecondary
+        TaskPriority.HIGH -> MaterialTheme.colorScheme.onPrimary
+        TaskPriority.CRITICAL -> MaterialTheme.colorScheme.onError
     }
     
-    @Composable
-    fun getTextColor(): Color {
-        return if (this == MEDIUM) {
-            getPriorityColor().copy(alpha = 0.8f)
-        } else {
-            getPriorityColor()
-        }
+// Human-readable label for the priority
+val TaskPriority.label: String
+    get() = when(this) {
+        TaskPriority.LOW -> "Low"
+        TaskPriority.MEDIUM -> "Medium"
+        TaskPriority.HIGH -> "High"
+        TaskPriority.CRITICAL -> "Critical"
     }
-    
-    // Backward compatibility properties
-    val color: Color
-        @Composable get() = getPriorityColor()
-        
-    val containerColor: Color
-        @Composable get() = getContainerColor()
-        
-    val textColor: Color
-        @Composable get() = getTextColor()
-}

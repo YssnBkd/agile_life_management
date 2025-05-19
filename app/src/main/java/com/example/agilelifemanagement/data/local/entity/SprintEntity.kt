@@ -15,11 +15,16 @@ data class SprintEntity(
     val id: String,
     val userId: String,
     val name: String,
+    val description: String? = null,
     val startDate: LocalDate,
     val endDate: LocalDate,
     val goals: List<String>, // Stored as JSON string via TypeConverter
     val status: SprintStatus,
-    val isCompleted: Boolean = false,
+    val progress: Int? = 0,
+    val taskCount: Int? = 0,
+    val completedTaskCount: Int? = 0,
+    val createdAt: LocalDate? = LocalDate.now(),
     val updatedAt: LocalDate = LocalDate.now(),
+    val isCompleted: Boolean = false,
     val isActive: Boolean = true
 )

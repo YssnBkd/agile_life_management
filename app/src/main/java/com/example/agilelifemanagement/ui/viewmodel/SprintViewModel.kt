@@ -3,13 +3,12 @@ package com.example.agilelifemanagement.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.agilelifemanagement.domain.model.Sprint
-import com.example.agilelifemanagement.domain.model.Task
+import com.example.agilelifemanagement.domain.model.SprintStatus
 import com.example.agilelifemanagement.domain.usecase.sprint.CreateSprintUseCase
 import com.example.agilelifemanagement.domain.usecase.sprint.DeleteSprintUseCase
 import com.example.agilelifemanagement.domain.usecase.sprint.GetSprintByIdUseCase
 import com.example.agilelifemanagement.domain.usecase.sprint.GetSprintsUseCase
 import com.example.agilelifemanagement.domain.usecase.sprint.UpdateSprintUseCase
-import com.example.agilelifemanagement.domain.usecase.task.GetTasksBySprintUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,26 +19,13 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.time.LocalDate
+import java.util.UUID
 import javax.inject.Inject
-
-/**
- * UI State for the Sprint screens, following the Unidirectional Data Flow pattern.
- */
-data class SprintUiState(
-    val sprints: List<Sprint> = emptyList(),
-    val activeSprint: Sprint? = null,
-    val selectedSprint: Sprint? = null,
-    val sprintTasks: List<Task> = emptyList(),
-    val isLoading: Boolean = false,
-    val isRefreshing: Boolean = false,
-    val errorMessage: String? = null,
-    val isSprintSaved: Boolean = false,
-    val isSprintDeleted: Boolean = false
-)
+import com.example.agilelifemanagement.domain.model.Result as DomainResult
 
 /**
  * ViewModel for Sprint-related screens, implementing Unidirectional Data Flow.
- * It handles loading sprints and their tasks, and CRUD operations.
+ * It handles loading sprints and CRUD operations.
  */
 @HiltViewModel
 class SprintViewModel @Inject constructor(
@@ -47,8 +33,7 @@ class SprintViewModel @Inject constructor(
     private val getSprintByIdUseCase: GetSprintByIdUseCase,
     private val createSprintUseCase: CreateSprintUseCase,
     private val updateSprintUseCase: UpdateSprintUseCase,
-    private val deleteSprintUseCase: DeleteSprintUseCase,
-    private val getTasksBySprintUseCase: GetTasksBySprintUseCase
+    private val deleteSprintUseCase: DeleteSprintUseCase
 ) : ViewModel() {
 
     // Private mutable state flow
@@ -68,34 +53,36 @@ class SprintViewModel @Inject constructor(
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, errorMessage = null) }
             
-            getSprintsUseCase()
-                .catch { e ->
-                    Timber.e(e, "Error loading sprints")
-                    _uiState.update { 
-                        it.copy(
-                            isLoading = false, 
-                            errorMessage = e.message ?: "Unknown error occurred while loading sprints"
-                        )
+            try {
+                getSprintsUseCase()
+                    .catch { e ->
+                        Timber.e(e, "Error loading sprints")
+                        _uiState.update { 
+                            it.copy(
+                                isLoading = false, 
+                                errorMessage = e.message ?: "Unknown error occurred while loading sprints"
+                            )
+                        }
                     }
+                    .collectLatest { sprints ->
+                        _uiState.update { 
+                            it.copy(
+                                sprints = sprints,
+                                filteredSprints = sprints,
+                                isLoading = false,
+                                isRefreshing = false
+                            )
+                        }
+                    }
+            } catch (e: Exception) {
+                Timber.e(e, "Error loading sprints")
+                _uiState.update { 
+                    it.copy(
+                        isLoading = false, 
+                        errorMessage = e.message ?: "Unknown error occurred while loading sprints"
+                    )
                 }
-                .collectLatest { sprints ->
-                    val today = LocalDate.now()
-                    val activeSprint = sprints.find { sprint ->
-                        sprint.startDate.isBefore(today) && sprint.endDate.isAfter(today)
-                    }
-                    
-                    _uiState.update { 
-                        it.copy(
-                            sprints = sprints,
-                            activeSprint = activeSprint,
-                            isLoading = false,
-                            isRefreshing = false
-                        )
-                    }
-                    
-                    // If we have an active sprint, load its tasks
-                    activeSprint?.let { loadSprintTasks(it.id) }
-                }
+            }
         }
     }
 
@@ -106,12 +93,59 @@ class SprintViewModel @Inject constructor(
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, errorMessage = null) }
             
+            try {
+                getSprintByIdUseCase(sprintId)
+                    .catch { e ->
+                        Timber.e(e, "Error getting sprint: $sprintId")
+                        _uiState.update { 
+                            it.copy(
+                                isLoading = false, 
+                                errorMessage = e.message ?: "Failed to load sprint"
+                            )
+                        }
+                    }
+                    .collectLatest { sprint ->
+                        if (sprint != null) {
+                            _uiState.update { 
+                                it.copy(
+                                    selectedSprint = sprint,
+                                    isLoading = false
+                                )
+                            }
+                        } else {
+                            _uiState.update { 
+                                it.copy(
+                                    isLoading = false, 
+                                    errorMessage = "Sprint not found"
+                                )
+                            }
+                        }
+                    }
+            } catch (e: Exception) {
+                Timber.e(e, "Error loading sprint: $sprintId")
+                _uiState.update { 
+                    it.copy(
+                        isLoading = false, 
+                        errorMessage = e.message ?: "Unknown error occurred while loading sprint"
+                    )
+                }
+            }
+        }
+    }
+    
+    /**
+     * Loads a specific sprint by ID
+     */
+    fun loadSprintById(sprintId: String) {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true, errorMessage = null) }
+            
             getSprintByIdUseCase(sprintId)
                 .catch { e ->
-                    Timber.e(e, "Error loading sprint: $sprintId")
+                    Timber.e(e, "Error loading sprint $sprintId")
                     _uiState.update { 
                         it.copy(
-                            isLoading = false, 
+                            isLoading = false,
                             errorMessage = e.message ?: "Unknown error occurred while loading sprint"
                         )
                     }
@@ -119,43 +153,35 @@ class SprintViewModel @Inject constructor(
                 .collectLatest { sprint ->
                     _uiState.update { 
                         it.copy(
-                            selectedSprint = sprint,
-                            isLoading = false
+                            isLoading = false,
+                            selectedSprint = sprint
                         )
-                    }
-                    
-                    // Load tasks for this sprint
-                    if (sprint != null) {
-                        loadSprintTasks(sprint.id)
                     }
                 }
         }
     }
     
     /**
-     * Loads tasks for a specific sprint
+     * Filters sprints based on status
      */
-    private fun loadSprintTasks(sprintId: String) {
+    fun filterSprints(statusFilter: Set<SprintStatus>) {
         viewModelScope.launch {
-            getTasksBySprintUseCase(sprintId)
-                .catch { e ->
-                    Timber.e(e, "Error loading tasks for sprint: $sprintId")
-                    _uiState.update { 
-                        it.copy(
-                            errorMessage = e.message ?: "Unknown error occurred while loading sprint tasks"
-                        )
-                    }
-                }
-                .collectLatest { tasks ->
-                    _uiState.update { 
-                        it.copy(
-                            sprintTasks = tasks
-                        )
-                    }
-                }
+            val currentSprints = _uiState.value.sprints
+            
+            val filtered = if (statusFilter.isEmpty()) {
+                currentSprints
+            } else {
+                currentSprints.filter { it.status in statusFilter }
+            }
+            
+            _uiState.update { 
+                it.copy(
+                    filteredSprints = filtered
+                )
+            }
         }
     }
-    
+
     /**
      * Creates a new sprint
      */
@@ -164,32 +190,41 @@ class SprintViewModel @Inject constructor(
             _uiState.update { it.copy(isLoading = true, errorMessage = null, isSprintSaved = false) }
             
             try {
-                val result = createSprintUseCase(sprint)
-                result.fold(
-                    onSuccess = { createdSprint ->
+                val sprintWithId = if (sprint.id.isBlank()) {
+                    sprint.copy(id = UUID.randomUUID().toString(), createdDate = LocalDate.now())
+                } else {
+                    sprint
+                }
+                
+                val result = createSprintUseCase(sprintWithId)
+                when (result) {
+                    is DomainResult.Success<String> -> {
+                        val newSprintId = result.data
+                        Timber.d("Sprint created successfully")
                         _uiState.update { 
                             it.copy(
                                 isLoading = false,
-                                selectedSprint = createdSprint,
-                                isSprintSaved = true
+                                isSprintSaved = true,
+                                operationSuccess = true,
+                                selectedSprint = sprint.copy(id = newSprintId)
                             )
                         }
                         // Refresh sprint list
                         loadSprints()
-                    },
-                    onFailure = { error ->
-                        Timber.e(error, "Error creating sprint")
+                    }
+                    is DomainResult.Error -> {
+                        Timber.e(result.cause, "Error creating sprint: ${result.message}")
                         _uiState.update { 
                             it.copy(
                                 isLoading = false,
-                                errorMessage = error.message ?: "Failed to create sprint",
+                                errorMessage = result.message,
                                 isSprintSaved = false
                             )
                         }
                     }
-                )
+                }
             } catch (e: Exception) {
-                Timber.e(e, "Exception creating sprint")
+                Timber.e(e, "Error creating sprint")
                 _uiState.update { 
                     it.copy(
                         isLoading = false,
@@ -210,31 +245,33 @@ class SprintViewModel @Inject constructor(
             
             try {
                 val result = updateSprintUseCase(sprint)
-                result.fold(
-                    onSuccess = { result ->
+                when (result) {
+                    is DomainResult.Success<Unit> -> {
                         _uiState.update { 
                             it.copy(
                                 isLoading = false,
-                                selectedSprint = sprint, // Use the sprint we sent to update
-                                isSprintSaved = true
+                                isSprintSaved = true,
+                                operationSuccess = true
                             )
                         }
-                        // Refresh sprint list
+                        // Refresh sprint list including the updated sprint
                         loadSprints()
-                    },
-                    onError = { errorMsg, cause ->
-                        Timber.e(cause, "Error updating sprint: $errorMsg")
+                        // Load the updated sprint to ensure we have the latest version
+                        loadSprintById(sprint.id)
+                    }
+                    is DomainResult.Error -> {
+                        Timber.e(result.cause, "Error updating sprint: ${result.message}")
                         _uiState.update { 
                             it.copy(
                                 isLoading = false,
-                                errorMessage = errorMsg,
+                                errorMessage = result.message,
                                 isSprintSaved = false
                             )
                         }
                     }
-                )
+                }
             } catch (e: Exception) {
-                Timber.e(e, "Exception updating sprint")
+                Timber.e(e, "Error updating sprint")
                 _uiState.update { 
                     it.copy(
                         isLoading = false,
@@ -255,32 +292,32 @@ class SprintViewModel @Inject constructor(
             
             try {
                 val result = deleteSprintUseCase(sprintId)
-                result.fold(
-                    onSuccess = { _ ->
+                when (result) {
+                    is DomainResult.Success<Unit> -> {
+                        // Delete successful
                         _uiState.update { 
                             it.copy(
                                 isLoading = false,
-                                isSprintDeleted = true,
                                 selectedSprint = null,
-                                sprintTasks = emptyList()
+                                isSprintDeleted = true
                             )
                         }
                         // Refresh sprint list
                         loadSprints()
-                    },
-                    onFailure = { error ->
-                        Timber.e(error, "Error deleting sprint")
+                    }
+                    is DomainResult.Error -> {
+                        Timber.e(result.cause, "Error deleting sprint: ${result.message}")
                         _uiState.update { 
                             it.copy(
                                 isLoading = false,
-                                errorMessage = error.message ?: "Failed to delete sprint",
+                                errorMessage = result.message,
                                 isSprintDeleted = false
                             )
                         }
                     }
-                )
+                }
             } catch (e: Exception) {
-                Timber.e(e, "Exception deleting sprint")
+                Timber.e(e, "Error deleting sprint")
                 _uiState.update { 
                     it.copy(
                         isLoading = false,
@@ -305,6 +342,17 @@ class SprintViewModel @Inject constructor(
      */
     fun resetSprintSavedState() {
         _uiState.update { it.copy(isSprintSaved = false, isSprintDeleted = false) }
+    }
+    
+    /**
+     * Resets the operation state for proper navigation
+     */
+    fun resetOperationState() {
+        _uiState.update { it.copy(
+            isSprintSaved = false,
+            isSprintDeleted = false,
+            operationSuccess = false
+        )}
     }
     
     /**

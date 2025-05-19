@@ -1,0 +1,769 @@
+package com.example.agilelifemanagement.ui.screens.task
+
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.agilelifemanagement.ui.components.cards.TaskCard
+import com.example.agilelifemanagement.ui.components.cards.TaskPriority
+import com.example.agilelifemanagement.ui.screens.task.components.TaskFiltersBar
+import com.example.agilelifemanagement.ui.screens.task.components.TaskCountSummary
+import com.example.agilelifemanagement.ui.screens.task.components.EmptyTasksView
+import com.example.agilelifemanagement.ui.screens.task.components.TaskList
+import com.example.agilelifemanagement.ui.screens.task.components.TaskSearchBar
+import com.example.agilelifemanagement.ui.model.TaskFilterChip
+import com.example.agilelifemanagement.ui.model.TaskFilterType
+import com.example.agilelifemanagement.ui.model.TaskSortCriteria
+import com.example.agilelifemanagement.ui.viewmodel.TaskViewModel
+import com.example.agilelifemanagement.domain.model.TaskStatus
+
+/**
+ * TaskListScreen displays all tasks with filtering, sorting and search functionality
+ * following Material 3 Expressive design principles and properly using ViewModel with StateFlow.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TaskListScreen(
+    onTaskClick: (String) -> Unit,
+    onAddTaskClick: () -> Unit,
+    onBackClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: TaskViewModel = hiltViewModel()
+) {
+    // Get UI state from ViewModel
+    val uiState by viewModel.uiState.collectAsState()
+    
+    // State for search functionality
+    var isSearchActive by remember { mutableStateOf(false) }
+    var searchQuery by remember { mutableStateOf("") }
+    
+    // Create SnackbarHostState for showing error messages
+    val snackbarHostState = remember { SnackbarHostState() }
+    
+    // Show error messages as snackbars
+    LaunchedEffect(uiState.errorMessage) {
+        uiState.errorMessage?.let {
+            snackbarHostState.showSnackbar(it)
+        }
+    }
+    
+    // Top app bar scroll behavior
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    
+    Scaffold(
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+        topBar = {
+            if (isSearchActive) {
+                // Search bar when active
+                TaskSearchBar(
+                    query = searchQuery,
+                    onQueryChange = { 
+                        searchQuery = it
+                        viewModel.searchTasks(it)
+                    },
+                    onSearch = { viewModel.searchTasks(searchQuery) },
+                    active = true,
+                    onActiveChange = { isSearchActive = it },
+                    onBackClick = { isSearchActive = false },
+                    placeholder = "Search tasks"
+                )
+            } else {
+                // Standard top app bar
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = "Tasks",
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onBackClick) {
+                            Icon(
+                                imageVector = Icons.Rounded.ArrowBack,
+                                contentDescription = "Back"
+                            )
+                        }
+                    },
+                    actions = {
+                        IconButton(onClick = { isSearchActive = true }) {
+                            Icon(
+                                imageVector = Icons.Rounded.Search,
+                                contentDescription = "Search tasks"
+                            )
+                        }
+                    },
+                    scrollBehavior = scrollBehavior,
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.surface
+                    )
+                )
+            }
+        },
+        floatingActionButton = {
+            ExtendedFloatingActionButton(
+                text = { Text("Add Task") },
+                icon = { 
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Add task"
+                    )
+                },
+                onClick = onAddTaskClick,
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
+        }
+    ) { paddingValues ->
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .padding(paddingValues)
+        ) {
+            Column {
+                // Task filters bar
+                TaskFiltersBar(
+                    filterType = uiState.filterType,
+                    onFilterTypeChange = { filterType -> viewModel.setFilterType(filterType) },
+                    sortCriteria = uiState.sortCriteria,
+                    onSortCriteriaChange = { criteria -> viewModel.setSortCriteria(criteria) },
+                    sortAscending = uiState.sortAscending,
+                    onSortDirectionChange = { ascending -> viewModel.setSortDirection(ascending) },
+                    selectedFilters = uiState.selectedFilters,
+                    onFilterChipSelected = { chip, selected -> viewModel.updateSelectedFilters(chip, selected) }
+                )
+                
+                // Task count summary
+                TaskCountSummary(
+                    displayedCount = uiState.filteredTasks.size,
+                    totalCount = uiState.tasks.size,
+                    filterType = uiState.filterType
+                )
+                
+                // Task list with empty state handling
+                TaskList(
+                    tasks = uiState.filteredTasks,
+                    isLoading = uiState.isLoading,
+                    onTaskClick = onTaskClick,
+                    onCompletedChange = { taskId, isCompleted ->
+                        viewModel.updateTaskStatus(
+                            taskId, 
+                            if (isCompleted) TaskStatus.COMPLETED else TaskStatus.IN_PROGRESS
+                        )
+                    },
+                    emptyContent = {
+                        EmptyTasksView(
+                            filterType = uiState.filterType,
+                            onAddClick = onAddTaskClick,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    },
+                    modifier = Modifier.weight(1f)
+                )
+            }
+            
+            // Pull to refresh indicator, if implemented
+            AnimatedVisibility(
+                visible = uiState.isRefreshing,
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically(),
+                modifier = Modifier.align(Alignment.TopCenter)
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier.padding(top = 8.dp)
+                )
+            }
+        }
+    }
+}
+
+// Helper function to map domain priority to UI priority
+private fun mapDomainToUiPriority(domainPriority: com.example.agilelifemanagement.domain.model.TaskPriority): TaskPriority {
+    return when (domainPriority) {
+        com.example.agilelifemanagement.domain.model.TaskPriority.LOW -> TaskPriority.LOW
+        com.example.agilelifemanagement.domain.model.TaskPriority.MEDIUM -> TaskPriority.MEDIUM
+        com.example.agilelifemanagement.domain.model.TaskPriority.HIGH -> TaskPriority.HIGH
+        com.example.agilelifemanagement.domain.model.TaskPriority.URGENT -> TaskPriority.CRITICAL
+    }
+}
+
+/**
+ * TaskListScreen displays all tasks with filtering, sorting and search functionality
+ * following Material 3 Expressive design principles and properly using ViewModel with StateFlow.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TaskListScreen(
+    onTaskClick: (String) -> Unit,
+    onAddTaskClick: () -> Unit,
+    onBackClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: TaskViewModel = hiltViewModel()
+) {
+    // Get UI state from ViewModel
+    val uiState by viewModel.uiState.collectAsState()
+    
+    // State for search functionality
+    var isSearchActive by remember { mutableStateOf(false) }
+    var searchQuery by remember { mutableStateOf("") }
+    
+    // Create SnackbarHostState for showing error messages
+    val snackbarHostState = remember { SnackbarHostState() }
+    
+    // Show error messages as snackbars
+    LaunchedEffect(uiState.errorMessage) {
+        uiState.errorMessage?.let {
+            snackbarHostState.showSnackbar(it)
+        }
+    }
+    
+    // Top app bar scroll behavior
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    
+    Scaffold(
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+        topBar = {
+            if (isSearchActive) {
+                // Search bar when active
+                TaskSearchBar(
+                    query = searchQuery,
+                    onQueryChange = { 
+                        searchQuery = it
+                        viewModel.searchTasks(it)
+                    },
+                    onSearch = { viewModel.searchTasks(searchQuery) },
+                    active = true,
+                    onActiveChange = { isSearchActive = it },
+                    onBackClick = { isSearchActive = false },
+                    placeholder = "Search tasks"
+                )
+            } else {
+                // Standard top app bar
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = "Tasks",
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onBackClick) {
+                            Icon(
+                                imageVector = Icons.Rounded.ArrowBack,
+                                contentDescription = "Back"
+                            )
+                        }
+                    },
+                    actions = {
+                        IconButton(onClick = { isSearchActive = true }) {
+                            Icon(
+                                imageVector = Icons.Rounded.Search,
+                                contentDescription = "Search tasks"
+                            )
+                        }
+                    },
+                    scrollBehavior = scrollBehavior,
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.surface
+                    )
+                )
+            }
+        },
+        floatingActionButton = {
+            ExtendedFloatingActionButton(
+                text = { Text("Add Task") },
+                icon = { 
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = "Add task"
+                    )
+                },
+                onClick = onAddTaskClick,
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
+        }
+    ) { paddingValues ->
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .padding(paddingValues)
+        ) {
+            Column {
+                // Task filters bar
+                TaskFiltersBar(
+                    filterType = uiState.filterType,
+                    onFilterTypeChange = { filterType -> viewModel.setFilterType(filterType) },
+                    sortCriteria = uiState.sortCriteria,
+                    onSortCriteriaChange = { criteria -> viewModel.setSortCriteria(criteria) },
+                    sortAscending = uiState.sortAscending,
+                    onSortDirectionChange = { ascending -> viewModel.setSortDirection(ascending) },
+                    selectedFilters = uiState.selectedFilters,
+                    onFilterChipSelected = { chip, selected -> viewModel.updateSelectedFilters(chip, selected) }
+                )
+                
+                // Task count summary
+                TaskCountSummary(
+                    displayedCount = uiState.filteredTasks.size,
+                    totalCount = uiState.tasks.size,
+                    filterType = uiState.filterType
+                )
+                
+                // Task list with empty state handling
+                TaskList(
+                    tasks = uiState.filteredTasks,
+                    isLoading = uiState.isLoading,
+                    onTaskClick = onTaskClick,
+                    onCompletedChange = { taskId, isCompleted ->
+                        viewModel.updateTaskStatus(
+                            taskId, 
+                            if (isCompleted) TaskStatus.COMPLETED else TaskStatus.IN_PROGRESS
+                        )
+                    },
+                    emptyContent = {
+                        EmptyTasksView(
+                            filterType = uiState.filterType,
+                            onAddClick = onAddTaskClick,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    },
+                    modifier = Modifier.weight(1f)
+                )
+            }
+            
+            // Pull to refresh indicator, if implemented
+            AnimatedVisibility(
+                visible = uiState.isRefreshing,
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically(),
+                modifier = Modifier.align(Alignment.TopCenter)
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier.padding(top = 8.dp)
+                )
+            }
+        }
+    }
+}
+
+// Helper function to map domain priority to UI priority
+private fun mapDomainToUiPriority(domainPriority: com.example.agilelifemanagement.domain.model.TaskPriority): TaskPriority {
+    return when (domainPriority) {
+        com.example.agilelifemanagement.domain.model.TaskPriority.LOW -> TaskPriority.LOW
+        com.example.agilelifemanagement.domain.model.TaskPriority.MEDIUM -> TaskPriority.MEDIUM
+        com.example.agilelifemanagement.domain.model.TaskPriority.HIGH -> TaskPriority.HIGH
+        com.example.agilelifemanagement.domain.model.TaskPriority.URGENT -> TaskPriority.CRITICAL
+    }
+}
+
+@Composable
+private fun TaskFiltersBar(
+    filterType: TaskFilterType,
+    onFilterTypeChange: (TaskFilterType) -> Unit,
+    sortCriteria: TaskSortCriteria,
+    onSortCriteriaChange: (TaskSortCriteria) -> Unit,
+    sortAscending: Boolean,
+    onSortDirectionChange: (Boolean) -> Unit,
+    selectedFilters: Set<TaskFilterChip>,
+    onFilterChipSelected: (TaskFilterChip, Boolean) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = MaterialTheme.shapes.medium,
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(top = 16.dp, bottom = 12.dp)
+    ) {
+        Column {
+            // Filter type buttons
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                TaskFilterType.values().forEach { type ->
+                    val isSelected = filterType == type
+                    
+                    Surface(
+                        onClick = { onFilterTypeChange(type) },
+                        color = if (isSelected) 
+                            MaterialTheme.colorScheme.secondaryContainer
+                        else 
+                            MaterialTheme.colorScheme.surfaceContainerLow,
+                        contentColor = if (isSelected) 
+                            MaterialTheme.colorScheme.onSecondaryContainer
+                        else 
+                            MaterialTheme.colorScheme.onSurfaceVariant,
+                        shape = MaterialTheme.shapes.small
+                    ) {
+                        Text(
+                            text = type.label,
+                            style = MaterialTheme.typography.labelMedium,
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                        )
+                    }
+                }
+            }
+            
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            // Sort by label
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.Sort,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(20.dp)
+                )
+                
+                Spacer(modifier = Modifier.width(8.dp))
+                
+                Text(
+                    text = "Sort by:",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            
+            // Sort criteria buttons
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                TaskSortCriteria.values().forEach { criteria ->
+                    val isSelected = sortCriteria == criteria
+                    
+                    Surface(
+                        onClick = { onSortCriteriaChange(criteria) },
+                        color = if (isSelected) 
+                            MaterialTheme.colorScheme.secondaryContainer
+                        else 
+                            MaterialTheme.colorScheme.surfaceContainerLow,
+                        contentColor = if (isSelected) 
+                            MaterialTheme.colorScheme.onSecondaryContainer
+                        else 
+                            MaterialTheme.colorScheme.onSurfaceVariant,
+                        shape = MaterialTheme.shapes.small
+                    ) {
+                        Text(
+                            text = criteria.label,
+                            style = MaterialTheme.typography.labelMedium,
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                        )
+                    }
+                }
+                
+                // Direction button
+                IconButton(
+                    onClick = { onSortDirectionChange(!sortAscending) },
+                    modifier = Modifier.size(32.dp)
+                ) {
+                    Icon(
+                        imageVector = if (sortAscending) 
+                            Icons.Rounded.ArrowUpward 
+                        else 
+                            Icons.Rounded.ArrowDownward,
+                        contentDescription = if (sortAscending) 
+                            "Sort ascending" 
+                        else 
+                            "Sort descending",
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                }
+            }
+            
+            Spacer(modifier = Modifier.height(16.dp))
+            
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.FilterList,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(20.dp)
+                            TaskFilterChip.LOW_PRIORITY -> AgileLifeTheme.extendedColors.accentMint
+                            else -> MaterialTheme.colorScheme.onSecondaryContainer
+                        },
+                        selectedLeadingIconColor = when (chip) {
+                            TaskFilterChip.HIGH_PRIORITY -> AgileLifeTheme.extendedColors.accentCoral
+                            TaskFilterChip.MEDIUM_PRIORITY -> AgileLifeTheme.extendedColors.accentSunflower
+                            TaskFilterChip.LOW_PRIORITY -> AgileLifeTheme.extendedColors.accentMint
+                            else -> MaterialTheme.colorScheme.onSecondaryContainer
+                        }
+                    ),
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun TaskCountSummary(
+    displayedCount: Int,
+    totalCount: Int,
+    filterType: TaskFilterType
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
+        ) {
+            // Task count info
+            Text(
+                text = when (filterType) {
+                    TaskFilterType.ALL -> "Showing $displayedCount of $totalCount tasks"
+                    TaskFilterType.ACTIVE -> "Showing $displayedCount active tasks"
+                    TaskFilterType.COMPLETED -> "Showing $displayedCount completed tasks"
+                },
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            
+            // Status indicator
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .size(24.dp)
+                    .clip(CircleShape)
+                    .background(
+                        color = when {
+                            displayedCount == 0 -> MaterialTheme.colorScheme.outline
+                            displayedCount < 5 -> AgileLifeTheme.extendedColors.accentMint
+                            displayedCount < 10 -> AgileLifeTheme.extendedColors.accentSunflower
+                            else -> AgileLifeTheme.extendedColors.accentCoral
+                        }
+                    )
+            ) {
+                Text(
+                    text = displayedCount.toString(),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun EmptyTasksView(filterType: TaskFilterType) {
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Icon(
+                imageVector = Icons.Rounded.TaskAlt,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                modifier = Modifier.size(100.dp)
+            )
+            
+            Spacer(modifier = Modifier.height(24.dp))
+            
+            Text(
+                text = when (filterType) {
+                    TaskFilterType.ALL -> "No tasks found"
+                    TaskFilterType.ACTIVE -> "No active tasks"
+                    TaskFilterType.COMPLETED -> "No completed tasks"
+                },
+                style = MaterialTheme.typography.headlineSmall,
+                textAlign = TextAlign.Center
+            )
+            
+            Spacer(modifier = Modifier.height(8.dp))
+            
+            Text(
+                text = when (filterType) {
+                    TaskFilterType.ALL -> "Create a new task to get started"
+                    TaskFilterType.ACTIVE -> "Create a new task or check your filters"
+                    TaskFilterType.COMPLETED -> "Complete some tasks to see them here"
+                },
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
+            )
+            
+            Spacer(modifier = Modifier.height(24.dp))
+            
+            Button(
+                onClick = { /* Add task action */ },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = MaterialTheme.colorScheme.onPrimary
+                )
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("Add New Task")
+            }
+        }
+    }
+}
+
+// Enums for task filtering and sorting
+enum class TaskFilterType(val label: String) {
+    ALL("All"),
+    ACTIVE("Active"),
+    COMPLETED("Completed")
+}
+
+enum class TaskSortCriteria(val label: String) {
+    DUE_DATE("Due Date"),
+    PRIORITY("Priority"),
+    ESTIMATED_TIME("Est. Time")
+}
+
+enum class TaskFilterChip(
+    val label: String,
+    val isPriorityFilter: Boolean
+) {
+    HIGH_PRIORITY("High Priority", true),
+    MEDIUM_PRIORITY("Medium Priority", true),
+    LOW_PRIORITY("Low Priority", true),
+    DUE_TODAY("Due Today", false)
+}
+
+/**
+ * Sample data for the task list screen
+ */
+object SampleTaskData {
+    fun getAllTasks(): List<TaskInfo> {
+        return listOf(
+            TaskInfo(
+                id = "task1",
+                title = "Create UI mockups for dashboard",
+                priority = TaskPriority.HIGH,
+                dueDate = "Today, 5:00 PM",
+                estimatedMinutes = 120,
+                isCompleted = false
+            ),
+            TaskInfo(
+                id = "task2",
+                title = "Review API documentation",
+                priority = TaskPriority.MEDIUM,
+                dueDate = "Tomorrow, 12:00 PM",
+                estimatedMinutes = 60,
+                isCompleted = false
+            ),
+            TaskInfo(
+                id = "task3",
+                title = "Set up CI/CD pipeline",
+                priority = TaskPriority.HIGH,
+                dueDate = "May 16, 3:00 PM",
+                estimatedMinutes = 180,
+                isCompleted = false
+            ),
+            TaskInfo(
+                id = "task4",
+                title = "Fix login screen animation bug",
+                priority = TaskPriority.MEDIUM,
+                dueDate = "Today, 2:00 PM",
+                estimatedMinutes = 45,
+                isCompleted = true
+            ),
+            TaskInfo(
+                id = "task5",
+                title = "Update project documentation",
+                priority = TaskPriority.LOW,
+                dueDate = "May 18",
+                estimatedMinutes = 90,
+                isCompleted = false
+            ),
+            TaskInfo(
+                id = "task6",
+                title = "Refactor utility functions",
+                priority = TaskPriority.LOW,
+                dueDate = null,
+                estimatedMinutes = 120,
+                isCompleted = false
+            ),
+            TaskInfo(
+                id = "task7",
+                title = "Implement dark mode theme",
+                priority = TaskPriority.MEDIUM,
+                dueDate = "May 20",
+                estimatedMinutes = 150,
+                isCompleted = false
+            ),
+            TaskInfo(
+                id = "task8",
+                title = "Write unit tests for authentication",
+                priority = TaskPriority.HIGH,
+                dueDate = "May 15",
+                estimatedMinutes = 180,
+                isCompleted = true
+            ),
+            TaskInfo(
+                id = "task9",
+                title = "Configure analytics tracking",
+                priority = TaskPriority.MEDIUM,
+                dueDate = "Today, 4:00 PM",
+                estimatedMinutes = 60,
+                isCompleted = false
+            ),
+            TaskInfo(
+                id = "task10",
+                title = "Conduct user testing session",
+                priority = TaskPriority.HIGH,
+                dueDate = "May 19, 10:00 AM",
+                estimatedMinutes = 120,
+                isCompleted = false
+            )
+        )
+    }
+}

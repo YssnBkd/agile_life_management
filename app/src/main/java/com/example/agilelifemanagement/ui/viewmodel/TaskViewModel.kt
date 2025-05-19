@@ -2,6 +2,7 @@ package com.example.agilelifemanagement.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.agilelifemanagement.domain.model.Result as DomainResult
 import com.example.agilelifemanagement.domain.model.Task
 import com.example.agilelifemanagement.domain.model.TaskPriority
 import com.example.agilelifemanagement.domain.model.TaskStatus
@@ -27,9 +28,6 @@ import java.time.LocalDate
 import javax.inject.Inject
 
 /**
- * UI State is defined in TaskViewUiState.kt
-
-/**
  * ViewModel for Task-related screens, implementing Unidirectional Data Flow.
  * It handles loading tasks, filtering, sorting, and CRUD operations.
  */
@@ -40,7 +38,8 @@ class TaskViewModel @Inject constructor(
     private val createTaskUseCase: CreateTaskUseCase,
     private val updateTaskUseCase: UpdateTaskUseCase,
     private val updateTaskStatusUseCase: UpdateTaskStatusUseCase,
-    private val deleteTaskUseCase: DeleteTaskUseCase
+    private val deleteTaskUseCase: DeleteTaskUseCase,
+    private val getSprintsUseCase: com.example.agilelifemanagement.domain.usecase.sprint.GetSprintsUseCase
 ) : ViewModel() {
 
     // Private mutable state flow
@@ -51,6 +50,30 @@ class TaskViewModel @Inject constructor(
 
     init {
         loadTasks()
+        loadSprints()
+    }
+    
+    /**
+     * Loads all available sprints for task assignment
+     */
+    fun loadSprints() {
+        viewModelScope.launch {
+            // Show loading state
+            _uiState.update { it.copy(isLoadingSprints = true) }
+            
+            getSprintsUseCase()
+                .catch { e ->
+                    Timber.e(e, "Error loading sprints for task assignment")
+                    _uiState.update { 
+                        it.copy(isLoadingSprints = false, errorMessage = "Failed to load sprints: ${e.message}")
+                    }
+                }
+                .collectLatest { sprints ->
+                    _uiState.update { 
+                        it.copy(availableSprints = sprints, isLoadingSprints = false)
+                    }
+                }
+        }
     }
 
     /**
@@ -355,10 +378,152 @@ class TaskViewModel @Inject constructor(
     }
     
     /**
+     * Assigns a task to a sprint
+     * 
+     * @param taskId ID of the task to assign
+     * @param sprintId ID of the sprint to assign the task to, or null to remove from any sprint
+     */
+    fun assignTaskToSprint(taskId: String, sprintId: String?) {
+        // Critical fix: First update UI state to show user action was received
+        // and the operation is in progress
+        _uiState.update { it.copy(isLoading = true, errorMessage = null) }
+        
+        // Process the assignment in a background coroutine
+        viewModelScope.launch {
+            try {
+                // Step 1: Get the task directly
+                var task: Task? = null
+                try {
+                    // Use a more direct approach to get the task
+                    // Directly access tasks from the current UI state if available
+                    task = _uiState.value.tasks.find { it.id == taskId }
+                        ?: _uiState.value.selectedTask?.takeIf { it.id == taskId }
+                    
+                    // If task wasn't found in the current state, try to load it
+                    if (task == null) {
+                        // Load all tasks first to make sure we have the latest data
+                        val tasks = mutableListOf<Task>()
+                        getTasksUseCase().collect { taskList ->
+                            tasks.addAll(taskList)
+                            // Break early if we found the task
+                            if (tasks.any { it.id == taskId }) {
+                                return@collect
+                            }
+                        }
+                        
+                        // Try to find the task in the loaded tasks
+                        task = tasks.find { it.id == taskId }
+                        
+                        // If still not found, throw an exception
+                        if (task == null) {
+                            throw Exception("Task with ID $taskId not found in the system")
+                        }
+                    }
+                } catch (e: Exception) {
+                    Timber.e(e, "Error finding task")
+                    throw Exception("Could not find task: ${e.message}")
+                }
+                
+                // Step 3: Check if assignment is different
+                if (task.sprintId == sprintId) {
+                    // No change needed, but still show success
+                    _uiState.update { 
+                        it.copy(
+                            isLoading = false, 
+                            operationSuccess = true,
+                            errorMessage = null
+                        )
+                    }
+                    return@launch
+                }
+                
+                // Step 4: Create and update the task
+                val updatedTask = task.copy(sprintId = sprintId)
+                try {
+                    val updateResult = updateTaskUseCase(updatedTask)
+                    if (updateResult is DomainResult.Error) {
+                        throw Exception(updateResult.message)
+                    }
+                    
+                    // Step 5: Show success immediately
+                    _uiState.update { 
+                        it.copy(
+                            isLoading = false,
+                            operationSuccess = true,
+                            errorMessage = null
+                        )
+                    }
+                    
+                    // Step 6: Refresh data in the background (non-blocking)
+                    viewModelScope.launch {
+                        try {
+                            loadTasks()
+                            if (_uiState.value.selectedTask?.id == taskId) {
+                                loadTask(taskId)
+                            }
+                        } catch (e: Exception) {
+                            // Log error but don't update UI again
+                            Timber.e(e, "Error refreshing tasks after sprint assignment")
+                        }
+                    }
+                } catch (e: Exception) {
+                    throw Exception("Failed to assign task to sprint: ${e.message}")
+                }
+            } catch (e: Exception) {
+                // Final error handler - ensure loading state is always cleared
+                Timber.e(e, "Exception assigning task to sprint")
+                _uiState.update { 
+                    it.copy(
+                        isLoading = false,
+                        errorMessage = e.message ?: "Unknown error occurred while assigning task"
+                    )
+                }
+            }
+        }
+    }
+    
+    /**
      * Clears the error message
      */
     fun clearError() {
         _uiState.update { it.copy(errorMessage = null) }
+    }
+    
+    /**
+     * Resets the operation state
+     */
+    fun resetOperationState() {
+        _uiState.update { it.copy(
+            isTaskSaved = false,
+            isTaskDeleted = false,
+            operationSuccess = false
+        )}
+    }
+    
+    /**
+     * Updates the search query and filters tasks accordingly
+     */
+    fun searchTasks(query: String) {
+        _uiState.update { currentState ->
+            currentState.copy(
+                searchQuery = query,
+                filteredTasks = filterTasksBySearchQuery(currentState.tasks, query)
+            )
+        }
+    }
+    
+    /**
+     * Filters tasks by search query
+     */
+    private fun filterTasksBySearchQuery(tasks: List<Task>, query: String): List<Task> {
+        if (query.isBlank()) {
+            return applyFiltersAndSort(tasks)
+        }
+        
+        return tasks.filter { task ->
+            task.title.contains(query, ignoreCase = true) ||
+            task.description.contains(query, ignoreCase = true)
+        }
     }
     
     /**
@@ -386,4 +551,3 @@ class TaskViewModel @Inject constructor(
     }
     // End of TaskViewModel class
 }
-*/

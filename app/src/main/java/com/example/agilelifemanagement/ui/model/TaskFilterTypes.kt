@@ -9,7 +9,17 @@ enum class TaskFilterType {
     COMPLETED,
     TODAY,
     UPCOMING,
-    OVERDUE
+    OVERDUE;
+    
+    val displayName: String
+        get() = when (this) {
+            ALL -> "All Tasks"
+            ACTIVE -> "Active"
+            COMPLETED -> "Completed"
+            TODAY -> "Due Today"
+            UPCOMING -> "Upcoming"
+            OVERDUE -> "Overdue"
+        }
 }
 
 /**
@@ -22,7 +32,18 @@ enum class TaskFilterChip {
     HAS_DEADLINE,
     NO_DEADLINE,
     IN_PROGRESS,
-    NOT_STARTED
+    NOT_STARTED;
+    
+    val displayName: String
+        get() = when (this) {
+            HIGH_PRIORITY -> "High Priority"
+            MEDIUM_PRIORITY -> "Medium Priority"
+            LOW_PRIORITY -> "Low Priority"
+            HAS_DEADLINE -> "Has Deadline"
+            NO_DEADLINE -> "No Deadline"
+            IN_PROGRESS -> "In Progress"
+            NOT_STARTED -> "Not Started"
+        }
 }
 
 /**
@@ -33,5 +54,14 @@ enum class TaskSortCriteria {
     DUE_DATE,
     PRIORITY,
     STATUS,
-    CREATED_DATE
+    CREATED_DATE;
+    
+    val displayName: String
+        get() = when (this) {
+            TITLE -> "Title"
+            DUE_DATE -> "Due Date"
+            PRIORITY -> "Priority"
+            STATUS -> "Status"
+            CREATED_DATE -> "Created Date"
+        }
 }

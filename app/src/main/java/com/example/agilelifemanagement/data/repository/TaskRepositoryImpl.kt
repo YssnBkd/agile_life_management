@@ -55,18 +55,9 @@ class TaskRepositoryImpl @Inject constructor(
     }
     
     private suspend fun syncAllTasks() {
-        withContext(ioDispatcher) {
-            try {
-                val remoteTasks = remoteDataSource.getAllTasks()
-                // Map and save to local database
-                val entities = remoteTasks.map { taskMapper.mapToEntity(it) }
-                localDataSource.insertTasks(entities)
-                Timber.d("Successfully synced ${remoteTasks.size} tasks from remote")
-            } catch (e: Exception) {
-                Timber.e(e, "Error syncing tasks from remote")
-                // Handle error but don't propagate - offline-first approach continues with local data
-            }
-        }
+        // In the MVP implementation, we'll focus on local data only
+        // and skip the synchronization with remote data sources
+        Timber.d("MVP Implementation: Skipping remote sync")
     }
 
     override fun getTasksBySprintId(sprintId: String): Flow<List<Task>> {
@@ -85,17 +76,8 @@ class TaskRepositoryImpl @Inject constructor(
     }
     
     private suspend fun syncTasksBySprintId(sprintId: String) {
-        withContext(ioDispatcher) {
-            try {
-                val remoteTasks = remoteDataSource.getTasksBySprintId(sprintId)
-                val entities = remoteTasks.map { taskMapper.mapToEntity(it) }
-                localDataSource.insertTasks(entities)
-                Timber.d("Successfully synced ${remoteTasks.size} tasks for sprint $sprintId")
-            } catch (e: Exception) {
-                Timber.e(e, "Error syncing tasks for sprint $sprintId")
-                // Handle error but don't propagate
-            }
-        }
+        // For MVP, we're focusing on local data only
+        Timber.d("MVP Implementation: Skipping remote sync for sprint $sprintId")
     }
 
     override suspend fun getTaskById(taskId: String): Result<Task> = withContext(ioDispatcher) {
@@ -153,123 +135,89 @@ class TaskRepositoryImpl @Inject constructor(
 
     override suspend fun createTask(task: Task): Result<Task> = withContext(ioDispatcher) {
         try {
-            // Ensure the task has an ID
+            // Generate ID if not provided
             val taskWithId = if (task.id.isBlank()) {
-                task.copy(id = UUID.randomUUID().toString())
+                // Create a proper ID and ensure createdDate is set
+                task.copy(
+                    id = UUID.randomUUID().toString(),
+                    createdDate = task.createdDate ?: LocalDate.now()
+                )
             } else {
                 task
             }
             
-            // First, ensure all tags exist in the database
-            for (tagName in taskWithId.tags) {
-                tagRepository.getOrCreateTag(tagName)
-            }
+            // Save to local database
+            val entity = taskMapper.mapToEntity(taskWithId)
+            localDataSource.insertTask(entity)
             
-            // Save to local database first for immediate UI feedback
-            val taskEntity = taskMapper.mapToEntity(taskWithId)
-            localDataSource.insertTask(taskEntity, taskWithId.tags)
-            
-            // Then try to save to remote in background
-            try {
-                val remoteTask = remoteDataSource.createTask(taskWithId)
-                // If remote has a different ID, update the local record
-                if (remoteTask.id != taskWithId.id) {
-                    val updatedEntity = taskMapper.mapToEntity(remoteTask)
-                    localDataSource.insertTask(updatedEntity, remoteTask.tags)
-                    return@withContext Result.success(remoteTask)
-                }
-            } catch (e: Exception) {
-                Timber.e(e, "Error saving task to remote: ${taskWithId.id}")
-                // Task will be synced later when connectivity is restored
-            }
+            // For MVP, we'll skip the remote sync and just log the operation
+            Timber.d("MVP Implementation: Created task ${taskWithId.id} (local only)")
             
             Result.success(taskWithId)
         } catch (e: Exception) {
-            Timber.e(e, "Error creating task")
+            Timber.e(e, "Error creating task: ${e.message}")
             Result.failure(e)
         }
     }
 
     override suspend fun updateTask(task: Task): Result<Task> = withContext(ioDispatcher) {
         try {
-            // First, ensure all tags exist in the database
-            for (tagName in task.tags) {
-                tagRepository.getOrCreateTag(tagName)
-            }
-            
-            // Update local database first for immediate UI feedback
+            // Update in local database only for MVP
             val taskEntity = taskMapper.mapToEntity(task)
-            val updateResult = localDataSource.updateTask(taskEntity, task.tags)
+            val updateCount = localDataSource.updateTask(taskEntity)
             
-            if (updateResult <= 0) {
-                return@withContext Result.failure(NoSuchElementException("Task not found with ID: ${task.id}"))
+            if (updateCount <= 0) {
+                return@withContext Result.failure(Exception("Failed to update task: No records affected"))
             }
             
-            // Then try to update in remote in background
-            try {
-                remoteDataSource.updateTask(task)
-            } catch (e: Exception) {
-                Timber.e(e, "Error updating task in remote: ${task.id}")
-                // Task update will be synced later when connectivity is restored
-            }
+            // For MVP, we'll skip the remote sync
+            Timber.d("MVP Implementation: Updated task ${task.id} (local only)")
             
             Result.success(task)
         } catch (e: Exception) {
-            Timber.e(e, "Error updating task: ${task.id}")
+            Timber.e(e, "Error updating task: ${task.id} - ${e.message}")
             Result.failure(e)
         }
     }
 
     override suspend fun updateTaskStatus(taskId: String, status: TaskStatus): Result<Task> = withContext(ioDispatcher) {
         try {
-            // Update local database first for immediate UI feedback
-            val updateResult = localDataSource.updateTaskStatus(taskId, status)
+            // Update status in local database only for MVP
+            val updateCount = localDataSource.updateTaskStatus(taskId, status)
             
-            if (updateResult <= 0) {
+            if (updateCount <= 0) {
                 return@withContext Result.failure(NoSuchElementException("Task not found with ID: $taskId"))
             }
             
-            // Get the updated task
-            val updatedTaskEntity = localDataSource.getTaskById(taskId)
-                ?: return@withContext Result.failure(NoSuchElementException("Task not found with ID: $taskId"))
+            // Get updated task to return
+            val updatedTask = localDataSource.getTaskById(taskId)?.let { taskMapper.mapToDomain(it) }
+                ?: return@withContext Result.failure(NoSuchElementException("Task not found after update: $taskId"))
             
-            val updatedTask = taskMapper.mapToDomain(updatedTaskEntity)
-            
-            // Then try to update in remote in background
-            try {
-                remoteDataSource.updateTaskStatus(taskId, status)
-            } catch (e: Exception) {
-                Timber.e(e, "Error updating task status in remote: $taskId")
-                // Task status update will be synced later when connectivity is restored
-            }
+            // For MVP, we'll skip the remote sync
+            Timber.d("MVP Implementation: Updated task status $taskId to $status (local only)")
             
             Result.success(updatedTask)
         } catch (e: Exception) {
-            Timber.e(e, "Error updating task status: $taskId")
+            Timber.e(e, "Error updating task status: $taskId - ${e.message}")
             Result.failure(e)
         }
     }
 
     override suspend fun deleteTask(taskId: String): Result<Boolean> = withContext(ioDispatcher) {
         try {
-            // Delete from local database first for immediate UI feedback
+            // Delete from local database only for MVP
             val deleteResult = localDataSource.deleteTask(taskId)
             
             if (deleteResult <= 0) {
                 return@withContext Result.failure(NoSuchElementException("Task not found with ID: $taskId"))
             }
             
-            // Then try to delete from remote in background
-            try {
-                remoteDataSource.deleteTask(taskId)
-            } catch (e: Exception) {
-                Timber.e(e, "Error deleting task from remote: $taskId")
-                // Deletion will be synced later when connectivity is restored
-            }
+            // For MVP, we'll skip the remote sync
+            Timber.d("MVP Implementation: Deleted task $taskId (local only)")
             
             Result.success(true)
         } catch (e: Exception) {
-            Timber.e(e, "Error deleting task: $taskId")
+            Timber.e(e, "Error deleting task: $taskId - ${e.message}")
             Result.failure(e)
         }
     }

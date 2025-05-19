@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.Color
 import com.example.agilelifemanagement.domain.model.DayActivity
 import com.example.agilelifemanagement.domain.model.DaySchedule
 import com.example.agilelifemanagement.domain.model.TimeBlock
-import com.example.agilelifemanagement.ui.screens.day.ActivityCategory
+import com.example.agilelifemanagement.ui.model.ActivityCategoryEnum
 import com.example.agilelifemanagement.ui.theme.AgileBlue
 import com.example.agilelifemanagement.ui.theme.AgileGreen
 import com.example.agilelifemanagement.ui.theme.WarningOrange
@@ -93,23 +93,35 @@ object UiModelMappers {
     }
     
     /**
-     * Maps a category ID to an ActivityCategory enum
+     * Maps a category ID to an ActivityCategoryEnum
      */
-    private fun mapCategoryIdToActivityCategory(categoryId: String?): ActivityCategory {
-        return when (categoryId) {
-            "WORK" -> ActivityCategory.WORK
-            "PERSONAL" -> ActivityCategory.PERSONAL
-            "FITNESS" -> ActivityCategory.FITNESS
-            "BREAK" -> ActivityCategory.BREAK
-            else -> ActivityCategory.PERSONAL
+    fun mapCategoryIdToActivityCategory(categoryId: String?): ActivityCategoryEnum {
+        return when (categoryId?.lowercase()) {
+            "work" -> ActivityCategoryEnum.WORK
+            "exercise" -> ActivityCategoryEnum.EXERCISE
+            "meal" -> ActivityCategoryEnum.MEAL
+            "rest" -> ActivityCategoryEnum.REST
+            "focus" -> ActivityCategoryEnum.FOCUS
+            "meeting" -> ActivityCategoryEnum.MEETING
+            "personal" -> ActivityCategoryEnum.PERSONAL
+            else -> ActivityCategoryEnum.OTHER
         }
     }
     
     /**
-     * Maps an ActivityCategory enum to a category ID
+     * Maps an ActivityCategoryEnum to a category ID
      */
-    private fun mapActivityCategoryToCategoryId(category: ActivityCategory): String {
-        return category.name
+    fun mapActivityCategoryToCategoryId(category: ActivityCategoryEnum): String {
+        return when (category) {
+            ActivityCategoryEnum.WORK -> "work"
+            ActivityCategoryEnum.EXERCISE -> "exercise"
+            ActivityCategoryEnum.MEAL -> "meal"
+            ActivityCategoryEnum.REST -> "rest"
+            ActivityCategoryEnum.FOCUS -> "focus"
+            ActivityCategoryEnum.MEETING -> "meeting"
+            ActivityCategoryEnum.PERSONAL -> "personal"
+            ActivityCategoryEnum.OTHER -> "other"
+        }
     }
     
     /**
@@ -132,17 +144,21 @@ data class UiTimeBlock(
     val title: String,
     val startTime: String,
     val endTime: String,
-    val category: ActivityCategory
+    val category: ActivityCategoryEnum
 )
 
 /**
- * Extension function to get color from ActivityCategory
+ * Extension function to get color from ActivityCategoryEnum
  */
-fun ActivityCategory.getColor(): Color {
+fun ActivityCategoryEnum.getColor(): Color {
     return when (this) {
-        ActivityCategory.WORK -> AgileBlue
-        ActivityCategory.PERSONAL -> AgilePurple
-        ActivityCategory.FITNESS -> AgileGreen
-        ActivityCategory.BREAK -> WarningOrange
+        ActivityCategoryEnum.WORK -> AgileBlue
+        ActivityCategoryEnum.EXERCISE -> AgileGreen
+        ActivityCategoryEnum.MEAL -> AgilePurple
+        ActivityCategoryEnum.REST -> WarningOrange
+        ActivityCategoryEnum.FOCUS -> AgileBlue
+        ActivityCategoryEnum.MEETING -> AgilePurple
+        ActivityCategoryEnum.PERSONAL -> AgilePurple
+        ActivityCategoryEnum.OTHER -> AgilePurple
     }
 }

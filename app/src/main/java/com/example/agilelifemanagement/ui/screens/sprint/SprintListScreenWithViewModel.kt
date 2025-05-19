@@ -83,6 +83,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.agilelifemanagement.domain.model.Sprint
+import com.example.agilelifemanagement.domain.model.SprintStatus
 import com.example.agilelifemanagement.domain.model.TaskStatus
 import com.example.agilelifemanagement.ui.viewmodel.SprintViewModel
 import java.time.LocalDate
@@ -97,7 +98,7 @@ fun Modifier.animateItemPlacement(): Modifier {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SprintListScreenWithViewModel(
+fun SprintListScreen(
     onSprintClick: (String) -> Unit,
     onAddSprintClick: () -> Unit,
     onBackClick: () -> Unit,
@@ -176,8 +177,9 @@ fun SprintListScreenWithViewModel(
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            // Active Sprint Card
-            uiState.activeSprint?.let { activeSprint ->
+            // Active Sprint Card - find the active sprint from sprints list
+            val activeSprint = uiState.sprints.find { it.status == SprintStatus.ACTIVE }
+            activeSprint?.let { sprint ->
                 Text(
                     text = "Current Sprint",
                     style = MaterialTheme.typography.titleMedium,
@@ -185,10 +187,10 @@ fun SprintListScreenWithViewModel(
                 )
                 
                 ActiveSprintCard(
-                    sprint = activeSprint, 
-                    onClick = { onSprintClick(activeSprint.id) },
-                    taskCount = uiState.sprintTasks.size,
-                    completedTaskCount = uiState.sprintTasks.count { it.status == TaskStatus.COMPLETED },
+                    sprint = sprint, 
+                    onClick = { onSprintClick(sprint.id) },
+                    taskCount = sprint.taskCount,
+                    completedTaskCount = sprint.completedTaskCount,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
@@ -257,7 +259,7 @@ fun SprintListScreenWithViewModel(
                         .nestedScroll(scrollBehavior.nestedScrollConnection)
                 ) {
                     items(
-                        items = uiState.sprints,
+                        items = uiState.sprints.filter { it.status != SprintStatus.ACTIVE },
                         key = { sprint -> sprint.id }
                     ) { sprint ->
                         AnimatedVisibility(
@@ -267,7 +269,7 @@ fun SprintListScreenWithViewModel(
                         ) {
                             SprintItem(
                                 sprint = sprint,
-                                isActive = sprint.id == uiState.activeSprint?.id,
+                                isActive = sprint.status == SprintStatus.ACTIVE,
                                 onClick = { onSprintClick(sprint.id) },
                                 modifier = Modifier.animateItemPlacement()
                             )
@@ -627,11 +629,11 @@ fun SprintItem(
                     }
                 )
                 
-                if (sprint.goals.isNotEmpty()) {
+                if (sprint.goal.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(4.dp))
                     
                     Text(
-                        text = "Goal: ${sprint.goals.firstOrNull() ?: ""}",
+                        text = "Goal: ${sprint.goal}",
                         style = MaterialTheme.typography.bodySmall,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,

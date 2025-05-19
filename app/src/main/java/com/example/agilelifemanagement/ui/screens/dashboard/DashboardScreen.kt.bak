@@ -61,7 +61,7 @@ import java.time.temporal.ChronoUnit
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashboardScreenWithViewModel(
+fun DashboardScreen(
     onTaskClick: (String) -> Unit,
     onSprintClick: (String) -> Unit,
     onGoalClick: (String) -> Unit,

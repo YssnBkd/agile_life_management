@@ -11,32 +11,31 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.rounded.AccessTime
-import androidx.compose.material.icons.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.CalendarToday
-import androidx.compose.material.icons.rounded.CheckCircle
-import androidx.compose.material.icons.rounded.Delete
-import androidx.compose.material.icons.rounded.Edit
-import androidx.compose.material.icons.rounded.Refresh
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -48,34 +47,53 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.example.agilelifemanagement.ui.components.cards.ExpressiveCard
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.agilelifemanagement.domain.model.TaskPriority as DomainTaskPriority
 import com.example.agilelifemanagement.ui.components.cards.TaskPriority
-import com.example.agilelifemanagement.ui.theme.AgileLifeTheme
-import java.time.LocalDateTime
+import com.example.agilelifemanagement.ui.components.sprint.SprintSelector
+import com.example.agilelifemanagement.ui.viewmodel.TaskViewModel
+import java.time.format.DateTimeFormatter
 
 /**
- * TaskDetailScreen displays detailed information about a specific task
- * following Material 3 Expressive design principles.
+ * Task detail screen implemented with Material 3 Expressive design principles.
+ * Shows all information about a specific task.
+ *
+ * @param navController Navigation controller for screen navigation
+ * @param taskId The ID of the task to display
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TaskDetailScreen(
-    taskId: String,
-    onBackClick: () -> Unit,
-    onEditClick: (String) -> Unit,
-    onDeleteClick: (String) -> Unit,
-    onToggleCompletionClick: (String, Boolean) -> Unit,
-    modifier: Modifier = Modifier
+    navController: NavController,
+    taskId: String
 ) {
-    // Fetch task data - would come from ViewModel in real implementation
-    val task = remember { SampleTaskDataDetail.getTask(taskId) }
+    // Use Hilt to inject the ViewModel
+    val viewModel = hiltViewModel<TaskViewModel>()
+    
+    // Load task data and available sprints using the ViewModel
+    LaunchedEffect(taskId) {
+        viewModel.loadTask(taskId)
+        viewModel.loadSprints()
+    }
+    
+    // Collect state from ViewModel
+    val uiState by viewModel.uiState.collectAsState()
+    val task = uiState.selectedTask
     var showOptionsMenu by remember { mutableStateOf(false) }
     
-    // Top app bar scroll behavior
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    // Handle task deleted state
+    LaunchedEffect(uiState.isTaskDeleted) {
+        if (uiState.isTaskDeleted) {
+            navController.navigateUp()
+        }
+    }
+    
+    // Top app bar scroll behavior with Material 3 Expressive motion
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     
     Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
                 title = {
@@ -83,47 +101,48 @@ fun TaskDetailScreen(
                         text = "Task Details",
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
-                        style = MaterialTheme.typography.titleLarge
+                        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
+                    IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
-                            imageVector = Icons.Rounded.ArrowBack,
-                            contentDescription = "Back"
+                            imageVector = Icons.Filled.ArrowBack,
+                            contentDescription = "Back",
+                            tint = MaterialTheme.colorScheme.primary
                         )
                     }
                 },
                 actions = {
-                    IconButton(onClick = { showOptionsMenu = true }) {
+                    IconButton(onClick = { 
+                        task?.let { navController.navigate("tasks/edit/${it.id}") }
+                    }) {
                         Icon(
-                            imageVector = Icons.Default.MoreVert,
-                            contentDescription = "More options"
+                            imageVector = Icons.Filled.Edit,
+                            contentDescription = "Edit task",
+                            tint = MaterialTheme.colorScheme.primary
                         )
+                    }
+                    
+                    // Options menu
+                    Box {
+                        IconButton(onClick = { showOptionsMenu = true }) {
+                            Icon(
+                                imageVector = Icons.Filled.MoreVert,
+                                contentDescription = "More options",
+                                tint = MaterialTheme.colorScheme.onSurface
+                            )
+                        }
                         
                         DropdownMenu(
                             expanded = showOptionsMenu,
                             onDismissRequest = { showOptionsMenu = false }
                         ) {
                             DropdownMenuItem(
-                                text = { Text("Duplicate task") },
-                                onClick = { 
-                                    showOptionsMenu = false
-                                    // Duplicate action would go here
-                                }
-                            )
-                            DropdownMenuItem(
-                                text = { Text("Move to another sprint") },
-                                onClick = { 
-                                    showOptionsMenu = false
-                                    // Move action would go here
-                                }
-                            )
-                            DropdownMenuItem(
                                 text = { Text("Delete") },
                                 onClick = { 
+                                    viewModel.deleteTask(taskId)
                                     showOptionsMenu = false
-                                    onDeleteClick(taskId)
                                 }
                             )
                         }
@@ -131,481 +150,305 @@ fun TaskDetailScreen(
                 },
                 scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceVariant
                 )
             )
         }
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            // Task header with title, priority, and status
-            TaskHeader(task)
-            
-            // Task metadata (due date, estimated time, etc.)
-            TaskMetadata(task)
-            
-            // Task description
-            if (!task.description.isNullOrBlank()) {
-                TaskDescription(task.description)
-            }
-            
-            // Task checklist
-            if (task.checklistItems.isNotEmpty()) {
-                TaskChecklist(task)
-            }
-            
-            // Task actions
-            TaskActions(
-                taskId = taskId,
-                isCompleted = task.isCompleted,
-                onEditClick = onEditClick,
-                onToggleCompletionClick = onToggleCompletionClick
-            )
-            
-            // Bottom spacing
-            Spacer(modifier = Modifier.height(16.dp))
-        }
-    }
-}
-
-@Composable
-private fun TaskHeader(task: TaskDetailData) {
-    ExpressiveCard(
-        containerColor = MaterialTheme.colorScheme.surface,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            // Priority indicator
-            Box(
-                modifier = Modifier
-                    .size(16.dp)
-                    .clip(CircleShape)
-                    .background(task.priority.color)
-            )
-            
-            Spacer(modifier = Modifier.width(16.dp))
-            
-            Column(
-                modifier = Modifier.weight(1f)
-            ) {
-                Text(
-                    text = task.title,
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold
-                )
-                
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
+    ) { paddingValues ->
+        when {
+            uiState.isLoading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
                 ) {
-                    // Priority text
-                    Text(
-                        text = task.priority.name.lowercase().replaceFirstChar { it.uppercase() },
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = task.priority.color
-                    )
+                    CircularProgressIndicator()
+                }
+            }
+            uiState.errorMessage != null -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(
+                            "Error: ${uiState.errorMessage}",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.error
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        TextButton(
+                            onClick = { viewModel.loadTask(taskId) }
+                        ) {
+                            Text("Retry")
+                        }
+                    }
+                }
+            }
+            task != null -> {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                        .padding(horizontal = 16.dp)
+                        .verticalScroll(rememberScrollState()),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    // Task header with priority indicator
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        // Map domain priority to UI priority for consistent color display
+                        val uiPriority = when (task.priority) {
+                            DomainTaskPriority.LOW -> TaskPriority.LOW
+                            DomainTaskPriority.MEDIUM -> TaskPriority.MEDIUM
+                            DomainTaskPriority.HIGH -> TaskPriority.HIGH
+                            DomainTaskPriority.URGENT -> TaskPriority.CRITICAL
+                        }
+                        
+                        Box(
+                            modifier = Modifier
+                                .size(16.dp)
+                                .clip(CircleShape)
+                                .background(uiPriority.color)
+                        )
+                        Spacer(modifier = Modifier.size(8.dp))
+                        Text(
+                            text = task.title,
+                            style = MaterialTheme.typography.headlineMedium.copy(
+                                fontWeight = FontWeight.Bold
+                            ),
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
                     
-                    Text(
-                        text = " • ",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                    // Due date card with Material 3 Expressive styling
+                    task.dueDate?.let { dueDate ->
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.primaryContainer
+                            ),
+                            elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+                        ) {
+                            Column(
+                                modifier = Modifier.padding(16.dp)
+                            ) {
+                                Text(
+                                    text = "Due Date",
+                                    style = MaterialTheme.typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                                )
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(
+                                    text = dueDate.format(DateTimeFormatter.ofPattern("MMM d, yyyy")),
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                                )
+                            }
+                        }
+                    }
                     
-                    // Status text
+                    // Description section with Material 3 Expressive styling
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = MaterialTheme.shapes.medium,
+                        tonalElevation = 1.dp
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = "Description",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = task.description.ifEmpty { "No description provided" },
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                    
+                    // Status section with Material 3 Expressive styling
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = MaterialTheme.shapes.medium,
+                        tonalElevation = 1.dp
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = "Status",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = task.status.name.replace('_', ' '),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                    }
+                    
+                    // Priority section with Material 3 Expressive styling
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = MaterialTheme.shapes.medium,
+                        tonalElevation = 1.dp
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = "Priority",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                val uiPriority = when (task.priority) {
+                                    DomainTaskPriority.LOW -> TaskPriority.LOW
+                                    DomainTaskPriority.MEDIUM -> TaskPriority.MEDIUM
+                                    DomainTaskPriority.HIGH -> TaskPriority.HIGH
+                                    DomainTaskPriority.URGENT -> TaskPriority.CRITICAL
+                                }
+                                
+                                Box(
+                                    modifier = Modifier
+                                        .size(12.dp)
+                                        .clip(CircleShape)
+                                        .background(uiPriority.color)
+                                )
+                                Spacer(modifier = Modifier.size(8.dp))
+                                Text(
+                                    text = task.priority.name,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+                    }
+                    
+                    // Sprint selector section with Material 3 Expressive styling
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = MaterialTheme.shapes.medium,
+                        tonalElevation = 1.dp
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = "Sprint Assignment",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            
+                            // Show spinner while sprints are loading
+                            if (uiState.isLoadingSprints) {
+                                CircularProgressIndicator(modifier = Modifier.padding(vertical = 8.dp))
+                            } else {
+                                SprintSelector(
+                                    sprints = uiState.availableSprints,
+                                    selectedSprintId = task.sprintId,
+                                    onSprintSelected = { selectedSprintId ->
+                                        viewModel.assignTaskToSprint(taskId, selectedSprintId)
+                                    },
+                                    modifier = Modifier.fillMaxWidth(),
+                                    label = "Assign to Sprint"
+                                )
+                                
+                                // Show confirmation when the sprint assignment is successful
+                                if (uiState.operationSuccess) {
+                                    Text(
+                                        text = "Sprint assignment updated",
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier.padding(top = 4.dp)
+                                    )
+                                    // Reset the success state after displaying confirmation
+                                    LaunchedEffect(Unit) {
+                                        viewModel.resetOperationState()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Tags section if available
+                    if (task.tags.isNotEmpty()) {
+                        Surface(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = MaterialTheme.shapes.medium,
+                            tonalElevation = 1.dp
+                        ) {
+                            Column(modifier = Modifier.padding(16.dp)) {
+                                Text(
+                                    text = "Tags",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                Spacer(modifier = Modifier.height(8.dp))
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    // Iterate through tags and create a chip for each one
+                                    task.tags.forEach { tagText ->
+                                        Surface(
+                                            shape = MaterialTheme.shapes.small,
+                                            color = MaterialTheme.colorScheme.secondaryContainer
+                                        ) {
+                                            Text(
+                                                text = tagText,
+                                                style = MaterialTheme.typography.bodySmall,
+                                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                                color = MaterialTheme.colorScheme.onSecondaryContainer
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Creation date
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = MaterialTheme.shapes.medium,
+                        tonalElevation = 1.dp
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = "Created On",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = task.createdDate.format(DateTimeFormatter.ofPattern("MMM d, yyyy")),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                    
+                    // Bottom spacer for better scrolling experience
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
+            }
+            else -> {
+                // No task found
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
                     Text(
-                        text = if (task.isCompleted) "Completed" else "Active",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = if (task.isCompleted) 
-                            AgileLifeTheme.extendedColors.accentMint 
-                        else 
-                            MaterialTheme.colorScheme.primary
+                        "Task not found",
+                        style = MaterialTheme.typography.bodyLarge
                     )
                 }
             }
-            
-            // Completion status indicator
-            if (task.isCompleted) {
-                Icon(
-                    imageVector = Icons.Rounded.CheckCircle,
-                    contentDescription = "Completed",
-                    tint = AgileLifeTheme.extendedColors.accentMint,
-                    modifier = Modifier.size(28.dp)
-                )
-            }
         }
-        
-        // Sprint association if available
-        if (task.sprintName != null) {
-            Spacer(modifier = Modifier.height(16.dp))
-            
-            Surface(
-                color = MaterialTheme.colorScheme.secondaryContainer,
-                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                shape = MaterialTheme.shapes.small,
-                modifier = Modifier.align(Alignment.End)
-            ) {
-                Text(
-                    text = "Sprint: ${task.sprintName}",
-                    style = MaterialTheme.typography.labelMedium,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun TaskMetadata(task: TaskDetailData) {
-    ExpressiveCard(
-        containerColor = MaterialTheme.colorScheme.surface,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Text(
-            text = "Details",
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-        
-        // Due date
-        if (task.dueDate != null) {
-            MetadataItem(
-                icon = Icons.Rounded.CalendarToday,
-                iconTint = AgileLifeTheme.extendedColors.accentCoral,
-                label = "Due Date",
-                value = task.dueDate
-            )
-            
-            Spacer(modifier = Modifier.height(12.dp))
-        }
-        
-        // Estimated time
-        if (task.estimatedMinutes != null) {
-            val hours = task.estimatedMinutes / 60
-            val minutes = task.estimatedMinutes % 60
-            val timeText = when {
-                hours > 0 && minutes > 0 -> "$hours hr $minutes min"
-                hours > 0 -> "$hours hr"
-                else -> "$minutes min"
-            }
-            
-            MetadataItem(
-                icon = Icons.Rounded.AccessTime,
-                iconTint = AgileLifeTheme.extendedColors.accentLavender,
-                label = "Estimated Time",
-                value = timeText
-            )
-            
-            Spacer(modifier = Modifier.height(12.dp))
-        }
-        
-        // Created date
-        MetadataItem(
-            icon = Icons.Rounded.CalendarToday,
-            iconTint = MaterialTheme.colorScheme.tertiary,
-            label = "Created",
-            value = task.createdDate
-        )
-    }
-}
-
-@Composable
-private fun MetadataItem(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
-    iconTint: androidx.compose.ui.graphics.Color,
-    label: String,
-    value: String
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = iconTint,
-            modifier = Modifier.size(20.dp)
-        )
-        
-        Spacer(modifier = Modifier.width(16.dp))
-        
-        Column {
-            Text(
-                text = label,
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            Text(
-                text = value,
-                style = MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Medium
-            )
-        }
-    }
-}
-
-@Composable
-private fun TaskDescription(description: String) {
-    ExpressiveCard(
-        containerColor = MaterialTheme.colorScheme.surface,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Text(
-            text = "Description",
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
-        
-        Text(
-            text = description,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.fillMaxWidth()
-        )
-    }
-}
-
-@Composable
-private fun TaskChecklist(task: TaskDetailData) {
-    ExpressiveCard(
-        containerColor = MaterialTheme.colorScheme.surface,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Text(
-            text = "Checklist",
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-        
-        // Checklist progress
-        val completedItems = task.checklistItems.count { it.isCompleted }
-        val totalItems = task.checklistItems.size
-        val progressPercent = if (totalItems > 0) completedItems * 100 / totalItems else 0
-        
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp)
-        ) {
-            Text(
-                text = "$completedItems of $totalItems completed",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            Text(
-                text = "$progressPercent%",
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Bold,
-                color = if (progressPercent == 100) 
-                    AgileLifeTheme.extendedColors.accentMint
-                else 
-                    MaterialTheme.colorScheme.primary
-            )
-        }
-        
-        // Progress bar
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(8.dp)
-                .clip(MaterialTheme.shapes.medium)
-                .background(MaterialTheme.colorScheme.surfaceContainerHighest)
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth(progressPercent / 100f)
-                    .height(8.dp)
-                    .clip(MaterialTheme.shapes.medium)
-                    .background(
-                        if (progressPercent == 100) 
-                            AgileLifeTheme.extendedColors.accentMint
-                        else 
-                            MaterialTheme.colorScheme.primary
-                    )
-            )
-        }
-        
-        Spacer(modifier = Modifier.height(16.dp))
-        
-        // Checklist items
-        task.checklistItems.forEach { item ->
-            ChecklistItem(item)
-            Spacer(modifier = Modifier.height(8.dp))
-        }
-    }
-}
-
-@Composable
-private fun ChecklistItem(item: ChecklistItem) {
-    Row(
-        verticalAlignment = Alignment.Top,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        // Checkbox
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier
-                .padding(top = 2.dp)
-                .size(20.dp)
-                .clip(CircleShape)
-                .background(
-                    if (item.isCompleted) 
-                        AgileLifeTheme.extendedColors.accentMint 
-                    else 
-                        MaterialTheme.colorScheme.surfaceContainerHigh
-                )
-        ) {
-            if (item.isCompleted) {
-                Icon(
-                    imageVector = Icons.Rounded.CheckCircle,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.surface,
-                    modifier = Modifier.size(16.dp)
-                )
-            }
-        }
-        
-        Spacer(modifier = Modifier.width(12.dp))
-        
-        // Item text
-        Text(
-            text = item.text,
-            style = MaterialTheme.typography.bodyLarge,
-            color = if (item.isCompleted) 
-                MaterialTheme.colorScheme.onSurfaceVariant
-            else 
-                MaterialTheme.colorScheme.onSurface
-        )
-    }
-}
-
-@Composable
-private fun TaskActions(
-    taskId: String,
-    isCompleted: Boolean,
-    onEditClick: (String) -> Unit,
-    onToggleCompletionClick: (String, Boolean) -> Unit
-) {
-    Row(
-        horizontalArrangement = Arrangement.SpaceEvenly,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        // Edit button
-        FilledTonalButton(
-            onClick = { onEditClick(taskId) },
-            modifier = Modifier.weight(1f)
-        ) {
-            Icon(
-                imageVector = Icons.Rounded.Edit,
-                contentDescription = null,
-                modifier = Modifier.size(20.dp)
-            )
-            
-            Spacer(modifier = Modifier.width(8.dp))
-            
-            Text("Edit Task")
-        }
-        
-        Spacer(modifier = Modifier.width(16.dp))
-        
-        // Complete/Reopen button
-        FilledTonalButton(
-            onClick = { onToggleCompletionClick(taskId, !isCompleted) },
-            modifier = Modifier.weight(1f)
-        ) {
-            Icon(
-                imageVector = if (isCompleted) 
-                    Icons.Rounded.Refresh
-                else 
-                    Icons.Rounded.CheckCircle,
-                contentDescription = null,
-                modifier = Modifier.size(20.dp)
-            )
-            
-            Spacer(modifier = Modifier.width(8.dp))
-            
-            Text(
-                text = if (isCompleted) "Reopen" else "Complete"
-            )
-        }
-    }
-}
-
-/**
- * Data class for checklist items
- */
-data class ChecklistItem(
-    val id: String,
-    val text: String,
-    val isCompleted: Boolean
-)
-
-/**
- * Data class for task details
- */
-data class TaskDetailData(
-    val id: String,
-    val title: String,
-    val description: String? = null,
-    val priority: TaskPriority,
-    val dueDate: String? = null,
-    val estimatedMinutes: Int? = null,
-    val isCompleted: Boolean = false,
-    val sprintName: String? = null,
-    val createdDate: String,
-    val checklistItems: List<ChecklistItem> = emptyList()
-)
-
-/**
- * Sample data for the task detail screen
- */
-object SampleTaskDataDetail {
-    fun getTask(taskId: String): TaskDetailData {
-        return TaskDetailData(
-            id = taskId,
-            title = "Create UI mockups for dashboard",
-            description = "Design comprehensive UI mockups for the new dashboard. Include all required components: statistics widgets, activity timeline, and quick action buttons. Make sure to follow our brand guidelines and accessibility standards.",
-            priority = TaskPriority.HIGH,
-            dueDate = "Today, 5:00 PM",
-            estimatedMinutes = 120,
-            isCompleted = false,
-            sprintName = "Sprint 22",
-            createdDate = "May 13, 2025",
-            checklistItems = listOf(
-                ChecklistItem(
-                    id = "cl1",
-                    text = "Create wireframes",
-                    isCompleted = true
-                ),
-                ChecklistItem(
-                    id = "cl2",
-                    text = "Review wireframes with team",
-                    isCompleted = true
-                ),
-                ChecklistItem(
-                    id = "cl3",
-                    text = "Create high-fidelity mockups",
-                    isCompleted = false
-                ),
-                ChecklistItem(
-                    id = "cl4",
-                    text = "Export assets for development",
-                    isCompleted = false
-                )
-            )
-        )
     }
 }

@@ -34,7 +34,7 @@ import com.example.agilelifemanagement.data.local.entity.*
         DayActivityTemplateEntity::class,
         DailyCheckupEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = true,
     autoMigrations = []
 )

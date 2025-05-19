@@ -1,0 +1,9 @@
+ 103 app/src/main/java/com/example/agilelifemanagement/data
+  78 app/src/main/java/com/example/agilelifemanagement/domain
+  73 app/src/main/java/com/example/agilelifemanagement/ui
+  10 app/src/main/java/com/example/agilelifemanagement/di
+   3 app/src/main/java/com/example/agilelifemanagement/util
+   3 app/src/main/java/com/example/agilelifemanagement/archived
+   1 app/src/main/java/com/example/agilelifemanagement/MainActivity.kt
+   1 app/src/main/java/com/example/agilelifemanagement/AgileLifeApplication.kt
+   1 app/src/main/java/com/example/agilelifemanagement/AgileLifeApp.kt

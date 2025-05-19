@@ -1,11 +1,5 @@
 package com.example.agilelifemanagement.ui.screens.sprint
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.shrinkVertically
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,673 +9,539 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.CalendarMonth
-import androidx.compose.material.icons.rounded.CheckCircle
-import androidx.compose.material.icons.rounded.Close
-import androidx.compose.material.icons.rounded.DateRange
-import androidx.compose.material.icons.rounded.DirectionsRun
-import androidx.compose.material.icons.rounded.Flag
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Save
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.DatePicker
-import androidx.compose.material3.DatePickerDialog
-import androidx.compose.material3.DatePickerState
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.rememberDatePickerState
+import com.example.agilelifemanagement.ui.components.datepicker.MaterialDatePickerDialog
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.example.agilelifemanagement.ui.components.cards.ExpressiveCard
-import com.example.agilelifemanagement.ui.components.cards.FeatureCard
-import com.example.agilelifemanagement.ui.theme.AgileLifeTheme
-import java.text.SimpleDateFormat
-import java.time.Instant
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.agilelifemanagement.domain.model.Sprint
+import com.example.agilelifemanagement.domain.model.SprintStatus
+import com.example.agilelifemanagement.ui.model.SprintFormData
+import com.example.agilelifemanagement.ui.viewmodel.SprintViewModel
 import java.time.LocalDate
-import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.Calendar
-import java.util.Date
-import java.util.Locale
 
 /**
- * SprintEditorScreen allows creating new sprints or editing existing ones
+ * SprintEditorScreen allows users to create or edit sprints with Material 3 Expressive design principles.
  * 
- * Features following Material 3 Expressive principles:
- * - Generous spacing and expressive visual elements
- * - Tactile feedback for all interactive elements
- * - Clear visual hierarchy with section grouping
- * - Visually distinct form fields with immediate validation
+ * @param navController Navigation controller for screen navigation
+ * @param sprintId The ID of the sprint to edit, or null for a new sprint
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SprintEditorScreen(
-    sprintId: String?,
-    onBackClick: () -> Unit,
-    onSaveClick: (SprintFormData) -> Unit,
-    modifier: Modifier = Modifier
+    navController: NavController,
+    sprintId: String?
 ) {
-    // State for form data - in a real app, would be loaded from ViewModel for existing sprints
-    val (formData, goals) = if (sprintId != null) {
-        // Edit mode - load existing sprint data
-        val existingSprint = SampleSprintEditorData.getSprint(sprintId)
-        
-        Pair(
-            remember {
-                mutableStateOf(
-                    SprintFormData(
-                        id = existingSprint.id,
-                        name = existingSprint.name,
-                        description = existingSprint.description,
-                        startDate = existingSprint.startDate,
-                        endDate = existingSprint.endDate
-                    )
-                )
-            },
-            remember { mutableStateListOf<String>().apply { addAll(existingSprint.goals) } }
-        )
-    } else {
-        // Create mode - initialize with defaults
-        Pair(
-            remember {
-                mutableStateOf(
-                    SprintFormData(
-                        id = "",
-                        name = "",
-                        description = "",
-                        startDate = LocalDate.now(),
-                        endDate = LocalDate.now().plusWeeks(2)
-                    )
-                )
-            },
-            remember { mutableStateListOf<String>() }
-        )
+    val isNewSprint = sprintId == null
+    val nameFocusRequester = remember { FocusRequester() }
+    val viewModel = hiltViewModel<SprintViewModel>()
+    
+    // Load sprint data if editing an existing sprint
+    LaunchedEffect(sprintId) {
+        if (!isNewSprint && sprintId != null) {
+            viewModel.loadSprint(sprintId)
+        }
     }
     
-    // Goal input state
-    var newGoal by remember { mutableStateOf("") }
-    var showNewGoalInput by remember { mutableStateOf(false) }
+    // Collect state from ViewModel
+    val uiState by viewModel.uiState.collectAsState()
+    val sprintToEdit = uiState.selectedSprint
     
-    // Date picker states
+    // Handle navigation after operation completes
+    LaunchedEffect(uiState.operationSuccess) {
+        if (uiState.operationSuccess) {
+            // Navigate back to the sprint detail screen or list
+            if (isNewSprint && uiState.selectedSprint != null) {
+                // Navigate to the newly created sprint detail
+                navController.navigate("sprints/${uiState.selectedSprint!!.id}")
+            } else if (!isNewSprint) {
+                // Go back to detail screen
+                navController.popBackStack()
+            }
+            // Reset the operation success state
+            viewModel.resetOperationState()
+        }
+    }
+    
+    // Check for sprint saved/deleted state and navigate back when done
+    LaunchedEffect(uiState.isSprintSaved, uiState.isSprintDeleted) {
+        if (uiState.isSprintSaved || uiState.isSprintDeleted) {
+            navController.navigateUp()
+        }
+    }
+    
+    // Form state
+    var name by remember { mutableStateOf("") }
+    var goal by remember { mutableStateOf("") }
+    var description by remember { mutableStateOf("") }
+    var status by remember { mutableStateOf(SprintStatus.PLANNED) }
+    var startDate by remember { mutableStateOf(LocalDate.now()) }
+    var endDate by remember { mutableStateOf(LocalDate.now().plusDays(14)) }
+    var showDeleteConfirmation by remember { mutableStateOf(false) }
     var showStartDatePicker by remember { mutableStateOf(false) }
     var showEndDatePicker by remember { mutableStateOf(false) }
+    var isStatusExpanded by remember { mutableStateOf(false) }
     
-    // Form validation
-    val isValid = formData.value.name.isNotBlank() && 
-                 formData.value.startDate <= formData.value.endDate &&
-                 formData.value.description.isNotBlank()
+    // Initialize form with existing sprint data when available
+    LaunchedEffect(sprintToEdit) {
+        sprintToEdit?.let { sprint ->
+            name = sprint.name
+            goal = sprint.goal
+            description = sprint.description
+            status = sprint.status
+            startDate = sprint.startDate
+            endDate = sprint.endDate
+        }
+    }
     
-    // Top app bar scroll behavior
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-    val focusManager = LocalFocusManager.current
+    // Top app bar scroll behavior with Material 3 Expressive motion
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     
     Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
-                title = {
+                title = { 
                     Text(
-                        text = if (sprintId != null) "Edit Sprint" else "Create New Sprint",
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        style = MaterialTheme.typography.titleLarge
-                    )
+                        text = if (isNewSprint) "Create Sprint" else "Edit Sprint",
+                        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
+                    ) 
                 },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
+                    IconButton(onClick = { navController.navigateUp() }) {
                         Icon(
-                            imageVector = Icons.Rounded.ArrowBack,
-                            contentDescription = "Back"
+                            imageVector = Icons.Filled.ArrowBack,
+                            contentDescription = "Back",
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                },
+                actions = {
+                    if (!isNewSprint) {
+                        IconButton(onClick = { showDeleteConfirmation = true }) {
+                            Icon(
+                                imageVector = Icons.Filled.Delete,
+                                contentDescription = "Delete",
+                                tint = MaterialTheme.colorScheme.error
+                            )
+                        }
+                    }
+                    IconButton(
+                        onClick = { 
+                            // Form validation
+                            if (name.isNotBlank() && goal.isNotBlank()) {
+                                val formData = SprintFormData(
+                                    name = name.trim(),
+                                    goal = goal.trim(),
+                                    description = description.trim(),
+                                    status = status,
+                                    startDate = startDate,
+                                    endDate = endDate
+                                )
+                                
+                                saveSprint(isNewSprint, sprintId, formData, viewModel)
+                            }
+                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Save,
+                            contentDescription = "Save",
+                            tint = MaterialTheme.colorScheme.primary
                         )
                     }
                 },
                 scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surfaceVariant
                 )
             )
         }
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            // Sprint header with icon
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(bottom = 8.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Rounded.DirectionsRun,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(28.dp)
-                )
-                
-                Text(
-                    text = if (sprintId != null) "Update Sprint Details" else "Create New Sprint",
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(start = 8.dp)
-                )
-            }
-            
-            // Form fields
-            ExpressiveCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surface
-            ) {
-                // Sprint name field
-                Text(
-                    text = "Sprint Information",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(bottom = 12.dp)
-                )
-                
-                OutlinedTextField(
-                    value = formData.value.name,
-                    onValueChange = { 
-                        formData.value = formData.value.copy(name = it)
-                    },
-                    label = { Text("Sprint Name") },
-                    modifier = Modifier.fillMaxWidth(),
-                    textStyle = MaterialTheme.typography.bodyLarge,
-                    singleLine = true,
-                    keyboardOptions = KeyboardOptions(
-                        capitalization = KeyboardCapitalization.Words,
-                        imeAction = ImeAction.Next
-                    ),
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Rounded.DirectionsRun,
-                            contentDescription = null
+    ) { padding ->
+        // Delete confirmation dialog
+        if (showDeleteConfirmation) {
+            AlertDialog(
+                onDismissRequest = { showDeleteConfirmation = false },
+                title = { Text("Delete Sprint") },
+                text = { Text("Are you sure you want to delete this sprint? This action cannot be undone.") },
+                confirmButton = {
+                    Button(
+                        onClick = {
+                            sprintId?.let { viewModel.deleteSprint(it) }
+                            showDeleteConfirmation = false
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.error
                         )
-                    },
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = MaterialTheme.colorScheme.primary,
-                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
-                        focusedLabelColor = MaterialTheme.colorScheme.primary
-                    ),
-                    shape = MaterialTheme.shapes.medium
-                )
-                
-                Spacer(modifier = Modifier.height(16.dp))
-                
-                // Description field
-                OutlinedTextField(
-                    value = formData.value.description,
-                    onValueChange = { 
-                        formData.value = formData.value.copy(description = it)
-                    },
-                    label = { Text("Sprint Description") },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(120.dp),
-                    textStyle = MaterialTheme.typography.bodyLarge,
-                    keyboardOptions = KeyboardOptions(
-                        capitalization = KeyboardCapitalization.Sentences
-                    ),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = MaterialTheme.colorScheme.primary,
-                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
-                        focusedLabelColor = MaterialTheme.colorScheme.primary
-                    ),
-                    shape = MaterialTheme.shapes.medium
-                )
-            }
-            
-            // Date range selection
-            ExpressiveCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surface
-            ) {
-                Text(
-                    text = "Sprint Timeline",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(bottom = 12.dp)
-                )
-                
-                // Start date selector
-                DateSelector(
-                    label = "Start Date",
-                    date = formData.value.startDate,
-                    onClick = { showStartDatePicker = true }
-                )
-                
-                Spacer(modifier = Modifier.height(16.dp))
-                
-                // End date selector
-                DateSelector(
-                    label = "End Date",
-                    date = formData.value.endDate,
-                    onClick = { showEndDatePicker = true }
-                )
-                
-                // Date validation message
-                if (formData.value.startDate > formData.value.endDate) {
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = "End date must be after start date",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.error
-                    )
+                    ) {
+                        Text("Delete")
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showDeleteConfirmation = false }) {
+                        Text("Cancel")
+                    }
                 }
-                
-                // Duration info
-                val duration = java.time.temporal.ChronoUnit.DAYS.between(
-                    formData.value.startDate,
-                    formData.value.endDate
-                ) + 1
-                
-                if (formData.value.startDate <= formData.value.endDate) {
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = "Sprint Duration: $duration days",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-            
-            // Sprint goals
-            ExpressiveCard(
-                modifier = Modifier.fillMaxWidth(),
-                containerColor = MaterialTheme.colorScheme.surface
-            ) {
-                // Header with add button
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+            )
+        }
+        
+        when {
+            uiState.isLoading -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
                 ) {
-                    Text(
-                        text = "Sprint Goals",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
+                    CircularProgressIndicator()
+                }
+            }
+            uiState.errorMessage != null -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(
+                            "Error: ${uiState.errorMessage}",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.error
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        TextButton(
+                            onClick = {
+                                if (!isNewSprint && sprintId != null) {
+                                    viewModel.loadSprint(sprintId)
+                                } else {
+                                    viewModel.clearError()
+                                }
+                            }
+                        ) {
+                            Text("Retry")
+                        }
+                    }
+                }
+            }
+            else -> {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(padding)
+                        .padding(16.dp)
+                        .verticalScroll(rememberScrollState()),
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    // Name field with Material 3 Expressive styling
+                    OutlinedTextField(
+                        value = name,
+                        onValueChange = { name = it },
+                        label = { Text("Sprint Name") },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .focusRequester(nameFocusRequester),
+                        keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
+                        singleLine = true,
+                        isError = name.isBlank(),
+                        supportingText = {
+                            if (name.isBlank()) {
+                                Text("Name is required", color = MaterialTheme.colorScheme.error)
+                            }
+                        }
                     )
                     
-                    TextButton(
-                        onClick = { 
-                            showNewGoalInput = !showNewGoalInput
-                            newGoal = ""
+                    // Goal field with Material 3 Expressive styling
+                    OutlinedTextField(
+                        value = goal,
+                        onValueChange = { goal = it },
+                        label = { Text("Sprint Goal") },
+                        modifier = Modifier.fillMaxWidth(),
+                        keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
+                        singleLine = true,
+                        isError = goal.isBlank(),
+                        supportingText = {
+                            if (goal.isBlank()) {
+                                Text("Goal is required", color = MaterialTheme.colorScheme.error)
+                            }
                         }
-                    ) {
-                        Icon(
-                            imageVector = if (showNewGoalInput) Icons.Rounded.Close else Icons.Rounded.Flag,
-                            contentDescription = if (showNewGoalInput) "Cancel" else "Add Goal",
-                            modifier = Modifier.size(20.dp)
-                        )
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(
-                            text = if (showNewGoalInput) "Cancel" else "Add Goal"
-                        )
-                    }
-                }
-                
-                // New goal input
-                AnimatedVisibility(
-                    visible = showNewGoalInput,
-                    enter = fadeIn() + expandVertically(),
-                    exit = fadeOut() + shrinkVertically()
-                ) {
-                    Column(
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        OutlinedTextField(
-                            value = newGoal,
-                            onValueChange = { newGoal = it },
-                            label = { Text("New Goal") },
-                            modifier = Modifier.fillMaxWidth(),
-                            textStyle = MaterialTheme.typography.bodyLarge,
-                            keyboardOptions = KeyboardOptions(
-                                capitalization = KeyboardCapitalization.Sentences,
-                                imeAction = ImeAction.Done
-                            ),
-                            colors = OutlinedTextFieldDefaults.colors(
-                                focusedBorderColor = MaterialTheme.colorScheme.primary,
-                                unfocusedBorderColor = MaterialTheme.colorScheme.outline,
-                                focusedLabelColor = MaterialTheme.colorScheme.primary
-                            ),
-                            shape = MaterialTheme.shapes.medium
-                        )
-                        
-                        Spacer(modifier = Modifier.height(8.dp))
-                        
-                        Button(
-                            onClick = {
-                                if (newGoal.isNotBlank()) {
-                                    goals.add(newGoal)
-                                    newGoal = ""
-                                    showNewGoalInput = false
-                                    focusManager.clearFocus()
-                                }
-                            },
-                            enabled = newGoal.isNotBlank(),
-                            modifier = Modifier.align(Alignment.End)
-                        ) {
-                            Text("Add Goal")
-                        }
-                    }
-                }
-                
-                Spacer(modifier = Modifier.height(8.dp))
-                
-                // Goal list
-                if (goals.isEmpty() && !showNewGoalInput) {
-                    Text(
-                        text = "No goals added yet. Goals help track sprint progress and objectives.",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
-                } else {
-                    Column(
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    
+                    // Description field with Material 3 Expressive styling
+                    OutlinedTextField(
+                        value = description,
+                        onValueChange = { description = it },
+                        label = { Text("Description") },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(120.dp),
+                        keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
+                        maxLines = 5
+                    )
+                    
+                    // Status dropdown with Material 3 Expressive styling
+                    if (!isNewSprint) {
+                        Surface(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = MaterialTheme.shapes.medium,
+                            tonalElevation = 1.dp
+                        ) {
+                            Column(modifier = Modifier.padding(16.dp)) {
+                                Text(
+                                    "Sprint Status",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                                Spacer(modifier = Modifier.height(8.dp))
+                                
+                                ExposedDropdownMenuBox(
+                                    expanded = isStatusExpanded,
+                                    onExpandedChange = { isStatusExpanded = it }
+                                ) {
+                                    OutlinedTextField(
+                                        value = status.name.replace('_', ' '),
+                                        onValueChange = { },
+                                        readOnly = true,
+                                        trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = isStatusExpanded) },
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .menuAnchor(),
+                                        colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors()
+                                    )
+                                    
+                                    ExposedDropdownMenu(
+                                        expanded = isStatusExpanded,
+                                        onDismissRequest = { isStatusExpanded = false }
+                                    ) {
+                                        SprintStatus.values().forEach { sprintStatus ->
+                                            DropdownMenuItem(
+                                                text = { Text(sprintStatus.name.replace('_', ' ')) },
+                                                onClick = {
+                                                    status = sprintStatus
+                                                    isStatusExpanded = false
+                                                },
+                                                contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Date fields with Material 3 Expressive styling
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = MaterialTheme.shapes.medium,
+                        tonalElevation = 1.dp
                     ) {
-                        goals.forEachIndexed { index, goal ->
-                            GoalItem(
-                                goal = goal,
-                                onRemove = { goals.removeAt(index) }
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                "Sprint Duration",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.onSurface
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Start date
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    "Start Date:",
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    modifier = Modifier.width(100.dp)
+                                )
+                                Text(
+                                    startDate.format(DateTimeFormatter.ofPattern("MMM d, yyyy")),
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                IconButton(onClick = { showStartDatePicker = true }) {
+                                    Icon(
+                                        imageVector = Icons.Filled.DateRange,
+                                        contentDescription = "Select start date",
+                                        tint = MaterialTheme.colorScheme.primary
+                                    )
+                                }
+                            }
+                            
+                            Spacer(modifier = Modifier.height(8.dp))
+                            
+                            // End date
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    "End Date:",
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    modifier = Modifier.width(100.dp)
+                                )
+                                Text(
+                                    endDate.format(DateTimeFormatter.ofPattern("MMM d, yyyy")),
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                IconButton(onClick = { showEndDatePicker = true }) {
+                                    Icon(
+                                        imageVector = Icons.Filled.DateRange,
+                                        contentDescription = "Select end date",
+                                        tint = MaterialTheme.colorScheme.primary
+                                    )
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Sprint duration indicator
+                    val durationDays = java.time.temporal.ChronoUnit.DAYS.between(startDate, endDate)
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = MaterialTheme.shapes.medium,
+                        color = MaterialTheme.colorScheme.secondaryContainer
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(16.dp),
+                            horizontalArrangement = Arrangement.Center,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                "Duration: $durationDays days",
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSecondaryContainer
                             )
                         }
                     }
+                    
+                    // Bottom spacer for better scrolling experience
+                    Spacer(modifier = Modifier.height(32.dp))
                 }
             }
-            
-            // Save button
-            Button(
-                onClick = {
-                    val finalFormData = formData.value.copy(
-                        goals = goals.toList()
-                    )
-                    onSaveClick(finalFormData)
-                },
-                enabled = isValid,
-                modifier = Modifier.fillMaxWidth(),
-                shape = MaterialTheme.shapes.medium
-            ) {
-                Icon(
-                    imageVector = Icons.Rounded.CheckCircle,
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp)
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = if (sprintId != null) "Update Sprint" else "Create Sprint",
-                    style = MaterialTheme.typography.titleSmall,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
-            }
-            
-            // Show validation message if needed
-            if (!isValid) {
-                Text(
-                    text = "Please fill in all required fields correctly",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.padding(top = 8.dp)
-                )
-            }
-            
-            // Bottom spacing
-            Spacer(modifier = Modifier.height(16.dp))
         }
     }
     
-    // Start date picker dialog
+    // Material 3 Expressive date picker dialogs
     if (showStartDatePicker) {
-        val datePickerState = rememberDatePickerState(
-            initialSelectedDateMillis = formData.value.startDate
-                .atStartOfDay(ZoneId.systemDefault())
-                .toInstant()
-                .toEpochMilli()
-        )
-        
-        DatePickerDialog(
-            onDismissRequest = { showStartDatePicker = false },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        datePickerState.selectedDateMillis?.let { millis ->
-                            val localDate = Instant.ofEpochMilli(millis)
-                                .atZone(ZoneId.systemDefault())
-                                .toLocalDate()
-                            formData.value = formData.value.copy(startDate = localDate)
-                        }
-                        showStartDatePicker = false
-                    }
-                ) {
-                    Text("Confirm")
+        MaterialDatePickerDialog(
+            onDateSelected = { selectedDate ->
+                startDate = selectedDate
+                // Ensure end date is not before start date
+                if (endDate.isBefore(startDate)) {
+                    endDate = startDate.plusDays(14)
                 }
             },
-            dismissButton = {
-                TextButton(onClick = { showStartDatePicker = false }) {
-                    Text("Cancel")
-                }
-            }
-        ) {
-            DatePicker(state = datePickerState)
-        }
+            onDismiss = { showStartDatePicker = false },
+            initialDate = startDate
+        )
     }
     
-    // End date picker dialog
     if (showEndDatePicker) {
-        val datePickerState = rememberDatePickerState(
-            initialSelectedDateMillis = formData.value.endDate
-                .atStartOfDay(ZoneId.systemDefault())
-                .toInstant()
-                .toEpochMilli()
-        )
-        
-        DatePickerDialog(
-            onDismissRequest = { showEndDatePicker = false },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        datePickerState.selectedDateMillis?.let { millis ->
-                            val localDate = Instant.ofEpochMilli(millis)
-                                .atZone(ZoneId.systemDefault())
-                                .toLocalDate()
-                            formData.value = formData.value.copy(endDate = localDate)
-                        }
-                        showEndDatePicker = false
-                    }
-                ) {
-                    Text("Confirm")
+        MaterialDatePickerDialog(
+            onDateSelected = { selectedDate ->
+                // Ensure end date is not before start date
+                endDate = if (selectedDate.isBefore(startDate)) {
+                    startDate.plusDays(1)
+                } else {
+                    selectedDate
                 }
             },
-            dismissButton = {
-                TextButton(onClick = { showEndDatePicker = false }) {
-                    Text("Cancel")
-                }
-            }
-        ) {
-            DatePicker(state = datePickerState)
-        }
+            onDismiss = { showEndDatePicker = false },
+            initialDate = endDate
+        )
     }
-}
-
-@Composable
-private fun DateSelector(
-    label: String,
-    date: LocalDate,
-    onClick: () -> Unit
-) {
-    val formattedDate = date.format(DateTimeFormatter.ofPattern("MMM d, yyyy"))
     
-    Surface(
-        onClick = onClick,
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
-        contentColor = MaterialTheme.colorScheme.onSurface,
-        shape = MaterialTheme.shapes.medium,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                imageVector = Icons.Rounded.CalendarMonth,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary
-            )
-            
-            Spacer(modifier = Modifier.width(16.dp))
-            
-            Column {
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                
-                Spacer(modifier = Modifier.height(4.dp))
-                
-                Text(
-                    text = formattedDate,
-                    style = MaterialTheme.typography.titleMedium
-                )
+    // Request focus for the name field when the screen appears
+    LaunchedEffect(Unit) {
+        if (isNewSprint) {
+            // Add a small delay to ensure the composition is complete before requesting focus
+            kotlinx.coroutines.delay(100)
+            try {
+                nameFocusRequester.requestFocus()
+            } catch (e: IllegalStateException) {
+                // Handle case where focus requester is not attached yet
+                e.printStackTrace()
             }
         }
     }
 }
 
-@Composable
-private fun GoalItem(
-    goal: String,
-    onRemove: () -> Unit
+/**
+ * Handles saving a sprint based on form data
+ */
+private fun saveSprint(
+    isNewSprint: Boolean,
+    sprintId: String?,
+    formData: SprintFormData,
+    viewModel: SprintViewModel
 ) {
-    Surface(
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
-        shape = MaterialTheme.shapes.medium,
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                imageVector = Icons.Rounded.Flag,
-                contentDescription = null,
-                tint = AgileLifeTheme.extendedColors.accentSunflower,
-                modifier = Modifier.size(20.dp)
+    if (isNewSprint) {
+        // Create a new sprint with default values for fields not in the form
+        val newSprint = Sprint(
+            id = "",  // Will be generated by the backend
+            name = formData.name,
+            goal = formData.goal,
+            description = formData.description,
+            status = formData.status,
+            startDate = formData.startDate,
+            endDate = formData.endDate,
+            progress = 0,
+            taskCount = 0,
+            completedTaskCount = 0,
+            createdDate = LocalDate.now()
+        )
+        viewModel.createSprint(newSprint)
+    } else {
+        // Update an existing sprint, preserving fields not in the form
+        val sprintToUpdate = viewModel.uiState.value.selectedSprint
+        if (sprintToUpdate != null && sprintId != null) {
+            val updatedSprint = sprintToUpdate.copy(
+                name = formData.name,
+                goal = formData.goal,
+                description = formData.description,
+                status = formData.status,
+                startDate = formData.startDate,
+                endDate = formData.endDate
             )
-            
-            Spacer(modifier = Modifier.width(12.dp))
-            
-            Text(
-                text = goal,
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.weight(1f)
-            )
-            
-            IconButton(
-                onClick = onRemove,
-                modifier = Modifier.size(32.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Rounded.Close,
-                    contentDescription = "Remove Goal",
-                    tint = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.size(18.dp)
-                )
-            }
+            viewModel.updateSprint(updatedSprint)
         }
     }
 }
-
-/**
- * Form data for creating or editing a sprint
- */
-data class SprintFormData(
-    val id: String,
-    val name: String,
-    val description: String,
-    val startDate: LocalDate,
-    val endDate: LocalDate,
-    val goals: List<String> = emptyList()
-)
-
-/**
- * Sample data for the sprint editor
- */
-object SampleSprintEditorData {
-    fun getSprint(sprintId: String): SprintEditData {
-        return when (sprintId) {
-            "sprint-1" -> SprintEditData(
-                id = "sprint-1",
-                name = "Sprint 23: Dashboard Implementation",
-                description = "In this sprint, we are focusing on implementing the main dashboard interface and its core components. This includes creating the timeline view, sprint summary cards, and quick-action FAB. We'll also set up the navigation architecture and shared UI components that will be used throughout the app.",
-                startDate = LocalDate.now().minusDays(1),
-                endDate = LocalDate.now().plusDays(13),
-                goals = listOf(
-                    "Complete the Material 3 Expressive design system implementation",
-                    "Implement dashboard with timeline and quick actions",
-                    "Create reusable card components for sprints and tasks",
-                    "Establish navigation architecture for the entire app",
-                    "Setup automated tests for key components"
-                )
-            )
-            else -> SprintEditData(
-                id = sprintId,
-                name = "New Sprint",
-                description = "Sprint description...",
-                startDate = LocalDate.now(),
-                endDate = LocalDate.now().plusWeeks(2),
-                goals = emptyList()
-            )
-        }
-    }
-}
-
-data class SprintEditData(
-    val id: String,
-    val name: String,
-    val description: String,
-    val startDate: LocalDate,
-    val endDate: LocalDate,
-    val goals: List<String>
-)

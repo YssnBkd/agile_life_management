@@ -1,0 +1,242 @@
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:kspDebugKotlin UP-TO-DATE
+
+> Task :app:compileDebugKotlin FAILED
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:123:13 No parameter with name 'onCreateSprintClick' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:124:13 No parameter with name 'onSearchClick' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:125:13 No parameter with name 'onProfileClick' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:125:13 No value passed for parameter 'onAddSprintClick'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:125:13 No value passed for parameter 'onBackClick'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:198:13 No parameter with name 'onBackClick' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:199:13 No parameter with name 'onSaveClick' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:199:13 No value passed for parameter 'navController'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:212:13 No parameter with name 'onBackClick' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:213:13 No parameter with name 'onSaveClick' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/navigation/AgileLifeNavHost.kt:213:13 No value passed for parameter 'navController'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:77:54 Unresolved reference 'LoadingStateHandler'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:112:19 Cannot access 'fun loadSprintTasks(sprintId: String): Unit': it is private in 'com/example/agilelifemanagement/ui/viewmodel/SprintViewModel'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:141:40 Unresolved reference 'title'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:189:9 Unresolved reference 'LoadingStateHandler'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:194:13 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:194:13 No value passed for parameter 'content'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:198:17 Syntax error: Expecting ')'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:198:22 Syntax error: Unexpected tokens (use ';' to separate expressions on the same line).
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:199:17 Unresolved reference 'onDaySelected'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:199:43 Syntax error: Unexpected tokens (use ';' to separate expressions on the same line).
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:200:17 Unresolved reference 'onCompleteSprintClick'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:201:13 Syntax error: Expecting an element.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:204:13 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:206:48 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:207:46 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:226:22 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:226:43 Argument type mismatch: actual type is 'SprintInfo?', but 'SprintInfo' was expected.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:227:22 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:233:22 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:241:1 Syntax error: Expecting a top level declaration.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:398:1 Syntax error: Expecting a top level declaration.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:579:1 Syntax error: Expecting a top level declaration.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:677:1 Syntax error: Expecting a top level declaration.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:743:23 Unresolved reference 'title'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:744:18 Argument type mismatch: actual type is 'String', but 'SprintStatus' was expected.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:745:48 Unresolved reference 'DateTimeFormatter'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:745:113 Unresolved reference 'DateTimeFormatter'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:746:34 Unresolved reference 'progress'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:747:33 Unresolved reference 'completedTaskCount'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:748:29 Unresolved reference 'taskCount'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:749:9 No parameter with name 'description' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:749:30 Unresolved reference 'description'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:760:29 Unresolved reference 'LocalDate'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:761:29 Unresolved reference 'LocalDate'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:762:29 Unresolved reference 'LocalDate'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:763:36 Unresolved reference 'DateTimeFormatter'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:776:33 Unresolved reference 'estimatedMinutes'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:790:17 Unresolved reference 'LocalDate'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:798:48 Unresolved reference 'DateTimeFormatter'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:799:49 Unresolved reference 'DateTimeFormatter'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintDetailScreen.kt:802:65 Unresolved reference 'random'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:74:54 Unresolved reference 'LoadingStateHandler'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:130:17 No parameter with name 'title' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:130:40 Unresolved reference 'title'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:131:43 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Sprint?'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:132:41 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Sprint?'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:133:17 No parameter with name 'goal' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:133:39 Unresolved reference 'goal'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:134:17 No value passed for parameter 'id'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:134:17 No value passed for parameter 'name'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:134:46 Unresolved reference 'description'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:137:52 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Sprint?'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:144:17 No parameter with name 'title' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:147:17 No parameter with name 'goal' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:148:17 No value passed for parameter 'id'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:148:17 No value passed for parameter 'name'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:163:28 Unresolved reference 'title'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:215:9 Unresolved reference 'LoadingStateHandler'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:220:13 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:224:37 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:227:9 Unresolved reference 'Column'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:228:13 Unresolved reference 'modifier'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:228:13 Only expressions are allowed in this context.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:231:33 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:232:32 Syntax error: Expecting ')'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:233:13 Argument already passed for this parameter.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:269:38 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:271:34 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:271:51 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:271:69 Unresolved reference 'it'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:273:31 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:282:25 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:299:38 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:301:34 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:301:51 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:301:76 Unresolved reference 'it'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:303:31 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:333:17 Unresolved reference 'DateSelector'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:335:37 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:342:17 Unresolved reference 'DateSelector'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:344:37 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:349:30 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:349:57 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:360:30 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:361:30 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:364:30 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:364:58 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:481:50 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:484:21 Unresolved reference 'onSaveClick'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:521:50 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:536:38 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:536:55 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:557:50 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:572:38 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:572:55 Unresolved reference 'value'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:592:1 Modifier 'private' is not applicable to 'local function'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:642:9 Conflicting overloads:
+fun saveSprint(isNewSprint: Boolean, sprintId: String?, formData: SprintFormData, goals: List<String>, viewModel: SprintViewModel): Unit
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:652:9 No parameter with name 'title' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:652:26 Unresolved reference 'title'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:653:9 No parameter with name 'goal' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:653:25 Unresolved reference 'goal'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:654:9 No parameter with name 'description' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:657:74 Unresolved reference 'IN_PROGRESS'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:659:9 No parameter with name 'progress' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:660:9 No parameter with name 'taskCount' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:661:9 No parameter with name 'completedTaskCount' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:662:9 No parameter with name 'createdAt' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:662:9 No value passed for parameter 'name'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:672:1 Syntax error: Expecting a top level declaration.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:719:1 Syntax error: Expecting a top level declaration.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:724:9 Conflicting overloads:
+fun saveSprint(isNewSprint: Boolean, sprintId: String?, formData: SprintFormData, goals: List<String>, viewModel: SprintViewModel): Unit
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:734:9 No parameter with name 'title' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:734:26 Unresolved reference 'title'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:735:9 No parameter with name 'goal' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:735:25 Unresolved reference 'goal'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:736:9 No parameter with name 'description' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:739:74 Unresolved reference 'IN_PROGRESS'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:741:9 No parameter with name 'progress' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:742:9 No parameter with name 'taskCount' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:743:9 No parameter with name 'completedTaskCount' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:744:9 No parameter with name 'createdAt' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:744:9 No value passed for parameter 'name'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/sprint/SprintEditorScreen.kt:754:1 Syntax error: Expecting a top level declaration.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:28:35 Cannot access 'fun Chip(modifier: Modifier, onClick: () -> Unit, enabled: Boolean, label: @Composable() ComposableFunction0<Unit>, labelTextStyle: TextStyle, labelColor: Color, leadingIcon: @Composable() ComposableFunction0<Unit>?, trailingIcon: @Composable() ComposableFunction0<Unit>?, shape: Shape, colors: ChipColors, elevation: ChipElevation?, border: BorderStroke?, minHeight: Dp, paddingValues: PaddingValues, interactionSource: MutableInteractionSource?): Unit': it is private in file.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:62:53 Unresolved reference 'TaskViewModel'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:167:16 Unresolved reference 'TaskViewModel'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:167:32 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:170:17 Property delegate must have a 'getValue(Nothing?, KProperty0<ERROR CLASS: Cannot infer argument for type parameter T>)' method. None of the following functions is applicable:
+fun <T> State<T>.getValue(thisObj: Any?, property: KProperty<*>): T
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:170:20 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:170:30 Unresolved reference 'uiState'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:170:38 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:177:19 Unresolved reference 'loadTasks'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:219:50 Unresolved reference 'isCollapsed'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:225:26 Unresolved reference 'isLoading'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:225:47 Unresolved reference 'errorMessage'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:226:17 Unresolved reference 'FilterRow'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:227:50 Unresolved reference 'filterType'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:228:51 Unresolved reference 'selectedFilters'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:229:53 Unresolved reference 'setFilterType'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:230:53 Unresolved reference 'toggleFilterChip'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:237:25 Unresolved reference 'isLoading'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:240:25 Unresolved reference 'errorMessage'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:242:43 Unresolved reference 'errorMessage'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:243:52 Unresolved reference 'loadTasks'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:246:25 Unresolved reference 'filteredTasks'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:249:47 Unresolved reference 'selectedFilters'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:249:87 Unresolved reference 'filterType'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:253:51 Unresolved reference 'selectedFilters'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:253:91 Unresolved reference 'filterType'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:257:53 Unresolved reference 'selectedFilters'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:257:93 Unresolved reference 'filterType'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:258:41 Unresolved reference 'clearFilters'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:264:21 Unresolved reference 'BacklogTaskList'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:265:41 Unresolved reference 'filteredTasks'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:267:48 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:267:56 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:268:39 Unresolved reference 'updateTaskStatus'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:278:1 Modifier 'private' is not applicable to 'local function'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:303:17 No parameter with name 'task' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:305:17 No parameter with name 'onStatusChange' found.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:305:36 Cannot infer type for this parameter. Specify it explicitly.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:306:17 No value passed for parameter 'title'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:306:17 No value passed for parameter 'priority'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:306:17 No value passed for parameter 'dueDate'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:306:17 No value passed for parameter 'estimatedMinutes'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:306:17 No value passed for parameter 'isCompleted'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:325:1 Modifier 'private' is not applicable to 'local function'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:345:17 None of the following candidates is applicable:
+fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(checked: Boolean, onCheckedChange: (Boolean) -> Unit, shape: Shape, modifier: Modifier = ..., enabled: Boolean = ..., colors: SegmentedButtonColors = ..., border: BorderStroke = ..., interactionSource: MutableInteractionSource? = ..., icon: @Composable() ComposableFunction0<Unit> = ..., label: @Composable() ComposableFunction0<Unit>): Unit
+fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(selected: Boolean, onClick: () -> Unit, shape: Shape, modifier: Modifier = ..., enabled: Boolean = ..., colors: SegmentedButtonColors = ..., border: BorderStroke = ..., interactionSource: MutableInteractionSource? = ..., icon: @Composable() ComposableFunction0<Unit> = ..., label: @Composable() ComposableFunction0<Unit>): Unit
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:354:21 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:357:17 None of the following candidates is applicable:
+fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(checked: Boolean, onCheckedChange: (Boolean) -> Unit, shape: Shape, modifier: Modifier = ..., enabled: Boolean = ..., colors: SegmentedButtonColors = ..., border: BorderStroke = ..., interactionSource: MutableInteractionSource? = ..., icon: @Composable() ComposableFunction0<Unit> = ..., label: @Composable() ComposableFunction0<Unit>): Unit
+fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(selected: Boolean, onClick: () -> Unit, shape: Shape, modifier: Modifier = ..., enabled: Boolean = ..., colors: SegmentedButtonColors = ..., border: BorderStroke = ..., interactionSource: MutableInteractionSource? = ..., icon: @Composable() ComposableFunction0<Unit> = ..., label: @Composable() ComposableFunction0<Unit>): Unit
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:366:21 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:369:17 None of the following candidates is applicable:
+fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(checked: Boolean, onCheckedChange: (Boolean) -> Unit, shape: Shape, modifier: Modifier = ..., enabled: Boolean = ..., colors: SegmentedButtonColors = ..., border: BorderStroke = ..., interactionSource: MutableInteractionSource? = ..., icon: @Composable() ComposableFunction0<Unit> = ..., label: @Composable() ComposableFunction0<Unit>): Unit
+fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(selected: Boolean, onClick: () -> Unit, shape: Shape, modifier: Modifier = ..., enabled: Boolean = ..., colors: SegmentedButtonColors = ..., border: BorderStroke = ..., interactionSource: MutableInteractionSource? = ..., icon: @Composable() ComposableFunction0<Unit> = ..., label: @Composable() ComposableFunction0<Unit>): Unit
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:378:21 @Composable invocations can only happen from the context of a @Composable function
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:390:76 Unresolved reference 'PRIORITY_HIGH'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:391:67 Unresolved reference 'PRIORITY_HIGH'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:393:83 Unresolved reference 'PRIORITY_HIGH'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:396:66 Unresolved reference 'filterIcon'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:405:76 Unresolved reference 'DUE_SOON'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:406:67 Unresolved reference 'DUE_SOON'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:408:83 Unresolved reference 'DUE_SOON'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:411:66 Unresolved reference 'filterIcon'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:420:76 Unresolved reference 'UNASSIGNED'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:421:67 Unresolved reference 'UNASSIGNED'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:423:83 Unresolved reference 'UNASSIGNED'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:426:66 Unresolved reference 'filterIcon'.
+e: file:///Users/yassineboulkaid/AndroidStudioProjects/AgileLifeManagement/app/src/main/java/com/example/agilelifemanagement/ui/screens/task/TaskBacklogScreen.kt:436:2 Syntax error: Expecting '}'.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2s
+16 actionable tasks: 1 executed, 15 up-to-date

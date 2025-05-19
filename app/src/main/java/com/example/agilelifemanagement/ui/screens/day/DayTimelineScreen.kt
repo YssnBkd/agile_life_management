@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -47,10 +48,11 @@ import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.Locale
 import com.example.agilelifemanagement.domain.model.TimeBlock
+import com.example.agilelifemanagement.ui.model.ActivityCategoryEnum
+import com.example.agilelifemanagement.ui.mapper.getColor
 
 /**
- * Screen displaying a timeline of day activities
- * Implemented with Material 3 Expressive design principles
+ * Screen displaying a timeline of day activities.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,16 +62,21 @@ fun DayTimelineScreen(
     onAddActivity: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
-    
     // Format date for display
-    val dateFormatter = remember { DateTimeFormatter.ofPattern("MMMM d, yyyy") }
-    val formattedDate = remember(selectedDate) { dateFormatter.format(selectedDate) }
-    val dayOfWeek = remember(selectedDate) { 
-        selectedDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault()) 
+    val formattedDate = remember(selectedDate) {
+        selectedDate.format(DateTimeFormatter.ofPattern("MMMM d, yyyy"))
     }
     
-    // Sample data
+    val dayOfWeek = remember(selectedDate) {
+        selectedDate.dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault())
+    }
+    
+    // Scroll behavior for collapsing top app bar
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(
+        rememberTopAppBarState()
+    )
+    
+    // Sample data - would come from ViewModel in real implementation
     val timeBlocks = remember {
         listOf(
             UiTimeBlock(
@@ -77,35 +84,35 @@ fun DayTimelineScreen(
                 title = "Morning Routine",
                 startTime = "07:00",
                 endTime = "08:30",
-                category = ActivityCategory.PERSONAL
+                category = ActivityCategoryEnum.PERSONAL
             ),
             UiTimeBlock(
                 id = "2",
                 title = "Team Standup",
                 startTime = "09:00",
                 endTime = "09:30",
-                category = ActivityCategory.WORK
+                category = ActivityCategoryEnum.WORK
             ),
             UiTimeBlock(
                 id = "3",
                 title = "Project Planning",
                 startTime = "10:00",
                 endTime = "12:00",
-                category = ActivityCategory.WORK
+                category = ActivityCategoryEnum.WORK
             ),
             UiTimeBlock(
                 id = "4",
                 title = "Lunch Break",
                 startTime = "12:00",
                 endTime = "13:00",
-                category = ActivityCategory.BREAK
+                category = ActivityCategoryEnum.REST
             ),
             UiTimeBlock(
                 id = "5",
                 title = "Workout Session",
                 startTime = "17:30",
                 endTime = "18:30",
-                category = ActivityCategory.FITNESS
+                category = ActivityCategoryEnum.EXERCISE
             )
         )
     }
@@ -114,22 +121,22 @@ fun DayTimelineScreen(
     val completedTimeBlocks = remember { mutableSetOf("1", "2") }
     
     Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier
+            .fillMaxSize()
+            .nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             DayTimelineTopBar(
                 date = formattedDate,
                 dayOfWeek = dayOfWeek,
                 scrollBehavior = scrollBehavior,
-                onBackClick = { navController.navigateUp() }
+                onBackClick = { navController.popBackStack() }
             )
         },
         floatingActionButton = {
             ExtendedFloatingActionButton(
-                onClick = onAddActivity,
-                icon = { Icon(Icons.Rounded.Add, contentDescription = "Add activity") },
                 text = { Text("Add Activity") },
-                containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary,
+                icon = { Icon(Icons.Rounded.Add, contentDescription = null) },
+                onClick = onAddActivity,
                 expanded = true
             )
         }
@@ -140,10 +147,7 @@ fun DayTimelineScreen(
             TimelineContent(
                 timeBlocks = timeBlocks,
                 paddingValues = paddingValues,
-                onTimeBlockClick = { blockId ->
-                    // Navigate to detailed view or edit
-                    navController.navigate("day/activities/$blockId")
-                },
+                onTimeBlockClick = { /* Handle time block click */ },
                 completedTimeBlocks = completedTimeBlocks
             )
         }
@@ -162,14 +166,13 @@ private fun DayTimelineTopBar(
         title = {
             Column {
                 Text(
-                    text = date,
-                    style = MaterialTheme.typography.headlineMedium,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
-                Text(
                     text = dayOfWeek,
                     style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = date,
+                    style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
@@ -178,22 +181,13 @@ private fun DayTimelineTopBar(
             IconButton(onClick = onBackClick) {
                 Icon(
                     imageVector = Icons.Rounded.ArrowBack,
-                    contentDescription = "Navigate back"
-                )
-            }
-        },
-        actions = {
-            IconButton(onClick = { /* Show calendar picker */ }) {
-                Icon(
-                    imageVector = Icons.Rounded.CalendarMonth,
-                    contentDescription = "Select date"
+                    contentDescription = "Back"
                 )
             }
         },
         scrollBehavior = scrollBehavior,
         colors = TopAppBarDefaults.largeTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
-            scrolledContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+            containerColor = MaterialTheme.colorScheme.surface
         )
     )
 }
@@ -205,18 +199,28 @@ private fun EmptyTimelineView(paddingValues: PaddingValues) {
             .fillMaxSize()
             .padding(paddingValues)
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = "No activities scheduled",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.primary
+        Icon(
+            imageVector = Icons.Rounded.CalendarMonth,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+            modifier = Modifier.size(80.dp)
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        
         Text(
-            text = "Add activities to plan your day",
-            style = MaterialTheme.typography.bodyLarge,
+            text = "No activities planned for this day",
+            style = MaterialTheme.typography.titleLarge
+        )
+        
+        Spacer(modifier = Modifier.height(8.dp))
+        
+        Text(
+            text = "Tap the + button to add a new activity",
+            style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
@@ -232,20 +236,25 @@ private fun TimelineContent(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues),
-        contentPadding = PaddingValues(16.dp),
+            .padding(paddingValues)
+            .padding(horizontal = 16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        items(
-            items = timeBlocks,
-            key = { it.id }
-        ) { timeBlock ->
+        item {
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+        
+        items(timeBlocks) { timeBlock ->
             TimelineItem(
                 timeBlock = timeBlock,
                 isLastItem = timeBlock == timeBlocks.last(),
                 onClick = { onTimeBlockClick(timeBlock.id) },
                 isCompleted = completedTimeBlocks.contains(timeBlock.id)
             )
+        }
+        
+        item {
+            Spacer(modifier = Modifier.height(80.dp)) // Space for FAB
         }
     }
 }
@@ -260,76 +269,74 @@ private fun TimelineItem(
     TimeBlockCard(
         title = timeBlock.title,
         startTime = timeBlock.startTime,
-        endTime = timeBlock.endTime ?: "",
+        endTime = timeBlock.endTime,
         category = timeBlock.category,
         isCompleted = isCompleted,
-        onClick = onClick,
-        modifier = Modifier.fillMaxWidth()
+        onClick = onClick
     )
 }
-/**
- * Represents a block of time for an activity
- */
 
 /**
- * Material 3 Expressive design TimeBlockCard component
+ * Represents a block of time for an activity
  */
 @Composable
 private fun TimeBlockCard(
     title: String,
     startTime: String,
     endTime: String,
-    category: ActivityCategory,
+    category: ActivityCategoryEnum,
     isCompleted: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     androidx.compose.material3.Card(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
         colors = androidx.compose.material3.CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+            containerColor = category.color.copy(alpha = 0.15f)
         )
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            modifier = Modifier.padding(16.dp)
         ) {
-            // Time info
+            // Activity title
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = if (isCompleted) 
+                    MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f)
+                else 
+                    MaterialTheme.colorScheme.onSurface,
+                textDecoration = if (isCompleted) 
+                    androidx.compose.ui.text.style.TextDecoration.LineThrough
+                else 
+                    androidx.compose.ui.text.style.TextDecoration.None
+            )
+            
+            Spacer(modifier = Modifier.height(4.dp))
+            
+            // Activity time
             Text(
                 text = "$startTime - $endTime",
-                style = MaterialTheme.typography.labelLarge,
+                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             
-            // Title with completion status
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleLarge.copy(
-                    fontWeight = FontWeight.SemiBold
-                ),
-                color = if (isCompleted) {
-                    MaterialTheme.colorScheme.onSurfaceVariant
-                } else {
-                    MaterialTheme.colorScheme.onSurface
-                }
-            )
+            Spacer(modifier = Modifier.height(8.dp))
             
-            // Category indicator
+            // Category badge
             androidx.compose.material3.Surface(
-                modifier = Modifier,
                 shape = MaterialTheme.shapes.small,
-                color = category.getCategoryColor().copy(alpha = 0.15f)
+                color = category.color.copy(alpha = 0.15f)
             ) {
                 Text(
-                    text = category.name.lowercase().replaceFirstChar { it.uppercase() },
+                    text = category.displayName,
                     style = MaterialTheme.typography.labelMedium,
-                    color = category.getCategoryColor(),
+                    color = category.color,
                     modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                 )
             }
         }
     }
 }
-
-// Use the ActivityCategory enum and its getCategoryColor method from DayDetailScreen.kt

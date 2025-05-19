@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e71df461e5189fd31ef51fd10c95d41d",
+    "identityHash": "72a399722014c270f1e93587b3b91c32",
     "entities": [
       {
         "tableName": "day_activities",
@@ -353,7 +353,7 @@
       },
       {
         "tableName": "sprints",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `userId` TEXT NOT NULL, `name` TEXT NOT NULL, `startDate` TEXT NOT NULL, `endDate` TEXT NOT NULL, `goals` TEXT NOT NULL, `status` TEXT NOT NULL, `isCompleted` INTEGER NOT NULL, `updatedAt` TEXT NOT NULL, `isActive` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `userId` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT, `startDate` TEXT NOT NULL, `endDate` TEXT NOT NULL, `goals` TEXT NOT NULL, `status` TEXT NOT NULL, `progress` INTEGER, `taskCount` INTEGER, `completedTaskCount` INTEGER, `createdAt` TEXT, `updatedAt` TEXT NOT NULL, `isCompleted` INTEGER NOT NULL, `isActive` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -372,6 +372,11 @@
             "columnName": "name",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT"
           },
           {
             "fieldPath": "startDate",
@@ -398,15 +403,35 @@
             "notNull": true
           },
           {
-            "fieldPath": "isCompleted",
-            "columnName": "isCompleted",
-            "affinity": "INTEGER",
-            "notNull": true
+            "fieldPath": "progress",
+            "columnName": "progress",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "taskCount",
+            "columnName": "taskCount",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "completedTaskCount",
+            "columnName": "completedTaskCount",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "TEXT"
           },
           {
             "fieldPath": "updatedAt",
             "columnName": "updatedAt",
             "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCompleted",
+            "columnName": "isCompleted",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -792,7 +817,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e71df461e5189fd31ef51fd10c95d41d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '72a399722014c270f1e93587b3b91c32')"
     ]
   }
 }

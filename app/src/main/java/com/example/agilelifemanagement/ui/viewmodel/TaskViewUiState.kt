@@ -6,10 +6,11 @@ import com.example.agilelifemanagement.ui.model.TaskFilterType
 import com.example.agilelifemanagement.ui.model.TaskSortCriteria
 
 /**
- * UI State for Task screens.
+ * UI State specifically for TaskView screen.
  * This follows the Unidirectional Data Flow pattern.
+ * Renamed to avoid conflict with TaskUiState
  */
-data class TaskUiState(
+data class TaskViewUiState(
     val tasks: List<Task> = emptyList(),
     val selectedTask: Task? = null,
     val isLoading: Boolean = false,

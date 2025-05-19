@@ -62,6 +62,7 @@ object NavRoutes {
     const val DAY_EVENING_CHECKIN = "day/evening-checkin?date={date}"
     const val DAY_WEEK_VIEW = "day/week-view?date={date}"
     const val DAY_TEMPLATE = "day/template"
+    const val DAY_ACTIVITY_EDITOR = "day/activity-editor?activityId={activityId}"
     
     // Task routes
     const val TASK_BACKLOG = "task/backlog"
@@ -86,6 +87,8 @@ fun NavRoutes.dayEveningCheckin(date: String? = null) =
 fun NavRoutes.dayWeekView(date: String? = null) =
     if (date != null) "day/week-view?date=$date" else "day/week-view"
 fun NavRoutes.dayTemplate() = "day/template"
+fun NavRoutes.dayActivityEditor(activityId: String? = null) =
+    if (activityId != null) "day/activity-editor?activityId=$activityId" else "day/activity-editor"
 
 fun NavRoutes.taskDetail(taskId: String) = "task/detail/$taskId"
 fun NavRoutes.taskEditor(taskId: String? = null) =

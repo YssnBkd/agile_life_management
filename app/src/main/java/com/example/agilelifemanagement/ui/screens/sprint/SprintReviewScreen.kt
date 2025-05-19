@@ -65,8 +65,8 @@ import com.example.agilelifemanagement.ui.components.cards.ExpressiveCard
 import com.example.agilelifemanagement.ui.components.cards.SprintStatus
 import com.example.agilelifemanagement.ui.components.cards.TaskCard
 import com.example.agilelifemanagement.ui.components.cards.TaskPriority
-import com.example.agilelifemanagement.ui.screens.dashboard.SprintInfo
-import com.example.agilelifemanagement.ui.screens.dashboard.TaskInfo
+import com.example.agilelifemanagement.ui.model.SprintInfo
+import com.example.agilelifemanagement.ui.model.TaskInfo
 import com.example.agilelifemanagement.ui.theme.AgileLifeTheme
 
 /**
@@ -706,7 +706,7 @@ object SampleSprintReviewData {
         return SprintInfo(
             id = sprintId,
             name = "Sprint 22: Task Management",
-            status = SprintStatus.COMPLETED,
+            status = com.example.agilelifemanagement.ui.components.cards.SprintStatus.COMPLETED,
             dateRange = "Apr 29 - May 13",
             progressPercent = 0.85f,
             tasksCompleted = 17,
@@ -719,26 +719,29 @@ object SampleSprintReviewData {
             TaskInfo(
                 id = "task-5",
                 title = "Create UI Element Library",
+                description = "Create a comprehensive library of UI components following Material 3 guidelines",
                 priority = TaskPriority.HIGH,
                 dueDate = "May 6",
-                estimatedMinutes = 240,
-                isCompleted = true
+                isCompleted = true,
+                sprintId = sprintId
             ),
             TaskInfo(
                 id = "task-6",
                 title = "Implement Login Screen",
+                description = "Design and implement the user login interface",
                 priority = TaskPriority.MEDIUM,
                 dueDate = "May 8",
-                estimatedMinutes = 120,
-                isCompleted = true
+                isCompleted = true,
+                sprintId = sprintId
             ),
             TaskInfo(
                 id = "task-7",
                 title = "Setup Project Structure",
+                description = "Initialize the project with Clean Architecture layers",
                 priority = TaskPriority.HIGH,
                 dueDate = "May 3",
-                estimatedMinutes = 60,
-                isCompleted = true
+                isCompleted = true,
+                sprintId = sprintId
             )
         )
     }
@@ -748,26 +751,29 @@ object SampleSprintReviewData {
             TaskInfo(
                 id = "task-8",
                 title = "Implement Task Detail Screen",
+                description = "Create the detailed view for individual tasks with all metadata",
                 priority = TaskPriority.HIGH,
                 dueDate = "May 12",
-                estimatedMinutes = 180,
-                isCompleted = false
+                isCompleted = false,
+                sprintId = sprintId
             ),
             TaskInfo(
                 id = "task-9",
                 title = "Add Task Filtering Options",
+                description = "Implement filters for tasks by status, priority, and date",
                 priority = TaskPriority.MEDIUM,
                 dueDate = "May 11",
-                estimatedMinutes = 120,
-                isCompleted = false
+                isCompleted = false,
+                sprintId = sprintId
             ),
             TaskInfo(
                 id = "task-10",
                 title = "Create Task Priority Visualization",
+                description = "Add visual indicators for task priorities",
                 priority = TaskPriority.LOW,
                 dueDate = null,
-                estimatedMinutes = 90,
-                isCompleted = false
+                isCompleted = false,
+                sprintId = sprintId
             )
         )
     }

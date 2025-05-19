@@ -124,13 +124,39 @@ class DashboardViewModel @Inject constructor(
                 .collectLatest { sprints ->
                     val today = LocalDate.now()
                     val activeSprint = sprints.find { sprint ->
-                        sprint.startDate.isBefore(today) && sprint.endDate.isAfter(today)
+                        sprint.startDate.isBefore(today) && sprint.endDate.isAfter(today) || 
+                        sprint.startDate.isEqual(today) || sprint.endDate.isEqual(today)
+                    }
+                    
+                    if (activeSprint != null) {
+                        // Load the tasks for this sprint
+                        loadTasksForSprint(activeSprint.id)
                     }
                     
                     _uiState.update { 
                         it.copy(
                             activeSprint = activeSprint
                         )
+                    }
+                }
+        }
+    }
+    
+    /**
+     * Loads tasks for a specific sprint
+     */
+    private fun loadTasksForSprint(sprintId: String) {
+        viewModelScope.launch {
+            // Get all tasks and filter by sprintId
+            // This is a simplification - in a real app, you'd have a specific use case for this
+            getTasksByDateUseCase(LocalDate.now())
+                .catch { e ->
+                    Timber.e(e, "Error loading tasks for sprint: $sprintId")
+                }
+                .collectLatest { allTasks ->
+                    val sprintTasks = allTasks.filter { it.sprintId == sprintId }
+                    _uiState.update { 
+                        it.copy(sprintTasks = sprintTasks)
                     }
                 }
         }

@@ -1,0 +1,8 @@
+app/src/main/java/com/example/agilelifemanagement/util/ErrorHandler.kt:        Log.e(TAG, "Error in $operation: ${e.message}", e)
+app/src/main/java/com/example/agilelifemanagement/util/NetworkMonitor.kt:                Log.d(TAG, "Network available")
+app/src/main/java/com/example/agilelifemanagement/util/NetworkMonitor.kt:                Log.d(TAG, "Network lost")
+app/src/main/java/com/example/agilelifemanagement/util/NetworkMonitor.kt:                Log.d(TAG, "Network unavailable")
+app/src/main/java/com/example/agilelifemanagement/util/ApplicationStartup.kt:        Log.d(TAG, "ApplicationStartup initialized - real-time sync disabled temporarily")
+app/src/main/java/com/example/agilelifemanagement/util/ApplicationStartup.kt:                            Log.d(TAG, "User authenticated, initializing real-time subscriptions")
+app/src/main/java/com/example/agilelifemanagement/util/ApplicationStartup.kt:                            Log.d(TAG, "User not authenticated, cleaning up real-time subscriptions")
+app/src/main/java/com/example/agilelifemanagement/util/ApplicationStartup.kt:                Log.e(TAG, "Error initializing real-time sync: ${e.message}", e)

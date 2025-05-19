@@ -192,6 +192,44 @@ class TemplateViewModel @Inject constructor(
         }
     }
 
+    // Select a template for editing
+    fun selectTemplateForEdit(template: DayTemplate) {
+        _uiState.value = _uiState.value.copy(
+            selectedTemplate = template
+        )
+    }
+    
+    /**
+     * Select a template for editing by ID.
+     * This helps with Clean Architecture by allowing the UI layer to work with IDs rather than domain objects.
+     * 
+     * @param templateId The ID of the template to select for editing
+     */
+    fun selectTemplateForEdit(templateId: String) {
+        viewModelScope.launch {
+            // Find template in the current list
+            val template = _uiState.value.templates.find { it.id == templateId }
+            if (template != null) {
+                _uiState.value = _uiState.value.copy(
+                    selectedTemplate = template
+                )
+            } else {
+                // If not found in current list, try to load it from use case
+                getTemplateByIdUseCase(templateId)
+                    .catch { e ->
+                        _uiState.value = _uiState.value.copy(
+                            errorMessage = "Failed to load template: ${e.message}"
+                        )
+                    }
+                    .collectLatest { templateResult ->
+                        _uiState.value = _uiState.value.copy(
+                            selectedTemplate = templateResult
+                        )
+                    }
+            }
+        }
+    }
+
     // Apply a template to a specific date
     // Note: This should ideally use a dedicated ApplyTemplateUseCase which we'll need to create
     fun applyTemplate(templateId: String, date: LocalDate) {

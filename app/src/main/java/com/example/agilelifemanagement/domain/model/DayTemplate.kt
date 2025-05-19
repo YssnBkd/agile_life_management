@@ -21,7 +21,7 @@ data class DayTemplate(
 /**
  * Represents an activity within a day template.
  */
-data class TemplateActivity(
+data class DayTemplateActivity(
     val title: String,
     val description: String = "",
     val categoryId: String? = null,

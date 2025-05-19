@@ -1,0 +1,87 @@
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:            withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:    override suspend fun getActivityById(activityId: String): Result<DayActivity> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:                return@withContext Result.success(activityMapper.mapToDomain(localActivity))
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:                    return@withContext Result.success(remoteActivity)
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:                    return@withContext Result.failure(Exception("Activity not found with ID: $activityId"))
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:            return@withContext Result.failure(e)
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:            withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:                return@withContext activityToSave
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:            withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:                return@withContext activity
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:            withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:                return@withContext deleted
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:            withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:    override suspend fun getActivityTemplateById(templateId: String): Result<DayActivityTemplate> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:    override suspend fun createActivityTemplate(template: DayActivityTemplate): Result<DayActivityTemplate> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:    override suspend fun updateActivityTemplate(template: DayActivityTemplate): Result<DayActivityTemplate> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/DayRepositoryImpl.kt:    override suspend fun deleteActivityTemplate(templateId: String): Result<Boolean> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/SprintRepositoryImpl.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/data/repository/SprintRepositoryImpl.kt:    override suspend fun getSprintById(sprintId: String): Result<Sprint> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/SprintRepositoryImpl.kt:    override suspend fun createSprint(sprint: Sprint): Result<Sprint> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/SprintRepositoryImpl.kt:    override suspend fun updateSprint(sprint: Sprint): Result<Sprint> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/SprintRepositoryImpl.kt:    override suspend fun deleteSprint(sprintId: String): Result<Boolean> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/SprintRepositoryImpl.kt:    suspend fun refreshSprintsFromRemote() = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/SprintRepositoryImpl.kt:    override suspend fun createSprintReview(sprintReview: SprintReview): Result<SprintReview> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:    override suspend fun saveDailyCheckup(checkup: DailyCheckup): Result<DailyCheckup> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:                    return@withContext Result.success(remoteCheckup)
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:            return@withContext Result.success(checkupWithId)
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:            return@withContext Result.failure(e)
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:    override suspend fun deleteDailyCheckup(checkupId: String): Result<Boolean> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:                return@withContext Result.failure(NoSuchElementException("Daily checkup not found with ID: $checkupId"))
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:            return@withContext Result.success(true)
+app/src/main/java/com/example/agilelifemanagement/data/repository/WellnessRepositoryImpl.kt:            return@withContext Result.failure(e)
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:    override suspend fun getTagById(tagId: String): Result<Tag> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:    override suspend fun createTag(tag: Tag): Result<Tag> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:                    return@withContext Result.success(remoteTag)
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:    override suspend fun updateTag(tag: Tag): Result<Tag> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:                return@withContext Result.failure(NoSuchElementException("Tag not found with ID: ${tag.id}"))
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:    override suspend fun deleteTag(tagId: String): Result<Boolean> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:                return@withContext Result.failure(NoSuchElementException("Tag not found with ID: $tagId"))
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:    override suspend fun getOrCreateTag(tagName: String): Tag = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TagRepositoryImpl.kt:            return@withContext exactMatch
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:    override suspend fun getTaskById(taskId: String): Result<Task> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:    override suspend fun createTask(task: Task): Result<Task> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:                    return@withContext Result.success(remoteTask)
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:    override suspend fun updateTask(task: Task): Result<Task> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:                return@withContext Result.failure(NoSuchElementException("Task not found with ID: ${task.id}"))
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:    override suspend fun updateTaskStatus(taskId: String, status: TaskStatus): Result<Task> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:                return@withContext Result.failure(NoSuchElementException("Task not found with ID: $taskId"))
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:                ?: return@withContext Result.failure(NoSuchElementException("Task not found with ID: $taskId"))
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:    override suspend fun deleteTask(taskId: String): Result<Boolean> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/TaskRepositoryImpl.kt:                return@withContext Result.failure(NoSuchElementException("Task not found with ID: $taskId"))
+app/src/main/java/com/example/agilelifemanagement/data/repository/GoalRepositoryImpl.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/data/repository/GoalRepositoryImpl.kt:    override suspend fun getGoalById(goalId: String): Result<Goal> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/GoalRepositoryImpl.kt:    override suspend fun createGoal(goal: Goal): Result<Goal> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/GoalRepositoryImpl.kt:    override suspend fun updateGoal(goal: Goal): Result<Goal> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/GoalRepositoryImpl.kt:    override suspend fun deleteGoal(goalId: String): Result<Boolean> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/repository/GoalRepositoryImpl.kt:    suspend fun refreshGoalsFromRemote() = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/remote/source/DayScheduleRemoteDataSource.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/data/remote/source/TagRemoteDataSource.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/data/remote/source/TagRemoteDataSource.kt:    suspend fun getAllTags(): List<Tag> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/remote/source/TagRemoteDataSource.kt:    suspend fun getTagById(tagId: String): Tag? = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/remote/source/TagRemoteDataSource.kt:    suspend fun createTag(tag: Tag): Tag = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/remote/source/TagRemoteDataSource.kt:    suspend fun updateTag(tag: Tag): Tag = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/data/remote/source/TagRemoteDataSource.kt:    suspend fun deleteTag(tagId: String): Boolean = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/WellnessRepositoryImpl.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/WellnessRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/WellnessRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/WellnessRepositoryImpl.kt:    override suspend fun saveDailyCheckup(dailyCheckup: DailyCheckup): Result<DailyCheckup> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/WellnessRepositoryImpl.kt:    override suspend fun deleteDailyCheckup(date: LocalDate): Result<Boolean> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/WellnessRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/CategoryRepositoryImpl.kt:import kotlinx.coroutines.withContext
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/CategoryRepositoryImpl.kt:        withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/CategoryRepositoryImpl.kt:    override suspend fun getCategoryById(categoryId: String): Result<ActivityCategory> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/CategoryRepositoryImpl.kt:    override suspend fun createCategory(category: ActivityCategory): Result<ActivityCategory> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/CategoryRepositoryImpl.kt:    override suspend fun updateCategory(category: ActivityCategory): Result<ActivityCategory> = withContext(ioDispatcher) {
+app/src/main/java/com/example/agilelifemanagement/archived/data/repository/CategoryRepositoryImpl.kt:    override suspend fun deleteCategory(categoryId: String): Result<Boolean> = withContext(ioDispatcher) {

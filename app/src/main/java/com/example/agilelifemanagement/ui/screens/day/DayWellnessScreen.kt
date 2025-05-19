@@ -35,6 +35,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
+import androidx.compose.foundation.clickable as foundationClickable
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -51,18 +53,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.agilelifemanagement.ui.components.cards.ExpressiveCard
+import androidx.compose.ui.unit.sp
 import com.example.agilelifemanagement.ui.theme.AgileLifeTheme
-// Add proper import for clickable
-import androidx.compose.foundation.clickable as composeClickable
+import com.example.agilelifemanagement.ui.theme.AgilePurple
+import com.example.agilelifemanagement.ui.theme.WarningOrange
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import com.example.agilelifemanagement.ui.model.DayData
+import com.example.agilelifemanagement.ui.model.SampleDayData
 
 /**
- * DayWellnessScreen allows users to track their mood, energy, focus, and productivity for the day
- * following Material 3 Expressive design principles.
+ * Screen for tracking and editing daily wellness metrics.
+ * 
+ * @param dayId ID of the day to edit
+ * @param onBackClick Callback when back button is pressed
+ * @param onSaveClick Callback when save button is pressed
+ * @param modifier Optional modifier
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -76,26 +86,16 @@ fun DayWellnessScreen(
     val dayData = remember { SampleDayData.getDay(dayId) }
     
     // State for wellness metrics
-    var energyLevel by remember { mutableIntStateOf(dayData.energyLevel) }
-    var focusLevel by remember { mutableIntStateOf(dayData.focusLevel) }
-    var productivityLevel by remember { mutableIntStateOf(dayData.productivityLevel) }
-    var selectedMood by remember { mutableStateOf(MoodType.PRODUCTIVE) } // Default mood
-    var dailyNote by remember { mutableStateOf(dayData.dailyNote ?: "") }
-    
-    // Top app bar scroll behavior
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+    var energy by remember { mutableIntStateOf(dayData.energyLevel) }
+    var focus by remember { mutableIntStateOf(dayData.focusLevel) }
+    var productivity by remember { mutableIntStateOf(dayData.productivityLevel) }
+    var note by remember { mutableStateOf(dayData.dailyNote) }
+    var selectedMood by remember { mutableStateOf(MoodType.entries[dayData.mood - 1]) }
     
     Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
-                title = {
-                    Text(
-                        text = "Day Wellness",
-                        maxLines = 1,
-                        style = MaterialTheme.typography.titleLarge
-                    )
-                },
+                title = { Text("Daily Wellness") },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
                         Icon(
@@ -108,16 +108,16 @@ fun DayWellnessScreen(
                     IconButton(onClick = onSaveClick) {
                         Icon(
                             imageVector = Icons.Rounded.Save,
-                            contentDescription = "Save wellness data"
+                            contentDescription = "Save changes"
                         )
                     }
                 },
-                scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface
                 )
             )
-        }
+        },
+        modifier = modifier
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -125,12 +125,12 @@ fun DayWellnessScreen(
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             // Day header
             DayHeader(dayData)
             
-            // Mood selection
+            // Mood selector
             MoodSelector(
                 selectedMood = selectedMood,
                 onMoodSelected = { selectedMood = it }
@@ -138,113 +138,111 @@ fun DayWellnessScreen(
             
             // Wellness metrics
             WellnessMetrics(
-                energyLevel = energyLevel,
-                onEnergyChange = { energyLevel = it },
-                focusLevel = focusLevel,
-                onFocusChange = { focusLevel = it },
-                productivityLevel = productivityLevel,
-                onProductivityChange = { productivityLevel = it }
+                energyLevel = energy,
+                onEnergyChange = { energy = it },
+                focusLevel = focus,
+                onFocusChange = { focus = it },
+                productivityLevel = productivity,
+                onProductivityChange = { productivity = it }
             )
             
             // Daily note
             DailyNoteInput(
-                dailyNote = dailyNote,
-                onNoteChange = { dailyNote = it }
+                dailyNote = note,
+                onNoteChange = { note = it }
             )
             
             // Save button
             Button(
                 onClick = onSaveClick,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 16.dp)
+                modifier = Modifier.fillMaxWidth()
             ) {
                 Icon(
                     imageVector = Icons.Rounded.Save,
                     contentDescription = null
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = "Save Wellness Data",
-                    style = MaterialTheme.typography.titleSmall,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
+                Text("Save Wellness Log")
             }
             
-            // Bottom spacing
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(32.dp))
         }
     }
 }
 
+/**
+ * Day header showing date and day of week.
+ */
 @Composable
-private fun DayHeader(dayData: DayData) {
-    ExpressiveCard(
-        containerColor = MaterialTheme.colorScheme.surface,
+fun DayHeader(dayData: DayData) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.fillMaxWidth()
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically
+        // Calendar icon with circular background
+        Surface(
+            shape = CircleShape,
+            color = MaterialTheme.colorScheme.primaryContainer,
+            modifier = Modifier.size(48.dp)
         ) {
-            // Date icon
-            Surface(
-                shape = CircleShape,
-                color = MaterialTheme.colorScheme.primaryContainer,
-                modifier = Modifier.size(48.dp)
+            Box(
+                contentAlignment = Alignment.Center
             ) {
-                Box(contentAlignment = Alignment.Center) {
-                    Icon(
-                        imageVector = Icons.Rounded.CalendarMonth,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                        modifier = Modifier.size(24.dp)
-                    )
-                }
-            }
-            
-            Spacer(modifier = Modifier.width(16.dp))
-            
-            Column {
-                Text(
-                    text = dayData.dayOfWeek,
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold
-                )
-                
-                Text(
-                    text = dayData.longFormattedDate,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                Icon(
+                    imageVector = Icons.Rounded.CalendarMonth,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.size(24.dp)
                 )
             }
+        }
+        
+        Spacer(modifier = Modifier.width(12.dp))
+        
+        // Date information
+        Column {
+            Text(
+                text = dayData.dayOfWeek,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold
+            )
+            
+            Text(
+                text = dayData.longFormattedDate,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
         }
     }
 }
 
+/**
+ * Mood selector with emoji-style options.
+ */
 @Composable
-private fun MoodSelector(
+fun MoodSelector(
     selectedMood: MoodType,
     onMoodSelected: (MoodType) -> Unit
 ) {
-    ExpressiveCard(
-        containerColor = MaterialTheme.colorScheme.surface,
+    Column(
         modifier = Modifier.fillMaxWidth()
     ) {
         Text(
             text = "How are you feeling today?",
             style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 16.dp)
+            fontWeight = FontWeight.Bold
         )
         
+        Spacer(modifier = Modifier.height(16.dp))
+        
         Row(
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            MoodType.values().forEach { mood ->
+            MoodType.entries.forEach { mood ->
                 MoodOption(
                     mood = mood,
-                    selected = selectedMood == mood,
+                    selected = mood == selectedMood,
                     onClick = { onMoodSelected(mood) }
                 )
             }
@@ -252,8 +250,11 @@ private fun MoodSelector(
     }
 }
 
+/**
+ * Individual mood option with emoji and selection indicator.
+ */
 @Composable
-private fun MoodOption(
+fun MoodOption(
     mood: MoodType,
     selected: Boolean,
     onClick: () -> Unit
@@ -261,44 +262,47 @@ private fun MoodOption(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .padding(horizontal = 4.dp)
             .clip(MaterialTheme.shapes.medium)
-            .background(
-                color = if (selected) MaterialTheme.colorScheme.primary.copy(alpha = 0.2f) else Color.Transparent
-            )
-            .padding(8.dp)
-            .clip(CircleShape)
             .clickable(onClick = onClick)
+            .padding(8.dp)
     ) {
-        // Mood emoji with background
+        // Emoji circle with background
         Surface(
-            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceContainerLow,
-            contentColor = if (selected) Color.White else MaterialTheme.colorScheme.primary,
             shape = CircleShape,
+            color = if (selected) mood.getColor() else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
             modifier = Modifier.size(56.dp)
         ) {
-            Box(contentAlignment = Alignment.Center) {
-                Icon(
-                    imageVector = mood.icon,
-                    contentDescription = mood.label,
-                    modifier = Modifier.size(32.dp)
+            Box(
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = mood.emoji,
+                    fontSize = 28.sp,
+                    modifier = Modifier.padding(4.dp)
                 )
             }
         }
         
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(4.dp))
         
+        // Mood label
         Text(
             text = mood.label,
-            style = MaterialTheme.typography.labelMedium,
-            fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal,
-            color = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+            style = MaterialTheme.typography.bodySmall,
+            color = if (selected) 
+                MaterialTheme.colorScheme.onBackground 
+            else 
+                MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f),
+            fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
         )
     }
 }
 
+/**
+ * Wellness metrics sliders for various aspects of daily wellness.
+ */
 @Composable
-private fun WellnessMetrics(
+fun WellnessMetrics(
     energyLevel: Int,
     onEnergyChange: (Int) -> Unit,
     focusLevel: Int,
@@ -306,55 +310,57 @@ private fun WellnessMetrics(
     productivityLevel: Int,
     onProductivityChange: (Int) -> Unit
 ) {
-    ExpressiveCard(
-        containerColor = MaterialTheme.colorScheme.surface,
+    Column(
         modifier = Modifier.fillMaxWidth()
     ) {
         Text(
-            text = "Wellness Metrics",
+            text = "Track your wellness",
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 16.dp)
         )
         
-        // Energy level slider
+        // Energy level
         WellnessSlider(
             value = energyLevel,
             onValueChange = onEnergyChange,
             icon = Icons.Rounded.WbSunny,
-            iconTint = AgileLifeTheme.extendedColors.accentSunflower,
+            iconTint = Color(0xFFFF9800), // Orange
             label = "Energy Level",
-            valueColor = getColorForValue(energyLevel, AgileLifeTheme.extendedColors.accentSunflower)
+            valueColor = Color(0xFFFF9800)
         )
         
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         
-        // Focus level slider
+        // Focus level
         WellnessSlider(
             value = focusLevel,
             onValueChange = onFocusChange,
-            icon = Icons.Rounded.SelfImprovement,
-            iconTint = AgileLifeTheme.extendedColors.accentLavender,
+            icon = Icons.Rounded.Psychology,
+            iconTint = Color(0xFF2196F3), // Blue
             label = "Focus Level",
-            valueColor = getColorForValue(focusLevel, AgileLifeTheme.extendedColors.accentLavender)
+            valueColor = Color(0xFF2196F3)
         )
         
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         
-        // Productivity level slider
+        // Productivity level
         WellnessSlider(
             value = productivityLevel,
             onValueChange = onProductivityChange,
-            icon = Icons.Rounded.StarRate,
-            iconTint = AgileLifeTheme.extendedColors.accentMint,
+            icon = Icons.Rounded.SelfImprovement,
+            iconTint = Color(0xFF4CAF50), // Green
             label = "Productivity Level",
-            valueColor = getColorForValue(productivityLevel, AgileLifeTheme.extendedColors.accentMint)
+            valueColor = Color(0xFF4CAF50)
         )
     }
 }
 
+/**
+ * Slider with icon, label, and dynamic color based on value.
+ */
 @Composable
-private fun WellnessSlider(
+fun WellnessSlider(
     value: Int,
     onValueChange: (Int) -> Unit,
     icon: ImageVector,
@@ -362,152 +368,154 @@ private fun WellnessSlider(
     label: String,
     valueColor: Color
 ) {
-    Column {
-        // Label and value
+    // Animated value for visual feedback
+    val animatedValue by animateFloatAsState(
+        targetValue = value.toFloat(),
+        label = "Animate value"
+    )
+    
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
+                shape = MaterialTheme.shapes.medium
+            )
+            .padding(16.dp)
+    ) {
+        // Header row with icon and label
         Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxWidth()
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            // Label with icon
-            Row(
-                verticalAlignment = Alignment.CenterVertically
+            // Icon
+            Box(
+                modifier = Modifier
+                    .size(32.dp)
+                    .clip(CircleShape)
+                    .background(iconTint.copy(alpha = 0.2f)),
+                contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = icon,
                     contentDescription = null,
                     tint = iconTint,
-                    modifier = Modifier.size(20.dp)
-                )
-                
-                Spacer(modifier = Modifier.width(8.dp))
-                
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.titleSmall
+                    modifier = Modifier.size(18.dp)
                 )
             }
             
-            // Value display
-            Surface(
-                color = valueColor.copy(alpha = 0.2f),
-                contentColor = valueColor,
-                shape = MaterialTheme.shapes.small
+            Spacer(modifier = Modifier.width(12.dp))
+            
+            // Label and value text
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.Medium
+                )
+                
+                Text(
+                    text = getDescriptionForValue(value),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = getColorForValue(value, valueColor)
+                )
+            }
+            
+            // Numeric value
+            Box(
+                modifier = Modifier
+                    .size(36.dp)
+                    .clip(CircleShape)
+                    .background(getColorForValue(value, valueColor)),
+                contentAlignment = Alignment.Center
             ) {
                 Text(
                     text = value.toString(),
-                    style = MaterialTheme.typography.titleMedium,
+                    color = Color.White,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
+                    fontSize = 16.sp
                 )
             }
         }
         
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         
-        // Slider with +/- buttons
+        // Slider with - and + buttons
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
         ) {
-            // Minus button
+            // Decrease button
             IconButton(
-                onClick = { 
-                    if (value > 1) onValueChange(value - 1) 
-                },
-                modifier = Modifier.size(36.dp)
+                onClick = { if (value > 1) onValueChange(value - 1) },
+                modifier = Modifier
+                    .size(32.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.surface)
             ) {
                 Icon(
-                    imageVector = Icons.Default.Remove,
-                    contentDescription = "Decrease"
+                    imageVector = Icons.Filled.Remove,
+                    contentDescription = "Decrease",
+                    tint = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.size(18.dp)
                 )
             }
             
             // Slider
-            val sliderPosition by remember { mutableFloatStateOf(value.toFloat()) }
-            val animatedPosition by animateFloatAsState(targetValue = value.toFloat(), label = "")
-            
-            @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
             Slider(
-                value = animatedPosition,
-                onValueChange = { /* Update is handled by buttons */ },
-                valueRange = 1f..10f,
-                steps = 8,
+                value = animatedValue,
+                onValueChange = { newValue -> onValueChange(newValue.toInt()) },
+                valueRange = 1f..5f,
+                steps = 3,
                 modifier = Modifier.weight(1f),
-                thumb = {
-                    Box(
-                        modifier = Modifier
-                            .size(20.dp)
-                            .clip(CircleShape)
-                            .background(valueColor),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        // Empty thumb
-                    }
-                },
-                track = {
-                    Box(
-                        modifier = Modifier
-                            .height(8.dp)
-                            .fillMaxWidth()
-                            .clip(CircleShape)
-                            .background(MaterialTheme.colorScheme.surfaceContainerHighest)
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth(animatedPosition / 10f)
-                                .height(8.dp)
-                                .clip(CircleShape)
-                                .background(valueColor.copy(alpha = 0.7f))
-                        )
-                    }
-                }
+                colors = SliderDefaults.colors(
+                    thumbColor = getColorForValue(value, valueColor),
+                    activeTrackColor = getColorForValue(value, valueColor).copy(alpha = 0.7f),
+                    inactiveTrackColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.2f)
+                )
             )
             
-            // Plus button
+            // Increase button
             IconButton(
-                onClick = { 
-                    if (value < 10) onValueChange(value + 1) 
-                },
-                modifier = Modifier.size(36.dp)
+                onClick = { if (value < 5) onValueChange(value + 1) },
+                modifier = Modifier
+                    .size(32.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.surface)
             ) {
                 Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = "Increase"
+                    imageVector = Icons.Filled.Add,
+                    contentDescription = "Increase",
+                    tint = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.size(18.dp)
                 )
             }
         }
-        
-        // Level description
-        Text(
-            text = getDescriptionForValue(value),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.fillMaxWidth(),
-            textAlign = TextAlign.Center
-        )
     }
 }
 
+/**
+ * Input field for daily reflection notes.
+ */
 @Composable
-private fun DailyNoteInput(
+fun DailyNoteInput(
     dailyNote: String,
     onNoteChange: (String) -> Unit
 ) {
-    ExpressiveCard(
-        containerColor = MaterialTheme.colorScheme.surface,
+    Column(
         modifier = Modifier.fillMaxWidth()
     ) {
         Text(
             text = "Daily Reflection",
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 8.dp)
         )
         
         Text(
-            text = "Capture your thoughts, feelings, and reflections about today",
-            style = MaterialTheme.typography.bodyMedium,
+            text = "Add notes about your day and reflections on your wellness",
+            style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(bottom = 16.dp)
         )
@@ -517,60 +525,58 @@ private fun DailyNoteInput(
             onValueChange = onNoteChange,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(150.dp),
-            placeholder = {
-                Text("How was your day? What went well? What could be improved?")
-            },
-            textStyle = MaterialTheme.typography.bodyLarge
+                .height(120.dp),
+            placeholder = { Text("What went well today? What could be improved?") },
+            textStyle = MaterialTheme.typography.bodyMedium
         )
     }
 }
 
 // Helper functions
-@Composable
 private fun getColorForValue(value: Int, baseColor: Color): Color {
-    return when {
-        value >= 8 -> baseColor
-        value >= 5 -> AgileLifeTheme.extendedColors.accentSunflower
-        else -> AgileLifeTheme.extendedColors.accentCoral
-    }
+    val alpha = 0.4f + (value.toFloat() / 5f) * 0.6f
+    return baseColor.copy(alpha = alpha)
 }
 
 private fun getDescriptionForValue(value: Int): String {
-    return when {
-        value >= 9 -> "Excellent"
-        value >= 7 -> "Very Good"
-        value >= 5 -> "Good"
-        value >= 3 -> "Fair"
-        else -> "Needs Improvement"
+    return when (value) {
+        1 -> "Very Low"
+        2 -> "Low"
+        3 -> "Moderate"
+        4 -> "High"
+        5 -> "Excellent"
+        else -> "Unknown"
     }
 }
 
 /**
  * Mood types for tracking daily mood
  */
-enum class MoodType(val label: String, val colorName: String, val icon: ImageVector) {
-    ENERGETIC("Energetic", "accentSunflower", Icons.Rounded.WbSunny),
-    PRODUCTIVE("Productive", "accentMint", Icons.Rounded.StarRate),
-    FOCUSED("Focused", "accentLavender", Icons.Rounded.SelfImprovement),
-    STRESSED("Stressed", "accentCoral", Icons.Rounded.FireExtinguisher),
-    CREATIVE("Creative", "accentAqua", Icons.Rounded.Psychology);
+enum class MoodType(
+    val label: String, 
+    val emoji: String,
+    val value: Int
+) {
+    TERRIBLE("Terrible", "😖", 1),
+    BAD("Bad", "☹️", 2),
+    NEUTRAL("Neutral", "😐", 3),
+    GOOD("Good", "😊", 4),
+    GREAT("Great", "😄", 5);
     
-    @Composable
     fun getColor(): Color {
-        return when (colorName) {
-            "accentSunflower" -> AgileLifeTheme.extendedColors.accentSunflower
-            "accentMint" -> AgileLifeTheme.extendedColors.accentMint
-            "accentLavender" -> AgileLifeTheme.extendedColors.accentLavender
-            "accentCoral" -> AgileLifeTheme.extendedColors.accentCoral
-            "accentAqua" -> AgileLifeTheme.extendedColors.accentAqua
-            else -> MaterialTheme.colorScheme.primary
+        return when (this) {
+            TERRIBLE -> Color(0xFFD50000) // Red
+            BAD -> Color(0xFFFF6D00) // Orange
+            NEUTRAL -> Color(0xFFFFEB3B) // Yellow
+            GOOD -> Color(0xFF43A047) // Green
+            GREAT -> Color(0xFF303F9F) // Blue
         }
     }
 }
-// Clickable modifier extension (simplified for this example)
-fun Modifier.clickable(onClick: () -> Unit): Modifier {
-    return this.composeClickable(
+
+// Extension function for clickable modifier
+private fun Modifier.clickable(onClick: () -> Unit): Modifier {
+    return this.foundationClickable(
         onClick = onClick,
         indication = null,
         interactionSource = androidx.compose.foundation.interaction.MutableInteractionSource()

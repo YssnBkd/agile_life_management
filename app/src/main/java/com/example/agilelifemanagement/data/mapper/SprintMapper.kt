@@ -23,10 +23,15 @@ class SprintMapper @Inject constructor() {
         return Sprint(
             id = entity.id,
             name = entity.name,
+            goal = entity.goals.firstOrNull() ?: "",
+            description = entity.description ?: "",
+            status = entity.status,
             startDate = entity.startDate,
             endDate = entity.endDate,
-            goals = entity.goals,
-            status = entity.status
+            progress = entity.progress ?: 0,
+            taskCount = entity.taskCount ?: 0,
+            completedTaskCount = entity.completedTaskCount ?: 0,
+            createdDate = entity.createdAt ?: LocalDate.now()
         )
     }
     
@@ -41,12 +46,17 @@ class SprintMapper @Inject constructor() {
             id = domainModel.id,
             userId = "", // Default empty userId as it's required by entity but not in domain model
             name = domainModel.name,
+            description = domainModel.description,
+            goals = listOf(domainModel.goal),
             startDate = domainModel.startDate,
             endDate = domainModel.endDate,
-            goals = domainModel.goals,
             status = domainModel.status,
-            isCompleted = domainModel.status == com.example.agilelifemanagement.domain.model.SprintStatus.COMPLETED,
+            progress = domainModel.progress,
+            taskCount = domainModel.taskCount,
+            completedTaskCount = domainModel.completedTaskCount,
+            createdAt = domainModel.createdDate,
             updatedAt = LocalDate.now(),
+            isCompleted = domainModel.status == com.example.agilelifemanagement.domain.model.SprintStatus.COMPLETED,
             isActive = domainModel.status == com.example.agilelifemanagement.domain.model.SprintStatus.ACTIVE
         )
     }
