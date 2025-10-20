@@ -2,9 +2,6 @@
 
 A modern Android application that brings agile project management principles to personal life management. This app helps users organize their tasks, goals, and activities using sprints, daily check-ins, and retrospectives - just like in professional agile environments.
 
-## 📱 Screenshots
-
-[Screenshots to be added]
 
 ## ✨ Features
 
